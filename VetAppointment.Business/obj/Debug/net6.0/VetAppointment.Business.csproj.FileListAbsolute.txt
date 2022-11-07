@@ -1,0 +1,24 @@
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\bin\Debug\net6.0\VetAppointment.Business.deps.json
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\bin\Debug\net6.0\VetAppointment.Business.dll
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\bin\Debug\net6.0\VetAppointment.Business.pdb
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.csproj.AssemblyReference.cache
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.AssemblyInfoInputs.cache
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.AssemblyInfo.cs
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.dll
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\refint\VetAppointment.Business.dll
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.pdb
+D:\Facultate\Anul_3\.NET\Laboratoare\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\ref\VetAppointment.Business.dll
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\bin\Debug\net6.0\VetAppointment.Business.deps.json
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\bin\Debug\net6.0\VetAppointment.Business.dll
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\bin\Debug\net6.0\VetAppointment.Business.pdb
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.csproj.AssemblyReference.cache
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.AssemblyInfoInputs.cache
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.AssemblyInfo.cs
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.csproj.CoreCompileInputs.cache
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.dll
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\refint\VetAppointment.Business.dll
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\VetAppointment.Business.pdb
+D:\Documents\Faculty Staff\[C#] I.NET\VetAppointment\VetAppointment\VetAppointment.Business\obj\Debug\net6.0\ref\VetAppointment.Business.dll

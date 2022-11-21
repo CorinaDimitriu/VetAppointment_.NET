@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj": {}
+    "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj": {
+    "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj",
         "projectName": "VetAppointment.Business.Test",
-        "projectPath": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj",
+        "projectPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Business.Test\\VetAppointment.Business.Test.csproj",
         "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business.Test\\obj\\",
+        "outputPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Business.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,18 +22,18 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business\\VetAppointment.Business.csproj": {
-                "projectPath": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business\\VetAppointment.Business.csproj"
+              "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
+                "projectPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
               }
             }
           }
@@ -45,8 +45,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "FluentAssertions": {
               "target": "Package",
@@ -54,7 +54,7 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.1.0, )"
+              "version": "[17.3.2, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -64,13 +64,13 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.1, )"
+              "version": "[2.4.2, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.3, )"
+              "version": "[2.4.5, )"
             }
           },
           "imports": [
@@ -89,18 +89,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business\\VetAppointment.Business.csproj": {
+    "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business\\VetAppointment.Business.csproj",
-        "projectName": "VetAppointment.Business",
-        "projectPath": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business\\VetAppointment.Business.csproj",
+        "projectUniqueName": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
+        "projectName": "VetAppointment.Domain",
+        "projectPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
         "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Faculty Staff\\[C#] I.NET\\VetAppointment\\VetAppointment\\VetAppointment.Business\\obj\\",
+        "outputPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -111,15 +111,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -130,8 +130,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
@@ -148,7 +148,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

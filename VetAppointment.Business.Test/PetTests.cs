@@ -1,6 +1,4 @@
-﻿using VetAppointment.Business.Enums;
-
-namespace VetAppointment.Business.Test
+﻿namespace VetAppointment.Business.Test
 {
     public class PetTests
     {
@@ -17,7 +15,7 @@ namespace VetAppointment.Business.Test
             result.IsSuccess.Should().BeTrue();
             result.Entity.Should().NotBeNull();
             result.Entity.Name.Should().Be(sut.Item1);
-            result.Entity.Age.Should().Be(sut.Item2);
+            result.Entity.Birthdate.Should().Be(DateTime.Parse(sut.Item2));
             result.Entity.Race.Should().Be(Enum.Parse<AnimalRace>(sut.Item3));
             result.Entity.Gender.Should().Be(Enum.Parse<AnimalGender>(sut.Item4));
         }
@@ -50,9 +48,9 @@ namespace VetAppointment.Business.Test
             result.IsFailure.Should().BeTrue();
         }
         
-        private Tuple<string, int, string, string> CreateSUT()
+        private Tuple<string, string, string, string> CreateSUT()
         {
-            return new Tuple<string, int, string, string>("Pisacio", 3, "Cat", "Male");
+            return new Tuple<string, string, string, string>("Pisacio", "12/6/2020", "Cat", "Male");
         }
     }
 }

@@ -1,23 +1,30 @@
-using VetAppointment.API.Data;
-using VetAppointment.API.Features.Appointments;
-using VetAppointment.API.Features.PetOwners;
-using VetAppointment.API.Features.Pets;
-using VetAppointment.API.Features.VetClinics;
-using VetAppointment.API.Features.Vets;
+using Microsoft.EntityFrameworkCore;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+using VetAppointment.Infrastructure.Repositories.GenericRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<DatabaseContext>();
-builder.Services.AddScoped<IPetRepository, PetRepository>();
-builder.Services.AddScoped<IVetClinicRepository, VetClinicRepository>();
-builder.Services.AddScoped<IVetRepository, VetRepository>();
-builder.Services.AddScoped<IPetOwnerRepository, PetOwnerRepository>();
-builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
+builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
+//builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(configuration.GetConnetionString("DefaultConnection")));
+
+builder.Services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
+builder.Services.AddScoped<IRepository<PetOwner>, PetOwnerRepository>();
+builder.Services.AddScoped<IRepository<Pet>, PetRepository>();
+builder.Services.AddScoped<IRepository<VetClinic>, VetClinicRepository>();
+builder.Services.AddScoped<IRepository<Vet>, VetRepository>();
+builder.Services.AddScoped<IRepository<Drug>, DrugRepository>();
+builder.Services.AddScoped<IRepository<MedicalHistory>, MedicalHistoryRepository>();
+builder.Services.AddScoped<IRepository<PrescribedDrug>, PrescribedDrugRepository>();
+builder.Services.AddScoped<IRepository<Treatment>, TreatmentRepository>();
 
 var app = builder.Build();
 

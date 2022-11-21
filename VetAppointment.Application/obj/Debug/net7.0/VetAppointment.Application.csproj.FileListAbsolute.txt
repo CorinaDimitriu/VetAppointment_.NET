@@ -1,0 +1,15 @@
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.deps.json
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.dll
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.pdb
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Domain.dll
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Domain.pdb
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.AssemblyReference.cache
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.AssemblyInfoInputs.cache
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.AssemblyInfo.cs
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.CopyComplete
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.dll
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\refint\VetAppointment.Application.dll
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.pdb
+D:\Facultate\Anul 3\.net\Proiect 21.11.22 clen arhitecture\VetAppointment_.NET\VetAppointment.Application\obj\Debug\net7.0\ref\VetAppointment.Application.dll

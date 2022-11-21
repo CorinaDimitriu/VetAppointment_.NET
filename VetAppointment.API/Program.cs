@@ -1,9 +1,6 @@
-using VetAppointment.API.Data;
-using VetAppointment.API.Features.Appointments;
-using VetAppointment.API.Features.PetOwners;
-using VetAppointment.API.Features.Pets;
-using VetAppointment.API.Features.VetClinics;
-using VetAppointment.API.Features.Vets;
+using VetAppointment.Application;
+using VetAppointment.Application.Repositories;
+using VetAppointment.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<DatabaseContext>();
+
+builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
 builder.Services.AddScoped<IPetRepository, PetRepository>();
 builder.Services.AddScoped<IVetClinicRepository, VetClinicRepository>();
 builder.Services.AddScoped<IVetRepository, VetRepository>();

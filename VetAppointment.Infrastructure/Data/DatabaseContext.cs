@@ -6,7 +6,7 @@ namespace VetAppointment.Infrastructure.Data
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        public DatabaseContext()
+        public DatabaseContext(DbContextOptions options) : base(options)
         {
             
         }

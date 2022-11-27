@@ -6,9 +6,9 @@ namespace VetAppointment.Infrastructure.Data
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        public DatabaseContext()
+        public DatabaseContext(DbContextOptions options) : base(options)
         {
-            
+
         }
 
         public DbSet<Pet> Pets => Set<Pet>();
@@ -30,7 +30,7 @@ namespace VetAppointment.Infrastructure.Data
         {
             modelBuilder.Entity<VetClinic>().HasData(new List<VetClinic> {
                 VetClinic.Create("Casa Animalelor", "Str. 1 Decembrie Nr. 25", 124, "contact@casa_animalelor.com", "+40712345678").Entity,
-                VetClinic.Create("Zoo-Vet", "Str. Primaverii Nr. 15", 64, "contact@zoo_vet.com", "+40778945612").Entity 
+                VetClinic.Create("Zoo-Vet", "Str. Primaverii Nr. 15", 64, "contact@zoo_vet.com", "+40778945612").Entity
             });
         }
 

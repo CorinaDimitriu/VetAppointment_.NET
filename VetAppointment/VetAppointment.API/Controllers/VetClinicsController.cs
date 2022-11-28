@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
@@ -40,7 +41,7 @@ namespace VetAppointment.API.Controllers
                 return BadRequest(vetClinic.Error);
             }
             
-            vetClinicRepository.Add(vetClinic.Entity);
+            //vetClinicRepository.Add(vetClinic.Entity);
             var fullClinic = new VetClinicDto
             {
                 Id = vetClinic.Entity.Id,
@@ -72,6 +73,12 @@ namespace VetAppointment.API.Controllers
                 RegistrationDate = vet.RegistrationDate
             });
             return Ok(vetClinics);
+        }
+
+        [HttpGet]
+        public IActionResult GetById("{vetClinicId: guid}")
+        {
+            
         }
 
         [HttpPost("{vetClinicId:guid}/pets")]

@@ -23,7 +23,7 @@ namespace VetAppointment.Infrastructure.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = VetAppointment.db");
+            //optionsBuilder.UseSqlite("Data Source = VetAppointment_Test.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

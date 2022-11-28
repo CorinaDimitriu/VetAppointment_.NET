@@ -25,9 +25,9 @@ namespace VetAppointment.Domain
             return Result<Treatment>.Success(treatment);
         }
 
-        public float CalculatePriceOfTreatment()
+        public double CalculatePriceOfTreatment()
         {
-            float totalPrice = 0;
+            double totalPrice = 0;
             foreach (var drug in PrescribedDrugs)
             {
                 totalPrice += drug.TotalCost;

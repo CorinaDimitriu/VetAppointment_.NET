@@ -79,18 +79,10 @@ namespace VetAppointment.Domain
 
         public Result RegisterVetToClinic(Vet vet)
         {
-            try
-            {
-                vet.RegisterVetToClinic(this);
-                //Vets ??= new List<Vet>();
-                Vets.Add(vet);
+            vet.RegisterVetToClinic(this);
+            Vets.Add(vet);
 
-                return Result.Success();
-            }
-            catch (Exception ex)
-            {
-                return Result.Failure(ex.Message);
-            }
+            return Result.Success();
         }
 
         public void ConnectToOwner(ClinicOwner owner) => Owner = owner;

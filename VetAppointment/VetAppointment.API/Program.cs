@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
-builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")/*, b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)*/));
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
 
 builder.Services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
 builder.Services.AddScoped<IRepository<PetOwner>, PetOwnerRepository>();
@@ -26,16 +26,24 @@ builder.Services.AddScoped<IRepository<MedicalHistory>, MedicalHistoryRepository
 builder.Services.AddScoped<IRepository<PrescribedDrug>, PrescribedDrugRepository>();
 builder.Services.AddScoped<IRepository<Treatment>, TreatmentRepository>();
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("clinicsCors", policy =>
+	{
+		policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+	});
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+app.UseCors("clinicsCors");
 
 app.UseAuthorization();
 

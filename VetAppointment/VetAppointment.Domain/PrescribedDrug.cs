@@ -6,12 +6,12 @@ namespace VetAppointment.Domain
     public class PrescribedDrug
     {
         public Guid Id { get; private set; }
-        public float Quantity { get; private set; }
+        public double Quantity { get; private set; }
         public Guid DrugToPrescribeId { get; private set; }
-        public float TotalCost { get; private set; }
+        public double TotalCost { get; private set; }
         public Guid DrugId { get; private set; }
 
-        public static Result<PrescribedDrug> Create(float quantity, Drug drugToPrescribe)
+        public static Result<PrescribedDrug> Create(double quantity, Drug drugToPrescribe)
         {
             if (quantity < 0)
             {
@@ -32,9 +32,7 @@ namespace VetAppointment.Domain
 
             return Result<PrescribedDrug>.Success(prescribedDrug);
         }
-        
-        // float -> double
-        private static float CalculateDrugCost(float quantity, float price)
+        private static double CalculateDrugCost(double quantity, double price)
         {
             return quantity * price;
         }

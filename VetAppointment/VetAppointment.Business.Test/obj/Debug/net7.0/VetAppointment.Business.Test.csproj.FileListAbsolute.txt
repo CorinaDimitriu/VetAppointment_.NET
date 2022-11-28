@@ -105,8 +105,8 @@ C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\obj\Debug\n
 C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.genruntimeconfig.cache
 C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\ref\VetAppointment.Business.Test.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\CoverletSourceRootsMapping
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\testhost.exe
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\testhost.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\testhost.exe
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\xunit.runner.reporters.netcoreapp10.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\xunit.runner.utility.netcoreapp10.dll

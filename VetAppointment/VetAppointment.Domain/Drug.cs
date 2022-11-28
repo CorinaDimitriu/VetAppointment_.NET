@@ -1,4 +1,5 @@
-﻿using VetAppointment.Domain.Helpers;
+﻿using System;
+using VetAppointment.Domain.Helpers;
 #nullable disable
 namespace VetAppointment.Domain
 {
@@ -6,10 +7,10 @@ namespace VetAppointment.Domain
     {
         public Guid Id { get; private set; }
         public string Name { get; private set; }
-        public float Quantity { get; private set; }
-        public float UnitPrice { get; private set; }
+        public double Quantity { get; private set; }
+        public double UnitPrice { get; private set; }
 
-        public static Result<Drug> Create(string name, float quantity, float unitPrice)
+        public static Result<Drug> Create(string name, double quantity, double unitPrice)
         {
             if (quantity < 0)
             {
@@ -29,7 +30,7 @@ namespace VetAppointment.Domain
             return Result<Drug>.Success(drug);
         }
 
-        public Result UpdateQuantity(float quantity)
+        public Result UpdateQuantity(double quantity)
         {
             if (quantity < 0)
             {
@@ -41,7 +42,7 @@ namespace VetAppointment.Domain
             return Result.Success();
         }
 
-        public Result UpdatePrice(float price)
+        public Result UpdatePrice(double price)
         {
             if (price < 0)
             {

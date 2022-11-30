@@ -1,7 +1,5 @@
-﻿using System.Net.Http.Json;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using VetAppointment.Domain;
 using VetAppointment.Shared.Domain;
 
 namespace VetAppointment.UI.Pages.Services
@@ -37,23 +35,33 @@ namespace VetAppointment.UI.Pages.Services
             //return await response.Content.ReadFromJsonAsync<VetClinic>();
         }
 
-        public async Task<Pet> AddPetsToClinic(Guid clinicId, List<Pet> pets)
-        {
-            var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/Pets";
-            var response = await httpClient.PostAsJsonAsync(ApiURLClinic, pets);
-            return await response.Content.ReadFromJsonAsync<Pet>();
-        }
+        //public async Task<Pet> AddPetsToClinic(Guid clinicId, List<Pet> pets)
+        //{
+        //    var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/Pets";
+        //    var response = await httpClient.PostAsJsonAsync(ApiURLClinic, pets);
+        //    return await response.Content.ReadFromJsonAsync<Pet>();
+        //}
 
         public async Task<Vet> AddVetToClinic(Guid clinicId, Vet vet)
         {
-            var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/Vet";
-            var response = await httpClient.PostAsJsonAsync(ApiURLClinic, vet);
-            return await response.Content.ReadFromJsonAsync<Vet>();
+            var ApiURLClinic = ApiURL + "/{clinicId}/Vet";
+            var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+            var result = Domain.Vet.Create(vet.Name, vet.Surname, vet.Birthdate, vet.Gender,
+                vet.Email, vet.Phone, vet.Specialisation);
+            var json = JsonSerializer.Serialize(result.Entity);
+            var response = await httpClient.PostAsync
+                    (ApiURLClinic, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
+            response.EnsureSuccessStatusCode();
+            return await JsonSerializer.DeserializeAsync<Vet>(response.Content.ReadAsStream(), options);
         }
 
-        public Task<VetClinic> GetClinicById(Guid id)
+        public async Task<VetClinic> GetClinicById(Guid id)
         {
-            
-        }
+            return await JsonSerializer.DeserializeAsync<VetClinic>(
+                await httpClient.GetStreamAsync(ApiURL + "/" + id),
+                new JsonSerializerOptions()
+                { PropertyNameCaseInsensitive = true });
+        }       
+
     }
 }

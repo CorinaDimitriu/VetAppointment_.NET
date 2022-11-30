@@ -9,6 +9,7 @@ namespace VetAppointment.Application
         T Update(T entity);
         T Get(Guid id);
         IEnumerable<T> All();
+        void Delete(T entity);
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
         void SaveChanges();
     }

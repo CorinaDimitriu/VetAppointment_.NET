@@ -72,6 +72,7 @@ C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\refi
 C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.pdb
 C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.genruntimeconfig.cache
 C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\ref\VetAppointment.API.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\appsettings.Development.json
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\appsettings.json
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\VetAppointment.API.exe
@@ -111,7 +112,6 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\b
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\linux-s390x\native\libe_sqlite3.so
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\linux-x64\native\libe_sqlite3.so
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\linux-x86\native\libe_sqlite3.so
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\runtimes\osx-x64\native\libe_sqlite3.dylib

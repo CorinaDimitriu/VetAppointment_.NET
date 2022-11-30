@@ -1,3 +1,9 @@
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.AssemblyReference.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfoInputs.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.MvcApplicationPartsAssemblyInfo.cache
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\blazor.boot.json
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\blazor.webassembly.js
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\dotnet.7.0.0.848z4fwc4x.js
@@ -200,6 +206,8 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bi
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Xml.XPath.XDocument.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Domain.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Domain.pdb
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.pdb
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.UI.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.UI.pdb
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\WindowsBase.dll
@@ -323,6 +331,7 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bi
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Linq.Parallel.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Security.Principal.Windows.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.UI.pdb.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Net.Requests.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Security.Principal.dll.gz
@@ -383,6 +392,7 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bi
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Logging.Abstractions.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Private.DataContractSerialization.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Collections.NonGeneric.dll.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.pdb.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Globalization.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Text.Json.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Resources.Reader.dll.gz
@@ -610,13 +620,9 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bi
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\icudt_EFIGS.dat
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\icudt_no_CJK.dat
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Domain.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Shared.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Shared.pdb
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Domain.pdb
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.AssemblyReference.cache
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfoInputs.cache
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.CoreCompileInputs.cache
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.MvcApplicationPartsAssemblyInfo.cache
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\+yV+irJz.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\oLhjcXMx.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\000RYzje.gz
@@ -817,6 +823,8 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\ob
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\6A5+xcAe.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\mzhAfhhn.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\YuIQWJCW.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\kFi2ir+1.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\VFIkgDbs.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\MpO+x4+z.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\3J0SJ+T3.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\KcFy+8TX.gz
@@ -838,11 +846,3 @@ D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\ob
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\refint\VetAppointment.UI.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.pdb
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\ref\VetAppointment.UI.dll
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.dll
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.pdb
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.dll.gz
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.Shared.pdb.gz
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Shared.dll
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Shared.pdb
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\kFi2ir+1.gz
-D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\build-gz\VFIkgDbs.gz

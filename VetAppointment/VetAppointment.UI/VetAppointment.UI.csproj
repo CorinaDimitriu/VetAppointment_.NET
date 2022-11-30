@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Pages\Services\PetDataService.cs~RFb173f4a.TMP" />
+    <None Remove="Pages\ClinicsOverview.razor.cs~RFf3cc73e.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,8 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VetAppointment.API\VetAppointment.API.csproj" />
-    <ProjectReference Include="..\VetAppointment.Domain\VetAppointment.Domain.csproj" />
     <ProjectReference Include="..\VetAppointment.Shared\VetAppointment.Shared.csproj" />
   </ItemGroup>
 

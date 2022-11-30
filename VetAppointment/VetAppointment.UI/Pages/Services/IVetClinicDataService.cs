@@ -1,5 +1,4 @@
-﻿using VetAppointment.Domain;
-using VetAppointment.Shared.Domain;
+﻿using VetAppointment.Shared.Domain;
 
 namespace VetAppointment.UI.Pages.Services
 {
@@ -8,7 +7,7 @@ namespace VetAppointment.UI.Pages.Services
         Task<IEnumerable<VetClinic>> GetAllClinics();
         Task<VetClinic> AddClinic(VetClinic clinic);
         Task<VetClinic> GetClinicById(Guid id);
-        //Task<Vet> AddVetToClinic(Guid clinicId, Vet vet);
+        Task<Vet> AddVetToClinic(Guid clinicId, Vet vet);
         //Task<Pet> AddPetsToClinic(Guid clinicId, List<Pet> pets);
     }
 }

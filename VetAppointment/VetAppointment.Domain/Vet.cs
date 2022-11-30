@@ -37,7 +37,7 @@ namespace VetAppointment.Domain
                 var textExpectedGenderValues = string.Join(", ", expectedGenderValues);
                 return Result<Vet>.Failure($"The provided gender {gender} is not one from the possible races: {textExpectedGenderValues}");
             }
-            if (!Enum.TryParse<VetSpecialisation>(gender, out var vetSpecialisation))
+            if (!Enum.TryParse<VetSpecialisation>(specialisation, out var vetSpecialisation))
             {
                 var expectedProfileValues = Enum.GetNames(typeof(VetSpecialisation));
                 var textExpectedProfileValues = string.Join(", ", expectedProfileValues);

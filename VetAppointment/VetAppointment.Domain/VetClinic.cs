@@ -80,7 +80,7 @@ namespace VetAppointment.Domain
         public Result RegisterVetToClinic(Vet vet)
         {
             vet.RegisterVetToClinic(this);
-            Vets.Add(vet);
+            //Vets.Add(vet);
 
             return Result.Success();
         }

@@ -75,10 +75,15 @@ namespace VetAppointment.API.Controllers
             return Ok(vetClinics);
         }
 
-        [HttpGet]
-        public IActionResult GetById("{vetClinicId: guid}")
+        [HttpGet("{vetClinicId:guid}")]
+        public IActionResult GetById(Guid vetClinicId)
         {
-            
+            var clinic = vetClinicRepository.Get(vetClinicId);
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+            return Ok(clinic);
         }
 
         [HttpPost("{vetClinicId:guid}/pets")]
@@ -134,6 +139,46 @@ namespace VetAppointment.API.Controllers
             vetRepository.SaveChanges();
 
             return NoContent();
+        }
+
+        [HttpPut("{vetClinicId:guid}")]
+        public IActionResult Update(Guid vetClinicId, [FromBody] VetClinicDto vetClinicDto)
+        {
+            var vetClinic = VetClinic.Create(
+                    vetClinicDto.Name,
+                    vetClinicDto.Address,
+                    vetClinicDto.NumberOfPlaces,
+                    vetClinicDto.ContactEmail,
+                    vetClinicDto.ContactPhone
+                );
+
+            if (vetClinic.IsFailure)
+            {
+                return BadRequest(vetClinic.Error);
+            }
+
+            var clinicToUpdate = vetClinicRepository.Get(vetClinicId);
+            if (clinicToUpdate == null)
+            {
+                return NotFound();
+            }
+            clinicToUpdate = vetClinic.Entity;
+            vetClinicRepository.Update(clinicToUpdate);
+            vetClinicRepository.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete("{vetClinicId:guid}")]
+        public IActionResult Delete(Guid vetClinicId)
+        {
+            var vetClinic = vetClinicRepository.Get(vetClinicId);
+            if (vetClinic == null)
+            {
+                return NotFound();
+            }
+            vetClinicRepository.Delete(vetClinic);
+            vetClinicRepository.SaveChanges();
+            return Ok();
         }
     }
 }

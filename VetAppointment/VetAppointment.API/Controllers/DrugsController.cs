@@ -24,6 +24,7 @@ namespace VetAppointment.API.Controllers
                 (
                     d => new DrugDto
                     {
+                        Id = d.Id,
                         Name = d.Name,
                         Quantity = d.Quantity,
                         UnitPrice = d.UnitPrice
@@ -52,6 +53,35 @@ namespace VetAppointment.API.Controllers
 
             return Created(nameof(Get), drug.Entity);
         }
-    }
 
+        [HttpDelete("{drugId:Guid}")]
+        public IActionResult Delete(Guid drugId)
+        {
+            var drug = drugRepository.Get(drugId);
+            if (drug == null)
+            {
+                return NotFound();
+            }
+            drugRepository.Delete(drug);
+            drugRepository.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPut("{drugId:Guid}")]
+        public IActionResult Update(Guid drugId, [FromBody] DrugDto drugDto)
+        {
+            var drug = drugRepository.Get(drugId);
+            if (drug == null)
+            {
+                return NotFound();
+            }
+
+            drug.Update(drugDto.Name, drugDto.Quantity, drugDto.UnitPrice);
+
+            drugRepository.Update(drug);
+            drugRepository.SaveChanges();
+
+            return Ok(drug);
+        }
+    }
 }

@@ -13,12 +13,12 @@ namespace VetAppointment.Domain
         {
             var medicalHistory = new MedicalHistory
             {
-                Appointments = new List<Appointment>()
+                Id = Guid.NewGuid(),
+                Appointments = new List<Appointment>(),
             };
 
             return Result<MedicalHistory>.Success(medicalHistory);
         }
-
         
         public Result RegisterAppointmentToHistory(Appointment appointment)
         {
@@ -31,6 +31,11 @@ namespace VetAppointment.Domain
             Appointments.Add(appointment);
 
             return Result.Success();
+        }
+
+        public void AtachToClinic(Guid clinicId)
+        {
+            this.ClinicId = clinicId;
         }
     }
 }

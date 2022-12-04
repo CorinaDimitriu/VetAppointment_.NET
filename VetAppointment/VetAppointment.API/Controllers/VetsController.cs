@@ -21,8 +21,9 @@ namespace VetAppointment.API.Features.Vets
         {
             var vets = vetRepository.All().Select
             (
-                v => new VetDto
+                v => new VetDto()
                 {
+                    Id = v.Id,
                     Name = v.Name,
                     Surname = v.Surname,
                     Birthdate = v.Birthdate.ToString(),
@@ -53,7 +54,6 @@ namespace VetAppointment.API.Features.Vets
             {
                 return BadRequest(vet.Error);
             }
-
 
             vetRepository.Add(vet.Entity);
             vetRepository.SaveChanges();

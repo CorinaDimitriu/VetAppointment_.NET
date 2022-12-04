@@ -1,5 +1,4 @@
-﻿using System;
-using VetAppointment.Domain.Helpers;
+﻿using VetAppointment.Domain.Helpers;
 #nullable disable
 namespace VetAppointment.Domain
 {
@@ -30,26 +29,27 @@ namespace VetAppointment.Domain
             return Result<Drug>.Success(drug);
         }
 
-        public Result UpdateQuantity(double quantity)
+
+        public Result Update(string name, double quantity, double price)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                return Result.Failure("Name can not be null or empty!");
+            }
+
             if (quantity < 0)
             {
                 return Result.Failure($"New quantity {quantity} is not valid");
             }
- 
-            Quantity = quantity;
 
-            return Result.Success();
-        }
-
-        public Result UpdatePrice(double price)
-        {
             if (price < 0)
             {
                 return Result.Failure($"New price {price} is not valid");
             }
 
-            UnitPrice = price;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.UnitPrice = price;
 
             return Result.Success();
         }

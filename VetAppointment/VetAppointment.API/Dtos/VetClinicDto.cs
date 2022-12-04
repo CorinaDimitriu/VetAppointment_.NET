@@ -6,6 +6,8 @@ namespace VetAppointment.API.Dtos
     {
         public Guid Id { get; set; }
 
+        public Guid MedicalHistoryId { get; set; }
+
         public DateTime RegistrationDate { get; set; }
     }
 }

@@ -108,7 +108,89 @@
             //Assert
             vet.ClinicId.Should().Be(vetClinic.Id);
         }
+        [Fact]
+        public void When_When_UpdateVet_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
 
+            // Act
+            var result = vet.Update(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+        [Fact]
+        public void When_When_UpdateVetWithInvalidEmail_Then_ShouldReturnFeilure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
+            var invalidEmail = "ad";
+
+            // Act
+            var result = vet.Update(sut.Item1, sut.Item2, sut.Item3, sut.Item4, invalidEmail, sut.Item6, sut.Item7);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+        [Fact]
+        public void When_When_UpdateVetWithInvalidPhone_Then_ShouldReturnFeilure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
+            var invalidPhone = "2121212";
+
+            // Act
+            var result = vet.Update(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, invalidPhone, sut.Item7);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+        [Fact]
+        public void When_When_UpdateVetWithInvalidBirthdate_Then_ShouldReturnFeilure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
+            var invalidBirthdate = "20.11.12326";
+
+            // Act
+            var result = vet.Update(sut.Item1, sut.Item2, invalidBirthdate, sut.Item4, sut.Item5, sut.Item6, sut.Item7);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+        [Fact]
+        public void When_When_UpdateVetWithInvalidGender_Then_ShouldReturnFeilure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
+            var invalidGender = "elicopterBimoto";
+
+            // Act
+            var result = vet.Update(sut.Item1, sut.Item2, sut.Item3, invalidGender, sut.Item5, sut.Item6, sut.Item7);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+        [Fact]
+        public void When_When_UpdateVetWithInvalidSpecialisation_Then_ShouldReturnFeilure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
+            var invalidSpecialisation = "Dermatolog";
+
+            // Act
+            var result = vet.Update(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, invalidSpecialisation);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
         //string name, string surname, string birthdate, string gender, string email, string phone
         private static Tuple<string, string, string, string, string, string, string> CreateSUT()
         {

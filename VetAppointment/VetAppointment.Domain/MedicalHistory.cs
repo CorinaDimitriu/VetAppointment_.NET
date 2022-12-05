@@ -33,7 +33,7 @@ namespace VetAppointment.Domain
             return Result.Success();
         }
 
-        public void AtachToClinic(Guid clinicId)
+        public void AttachToClinic(Guid clinicId)
         {
             this.ClinicId = clinicId;
         }

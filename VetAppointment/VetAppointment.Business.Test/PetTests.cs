@@ -1,4 +1,7 @@
-﻿namespace VetAppointment.Business.Test
+﻿using System.Net;
+using System.Xml.Linq;
+
+namespace VetAppointment.Business.Test
 {
     public class PetTests
     {
@@ -47,10 +50,65 @@
             // Assert
             result.IsFailure.Should().BeTrue();
         }
-        
+
+        [Fact]
+        public void When_CreatePetWithInvalidBirthdate_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var badBirthdate = "22/22/22";
+
+            // Act
+            var result = Pet.Create(sut.Item1, badBirthdate, sut.Item3, sut.Item4);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterPetToClinic_Then_IdShouldNotBeNull()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var sutClinic = CreateSUTForClinic();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var clinic = VetClinic.Create(sutClinic.Item1, sutClinic.Item2, sutClinic.Item3, sutClinic.Item4, sutClinic.Item5).Entity;
+
+            // Act
+            pet.RegisterPetToClinic(clinic);
+
+            // Assert
+            pet.ClinicId.Should().Be(clinic.Id);
+        }
+
+        [Fact]
+        public void When_ConnectPetToOwner_Then_IdShouldNotBeNull()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var sutOwner = CreateSUTForOwner();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var owner = PetOwner.Create(sutOwner.Item1, sutOwner.Item2, sutOwner.Item3, sutOwner.Item4, sutOwner.Item5, sutOwner.Item6, sutOwner.Item7).Entity;
+
+            // Act
+            pet.ConnectToOwner(owner);
+
+            // Assert
+            pet.OwnerId.Should().Be(owner.Id);
+        }
+
         private Tuple<string, string, string, string> CreateSUT()
         {
-            return new Tuple<string, string, string, string>("Pisacio", "12/6/2020", "Cat", "Male");
+            return new Tuple<string, string, string, string>("Pisacio", "12/06/2020", "Cat", "Male");
+        }
+        private Tuple<string, string, int, string, string> CreateSUTForClinic()
+        {
+            return new Tuple<string, string, int, string, string>("Vet Clinic", "Address", 10, "email@gmail.com", "+40123456789");
+        }
+        private Tuple<string, string, string, string, string, string, string> CreateSUTForOwner()
+        {
+            return new Tuple<string, string, string, string, string, string, string>(
+                "John", "Doe", "12/02/2001", "Male", "Address", "john.doe@gmail.com", "+40756221345");
         }
     }
 }

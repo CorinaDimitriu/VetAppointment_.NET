@@ -12,8 +12,7 @@ namespace VetAppointment.Domain
         public string Phone { get; private set; }
         public List<Pet> Pets { get; private set; }
 
-        public static Result<PetOwner> Create(string name, string surname, string birthdate, string gender, string address, 
-            string email, string phone)
+        public static Result<PetOwner> Create(string name, string surname, string birthdate, string gender, string address, string email, string phone)
         {
             if (!Validations.IsValidEmail(email))
             {
@@ -24,19 +23,19 @@ namespace VetAppointment.Domain
             {
                 return Result<PetOwner>.Failure($"Phone number {phone} is not valid");
             }
-
+            
             if (!DateTime.TryParse(birthdate, out DateTime date))
             {
                 return Result<PetOwner>.Failure($"Invalid birthdate - {birthdate}!");
             }
-
-            if (!Enum.TryParse<PersonGender>(gender, out var personGender))
+            
+            if (!Enum.TryParse<PersonGender>(gender, out PersonGender personGender))
             {
                 var expectedGenderValues = Enum.GetNames(typeof(PersonGender));
                 var textExpectedGenderValues = string.Join(", ", expectedGenderValues);
                 return Result<PetOwner>.Failure($"The provided gender {gender} is not one from the possible races: {textExpectedGenderValues}");
             }
-            
+
             var owner = new PetOwner
             {
                 Id = Guid.NewGuid(),

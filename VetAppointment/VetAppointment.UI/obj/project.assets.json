@@ -1930,23 +1930,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dimit\\.nuget\\packages\\": {},
+    "C:\\Users\\Andreea\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
+      "projectUniqueName": "D:\\AN3_SEM1\\DotNet\\ProjectVETClone\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
       "projectName": "VetAppointment.UI",
-      "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
-      "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-      "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\obj\\",
+      "projectPath": "D:\\AN3_SEM1\\DotNet\\ProjectVETClone\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
+      "packagesPath": "C:\\Users\\Andreea\\.nuget\\packages\\",
+      "outputPath": "D:\\AN3_SEM1\\DotNet\\ProjectVETClone\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Andreea\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1962,8 +1962,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {
-              "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj"
+            "D:\\AN3_SEM1\\DotNet\\ProjectVETClone\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {
+              "projectPath": "D:\\AN3_SEM1\\DotNet\\ProjectVETClone\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj"
             }
           }
         }

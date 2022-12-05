@@ -8,10 +8,10 @@
 //            {
 //                // Arrange
 //                var appointment = CreateSUT();
-                
+
 //                //Act
 //                var result = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3, appointment.Item4);
-                
+
 //                //Assert
 //                result.IsSuccess.Should().BeTrue();
 //                result.Entity.Should().NotBeNull();

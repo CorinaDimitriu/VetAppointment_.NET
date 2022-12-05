@@ -40,8 +40,7 @@ namespace VetAppointment.Domain
             return Result<Appointment>.Success(appointment);
         }
 
-
-        //!!!aici!!!
+        //!!!aici!!! - de sters cred
         public static Result<Appointment> SettleAppointment(Guid vetId, Guid petId, DateTime date, int duration)
         {
             if (duration <= 0)

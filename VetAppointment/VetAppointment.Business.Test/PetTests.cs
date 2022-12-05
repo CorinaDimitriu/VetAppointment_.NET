@@ -157,15 +157,15 @@ namespace VetAppointment.Business.Test
             result.IsFailure.Should().BeTrue();
         }
 
-        private Tuple<string, string, string, string> CreateSUT()
+        private static Tuple<string, string, string, string> CreateSUT()
         {
             return new Tuple<string, string, string, string>("Pisacio", "12/06/2020", "Cat", "Male");
         }
-        private Tuple<string, string, int, string, string> CreateSUTForClinic()
+        private static Tuple<string, string, int, string, string> CreateSUTForClinic()
         {
             return new Tuple<string, string, int, string, string>("Vet Clinic", "Address", 10, "email@gmail.com", "+40123456789");
         }
-        private Tuple<string, string, string, string, string, string, string> CreateSUTForOwner()
+        private static Tuple<string, string, string, string, string, string, string> CreateSUTForOwner()
         {
             return new Tuple<string, string, string, string, string, string, string>(
                 "John", "Doe", "12/02/2001", "Male", "Address", "john.doe@gmail.com", "+40756221345");

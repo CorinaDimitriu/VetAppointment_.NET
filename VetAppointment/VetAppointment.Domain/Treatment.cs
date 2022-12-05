@@ -13,7 +13,7 @@ namespace VetAppointment.Domain
         {
             if (string.IsNullOrWhiteSpace(description))
             {
-                return Result<Treatment>.Failure($"Description {description} of treatment is not valid");
+                return Result<Treatment>.Failure($"Description of treatment is not valid");
             }
 
             var treatment = new Treatment
@@ -66,11 +66,12 @@ namespace VetAppointment.Domain
                 return Result.Failure("Description can not be null");
             }
             
-            if (!this.Description.Equals(description))
+            if (this.Description.Equals(description))
             {
                 return Result.Failure("Update Error");
             }
 
+            this.Description = description;
             return Result.Success();
         }
     }

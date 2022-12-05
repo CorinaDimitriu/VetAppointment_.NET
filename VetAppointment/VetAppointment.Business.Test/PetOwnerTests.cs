@@ -49,7 +49,7 @@
         {
             // Arrange
             var sut = CreateSUT();
-            var phoneNumber = "invalidPhoneNumber";
+            string phoneNumber = null;
 
             // Act
             var result = PetOwner.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, phoneNumber);

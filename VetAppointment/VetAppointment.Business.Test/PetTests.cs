@@ -97,6 +97,66 @@ namespace VetAppointment.Business.Test
             pet.OwnerId.Should().Be(owner.Id);
         }
 
+        [Fact]
+        public void When_UpdatePet_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+
+            // Act
+            var result = pet.Update(pet.Name, pet.Birthdate.ToString(), pet.Race.ToString(), pet.Gender.ToString());
+            
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdatePetWithInvalidRace_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var race = "invalidRace";
+
+            // Act
+            var result = pet.Update(pet.Name, pet.Birthdate.ToString(), race, pet.Gender.ToString());
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdatePetWithInvalidGender_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var gender = "invalidGender";
+
+            // Act
+            var result = pet.Update(pet.Name, pet.Birthdate.ToString(), pet.Race.ToString(), gender);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+
+        [Fact]
+        public void When_UpdatePetWithInvalidBirthdate_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var birthdate = "22/22/22";
+
+            // Act
+            var result = pet.Update(pet.Name, birthdate, pet.Race.ToString(), pet.Gender.ToString());
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
         private Tuple<string, string, string, string> CreateSUT()
         {
             return new Tuple<string, string, string, string>("Pisacio", "12/06/2020", "Cat", "Male");

@@ -39,7 +39,7 @@ namespace VetAppointment.API.Controllers
                     vetClinicDto.ContactEmail,
                     vetClinicDto.ContactPhone
                 );
-            history.Entity.AtachToClinic(vetClinic.Entity.Id);
+            history.Entity.AttachToClinic(vetClinic.Entity.Id);
             vetClinic.Entity.AttachMedicalHistory(history.Entity.Id);
 
             if (vetClinic.IsFailure)

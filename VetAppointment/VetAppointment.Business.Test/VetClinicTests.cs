@@ -67,10 +67,82 @@
             result.Error.Should().Be($"Phone number {invalidPhoneNumber} is not valid");
         }
 
+        [Fact]
+        public void When_AttachMedicalHistoryToClinic_Then_IdShouldNotBeNull()
+        {
+            // Arrange
+            var medicalHistory = MedicalHistory.Create().Entity;
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+
+            // Act
+            clinic.AttachMedicalHistory(medicalHistory.Id);
+
+            // Assert
+            clinic.MedicalHistoryId.Should().Be(medicalHistory.Id);
+        }
+
+        [Fact]
+        public void When_RegisterPetFamilyToClinic_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var sutPet = CreateSUTForPet();
+            var pet = Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity;
+            var pets = new List<Pet>();
+            pets.Add(pet);
+
+            // Act
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterNullPetFamilyToClinic_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var pets = new List<Pet>();
+
+            // Act
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterPetFamilyToOcupiedClinic_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, 1, sut.Item4, sut.Item5).Entity;
+            var sutPet = CreateSUTForPet();
+            var pet1 = Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity;
+            var pet2 = Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity;
+            var pets = new List<Pet>();
+            pets.Add(pet1);
+            pets.Add(pet2);
+
+            // Act
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
         //string name, string address, int numberOfPlaces, string contactEmail, string contactPhone
         private Tuple<string, string, int, string, string> CreateSUT()
         {
             return new Tuple<string, string, int, string, string>("Vet Clinic", "Address", 10, "email@gmail.com", "+40123456789");
+        }
+        private Tuple<string, string, string, string> CreateSUTForPet()
+        {
+            return new Tuple<string, string, string, string>("Pisacio", "12/06/2020", "Cat", "Male");
         }
     }
 }

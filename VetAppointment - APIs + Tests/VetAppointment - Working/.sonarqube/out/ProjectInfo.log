@@ -1,0 +1,30 @@
+Product projects
+---------------------------------------
+D:\.NET\VetAppointment - Working\VetAppointment.Domain\VetAppointment.Domain.csproj
+D:\.NET\VetAppointment - Working\VetAppointment.Shared\VetAppointment.Shared.csproj
+D:\.NET\VetAppointment - Working\VetAppointment.Application\VetAppointment.Application.csproj
+D:\.NET\VetAppointment - Working\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj
+D:\.NET\VetAppointment - Working\VetAppointment.API\VetAppointment.API.csproj
+
+
+Test projects
+---------------------------------------
+D:\.NET\VetAppointment - Working\VetAppointment.Business.Test\VetAppointment.Business.Test.csproj
+D:\.NET\VetAppointment - Working\VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj
+
+
+Invalid projects
+---------------------------------------
+{none}
+
+
+Skipped projects
+---------------------------------------
+{none}
+
+
+Excluded projects
+---------------------------------------
+{none}
+
+

@@ -1694,3 +1694,12 @@ D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppoint
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\refint\VetAppointment.UI.dll
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.pdb
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\ref\VetAppointment.UI.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.AssemblyReference.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfoInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.MvcApplicationPartsAssemblyInfo.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\refint\VetAppointment.UI.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.pdb

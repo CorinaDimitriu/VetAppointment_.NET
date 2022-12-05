@@ -316,3 +316,12 @@ D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppoint
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.pdb
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.genruntimeconfig.cache
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\ref\VetAppointment.Business.Test.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\bin\Debug\net7.0\CoverletSourceRootsMapping
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.csproj.AssemblyReference.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.AssemblyInfoInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.AssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\refint\VetAppointment.Business.Test.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.pdb

@@ -1,0 +1,6 @@
+﻿D:\.NET\VetAppointment - Working\VetAppointment.Shared\Domain\Appointment.cs
+D:\.NET\VetAppointment - Working\VetAppointment.Shared\Domain\Person.cs
+D:\.NET\VetAppointment - Working\VetAppointment.Shared\Domain\Pet.cs
+D:\.NET\VetAppointment - Working\VetAppointment.Shared\Domain\PetOwner.cs
+D:\.NET\VetAppointment - Working\VetAppointment.Shared\Domain\Vet.cs
+D:\.NET\VetAppointment - Working\VetAppointment.Shared\Domain\VetClinic.cs

@@ -34,3 +34,11 @@ D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppoint
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb

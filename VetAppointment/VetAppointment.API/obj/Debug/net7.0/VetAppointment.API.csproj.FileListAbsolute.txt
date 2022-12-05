@@ -220,3 +220,13 @@ D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppoint
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.pdb
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.genruntimeconfig.cache
 D:\AN3_SEM1\DotNet\ProjectVETClone\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\ref\VetAppointment.API.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.csproj.AssemblyReference.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.AssemblyInfoInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.AssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\refint\VetAppointment.API.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.pdb

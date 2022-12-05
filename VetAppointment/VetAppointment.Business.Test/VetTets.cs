@@ -68,6 +68,46 @@
             result.IsFailure.Should().BeTrue();
             result.Error.Should().Be($"The provided gender {invalidGender} is not one from the possible races: Male, Female, Other");
         }
+        [Fact]
+        public void When_CreateVetWithInvalidBirthdate_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var vet = CreateSUT();
+            var invalidBirthdate = string.Empty;
+
+            //Act
+            var result = Vet.Create(vet.Item1, vet.Item2, invalidBirthdate, vet.Item4, vet.Item5, vet.Item6, vet.Item7);
+
+            //Assert
+            result.IsFailure.Should().BeTrue();
+        }
+        [Fact]
+        public void When_CreateVetWithInvalidSpecialisation_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var vet = CreateSUT();
+            var invalidSpecialization = "Bucatar";
+
+            //Act
+            var result = Vet.Create(vet.Item1, vet.Item2, vet.Item3, vet.Item4, vet.Item5, vet.Item6, invalidSpecialization);
+
+            //Assert
+            result.IsFailure.Should().BeTrue();
+        }
+        [Fact]
+        public void When_RegisterVetToClinic_Then_IdShouldBeNotNull()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var vet = Vet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6, sut.Item7).Entity;
+            var sutClinic = CreateSUTForClinic();
+            var vetClinic = VetClinic.Create(sutClinic.Item1, sutClinic.Item2, sutClinic.Item3, sutClinic.Item4, sutClinic.Item5).Entity;
+
+            //Act
+            vet.RegisterVetToClinic(vetClinic);
+            //Assert
+            vet.ClinicId.Should().Be(vetClinic.Id);
+        }
 
         //string name, string surname, string birthdate, string gender, string email, string phone
         private static Tuple<string, string, string, string, string, string, string> CreateSUT()
@@ -75,6 +115,10 @@
             return new Tuple<string, string, string, string, string, string, string>(
                 "John", "Doe", "01/01/1990", "Male", "john.doe@gmail.com", "+40123456789", "PawSurgeon"
                 );
+        }
+        private Tuple<string, string, int, string, string> CreateSUTForClinic()
+        {
+            return new Tuple<string, string, int, string, string>("Vet Clinic", "Address", 10, "email@gmail.com", "+40123456789");
         }
     }
 }

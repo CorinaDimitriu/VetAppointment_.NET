@@ -72,7 +72,7 @@ namespace VetAppointment.API.Controllers
                 EstimatedDurationInMinutes = appointment.Entity.EstimatedDurationInMinutes
             };
 
-            return Created(nameof(GetAllAppointments), appointment);
+            return Created(nameof(GetAllAppointments), fullAppointment);
         }
 
         [HttpGet]

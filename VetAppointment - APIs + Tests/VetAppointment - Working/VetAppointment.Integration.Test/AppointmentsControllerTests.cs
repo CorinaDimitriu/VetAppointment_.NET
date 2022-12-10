@@ -38,7 +38,7 @@ namespace VetAppointment.Integration.Tests
         {
             return new CreateAppointmentDto
             {
-                ScheduledDate = DateTime.Now.AddDays(1),
+                ScheduledDate = DateTime.Now.AddDays(1).ToString(),
                 EstimatedDurationInMinutes = 20,
                 VetId = CreateVetSUT().Id,
                 PetId = CreatePetSUT().Id,

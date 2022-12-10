@@ -1,16 +1,16 @@
 Product projects
 ---------------------------------------
-D:\.NET\VetAppointment - Working\VetAppointment.Domain\VetAppointment.Domain.csproj
-D:\.NET\VetAppointment - Working\VetAppointment.Shared\VetAppointment.Shared.csproj
-D:\.NET\VetAppointment - Working\VetAppointment.Application\VetAppointment.Application.csproj
-D:\.NET\VetAppointment - Working\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj
-D:\.NET\VetAppointment - Working\VetAppointment.API\VetAppointment.API.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\VetAppointment.Domain.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\VetAppointment.Shared.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.API\VetAppointment.API.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\VetAppointment.Application.csproj
 
 
 Test projects
 ---------------------------------------
-D:\.NET\VetAppointment - Working\VetAppointment.Business.Test\VetAppointment.Business.Test.csproj
-D:\.NET\VetAppointment - Working\VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\VetAppointment.Business.Test.csproj
 
 
 Invalid projects

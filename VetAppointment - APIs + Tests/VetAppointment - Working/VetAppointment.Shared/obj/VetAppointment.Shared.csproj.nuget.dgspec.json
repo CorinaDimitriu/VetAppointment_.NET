@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {}
+    "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {
+    "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+        "projectUniqueName": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
         "projectName": "VetAppointment.Shared",
-        "projectPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+        "projectPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
         "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Shared\\obj\\",
+        "outputPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

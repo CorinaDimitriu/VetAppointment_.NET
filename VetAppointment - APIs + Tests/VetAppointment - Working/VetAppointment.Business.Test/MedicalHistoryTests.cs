@@ -21,7 +21,7 @@
             // Arrange
             var medicalHistory = MedicalHistory.Create().Entity;
             var sutAppointment = CreateSUTForAppointment();
-            var appointment = Appointment.SettleAppointment(sutAppointment.Item1, sutAppointment.Item2, sutAppointment.Item3, sutAppointment.Item4).Entity;
+            var appointment = Appointment.SettleAppointment(sutAppointment.Item1, sutAppointment.Item2, sutAppointment.Item3.ToString(), sutAppointment.Item4).Entity;
 
             // Act
             var result = medicalHistory.RegisterAppointmentToHistory(appointment);
@@ -82,7 +82,7 @@
                 // Arrange
                 var medicalHistory = MedicalHistory.Create().Entity;
                 var appointment = CreateAppSUT();
-                var app = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3, appointment.Item4);
+                var app = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3.ToString(), appointment.Item4);
 
 
                 // Act

@@ -97,7 +97,7 @@ namespace VetAppointment.Integration.Tests
 
             // Assert
             updateVetResponse.EnsureSuccessStatusCode();
-            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
         [Fact]
@@ -117,7 +117,7 @@ namespace VetAppointment.Integration.Tests
 
             // Assert
             deleteVetResponse.EnsureSuccessStatusCode();
-            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
         [Fact]
@@ -133,7 +133,7 @@ namespace VetAppointment.Integration.Tests
 
             // Assert
             deleteClinicResponse.EnsureSuccessStatusCode();
-            deleteClinicResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+            deleteClinicResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
         private static CreateVetClinicDto CreateClinitSUT()

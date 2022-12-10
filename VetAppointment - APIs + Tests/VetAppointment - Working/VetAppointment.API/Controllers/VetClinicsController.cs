@@ -197,7 +197,7 @@ namespace VetAppointment.API.Controllers
             unitOfWork.SaveChanges();
 
 
-            var createdPets = (List<PetDto>)pets.Select(
+            var createdPets = pets.Select(
                 pet => new PetDto()
                 {
                     Name = pet.Entity.Name,

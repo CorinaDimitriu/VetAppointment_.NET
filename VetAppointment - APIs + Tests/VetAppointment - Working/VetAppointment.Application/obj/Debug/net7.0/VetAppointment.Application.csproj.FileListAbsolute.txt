@@ -73,3 +73,18 @@ D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppoint
 D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\refint\VetAppointment.Application.dll
 D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.pdb
 D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\ref\VetAppointment.Application.dll
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.deps.json
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.dll
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.pdb
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Domain.dll
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Domain.pdb
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.AssemblyReference.cache
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.AssemblyInfoInputs.cache
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.AssemblyInfo.cs
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.CoreCompileInputs.cache
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.CopyComplete
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.dll
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\refint\VetAppointment.Application.dll
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.pdb
+D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\ref\VetAppointment.Application.dll

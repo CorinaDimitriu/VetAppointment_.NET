@@ -12,39 +12,31 @@
       },
       "results": [
         {
-          "ruleId": "CS0108",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "'CreateVetDto.Id' hides inherited member 'VetDto.Id'. Use the new keyword if hiding was intended.",
+          "message": "Non-nullable property 'ScheduledDate' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateVetDto.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
                 "region": {
-                  "startLine": 9,
-                  "startColumn": 21,
-                  "endLine": 9,
-                  "endColumn": 23
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 36
                 }
               }
             }
           ],
-          "properties": {
-            "warningLevel": 2
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
+          "relatedLocations": [
             {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/MedicalHistoriesController.cs",
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
                 "region": {
-                  "startLine": 79,
-                  "startColumn": 9,
-                  "endLine": 79,
-                  "endColumn": 12
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 36
                 }
               }
             }
@@ -60,70 +52,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/TreatmentsController.cs",
-                "region": {
-                  "startLine": 94,
-                  "startColumn": 13,
-                  "endLine": 94,
-                  "endColumn": 64
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/VetClinicsController.cs",
-                "region": {
-                  "startLine": 56,
-                  "startColumn": 13,
-                  "endLine": 56,
-                  "endColumn": 57
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/VetClinicsController.cs",
-                "region": {
-                  "startLine": 203,
-                  "startColumn": 13,
-                  "endLine": 203,
-                  "endColumn": 20
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
                 "region": {
                   "startLine": 17,
                   "startColumn": 1,
@@ -144,54 +73,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
                 "region": {
                   "startLine": 26,
                   "startColumn": 1,
                   "endLine": 26,
                   "endColumn": 6
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S4487",
-          "level": "warning",
-          "message": "Remove this unread private field 'appointmentRepository' or refactor the code to use its value.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/VetClinicsController.cs",
-                "region": {
-                  "startLine": 16,
-                  "startColumn": 51,
-                  "endLine": 16,
-                  "endColumn": 72
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S5122",
-          "level": "warning",
-          "message": "Make sure this permissive CORS policy is safe here.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
-                "region": {
-                  "startLine": 42,
-                  "startColumn": 3,
-                  "endLine": 42,
-                  "endColumn": 26
                 }
               }
             }
@@ -207,12 +94,33 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/AppointmentsController.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/AppointmentsController.cs",
                 "region": {
-                  "startLine": 78,
+                  "startLine": 66,
                   "startColumn": 17,
-                  "endLine": 78,
+                  "endLine": 66,
                   "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5122",
+          "level": "warning",
+          "message": "Make sure this permissive CORS policy is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 3,
+                  "endLine": 44,
+                  "endColumn": 26
                 }
               }
             }
@@ -228,11 +136,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.API/Controllers/DrugsController.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/DrugsController.cs",
                 "region": {
-                  "startLine": 39,
+                  "startLine": 37,
                   "startColumn": 13,
-                  "endLine": 39,
+                  "endLine": 37,
                   "endColumn": 14
                 }
               }
@@ -244,12 +152,11 @@
         }
       ],
       "rules": {
-        "CS0108": {
-          "id": "CS0108",
-          "shortDescription": "Member hides inherited member; missing new keyword",
-          "fullDescription": "A variable was declared with the same name as a variable in a base type. However, the new keyword was not used. This warning informs you that you should use new; the variable is declared as if new had been used in the declaration.",
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.",
           "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0108)",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
           "properties": {
             "category": "Compiler",
             "isEnabledByDefault": true,
@@ -307,24 +214,6 @@
               "MainSourceScope",
               "TestSourceScope",
               "SonarWay"
-            ]
-          }
-        },
-        "S4487": {
-          "id": "S4487",
-          "shortDescription": "Unread \"private\" fields should be removed",
-          "fullDescription": "Private fields only used to store values without reading them later is a case of dead store. So changing the value of such field is useless and most probably indicates a serious error in the code.",
-          "defaultLevel": "note",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4487",
-          "properties": {
-            "category": "Critical Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay",
-              "Unnecessary"
             ]
           }
         },

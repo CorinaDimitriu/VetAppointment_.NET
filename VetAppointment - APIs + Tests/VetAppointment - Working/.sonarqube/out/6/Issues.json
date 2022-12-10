@@ -12,13 +12,31 @@
       },
       "results": [
         {
+          "ruleId": "CS0029",
+          "level": "error",
+          "message": "Cannot implicitly convert type 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 33,
+                  "endLine": 41,
+                  "endColumn": 56
+                }
+              }
+            }
+          ]
+        },
+        {
           "ruleId": "CA1816",
           "level": "note",
           "message": "Change AppointmentsControllerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
                 "region": {
                   "startLine": 9,
                   "startColumn": 21,
@@ -35,15 +53,15 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreateVetSUT' does not access instance data and can be marked as static",
+          "message": "Member 'CreatePetSUT' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
                 "region": {
-                  "startLine": 59,
+                  "startLine": 48,
                   "startColumn": 24,
-                  "endLine": 59,
+                  "endLine": 48,
                   "endColumn": 36
                 }
               }
@@ -56,15 +74,15 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreatePetSUT' does not access instance data and can be marked as static",
+          "message": "Member 'CreateVetSUT' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
                 "region": {
-                  "startLine": 48,
+                  "startLine": 59,
                   "startColumn": 24,
-                  "endLine": 48,
+                  "endLine": 59,
                   "endColumn": 36
                 }
               }
@@ -81,7 +99,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Integration.Test/DrugTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/DrugTests.cs",
                 "region": {
                   "startLine": 41,
                   "startColumn": 21,
@@ -102,7 +120,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Integration.Test/PetOwnersControllerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/PetOwnersControllerTests.cs",
                 "region": {
                   "startLine": 65,
                   "startColumn": 21,
@@ -123,11 +141,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Integration.Test/VetClinicsControllerTests_.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/VetClinicsControllerTests_.cs",
                 "region": {
-                  "startLine": 202,
+                  "startLine": 176,
                   "startColumn": 21,
-                  "endLine": 202,
+                  "endLine": 176,
                   "endColumn": 28
                 }
               }
@@ -168,6 +186,20 @@
               "PortedFromFxCop",
               "Telemetry",
               "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS0029": {
+          "id": "CS0029",
+          "defaultLevel": "error",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0029)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "NotConfigurable"
             ]
           }
         }

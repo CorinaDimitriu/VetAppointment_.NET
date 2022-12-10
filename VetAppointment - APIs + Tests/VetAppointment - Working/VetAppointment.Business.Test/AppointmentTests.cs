@@ -10,7 +10,7 @@
                 var appointment = CreateSUT();
 
                 //Act
-                var result = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3, appointment.Item4);
+                var result = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3.ToString(), appointment.Item4);
 
                 //Assert
                 result.IsSuccess.Should().BeTrue();
@@ -18,7 +18,7 @@
                 result.Entity.Id.Should().NotBeEmpty();
                 result.Entity.VetId.Should().Be(appointment.Item1.Id);
                 result.Entity.PetId.Should().Be(appointment.Item2.Id);
-                result.Entity.ScheduledDate.Should().Be(appointment.Item3);
+                result.Entity.ScheduledDate.Should().Be(DateTime.Parse(appointment.Item3.ToString()));
                 result.Entity.EstimatedDurationInMinutes.Should().Be(appointment.Item4);
             }
         }
@@ -31,7 +31,7 @@
             var invalidScheduledDate = DateTime.MinValue;
 
             // Act
-            var result = Appointment.SettleAppointment(appoinment.Item1, appoinment.Item2, invalidScheduledDate, appoinment.Item4);
+            var result = Appointment.SettleAppointment(appoinment.Item1, appoinment.Item2, invalidScheduledDate.ToString(), appoinment.Item4);
 
             // Assert
             result.IsFailure.Should().BeTrue();
@@ -46,7 +46,7 @@
             var invalidDurationTime = -1;
 
             // Act
-            var result = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3, invalidDurationTime);
+            var result = Appointment.SettleAppointment(appointment.Item1, appointment.Item2, appointment.Item3.ToString(), invalidDurationTime);
 
             // Assert
             result.IsFailure.Should().BeTrue();
@@ -58,7 +58,7 @@
         {
             // Arrange
             var sut = CreateSUT();
-            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
             var sutTreatment = CreateSUTForTreatment();
             var treatment = Treatment.Create(sutTreatment.Item1).Entity;
 
@@ -74,10 +74,10 @@
         {
             // Arrange
             var sut = CreateSUT();
-            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
 
             // Act
-            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate, appointment.EstimatedDurationInMinutes, appointment.TreatmentId, appointment.MedicalHistoryId);
+            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate.ToString(), appointment.EstimatedDurationInMinutes, appointment.TreatmentId, appointment.MedicalHistoryId);
 
             // Assert
             result.IsSuccess.Should().BeTrue();
@@ -88,10 +88,10 @@
         {
             // Arrange
             var sut = CreateSUT();
-            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
 
             // Act
-            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate, -5, appointment.TreatmentId, appointment.MedicalHistoryId);
+            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate.ToString(), -5, appointment.TreatmentId, appointment.MedicalHistoryId);
 
             // Assert
             result.IsFailure.Should().BeTrue();
@@ -102,10 +102,10 @@
         {
             // Arrange
             var sut = CreateSUT();
-            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
 
             // Act
-            var result = appointment.Update(appointment.VetId, appointment.PetId, DateTime.Now.AddYears(-1), appointment.EstimatedDurationInMinutes, appointment.TreatmentId, appointment.MedicalHistoryId);
+            var result = appointment.Update(appointment.VetId, appointment.PetId, DateTime.Now.AddYears(-1).ToString(), appointment.EstimatedDurationInMinutes, appointment.TreatmentId, appointment.MedicalHistoryId);
 
             // Assert
             result.IsFailure.Should().BeTrue();
@@ -116,7 +116,7 @@
         {
             var appointmentSUT = CreateSUT();
             var app = Appointment.SettleAppointment(appointmentSUT.Item1, appointmentSUT.Item2, 
-                appointmentSUT.Item3, appointmentSUT.Item4);
+                appointmentSUT.Item3.ToString(), appointmentSUT.Item4);
 
             var medicalHistory = MedicalHistory.Create().Entity;
 
@@ -147,7 +147,12 @@
         {
             var sutVet = CreateSUTForVet();
             var sutPet = CreateSUTForPet();
-            return new Tuple<Vet, Pet, DateTime, int>(Vet.Create(sutVet.Item1, sutVet.Item2, sutVet.Item3, sutVet.Item4, sutVet.Item5, sutVet.Item6, sutVet.Item7).Entity, Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity, DateTime.Now.AddDays(1), 30);
+            return new Tuple<Vet, Pet, DateTime, int>(
+                Vet.Create(sutVet.Item1, sutVet.Item2, sutVet.Item3, sutVet.Item4, sutVet.Item5, sutVet.Item6, sutVet.Item7).Entity, 
+                Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity, 
+                DateTime.Now.AddDays(1), 
+                30
+            );
         }
     }
 }

@@ -14,11 +14,45 @@
         {
           "ruleId": "CS8618",
           "level": "warning",
+          "message": "Non-nullable property 'ScheduledDate' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Appointment.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Appointment.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
           "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 9,
                   "startColumn": 23,
@@ -31,7 +65,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 9,
                   "startColumn": 23,
@@ -52,7 +86,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 12,
                   "startColumn": 23,
@@ -65,7 +99,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 12,
                   "startColumn": 23,
@@ -86,7 +120,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 20,
                   "startColumn": 23,
@@ -99,7 +133,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 20,
                   "startColumn": 23,
@@ -120,7 +154,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 24,
                   "startColumn": 23,
@@ -133,7 +167,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/VetClinic.cs",
                 "region": {
                   "startLine": 24,
                   "startColumn": 23,
@@ -154,7 +188,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 6,
                   "startColumn": 23,
@@ -167,7 +201,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 6,
                   "startColumn": 23,
@@ -188,7 +222,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 23,
@@ -201,7 +235,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 23,
@@ -222,7 +256,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 8,
                   "startColumn": 23,
@@ -235,7 +269,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 8,
                   "startColumn": 23,
@@ -256,7 +290,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 10,
                   "startColumn": 23,
@@ -269,7 +303,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Vet.cs",
                 "region": {
                   "startLine": 10,
                   "startColumn": 23,
@@ -290,7 +324,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 5,
                   "startColumn": 23,
@@ -303,7 +337,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 5,
                   "startColumn": 23,
@@ -324,7 +358,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 6,
                   "startColumn": 23,
@@ -337,7 +371,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 6,
                   "startColumn": 23,
@@ -358,7 +392,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 23,
@@ -371,7 +405,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 23,
@@ -392,7 +426,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 8,
                   "startColumn": 23,
@@ -405,46 +439,12 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Person.cs",
                 "region": {
                   "startLine": 8,
                   "startColumn": 23,
                   "endLine": 8,
                   "endColumn": 29
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
-          "message": "Non-nullable property 'ScheduledDate' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Appointment.cs",
-                "region": {
-                  "startLine": 8,
-                  "startColumn": 23,
-                  "endLine": 8,
-                  "endColumn": 36
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Shared/Domain/Appointment.cs",
-                "region": {
-                  "startLine": 8,
-                  "startColumn": 23,
-                  "endLine": 8,
-                  "endColumn": 36
                 }
               }
             }

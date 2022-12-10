@@ -12,13 +12,211 @@
       },
       "results": [
         {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 98,
+                  "endLine": 13,
+                  "endColumn": 115
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 92,
+                  "endLine": 34,
+                  "endColumn": 112
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 94,
+                  "endLine": 49,
+                  "endColumn": 111
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 83,
+                  "endLine": 61,
+                  "endColumn": 92
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 83,
+                  "endLine": 77,
+                  "endColumn": 92
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 83,
+                  "endLine": 80,
+                  "endColumn": 108
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 83,
+                  "endLine": 91,
+                  "endColumn": 92
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 83,
+                  "endLine": 94,
+                  "endColumn": 108
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 83,
+                  "endLine": 105,
+                  "endColumn": 92
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 108,
+                  "startColumn": 83,
+                  "endLine": 108,
+                  "endColumn": 108
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 17,
+                  "endLine": 119,
+                  "endColumn": 37
+                }
+              }
+            }
+          ]
+        },
+        {
           "ruleId": "CS8600",
           "level": "warning",
           "message": "Converting null literal or possible null value to non-nullable type.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
                 "region": {
                   "startLine": 65,
                   "startColumn": 34,
@@ -33,13 +231,49 @@
           }
         },
         {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 105,
+                  "endLine": 24,
+                  "endColumn": 125
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CS1503",
+          "level": "error",
+          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 95,
+                  "endLine": 85,
+                  "endColumn": 112
+                }
+              }
+            }
+          ]
+        },
+        {
           "ruleId": "CS8600",
           "level": "warning",
           "message": "Converting null literal or possible null value to non-nullable type.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
                 "region": {
                   "startLine": 52,
                   "startColumn": 34,
@@ -60,7 +294,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetTets.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetTets.cs",
                 "region": {
                   "startLine": 201,
                   "startColumn": 60,
@@ -81,7 +315,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
                 "region": {
                   "startLine": 74,
                   "startColumn": 71,
@@ -98,53 +332,11 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreateSUTForClinic' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
-                "region": {
-                  "startLine": 119,
-                  "startColumn": 60,
-                  "endLine": 119,
-                  "endColumn": 78
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForDrug' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/PrescribedDrugTests.cs",
-                "region": {
-                  "startLine": 89,
-                  "startColumn": 47,
-                  "endLine": 89,
-                  "endColumn": 63
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
           "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/DrugTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/DrugTests.cs",
                 "region": {
                   "startLine": 99,
                   "startColumn": 47,
@@ -161,16 +353,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreateSUTForPet' does not access instance data and can be marked as static",
+          "message": "Member 'CreateSUTForClinic' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
                 "region": {
-                  "startLine": 115,
-                  "startColumn": 55,
-                  "endLine": 115,
-                  "endColumn": 70
+                  "startLine": 104,
+                  "startColumn": 60,
+                  "endLine": 104,
+                  "endColumn": 78
                 }
               }
             }
@@ -186,7 +378,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
                 "region": {
                   "startLine": 110,
                   "startColumn": 78,
@@ -203,16 +395,37 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreateSUTForClinicOwner' does not access instance data and can be marked as static",
+          "message": "Member 'CreateSUTForPet' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
                 "region": {
-                  "startLine": 294,
-                  "startColumn": 71,
-                  "endLine": 294,
-                  "endColumn": 94
+                  "startLine": 115,
+                  "startColumn": 55,
+                  "endLine": 115,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'CreateSUTForDrug' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PrescribedDrugTests.cs",
+                "region": {
+                  "startLine": 89,
+                  "startColumn": 47,
+                  "endLine": 89,
+                  "endColumn": 63
                 }
               }
             }
@@ -228,7 +441,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
                 "region": {
                   "startLine": 284,
                   "startColumn": 55,
@@ -249,12 +462,33 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/.NET/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
                 "region": {
                   "startLine": 280,
                   "startColumn": 60,
                   "endLine": 280,
                   "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'CreateSUTForClinicOwner' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "region": {
+                  "startLine": 294,
+                  "startColumn": 71,
+                  "endLine": 294,
+                  "endColumn": 94
                 }
               }
             }
@@ -278,6 +512,20 @@
               "PortedFromFxCop",
               "Telemetry",
               "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS1503": {
+          "id": "CS1503",
+          "defaultLevel": "error",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1503)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "NotConfigurable"
             ]
           }
         },

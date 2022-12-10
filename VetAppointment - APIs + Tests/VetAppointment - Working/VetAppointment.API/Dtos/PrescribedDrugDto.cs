@@ -1,10 +1,9 @@
-﻿namespace VetAppointment.API.Dtos
+﻿using VetAppointment.API.Dtos.Create;
+
+namespace VetAppointment.API.Dtos
 {
-    public class PrescribedDrugDto
+    public class PrescribedDrugDto : CreatePrescribedDrugDto
     {
-        public double Quantity { get; set; }
-        public double TotalCost { get; set; } 
-        public Guid DrugId { get; set; }
-            
+        public Guid Id { get; set; }
     }
 }

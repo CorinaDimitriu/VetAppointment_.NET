@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7bSghpgGDF3GqJvqbTvb+GyocgqZnEr1Yv0mhk8MNdryseI/OtkymkRv08FXTZAbZhVkpxtyBvGyyATpZqyfGg==",
+  "dgSpecHash": "1aMSrhTC1EPlzrGBVy6A3xfZLhqBNb9rG+OOyJdSs3K6iLf3QsIIHrMoJxT1otVeI7EFaooHFBy2ab1jxu+sZw==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\VetAppointment - Working\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+  "projectFilePath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

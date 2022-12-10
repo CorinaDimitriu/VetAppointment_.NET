@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetAppointment.API", "VetAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetAppointment.Shared", "VetAppointment.Shared\VetAppointment.Shared.csproj", "{D8722C6C-9C78-476E-AD5B-78078AE74E83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VetAppointment.Integration.Test", "VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj", "{B86AA7EA-6380-4C41-A62B-38BF607BEECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetAppointment.Integration.Test", "VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj", "{B86AA7EA-6380-4C41-A62B-38BF607BEECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

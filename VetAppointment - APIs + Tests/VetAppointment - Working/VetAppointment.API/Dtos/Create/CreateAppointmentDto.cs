@@ -2,7 +2,7 @@
 {
     public class CreateAppointmentDto
     {
-        public DateTime ScheduledDate { get; set; }
+        public string ScheduledDate { get; set; }
 
         public int EstimatedDurationInMinutes { get; set; }
 

@@ -36,7 +36,6 @@ namespace VetAppointment.Domain
         {
             return quantity * price;
         }
-
         public Result Update(double quantity, Drug drugToPrescribe)
         {
             if (quantity < 0)

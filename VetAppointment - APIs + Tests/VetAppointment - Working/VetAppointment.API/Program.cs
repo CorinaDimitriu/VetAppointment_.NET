@@ -25,6 +25,8 @@ builder.Services.AddDbContext<DatabaseContext>(
 //		)
 //	);
 
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
 builder.Services.AddScoped<IRepository<PetOwner>, PetOwnerRepository>();
 builder.Services.AddScoped<IRepository<Pet>, PetRepository>();

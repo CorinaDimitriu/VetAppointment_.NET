@@ -46,3 +46,15 @@ D:\.NET\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppoi
 D:\.NET\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
 D:\.NET\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
 D:\.NET\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll

@@ -34,3 +34,15 @@ D:\.NET\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppoi
 D:\.NET\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\refint\VetAppointment.Shared.dll
 D:\.NET\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.pdb
 D:\.NET\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\ref\VetAppointment.Shared.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\bin\Debug\net7.0\VetAppointment.Shared.deps.json
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\bin\Debug\net7.0\VetAppointment.Shared.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\bin\Debug\net7.0\VetAppointment.Shared.pdb
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.csproj.AssemblyReference.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.AssemblyInfoInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.AssemblyInfo.cs
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\refint\VetAppointment.Shared.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.pdb
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\obj\Debug\net7.0\ref\VetAppointment.Shared.dll

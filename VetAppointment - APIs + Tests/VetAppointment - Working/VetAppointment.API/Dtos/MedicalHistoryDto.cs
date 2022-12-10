@@ -1,9 +1,8 @@
-﻿using VetAppointment.API.Dtos.Create;
-
-namespace VetAppointment.API.Dtos
+﻿namespace VetAppointment.API.Dtos
 {
-    public class MedicalHistoryDto : CreateMedicalHistoryDto
+    public class MedicalHistoryDto
     {
         public Guid Id { get; set; }
+        public Guid ClinicId { get; set; }
     }
 }

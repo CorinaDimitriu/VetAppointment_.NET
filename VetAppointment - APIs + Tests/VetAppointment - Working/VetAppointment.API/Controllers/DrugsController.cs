@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
 using VetAppointment.Domain;
 
@@ -11,10 +12,7 @@ namespace VetAppointment.API.Controllers
     {
         private readonly IRepository<Drug> drugRepository;
 
-        public DrugsController(IRepository<Drug> drugRepository)
-        {
-            this.drugRepository = drugRepository;
-        }
+        public DrugsController(IRepository<Drug> drugRepository) => this.drugRepository = drugRepository;
 
         [HttpGet]
         public IActionResult Get()
@@ -57,7 +55,7 @@ namespace VetAppointment.API.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create([FromBody] DrugDto drugDto)
+        public IActionResult Create([FromBody] CreateDrugDto drugDto)
         {
             var drug = Drug.Create(
                     drugDto.Name,
@@ -84,13 +82,14 @@ namespace VetAppointment.API.Controllers
             {
                 return NotFound();
             }
+            
             drugRepository.Delete(drug);
             drugRepository.SaveChanges();
             return Ok();
         }
 
         [HttpPut("{drugId:Guid}")]
-        public IActionResult Update(Guid drugId, [FromBody] DrugDto drugDto)
+        public IActionResult Update(Guid drugId, [FromBody] CreateDrugDto drugDto)
         {
             var drug = drugRepository.Get(drugId);
             if (drug == null)

@@ -11,16 +11,14 @@ namespace VetAppointment.API.Controllers
     {
         private readonly IRepository<Pet> petRepository;
 
-        public PetsController (IRepository<Pet> petRepository)
-        {
-            this.petRepository = petRepository;
-        }
+        public PetsController(IRepository<Pet> petRepository) => this.petRepository = petRepository;
 
         [HttpGet]
         public IActionResult Get()
         {
-            var pets = petRepository.All().Select
-                (
+            var pets = petRepository
+                .All()
+                .Select(
                     p => new PetDto
                     {
                         Id= p.Id,
@@ -32,27 +30,6 @@ namespace VetAppointment.API.Controllers
                 );
             
             return Ok(pets);
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody] PetDto petDto)
-        {
-            var pet = Pet.Create(
-                    petDto.Name,
-                    petDto.Birthdate,
-                    petDto.Race,
-                    petDto.Gender
-                );
-
-            if (pet.IsFailure)
-            {
-                return BadRequest(pet.Error);
-            }
-
-            petRepository.Add(pet.Entity);
-            petRepository.SaveChanges();
-
-            return Created(nameof(Get), pet.Entity);
         }
     } 
 }

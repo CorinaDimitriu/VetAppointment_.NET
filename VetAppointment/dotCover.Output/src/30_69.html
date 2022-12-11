@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.API\Controllers\TreatmentsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class TreatmentsController : ControllerBase
+    {
+        private readonly IUnitOfWork unitOfWork;
+
+        public TreatmentsController(IUnitOfWork unitOfWork) =&gt; this.unitOfWork = unitOfWork;
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var treatments = unitOfWork.TreatmentRepository
+                .All()
+                .Select ( t =&gt; new TreatmentDto { Id = t.Id, Description = t.Description } );
+
+            return Ok(treatments);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateTreatmentDto treatmentDto)
+        {
+            var treat = Treatment.Create(treatmentDto.Description);
+            if (treat.IsFailure)
+            {
+                return BadRequest(treat.Error);
+            }
+
+            unitOfWork.TreatmentRepository.Add(treat.Entity);
+            unitOfWork.SaveChanges();
+
+            var fullTreatment = new TreatmentDto()
+            {
+                Id = treat.Entity.Id,
+                Description = treat.Entity.Description
+            };
+
+            return Created(nameof(Get), fullTreatment);
+        }
+
+        [HttpPost(&quot;{treatmentId:Guid}/prescribedDrugs&quot;)]
+        public IActionResult AddDrugsToTreatment(Guid treatmentId, 
+            [FromBody] List&lt;PrescribedDrugDto&gt; prescribedDrugDtos)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId);
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var drugs = prescribedDrugDtos
+                .Select(d =&gt; PrescribedDrug.Create(d.Quantity, unitOfWork.DrugRepository.Get(d.DrugId)) ).ToList();
+            if (drugs.Any(p =&gt; p.IsFailure))
+            {
+                return BadRequest();
+            }
+
+            var result = treatment.AppendDrugsToTreatment(drugs.Select(d =&gt; d.Entity).ToList());
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            drugs.ForEach(d =&gt; unitOfWork.PrescribedDrugRepository.Add(d.Entity));
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{treatmentId:Guid}&quot;)]
+        public IActionResult UpdateTreatment(Guid treatmentId, [FromBody] CreateTreatmentDto treatmentDto)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId);
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var result = treatment.UpdateDescription(treatmentDto.Description);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.TreatmentRepository.Update(treatment);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}&quot;)]
+        public IActionResult UpdateDrugInTreatment(Guid treatmentId, Guid prescribedDrugId, 
+            [FromBody] PrescribedDrugDto prescribedDrugDto)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId);
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var drugPrescribed = unitOfWork.PrescribedDrugRepository.Get(prescribedDrugId);
+            if (drugPrescribed == null)
+            {
+                return NotFound();
+            }
+
+            var drug = unitOfWork.DrugRepository.Get(prescribedDrugDto.DrugId);
+            if (drug == null)
+            {
+                return NotFound();
+            }
+
+            var result = drugPrescribed.Update(prescribedDrugDto.Quantity, drug);
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.PrescribedDrugRepository.Update(drugPrescribed);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}&quot;)]
+        public IActionResult RemoveDrugFromTreatment(Guid treatmentId, Guid prescribedDrugId)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId);
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var drug = unitOfWork.PrescribedDrugRepository.Get(prescribedDrugId);
+            if (drug == null)
+            {
+                return NotFound();
+            }
+
+            var result = treatment.RemoveDrugFromTreatment(drug);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.PrescribedDrugRepository.Delete(drug);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{treatmentId:Guid}&quot;)]
+        public IActionResult Delete(Guid treatmentId)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId);
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            unitOfWork.TreatmentRepository.Delete(treatment);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,16,60,0],[16,64,16,92,0],[20,9,20,10,0],[21,13,23,32,0],[23,32,23,91,0],[23,91,23,94,0],[25,13,25,35,0],[26,9,26,10,0],[30,9,30,10,0],[31,13,31,68,0],[32,13,32,33,0],[33,13,33,14,0],[34,17,34,48,0],[37,13,37,62,0],[38,13,38,38,0],[40,13,44,15,0],[46,13,46,56,0],[47,9,47,10,0],[52,9,52,10,0],[53,13,53,77,0],[54,13,54,35,0],[55,13,55,14,0],[56,17,56,35,0],[59,13,60,30,0],[60,30,60,104,0],[60,104,60,116,0],[61,13,61,32,0],[61,32,61,43,0],[61,43,61,45,0],[62,13,62,14,0],[63,17,63,37,0],[66,13,66,77,0],[66,77,66,85,0],[66,85,66,97,0],[67,13,67,34,0],[68,13,68,14,0],[69,17,69,49,0],[72,13,72,32,0],[72,32,72,81,0],[72,81,72,83,0],[73,13,73,38,0],[75,13,75,32,0],[76,9,76,10,0],[80,9,80,10,0],[81,13,81,77,0],[82,13,82,35,0],[83,13,83,14,0],[84,17,84,35,0],[87,13,87,80,0],[88,13,88,34,0],[89,13,89,14,0],[90,17,90,49,0],[93,13,93,62,0],[94,13,94,38,0],[96,13,96,32,0],[97,9,97,10,0],[102,9,102,10,0],[103,13,103,77,0],[104,13,104,35,0],[105,13,105,14,0],[106,17,106,35,0],[109,13,109,92,0],[110,13,110,40,0],[111,13,111,14,0],[112,17,112,35,0],[115,13,115,80,0],[116,13,116,30,0],[117,13,117,14,0],[118,17,118,35,0],[121,13,121,82,0],[123,13,123,34,0],[124,13,124,14,0],[125,17,125,49,0],[128,13,128,72,0],[129,13,129,38,0],[131,13,131,32,0],[132,9,132,10,0],[136,9,136,10,0],[137,13,137,77,0],[138,13,138,35,0],[139,13,139,14,0],[140,17,140,35,0],[143,13,143,82,0],[144,13,144,30,0],[145,13,145,14,0],[146,17,146,35,0],[149,13,149,66,0],[150,13,150,34,0],[151,13,151,14,0],[152,17,152,49,0],[155,13,155,62,0],[156,13,156,38,0],[158,13,158,32,0],[159,9,159,10,0],[163,9,163,10,0],[164,13,164,77,0],[165,13,165,35,0],[166,13,166,14,0],[167,17,167,35,0],[170,13,170,62,0],[171,13,171,38,0],[173,13,173,32,0],[174,9,174,10,0]]);
+    </script>
+  </body>
+</html>

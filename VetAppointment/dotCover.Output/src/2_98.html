@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Integration.Test\AppointmentsControllerTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using VetAppointment.Domain.Enums;
+
+namespace VetAppointment.Integration.Tests
+{
+    public class AppointmentsControllerTests : BaseIntegrationTests, IDisposable
+    {
+        private const string ApiURL = &quot;v1/api/appointments&quot;;
+
+        public void Dispose()
+        {
+            CleanDatabases();
+        }
+
+        //[Fact]
+        //public async Task When_CreateAppointment_Then_ShouldReturnAppointmentInTheGetRequestAsync()
+        //{
+        //    // Arrange
+
+        //    var pet = CreatePetSUT();
+        //    var vet = CreateVetSUT();
+        //    var postPet = await PostAsync(&quot;v1/api&quot;, pet);
+
+        //    CreateAppointmentDto appointmentDto = CreateAppoinmentSUT();
+        //    // Act
+        //    var createAppointmentResponse = await HttpClient.PostAsJsonAsync(ApiURL, appointmentDto);
+        //    var getAppointmentResult = await HttpClient.GetAsync(ApiURL);
+        //    // Assert
+        //    createAppointmentResponse.EnsureSuccessStatusCode();
+        //    createAppointmentResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+
+        //    getAppointmentResult.EnsureSuccessStatusCode();
+        //    var appointments = await getAppointmentResult.Content.ReadFromJsonAsync&lt;List&lt;AppointmentDto&gt;&gt;();
+        //    appointments.Should().HaveCount(1);
+        //    appointments.Should().NotBeNull();
+        //}
+
+        private CreateAppointmentDto CreateAppoinmentSUT()
+        {
+            return new CreateAppointmentDto
+            {
+                ScheduledDate = DateTime.Now.AddDays(1).ToString(),
+                EstimatedDurationInMinutes = 20,
+                VetId = CreateVetSUT().Id,
+                PetId = CreatePetSUT().Id,
+            };
+        }
+
+        private PetDto CreatePetSUT()
+        {
+            return new PetDto
+            {
+                Name = &quot;TestPet&quot;,
+                Birthdate = DateTime.Now.AddYears(-1).ToString(),
+                Gender = AnimalGender.Male.ToString(),
+                Race = AnimalRace.Cat.ToString()
+            };
+        }
+
+        private VetDto CreateVetSUT()
+        {
+            return new VetDto
+            {
+                Name = &quot;TestVet&quot;,
+                Surname = &quot;TestSurname&quot;,
+                Birthdate = DateTime.Now.AddYears(-22).ToString(),
+                Email = &quot;test@email.com&quot;,
+                Phone = &quot;+40123456789&quot;,
+                Gender = PersonGender.Male.ToString(),
+                Specialisation = VetSpecialisation.DentalCaretaker.ToString()
+            };
+        }
+
+
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,10,0],[11,13,11,30,0],[12,9,12,10,0],[38,9,38,10,0],[39,13,45,15,0],[46,9,46,10,0],[49,9,49,10,0],[50,13,56,15,0],[57,9,57,10,0],[60,9,60,10,0],[61,13,70,15,0],[71,9,71,10,0]]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Integration.Test\BaseIntegrationTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
+using VetAppointment.API.Controllers;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.Integration.Tests
+{
+    public class BaseIntegrationTests
+    {
+        private DbContextOptions&lt;DatabaseContext&gt; options = new DbContextOptionsBuilder&lt;DatabaseContext&gt;()
+                .UseSqlite(&quot;Data Source = VetAppointmentTest.db&quot;).Options;
+        private DatabaseContext databaseContext { get; set; }
+
+
+        protected HttpClient HttpClient { get; private set; }
+        protected BaseIntegrationTests()
+        {
+            HttpClient = new WebApplicationFactory&lt;VetClinicsController&gt;().WithWebHostBuilder(builder =&gt; { }).CreateClient();
+            databaseContext = new DatabaseContext(options);
+            CleanDatabases();
+        }
+
+        protected void CleanDatabases()
+        {
+            databaseContext.PetOwners.RemoveRange(databaseContext.PetOwners.ToList());
+            databaseContext.VetClinics.RemoveRange(databaseContext.VetClinics.ToList());
+            databaseContext.Appointments.RemoveRange(databaseContext.Appointments.ToList());
+            databaseContext.Pets.RemoveRange(databaseContext.Pets.ToList());
+            databaseContext.Vets.RemoveRange(databaseContext.Vets.ToList());
+            databaseContext.Drugs.RemoveRange(databaseContext.Drugs.ToList());
+            databaseContext.SaveChanges();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,11,75,1],[12,51,12,55,1],[12,56,12,60,1],[15,43,15,47,1],[15,48,15,60,1],[16,9,16,41,1],[17,9,17,10,1],[18,13,18,106,1],[18,106,18,107,1],[18,107,18,108,1],[18,108,18,109,1],[18,109,18,126,1],[19,13,19,60,1],[20,13,20,30,1],[21,9,21,10,1],[24,9,24,10,1],[25,13,25,87,1],[26,13,26,89,1],[27,13,27,93,1],[28,13,28,77,1],[29,13,29,77,1],[30,13,30,79,1],[31,13,31,43,1],[32,9,32,10,1]]);
+    </script>
+  </body>
+</html>

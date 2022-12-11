@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.Business.Test\PetTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Net;
+using System.Xml.Linq;
+
+namespace VetAppointment.Business.Test
+{
+    public class PetTests
+    {
+        [Fact]
+        public void When_CreatePet_Then_ShouldReturnPet()
+        {
+            // Arrange
+            var sut = CreateSUT();
+
+            // Act
+            var result = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+            result.Entity.Should().NotBeNull();
+            result.Entity.Name.Should().Be(sut.Item1);
+            result.Entity.Birthdate.Should().Be(DateTime.Parse(sut.Item2));
+            result.Entity.Race.Should().Be(Enum.Parse&lt;AnimalRace&gt;(sut.Item3));
+            result.Entity.Gender.Should().Be(Enum.Parse&lt;AnimalGender&gt;(sut.Item4));
+        }
+
+        [Fact]
+        public void When_CreatePetWithInvalidGender_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var gender = &quot;male&quot;;
+
+            // Act
+            var result = Pet.Create(sut.Item1, sut.Item2, sut.Item3, gender);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_CreatePetWithInvalidSpecie_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var specie = &quot;cat&quot;;
+
+            // Act
+            var result = Pet.Create(sut.Item1, sut.Item2, specie, sut.Item4);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_CreatePetWithInvalidBirthdate_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var badBirthdate = &quot;22/22/22&quot;;
+
+            // Act
+            var result = Pet.Create(sut.Item1, badBirthdate, sut.Item3, sut.Item4);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterPetToClinic_Then_IdShouldNotBeNull()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var sutClinic = CreateSUTForClinic();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var clinic = VetClinic.Create(sutClinic.Item1, sutClinic.Item2, sutClinic.Item3, sutClinic.Item4, sutClinic.Item5).Entity;
+
+            // Act
+            pet.RegisterPetToClinic(clinic);
+
+            // Assert
+            pet.ClinicId.Should().Be(clinic.Id);
+        }
+
+        [Fact]
+        public void When_ConnectPetToOwner_Then_IdShouldNotBeNull()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var sutOwner = CreateSUTForOwner();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var owner = PetOwner.Create(sutOwner.Item1, sutOwner.Item2, sutOwner.Item3, sutOwner.Item4, sutOwner.Item5, sutOwner.Item6, sutOwner.Item7).Entity;
+
+            // Act
+            pet.ConnectToOwner(owner);
+
+            // Assert
+            pet.OwnerId.Should().Be(owner.Id);
+        }
+
+        [Fact]
+        public void When_UpdatePet_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+
+            // Act
+            var result = pet.Update(pet.Name, pet.Birthdate.ToString(), pet.Race.ToString(), pet.Gender.ToString());
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdatePetWithInvalidRace_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var race = &quot;invalidRace&quot;;
+
+            // Act
+            var result = pet.Update(pet.Name, pet.Birthdate.ToString(), race, pet.Gender.ToString());
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdatePetWithInvalidGender_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var gender = &quot;invalidGender&quot;;
+
+            // Act
+            var result = pet.Update(pet.Name, pet.Birthdate.ToString(), pet.Race.ToString(), gender);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+
+        [Fact]
+        public void When_UpdatePetWithInvalidBirthdate_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var pet = Pet.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4).Entity;
+            var birthdate = &quot;22/22/22&quot;;
+
+            // Act
+            var result = pet.Update(pet.Name, birthdate, pet.Race.ToString(), pet.Gender.ToString());
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        private static Tuple&lt;string, string, string, string&gt; CreateSUT()
+        {
+            return new Tuple&lt;string, string, string, string&gt;(&quot;Pisacio&quot;, &quot;12/06/2020&quot;, &quot;Cat&quot;, &quot;Male&quot;);
+        }
+        private static Tuple&lt;string, string, int, string, string&gt; CreateSUTForClinic()
+        {
+            return new Tuple&lt;string, string, int, string, string&gt;(&quot;Vet Clinic&quot;, &quot;Address&quot;, 10, &quot;email@gmail.com&quot;, &quot;+40123456789&quot;);
+        }
+        private static Tuple&lt;string, string, string, string, string, string, string&gt; CreateSUTForOwner()
+        {
+            return new Tuple&lt;string, string, string, string, string, string, string&gt;(
+                &quot;John&quot;, &quot;Doe&quot;, &quot;12/02/2001&quot;, &quot;Male&quot;, &quot;Address&quot;, &quot;john.doe@gmail.com&quot;, &quot;+40756221345&quot;);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,10,1],[12,13,12,35,1],[15,13,15,81,1],[18,13,18,48,1],[19,13,19,48,1],[20,13,20,55,1],[21,13,21,76,1],[22,13,22,79,1],[23,13,23,83,1],[24,9,24,10,1],[28,9,28,10,1],[30,13,30,35,1],[31,13,31,33,1],[34,13,34,78,1],[37,13,37,48,1],[38,9,38,10,1],[42,9,42,10,1],[44,13,44,35,1],[45,13,45,32,1],[48,13,48,78,1],[51,13,51,48,1],[52,9,52,10,1],[56,9,56,10,1],[58,13,58,35,1],[59,13,59,43,1],[62,13,62,84,1],[65,13,65,48,1],[66,9,66,10,1],[70,9,70,10,1],[72,13,72,35,1],[73,13,73,50,1],[74,13,74,85,1],[75,13,75,135,1],[78,13,78,45,1],[81,13,81,49,1],[82,9,82,10,1],[86,9,86,10,1],[88,13,88,35,1],[89,13,89,48,1],[90,13,90,85,1],[91,13,91,160,1],[94,13,94,39,1],[97,13,97,47,1],[98,9,98,10,1],[102,9,102,10,1],[104,13,104,35,1],[105,13,105,85,1],[108,13,108,117,1],[111,13,111,48,1],[112,9,112,10,1],[116,9,116,10,1],[118,13,118,35,1],[119,13,119,85,1],[120,13,120,38,1],[123,13,123,102,1],[126,13,126,48,1],[127,9,127,10,1],[131,9,131,10,1],[133,13,133,35,1],[134,13,134,85,1],[135,13,135,42,1],[138,13,138,102,1],[141,13,141,48,1],[142,9,142,10,1],[147,9,147,10,1],[149,13,149,35,1],[150,13,150,85,1],[151,13,151,40,1],[154,13,154,102,1],[157,13,157,48,1],[158,9,158,10,1],[161,9,161,10,1],[162,13,162,102,1],[163,9,163,10,1],[165,9,165,10,1],[166,13,166,131,1],[167,9,167,10,1],[169,9,169,10,1],[170,13,171,103,1],[172,9,172,10,1]]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\TreatmentRepository.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.Infrastructure.Repositories.GenericRepositories
+{
+    public class TreatmentRepository : Repository&lt;Treatment&gt;
+    {
+        private readonly DatabaseContext _databaseContext;
+        public TreatmentRepository(DatabaseContext context) : base(context)
+        {
+            _databaseContext = context;
+        }
+
+        public override async Task&lt;Treatment&gt; Get(Guid id)
+        {
+            return await _databaseContext.Set&lt;Treatment&gt;()
+            .Include(x =&gt; x.PrescribedDrugs)
+            .SingleOrDefaultAsync(x =&gt; x.Id == id);
+        }
+
+        public override async Task&lt;IEnumerable&lt;Treatment&gt;&gt; All()
+        {
+            return await _databaseContext.Set&lt;Treatment&gt;()
+            .Include(x =&gt; x.PrescribedDrugs)
+            .ToListAsync();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,63,10,76,0],[11,9,11,10,0],[12,13,12,40,0],[13,9,13,10,0],[16,9,16,10,0],[17,13,19,52,0],[20,9,20,10,0],[23,9,23,10,0],[24,13,26,28,0],[27,9,27,10,0]]);
+    </script>
+  </body>
+</html>

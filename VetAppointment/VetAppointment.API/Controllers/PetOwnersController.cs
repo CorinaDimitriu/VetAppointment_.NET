@@ -22,18 +22,21 @@ namespace VetAppointment.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var petOwners = petOwnerRepository.All().Select(owner => new PetOwnerDto
-            {
-                Id = owner.Id,
-                Name = owner.Name,
-                Surname = owner.Surname,
-                Birthdate = owner.Birthdate.ToString(),
-                Gender = owner.Gender.ToString(),
-                Address = owner.Address,
-                Email = owner.Email,
-                Phone = owner.Phone
-            });
-            
+            var petOwners = petOwnerRepository
+                .All()
+                .Select(
+                    owner => new PetOwnerDto
+                    {
+                        Id = owner.Id,
+                        Name = owner.Name,
+                        Surname = owner.Surname,
+                        Birthdate = owner.Birthdate.ToString(),
+                        Gender = owner.Gender.ToString(),
+                        Address = owner.Address,
+                        Email = owner.Email,
+                        Phone = owner.Phone
+                    });
+
             return Ok(petOwners);
         }
 
@@ -58,12 +61,24 @@ namespace VetAppointment.API.Controllers
             petOwnerRepository.Add(petOwner.Entity);
             petOwnerRepository.SaveChanges();
 
-            return Created(nameof(Get), petOwner);
+            var fullPetOwner = new PetOwnerDto()
+            {
+                Name = petOwner.Entity.Name,
+                Surname = petOwner.Entity.Surname,
+                Address = petOwner.Entity.Address,
+                Birthdate = petOwner.Entity.Birthdate.ToString(),
+                Email = petOwner.Entity.Email,
+                Gender = petOwner.Entity.Gender.ToString(),
+                Phone = petOwner.Entity.Phone,
+                Id = petOwner.Entity.Id
+            };
+
+            return Created(nameof(Get), fullPetOwner);
 
         }
 
         [HttpPost ("{ownerId:guid}/pets")]
-        public IActionResult RegisterPetsToOwner(Guid ownerId, [FromBody] List<PetDto> petsDtos)
+        public IActionResult RegisterPetsToOwner(Guid ownerId, [FromBody] List<CreatePetDto> petsDtos)
         {
             var owner = petOwnerRepository.Get(ownerId);
             if (owner == null)

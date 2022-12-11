@@ -13,11 +13,12 @@ namespace VetAppointment.Domain
         {
             if (string.IsNullOrWhiteSpace(description))
             {
-                return Result<Treatment>.Failure($"Description of treatment is not valid");
+                return Result<Treatment>.Failure($"Description {description} of treatment is not valid");
             }
 
             var treatment = new Treatment
             {
+                Id = Guid.NewGuid(),
                 Description = description,
                 PrescribedDrugs = new List<PrescribedDrug>()
             };
@@ -58,14 +59,14 @@ namespace VetAppointment.Domain
 
             return Result.Success();
         }
-    
+
         public Result UpdateDescription(string description)
         {
             if (description == null)
             {
                 return Result.Failure("Description can not be null");
             }
-            
+
             if (this.Description.Equals(description))
             {
                 return Result.Failure("Update Error");

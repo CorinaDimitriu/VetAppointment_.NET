@@ -57,10 +57,10 @@ namespace VetAppointment.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Quantity")
+                    b.Property<double>("Quantity")
                         .HasColumnType("REAL");
 
-                    b.Property<float>("UnitPrice")
+                    b.Property<double>("UnitPrice")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
@@ -159,16 +159,13 @@ namespace VetAppointment.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("DrugId")
-                        .HasColumnType("TEXT");
-
                     b.Property<Guid>("DrugToPrescribeId")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Quantity")
+                    b.Property<double>("Quantity")
                         .HasColumnType("REAL");
 
-                    b.Property<float>("TotalCost")
+                    b.Property<double>("TotalCost")
                         .HasColumnType("REAL");
 
                     b.Property<Guid?>("TreatmentId")
@@ -265,30 +262,6 @@ namespace VetAppointment.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("VetClinics");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("5a0a5d13-3616-46ee-9c8f-8dfbb0abdee5"),
-                            Address = "Str. 1 Decembrie Nr. 25",
-                            ContactEmail = "contact@casa_animalelor.com",
-                            ContactPhone = "+40712345678",
-                            MedicalHistoryId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Name = "Casa Animalelor",
-                            NumberOfPlaces = 124,
-                            RegistrationDate = new DateTime(2022, 11, 27, 17, 6, 49, 934, DateTimeKind.Local).AddTicks(8279)
-                        },
-                        new
-                        {
-                            Id = new Guid("88574e09-854f-452f-98bd-29a4d98a9801"),
-                            Address = "Str. Primaverii Nr. 15",
-                            ContactEmail = "contact@zoo_vet.com",
-                            ContactPhone = "+40778945612",
-                            MedicalHistoryId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Name = "Zoo-Vet",
-                            NumberOfPlaces = 64,
-                            RegistrationDate = new DateTime(2022, 11, 27, 17, 6, 49, 934, DateTimeKind.Local).AddTicks(8391)
-                        });
                 });
 
             modelBuilder.Entity("VetAppointment.Domain.Appointment", b =>

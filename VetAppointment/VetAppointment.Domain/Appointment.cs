@@ -13,16 +13,20 @@ namespace VetAppointment.Domain
         public Guid TreatmentId { get; private set; }
         public Guid MedicalHistoryId { get; private set; }
 
-        public static Result<Appointment> SettleAppointment(Vet vet, Pet pet, DateTime date, int duration)
+        public static Result<Appointment> SettleAppointment(Vet vet, Pet pet, string dateString, int duration)
         {
-            var vetId = vet.Id;
-            var petId = pet.Id;
+            Guid vetId = vet.Id;
+            Guid petId = pet.Id;
 
             if (duration <= 0)
             {
                 return Result<Appointment>.Failure($"Duration cannot be less than 0");
             }
 
+            if (!DateTime.TryParse(dateString, out DateTime date))
+            {
+                return Result<Appointment>.Failure($"Invalid birthdate - {dateString}!");
+            }
             if (date < DateTime.Now)
             {
                 return Result<Appointment>.Failure($"Date cannot be in the past");
@@ -34,32 +38,7 @@ namespace VetAppointment.Domain
                 VetId = vetId,
                 PetId = petId,
                 ScheduledDate = date,
-                EstimatedDurationInMinutes = duration
-            };
-
-            return Result<Appointment>.Success(appointment);
-        }
-
-        //!!!aici!!! - de sters cred
-        public static Result<Appointment> SettleAppointment(Guid vetId, Guid petId, DateTime date, int duration)
-        {
-            if (duration <= 0)
-            {
-                return Result<Appointment>.Failure($"Duration cannot be less than 0");
-            }
-
-            if (date < DateTime.Now)
-            {
-                return Result<Appointment>.Failure($"Date cannot be in the past");
-            }
-
-            var appointment = new Appointment
-            {
-                Id = Guid.NewGuid(),
-                VetId = vetId,
-                PetId = petId,
-                ScheduledDate = date,
-                EstimatedDurationInMinutes = duration
+                EstimatedDurationInMinutes = duration,
             };
 
             return Result<Appointment>.Success(appointment);
@@ -75,12 +54,17 @@ namespace VetAppointment.Domain
             MedicalHistoryId = history.Id;
         }
     
-        public Result Update(Guid vetId, Guid petId, DateTime scheduledDate, int estimatedDurationInMinutes,
+        public Result Update(Guid vetId, Guid petId, string scheduledDateString, int estimatedDurationInMinutes,
             Guid treatmentId, Guid medicalHistoryId)
         {
             if (estimatedDurationInMinutes <= 0)
             {
                 return Result.Failure($"Duration cannot be less than 0");
+            }
+
+            if (!DateTime.TryParse(scheduledDateString, out DateTime scheduledDate))
+            {
+                return Result.Failure($"Invalid birthdate - {scheduledDateString}!");
             }
 
             if (scheduledDate < DateTime.Now)

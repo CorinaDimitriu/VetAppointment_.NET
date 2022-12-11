@@ -1,5 +1,4 @@
-﻿using VetAppointment.Domain.Enums;
-#nullable disable
+﻿#nullable disable
 namespace VetAppointment.Shared.Domain
 {
     public class Pet

@@ -3,6 +3,7 @@ using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
 using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
 
 namespace VetAppointment.API.Controllers
 {
@@ -10,23 +11,9 @@ namespace VetAppointment.API.Controllers
     [ApiController]
     public class VetClinicsController : ControllerBase
     {
-        private readonly IRepository<VetClinic> vetClinicRepository;
-        private readonly IRepository<Pet> petRepository;
-        private readonly IRepository<Vet> vetRepository;
-        private readonly IRepository<Appointment> appointmentRepository;
-        private readonly IRepository<MedicalHistory> medicalHistoryRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public VetClinicsController(IRepository<VetClinic> vetClinicRepository, IRepository<Pet> petRepository,
-            IRepository<Vet> vetRepository, IRepository<Appointment> appointmentRepository,
-            IRepository<MedicalHistory> medicalHistoryRepository)
-        {
-            this.vetClinicRepository = vetClinicRepository;
-            this.petRepository = petRepository;
-            this.vetRepository = vetRepository;
-            this.appointmentRepository = appointmentRepository;
-            this.medicalHistoryRepository = medicalHistoryRepository;
-        
-        }
+        public VetClinicsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpPost]
         public IActionResult Create([FromBody] CreateVetClinicDto vetClinicDto)
@@ -39,7 +26,13 @@ namespace VetAppointment.API.Controllers
                     vetClinicDto.ContactEmail,
                     vetClinicDto.ContactPhone
                 );
-            history.Entity.AttachToClinic(vetClinic.Entity.Id);
+
+            if (vetClinic == null)
+            {
+                return BadRequest();
+            }
+
+            history.Entity.AtachToClinic(vetClinic.Entity.Id);
             vetClinic.Entity.AttachMedicalHistory(history.Entity.Id);
 
             if (vetClinic.IsFailure)
@@ -47,7 +40,12 @@ namespace VetAppointment.API.Controllers
                 return BadRequest(vetClinic.Error);
             }
 
-            //vetClinicRepository.Add(vetClinic.Entity);
+            unitOfWork.MedicalHistoryRepository.Add(history.Entity);
+            unitOfWork.SaveChanges();
+            
+            unitOfWork.VetClinicRepository.Add(vetClinic.Entity);
+            unitOfWork.SaveChanges();
+
             var fullClinic = new VetClinicDto
             {
                 Id = vetClinic.Entity.Id,
@@ -60,11 +58,6 @@ namespace VetAppointment.API.Controllers
                 MedicalHistoryId = history.Entity.Id
             };
 
-            medicalHistoryRepository.Add(history.Entity);
-            medicalHistoryRepository.SaveChanges();
-            vetClinicRepository.Add(vetClinic.Entity);
-            vetClinicRepository.SaveChanges();
-
             return Created(nameof(GetAllVetClinics), fullClinic);
         }
 
@@ -72,51 +65,59 @@ namespace VetAppointment.API.Controllers
         [HttpGet]
         public IActionResult GetAllVetClinics()
         {
-            var vetClinics = vetClinicRepository.All().Select(vet => new VetClinicDto()
-            {
-                Id = vet.Id,
-                Name = vet.Name,
-                Address = vet.Address,
-                NumberOfPlaces = vet.NumberOfPlaces,
-                ContactEmail = vet.ContactEmail,
-                ContactPhone = vet.ContactPhone,
-                RegistrationDate = vet.RegistrationDate,
-                MedicalHistoryId = vet.MedicalHistoryId
-            });
+            var vetClinics = unitOfWork.VetClinicRepository
+                .All()
+                .Select(
+                    vet => new VetClinicDto()
+                    {
+                        Id = vet.Id,
+                        Name = vet.Name,
+                        Address = vet.Address,
+                        NumberOfPlaces = vet.NumberOfPlaces,
+                        ContactEmail = vet.ContactEmail,
+                        ContactPhone = vet.ContactPhone,
+                        RegistrationDate = vet.RegistrationDate,
+                        MedicalHistoryId = vet.MedicalHistoryId
+                    }
+                );
+            
             return Ok(vetClinics);
         }
 
         [HttpGet("{vetClinicId:guid}")]
         public IActionResult GetById(Guid vetClinicId)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
+            
             return Ok(clinic);
         }
 
         [HttpGet("{vetClinicId:guid}/vets")]
         public IActionResult GetVetsByClinicId(Guid vetClinicId)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var vets = clinic.Vets.Select(vet => new VetDto()
-            {
-                Id = vet.Id,
-                Name = vet.Name,
-                Surname = vet.Surname,
-                Birthdate = vet.Birthdate.ToString(),
-                Specialisation = vet.Specialisation.ToString(),
-                Email = vet.Email,
-                Gender = vet.Gender.ToString(),
-                Phone = vet.Phone,
-            });
+            var vets = clinic.Vets
+                .Select(vet => new VetDto()
+                {
+                    Id = vet.Id,
+                    ClinicId = vet.ClinicId,
+                    Name = vet.Name,
+                    Surname = vet.Surname,
+                    Birthdate = vet.Birthdate.ToString(),
+                    Specialisation = vet.Specialisation.ToString(),
+                    Email = vet.Email,
+                    Gender = vet.Gender.ToString(),
+                    Phone = vet.Phone,
+                });
 
             return Ok(vets);
         }
@@ -124,29 +125,57 @@ namespace VetAppointment.API.Controllers
         [HttpGet("{vetClinicId:guid}/pets")]
         public IActionResult GetPetsByClinicId(Guid vetClinicId)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var pets = clinic.Pets.Select(pet => new PetDto()
-            {
-                Id = pet.Id,
-                Name = pet.Name,
-                Birthdate = pet.Birthdate.ToString(),
-                Gender = pet.Gender.ToString(),
-                Race = pet.Race.ToString(),
-            });
+            var pets = clinic.Pets
+                .Select(pet => new PetDto()
+                {
+                    Id = pet.Id,
+                    Name = pet.Name,
+                    Birthdate = pet.Birthdate.ToString(),
+                    Gender = pet.Gender.ToString(),
+                    Race = pet.Race.ToString(),
+                });
 
             return Ok(pets);
         }
-        
+
+        [HttpGet("{vetClinicId:guid}/appointments")]
+        public IActionResult GetAppointmentsByClinicId(Guid vetClinicId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(clinic.MedicalHistoryId);
+
+            var appointments = medicalHistory.Appointments
+                .Select(
+                    appointment => new AppointmentDto()
+                    {
+                        Id = appointment.Id,
+                        EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
+                        PetId = appointment.PetId,
+                        VetId = appointment.VetId,
+                        ScheduledDate = appointment.ScheduledDate.ToString(),
+                        TreatmentId = appointment.TreatmentId
+                    }
+                );
+
+            return Ok(appointments);
+        }
+
         // Post - Vet, Pets, Appointment, Drug
         [HttpPost("{vetClinicId:guid}/pets")]
-        public IActionResult RegisterPetsFamily(Guid vetClinicId, [FromBody] List<PetDto> petsDtos)
+        public IActionResult RegisterPetsFamily(Guid vetClinicId, [FromBody] List<CreatePetDto> petsDtos)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
@@ -164,22 +193,34 @@ namespace VetAppointment.API.Controllers
                 return BadRequest(result.Error);
             }
 
-            pets.ForEach(p => petRepository.Add(p.Entity));
-            petRepository.SaveChanges();
+            pets.ForEach(p => unitOfWork.PetRepository.Add(p.Entity));
+            unitOfWork.SaveChanges();
 
-            return NoContent();
+
+            var createdPets = pets.Select(
+                pet => new PetDto()
+                {
+                    Name = pet.Entity.Name,
+                    Birthdate = pet.Entity.Birthdate.ToString(),
+                    Gender = pet.Entity.Gender.ToString(),
+                    Race = pet.Entity.Race.ToString(),
+                    Id = pet.Entity.Id,
+                });
+
+            return Created(nameof(GetPetsByClinicId), createdPets);
         }
 
         [HttpPost("{vetClinicId:guid}/vet")]
-        public IActionResult RegisterVet(Guid vetClinicId, [FromBody] VetDto vetDto)
+        public IActionResult RegisterVet(Guid vetClinicId, [FromBody] CreateVetDto vetDto)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var doctor = Vet.Create(vetDto.Name, vetDto.Surname, vetDto.Birthdate, vetDto.Gender, vetDto.Email, vetDto.Phone, vetDto.Specialisation);
+            var doctor = Vet.Create(vetDto.Name, vetDto.Surname, vetDto.Birthdate, vetDto.Gender, vetDto.Email, 
+                vetDto.Phone, vetDto.Specialisation);
             if (doctor.IsFailure)
             {
                 return BadRequest();
@@ -191,37 +232,96 @@ namespace VetAppointment.API.Controllers
                 return BadRequest(result.Error);
             }
 
-            vetClinicRepository.Update(clinic);
-            vetRepository.Add(doctor.Entity);
-            vetRepository.SaveChanges();
+            unitOfWork.VetClinicRepository.Update(clinic);
+            unitOfWork.VetRepository.Add(doctor.Entity);
+            unitOfWork.SaveChanges();
 
-            return NoContent();
+            var createVet = new VetDto()
+            {
+                Name = doctor.Entity.Name,
+                Surname = doctor.Entity.Surname,
+                Specialisation = doctor.Entity.Specialisation.ToString(),
+                Birthdate = doctor.Entity.Birthdate.ToString(),
+                Gender = doctor.Entity.Gender.ToString(),
+                Email = doctor.Entity.Email,
+                Phone = doctor.Entity.Phone,
+                Id = doctor.Entity.Id,
+            };
+
+            return Created(nameof(RegisterVet), createVet);
         }
 
-        [HttpPut("{vetClinicId:guid}")]
-        public IActionResult Update(Guid vetClinicId, [FromBody] VetClinicDto vetClinicDto)
+        [HttpPost("{vetClinicId:guid}/appointment")]
+        public IActionResult RegisterAppointment(Guid vetClinicId, [FromBody] CreateAppointmentDto appointmentDto)
         {
-// Pentru front: Daca nu completeaza partea de "Number Of Places" atunci by default va fi 0.
-// In caz ca "Number of Places" necompletat va fi inlocuit cu "Number of pleces" din clinica luata dupa ID
-            if (vetClinicDto == null)
-            {
-                return BadRequest();
-            }
-
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var result = clinic.Update(vetClinicDto.Name, vetClinicDto.Address, vetClinicDto.NumberOfPlaces, vetClinicDto.ContactEmail, vetClinicDto.ContactPhone);
+            var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(clinic.MedicalHistoryId);
+
+            var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId);
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId);
+            if (vet == null)
+            {
+                return NotFound();
+            }
+
+            var appointment = Appointment.SettleAppointment(vet, pet, appointmentDto.ScheduledDate,
+                appointmentDto.EstimatedDurationInMinutes);
+            if (appointment.IsFailure)
+            {
+                return BadRequest();
+            }
+
+            var result = medicalHistory.RegisterAppointmentToHistory(appointment.Entity);
             if (result.IsFailure)
             {
                 return BadRequest(result.Error);
             }
 
-            vetClinicRepository.Update(result.Entity);
-            vetClinicRepository.SaveChanges();
+            unitOfWork.MedicalHistoryRepository.Update(medicalHistory);
+            unitOfWork.AppointmentRepository.Add(appointment.Entity);
+            unitOfWork.SaveChanges();
+
+            var createdAppointment = new AppointmentDto()
+            {
+                Id = appointment.Entity.Id,
+                EstimatedDurationInMinutes = appointment.Entity.EstimatedDurationInMinutes,
+                PetId = appointment.Entity.PetId,
+                VetId = appointment.Entity.VetId,
+                ScheduledDate = appointment.Entity.ScheduledDate.ToString(),
+                TreatmentId = appointment.Entity.TreatmentId
+            };
+
+            return Created(nameof(RegisterAppointment), createdAppointment);
+        }
+
+        [HttpPut("{vetClinicId:guid}")]
+        public IActionResult Update(Guid vetClinicId, [FromBody] VetClinicDto vetClinicDto)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var result = clinic.Update(vetClinicDto.Name, vetClinicDto.Address, vetClinicDto.NumberOfPlaces, 
+                vetClinicDto.ContactEmail, vetClinicDto.ContactPhone);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.VetClinicRepository.Update(result.Entity);
+            unitOfWork.SaveChanges();
 
             return NoContent();
         }
@@ -229,40 +329,41 @@ namespace VetAppointment.API.Controllers
         [HttpPut("{vetClinicId:guid}/vet/{vetId:guid}")]
         public IActionResult UpdateVet(Guid vetClinicId, Guid vetId, [FromBody] VetDto vetDto)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var vet = vetRepository.Get(vetId);
+            var vet = unitOfWork.VetRepository.Get(vetId);
             if (vet == null)
             {
                 return NotFound();
             }
 
-            var result = vet.Update(vetDto.Name, vetDto.Surname, vetDto.Birthdate, vetDto.Gender, vetDto.Email, vetDto.Phone, vetDto.Specialisation);
+            var result = vet.Update(vetDto.Name, vetDto.Surname, vetDto.Birthdate, vetDto.Gender, vetDto.Email, 
+                vetDto.Phone, vetDto.Specialisation);
             if (result.IsFailure)
             {
                 return BadRequest(result.Error);
             }
+            
+            unitOfWork.VetRepository.Update(vet);
+            unitOfWork.SaveChanges();
 
-            vetRepository.Update(vet);
-            vetRepository.SaveChanges();
-
-            return Ok();
+            return NoContent();
         }
 
-        [HttpPut("{vetClinicId:guid}/vet/{petId:guid}")]
+        [HttpPut("{vetClinicId:guid}/pet/{petId:guid}")]
         public IActionResult UpdatePet(Guid vetClinicId, Guid petId, [FromBody] PetDto petDto)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var pet = petRepository.Get(petId);
+            var pet = unitOfWork.PetRepository.Get(petId);
             if (pet == null)
             {
                 return NotFound();
@@ -274,65 +375,94 @@ namespace VetAppointment.API.Controllers
                 return BadRequest(result.Error);
             }
 
-            petRepository.Update(pet);
-            petRepository.SaveChanges();
+            unitOfWork.PetRepository.Update(pet);
+            unitOfWork.SaveChanges();
 
-            return Ok();
+            return NoContent();
         }
-        
+
         [HttpDelete("{vetClinicId:guid}")]
         public IActionResult Delete(Guid vetClinicId)
         {
-            var vetClinic = vetClinicRepository.Get(vetClinicId);
+            var vetClinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (vetClinic == null)
             {
                 return NotFound();
             }
-            vetClinicRepository.Delete(vetClinic);
-            vetClinicRepository.SaveChanges();
-            return Ok();
+
+            var medicalHistorys = unitOfWork.MedicalHistoryRepository.All().Where(m => m.ClinicId == vetClinicId);
+            if (medicalHistorys != null)
+            {
+                foreach (var item in medicalHistorys)
+                {
+                    unitOfWork.MedicalHistoryRepository.Delete(item);
+                }
+            }
+
+            var vets = unitOfWork.VetRepository.All().Where(v => v.ClinicId == vetClinicId);
+            if (vets != null)
+            {
+                foreach (var item in vets)
+                {
+                    unitOfWork.VetRepository.Delete(item);
+                }
+            }
+
+            var pets = unitOfWork.PetRepository.All().Where(p => p.ClinicId == vetClinicId);
+            if (pets != null)
+            {
+                foreach (var item in pets)
+                {
+                    unitOfWork.PetRepository.Delete(item);
+                }
+            }
+
+            unitOfWork.VetClinicRepository.Delete(vetClinic);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
         }
 
         [HttpDelete("{vetClinicId:guid}/vet/{vetId:guid}")]
         public IActionResult DeleteVet(Guid vetClinicId, Guid vetId)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var vet = vetRepository.Get(vetId);
+            var vet = unitOfWork.VetRepository.Get(vetId);
             if (vet == null)
             {
                 return NotFound();
             }
 
-            vetRepository.Delete(vet);
-            vetRepository.SaveChanges();
+            unitOfWork.VetRepository.Delete(vet);
+            unitOfWork.SaveChanges();
 
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete("{vetClinicId:guid}/pet/{petId:guid}")]
         public IActionResult DeletePet(Guid vetClinicId, Guid petId)
         {
-            var clinic = vetClinicRepository.Get(vetClinicId);
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)
             {
                 return NotFound();
             }
 
-            var pet = petRepository.Get(petId);
+            var pet = unitOfWork.PetRepository.Get(petId);
             if (pet == null)
             {
                 return NotFound();
             }
 
-            petRepository.Delete(pet);
-            petRepository.SaveChanges();
+            unitOfWork.PetRepository.Delete(pet);
+            unitOfWork.SaveChanges();
 
-            return Ok();
+            return NoContent();
         }
     }
 }

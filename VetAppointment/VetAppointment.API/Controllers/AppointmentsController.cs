@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
-using VetAppointment.Application;
 using VetAppointment.Domain;
-
+using VetAppointment.Infrastructure.Data;
 
 namespace VetAppointment.API.Controllers
 {
@@ -11,36 +10,25 @@ namespace VetAppointment.API.Controllers
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
-        private readonly IRepository<Appointment> appointmentRepository;
-        private readonly IRepository<MedicalHistory> medicalHistoryRepository;
-        private readonly IRepository<Treatment> treatmentRepository;
-        private readonly IRepository<Pet> petRepository;
-        private readonly IRepository<Vet> vetRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public AppointmentsController(IRepository<Appointment> appointmentRepository, 
-            IRepository<Pet> petRepository, IRepository<Vet> vetRepository, IRepository<MedicalHistory> medicalHistoryRepository,
-            IRepository<Treatment> treatmentRepository)
-        {
-            this.appointmentRepository = appointmentRepository;
-            this.petRepository = petRepository;
-            this.vetRepository = vetRepository;
-            this.medicalHistoryRepository = medicalHistoryRepository;
-            this.treatmentRepository = treatmentRepository;
-        }
+        public AppointmentsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpPost]
         public IActionResult Create([FromBody] CreateAppointmentDto appointmentDto)
         {
-            var pet = petRepository.Get(appointmentDto.PetId);
+            var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId);
             if (pet == null)
             {
                 return NotFound();
             }
-            var vet = vetRepository.Get(appointmentDto.VetId);
+            
+            var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId);
             if (vet == null)
             {
                 return NotFound();
             }
+            
             var appointment = Appointment.SettleAppointment(
                     vet,
                     pet,
@@ -48,21 +36,21 @@ namespace VetAppointment.API.Controllers
                     appointmentDto.EstimatedDurationInMinutes
                 );
 
-            var treatement = treatmentRepository.Get(appointmentDto.TreatmentId);
+            var treatement = unitOfWork.TreatmentRepository.Get(appointmentDto.TreatmentId);
             if (treatement == null )
             {
                 return NotFound();
             }
 
-            var history = medicalHistoryRepository.Get(appointmentDto.MedicalHistoryId);
+            var history = unitOfWork.MedicalHistoryRepository.Get(appointmentDto.MedicalHistoryId);
             if (history == null)
             {
                 return NotFound();
             }
 
             history.RegisterAppointmentToHistory(appointment.Entity);
-            medicalHistoryRepository.Update(history);
-            medicalHistoryRepository.SaveChanges();
+            unitOfWork.MedicalHistoryRepository.Update(history);
+            unitOfWork.SaveChanges();
 
             appointment.Entity.AttachTreatmentToAppointment(treatement);
             appointment.Entity.AttachAppointmentToMedicalHistory(history);
@@ -72,30 +60,30 @@ namespace VetAppointment.API.Controllers
             {
                 return BadRequest(appointment.Error);
             }
-            
-            appointmentRepository.Add(appointment.Entity);
-            appointmentRepository.SaveChanges();
+
+            unitOfWork.AppointmentRepository.Add(appointment.Entity);
+            unitOfWork.SaveChanges();
             var fullAppointment = new AppointmentDto
             {
                 Id = appointment.Entity.Id,
                 VetId = appointment.Entity.VetId,
                 PetId = appointment.Entity.PetId,
-                ScheduledDate = appointment.Entity.ScheduledDate,
+                ScheduledDate = appointment.Entity.ScheduledDate.ToString(),
                 EstimatedDurationInMinutes = appointment.Entity.EstimatedDurationInMinutes
             };
 
-            return Created(nameof(GetAllAppointments), appointment);
+            return Created(nameof(GetAllAppointments), fullAppointment);
         }
 
         [HttpGet]
         public IActionResult GetAllAppointments()
         {
-            var appointments = appointmentRepository.All().Select(appointment => new AppointmentDto()
+            var appointments = unitOfWork.AppointmentRepository.All().Select(appointment => new AppointmentDto()
             {
                 Id = appointment.Id,
                 VetId = appointment.VetId,
                 PetId = appointment.PetId,
-                ScheduledDate = appointment.ScheduledDate,
+                ScheduledDate = appointment.ScheduledDate.ToString(),
                 EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
                 TreatmentId = appointment.TreatmentId,
                 MedicalHistoryId = appointment.MedicalHistoryId
@@ -107,7 +95,7 @@ namespace VetAppointment.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetAppointmentById(Guid id)
         {
-            var appointment = appointmentRepository.Get(id);
+            var appointment = unitOfWork.AppointmentRepository.Get(id);
             if (appointment == null)
             {
                 return NotFound();
@@ -118,7 +106,7 @@ namespace VetAppointment.API.Controllers
                 Id = appointment.Id,
                 VetId = appointment.VetId,
                 PetId = appointment.PetId,
-                ScheduledDate = appointment.ScheduledDate,
+                ScheduledDate = appointment.ScheduledDate.ToString(),
                 EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
                 TreatmentId = appointment.TreatmentId,
                 MedicalHistoryId = appointment.MedicalHistoryId
@@ -130,14 +118,14 @@ namespace VetAppointment.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteAppointment(Guid id)
         {
-            var appointment = appointmentRepository.Get(id);
+            var appointment = unitOfWork.AppointmentRepository.Get(id);
             if (appointment == null)
             {
                 return NotFound();
             }
 
-            appointmentRepository.Delete(appointment);
-            appointmentRepository.SaveChanges();
+            unitOfWork.AppointmentRepository.Delete(appointment);
+            unitOfWork.SaveChanges();
 
             return NoContent();
         }
@@ -145,7 +133,7 @@ namespace VetAppointment.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateAppointment(Guid id, [FromBody] AppointmentDto appointmentDto)
         {
-            var appointment = appointmentRepository.Get(id);
+            var appointment = unitOfWork.AppointmentRepository.Get(id);
             if (appointment == null)
             {
                 return NotFound();
@@ -154,8 +142,8 @@ namespace VetAppointment.API.Controllers
             appointment.Update(appointment.VetId, appointmentDto.PetId, appointmentDto.ScheduledDate,
                 appointmentDto.EstimatedDurationInMinutes, appointmentDto.TreatmentId, appointmentDto.MedicalHistoryId);
 
-            appointmentRepository.Update(appointment);
-            appointmentRepository.SaveChanges();
+            unitOfWork.AppointmentRepository.Update(appointment);
+            unitOfWork.SaveChanges();
 
             return NoContent();
         }

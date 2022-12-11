@@ -106,7 +106,7 @@ namespace VetAppointment.Business.Test
 
             // Act
             var result = pet.Update(pet.Name, pet.Birthdate.ToString(), pet.Race.ToString(), pet.Gender.ToString());
-            
+
             // Assert
             result.IsSuccess.Should().BeTrue();
         }

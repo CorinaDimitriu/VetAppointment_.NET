@@ -1,6 +1,4 @@
-﻿using VetAppointment.Domain.Enums;
-
-namespace VetAppointment.Shared.Domain
+﻿namespace VetAppointment.Shared.Domain
 {
     public abstract class Person
     {

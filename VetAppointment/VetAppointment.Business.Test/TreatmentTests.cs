@@ -152,7 +152,7 @@ namespace VetAppointment.Business.Test
             // Assert
             result.IsFailure.Should().BeTrue();
         }
-        
+
         private static Tuple<string> CreateSUT()
         {
             return new Tuple<string>("paraacetamol500mg");

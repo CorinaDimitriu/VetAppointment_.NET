@@ -4,6 +4,7 @@
     {
         PawSurgeon = 0,
         DentalCaretaker = 1,
-        Nutritionist = 2
+        Nutritionist = 2,
+        Other = 3
     }
 }

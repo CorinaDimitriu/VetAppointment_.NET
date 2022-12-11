@@ -6,16 +6,21 @@ namespace VetAppointment.Infrastructure.Repositories.GenericRepositories
 {
     public class VetClinicRepository : Repository<VetClinic>
     {
-        private readonly DatabaseContext context;
+        private readonly DatabaseContext _databaseContext;
         public VetClinicRepository(DatabaseContext context) : base(context) 
         {
-            this.context = context;
+            _databaseContext = context;
         }
 
-        public override VetClinic Get(Guid id) 
-            => context.Set<VetClinic>().Include(x => x.Vets).Include(x => x.Pets).FirstOrDefault(x => x.Id == id);
+        public override VetClinic Get(Guid id) => _databaseContext.Set<VetClinic>()
+            .Include(x => x.Pets)
+            .Include(x => x.Vets)
+            .SingleOrDefault(x => x.Id == id);
+        
+        public override IEnumerable<VetClinic> All() => _databaseContext.Set<VetClinic>()
+            .Include(x => x.Pets)
+            .Include(x => x.Vets)
+            .ToList();
 
-        public override IEnumerable<VetClinic> All()
-            => context.Set<VetClinic>().Include(x => x.Vets).Include(x => x.Pets).ToList();
     }
 }

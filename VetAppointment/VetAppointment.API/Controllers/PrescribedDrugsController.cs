@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
 using VetAppointment.Domain;
 
@@ -22,10 +23,12 @@ namespace VetAppointment.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var drugs = prescribedDrugRepository.All().Select
-                (
+            var drugs = prescribedDrugRepository
+                .All()
+                .Select(
                     d => new PrescribedDrugDto
                     {
+                        Id = d.Id,
                         Quantity = d.Quantity,
                         DrugId = d.DrugToPrescribeId,
                         TotalCost = d.TotalCost
@@ -36,23 +39,32 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] PrescribedDrugDto drugDto)
+        public IActionResult Create([FromBody] CreatePrescribedDrugDto drugDto)
         {
-            var baseDrug = drugRepository.Get(drugDto.DrugId);
-            var drug = PrescribedDrug.Create(
-                    drugDto.Quantity,
-                    baseDrug
-                );
-
-            if (drug.IsFailure)
+            var drug = drugRepository.Get(drugDto.DrugId);
+            if (drug == null)
             {
-                return BadRequest(drug.Error);
+                return NotFound();
             }
 
-            prescribedDrugRepository.Add(drug.Entity);
+            var prescribedDrug = PrescribedDrug.Create(drugDto.Quantity, drug);
+            if (prescribedDrug.IsFailure)
+            {
+                return BadRequest(prescribedDrug.Error);
+            }
+
+            prescribedDrugRepository.Add(prescribedDrug.Entity);
             prescribedDrugRepository.SaveChanges();
 
-            return Created(nameof(Get), drug.Entity);
+            var fullPrescribedDrug = new PrescribedDrugDto
+            {
+                Id = prescribedDrug.Entity.Id,
+                Quantity = prescribedDrug.Entity.Quantity,
+                DrugId = prescribedDrug.Entity.DrugToPrescribeId,
+                TotalCost = prescribedDrug.Entity.TotalCost
+            };
+
+            return Created(nameof(Get), fullPrescribedDrug);
         }
     }
 }

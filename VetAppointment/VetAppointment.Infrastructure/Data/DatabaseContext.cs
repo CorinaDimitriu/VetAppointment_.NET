@@ -8,7 +8,7 @@ namespace VetAppointment.Infrastructure.Data
     {
         public DatabaseContext(DbContextOptions options) : base(options)
         {
-
+            this.Database.EnsureCreated();
         }
 
         public DbSet<Pet> Pets => Set<Pet>();
@@ -23,16 +23,16 @@ namespace VetAppointment.Infrastructure.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlite("Data Source = VetAppointment_Test.db");
+            //optionsBuilder.UseSqlite("Data Source = VetAppointmentTest.db");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<VetClinic>().HasData(new List<VetClinic> {
-                VetClinic.Create("Casa Animalelor", "Str. 1 Decembrie Nr. 25", 124, "contact@casa_animalelor.com", "+40712345678").Entity,
-                VetClinic.Create("Zoo-Vet", "Str. Primaverii Nr. 15", 64, "contact@zoo_vet.com", "+40778945612").Entity
-            });
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<VetClinic>().HasData(new List<VetClinic> {
+        //        VetClinic.Create("Casa Animalelor", "Str. 1 Decembrie Nr. 25", 124, "contact@casa_animalelor.com", "+40712345678").Entity,
+        //        VetClinic.Create("Zoo-Vet", "Str. Primaverii Nr. 15", 64, "contact@zoo_vet.com", "+40778945612").Entity
+        //    });
+        //}
 
         public void Save() => SaveChanges();
     }

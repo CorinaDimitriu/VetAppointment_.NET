@@ -15,7 +15,7 @@ namespace VetAppointment.Domain
         public List<Pet> Pets { get; private set; }
         public List<Vet> Vets { get; private set; }
         public Guid MedicalHistoryId { get; private set; }
-
+        
         public ClinicOwner Owner;
 
         public static Result<VetClinic> Create(string name, string address, int numberOfPlaces, string contactEmail,
@@ -95,7 +95,7 @@ namespace VetAppointment.Domain
         public int GetAvailableNumberOfPlaces() => NumberOfPlaces - Pets.Count;
 
         public Result<VetClinic> Update(string name, string address, int numberOfPlaces, string contactEmail, string contactPhone)
-        {//!!!aici!!! - nu stiu cum ar trebui facut sa fie 100%
+        {
             if (name != "" && name != null)
             {
                 this.Name = name;
@@ -114,17 +114,18 @@ namespace VetAppointment.Domain
             }
             this.NumberOfPlaces = numberOfPlaces;
 
-            if (contactEmail == null || contactEmail == "" || !Validations.IsValidEmail(contactEmail))
+            if (!Validations.IsValidEmail(contactEmail))
             {
                 return Result<VetClinic>.Failure($"Email {contactEmail} is not valid");
             }
             this.ContactEmail = contactEmail;
 
-            if (contactPhone == null || contactPhone == "" || !Validations.IsValidPhoneNumber(contactPhone))
+            if (!Validations.IsValidPhoneNumber(contactPhone))
             {
                 return Result<VetClinic>.Failure($"Phone number {contactPhone} is not valid");
             }
             this.ContactPhone = contactPhone;
+
 
             return Result<VetClinic>.Success(this);
         }

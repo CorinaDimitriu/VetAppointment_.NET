@@ -33,9 +33,21 @@ namespace VetAppointment.Domain
             return Result.Success();
         }
 
-        public void AttachToClinic(Guid clinicId)
+        public void AtachToClinic(Guid clinicId)
         {
             this.ClinicId = clinicId;
+        }
+
+        public Result RemoveAppointmentFromHistory(Appointment appointment)
+        {
+            if (appointment == null)
+            {
+                return Result.Failure("Appointment does not exist");
+            }
+
+            Appointments.Remove(appointment);
+
+            return Result.Success();
         }
     }
 }

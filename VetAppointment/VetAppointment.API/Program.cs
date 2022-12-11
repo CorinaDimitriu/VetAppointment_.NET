@@ -6,6 +6,7 @@ using VetAppointment.Infrastructure.Repositories.GenericRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -14,7 +15,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
-builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
+builder.Services.AddDbContext<DatabaseContext>(
+	options => options.UseSqlite("Data Source = VetAppointmentTest.db"));
+
+//builder.Services.AddDbContext<DatabaseContext>(
+//	options => options.UseSqlite(
+//		builder.Configuration.GetConnectionString("TestConnection"), 
+//		b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)
+//		)
+//	);
+
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
 builder.Services.AddScoped<IRepository<PetOwner>, PetOwnerRepository>();

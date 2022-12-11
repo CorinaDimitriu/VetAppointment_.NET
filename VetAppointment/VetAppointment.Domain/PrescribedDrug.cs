@@ -24,6 +24,7 @@ namespace VetAppointment.Domain
 
             var prescribedDrug = new PrescribedDrug
             {
+                Id = Guid.NewGuid(),
                 Quantity = quantity,
                 DrugToPrescribeId = drugToPrescribe.Id,
                 TotalCost = CalculateDrugCost(quantity, drugToPrescribe.UnitPrice)
@@ -35,7 +36,6 @@ namespace VetAppointment.Domain
         {
             return quantity * price;
         }
-
         public Result Update(double quantity, Drug drugToPrescribe)
         {
             if (quantity < 0)

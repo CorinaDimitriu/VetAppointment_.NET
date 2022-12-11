@@ -4,7 +4,17 @@
     {
         public static bool IsValidEmail(string email)
         {
+            if (email == null)
+            {
+                return false;
+            }
+            
             email = email.Trim();
+
+            if (email.Length == 0)
+            {
+                return false;
+            }
 
             if (email.EndsWith("."))
             {

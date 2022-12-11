@@ -3,6 +3,7 @@ using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
 using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
 
 namespace VetAppointment.API.Controllers
 {
@@ -10,68 +11,73 @@ namespace VetAppointment.API.Controllers
     [ApiController]
     public class MedicalHistoriesController : ControllerBase
     {
-// UnitOfWork
-        private readonly IRepository<MedicalHistory> medicalHistoryRepository;
-        private readonly IRepository<Pet> petRepository;
-        private readonly IRepository<Vet> vetRepository;
-        private readonly IRepository<Appointment> appointmentRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public MedicalHistoriesController(IRepository<MedicalHistory> medicalHistoryRepository,
-            IRepository<Pet> petRepository, IRepository<Vet> vetRepository, IRepository<Appointment> appointmentRepository)
-        {
-            this.medicalHistoryRepository = medicalHistoryRepository;
-            this.petRepository = petRepository;
-            this.vetRepository = vetRepository;
-            this.appointmentRepository = appointmentRepository;
-        }
+        public MedicalHistoriesController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpGet]
         public IActionResult Get()
         {
-            var medicalHistories = medicalHistoryRepository.All().Select(history => new MedicalHistoryDto
-            {
-                Id = history.Id
-            });
-            
+            var medicalHistories = unitOfWork.MedicalHistoryRepository
+                .All()
+                .Select( history => new MedicalHistoryDto { Id = history.Id, ClinicId = history.ClinicId } );
+
             return Ok(medicalHistories);
         }
 
-        //[HttpPost("{vetClinicId:guid}/appointment")]
-        //public IActionResult RegisterAppointment(Guid historyId, [FromBody] AppointmentDto appDto)
-        //{
-        //    MedicalHistory medHistory = medicalHistoryRepository.Get(historyId);
-        //    if (medHistory == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var pet = petRepository.Get(appDto.PetId);
-        //    if (pet == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var vet = vetRepository.Get(appDto.VetId);
-        //    if (vet == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPost("{medicalHistoryId:Guid}/appointment")]
+        public IActionResult Post(Guid medicalHistoryId, [FromBody] CreateAppointmentDto appointmentDto)
+        {
+            var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(medicalHistoryId);
+            if (medicalHistory == null)
+            {
+                return NotFound();
+            }
 
-        //    var appointment = Appointment.SettleAppointment(vet, pet, appDto.ScheduledDate, appDto.EstimatedDurationInMinutes);
-        //    if (appointment.IsFailure)
-        //    {
-        //        return BadRequest();
-        //    }
+            var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId);
+            if (pet == null)
+            {
+                return NotFound();
+            }
 
-        //    var result = medHistory.RegisterAppointmentToHistory(appointment.Entity);
-        //    if (result.IsFailure)
-        //    {
-        //        return BadRequest(result.Error);
-        //    }
+            var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId);
+            if (vet == null)
+            {
+                return NotFound();
+            }
 
-        //    medicalHistoryRepository.Update(medHistory);
-        //    appointmentRepository.Add(appointment.Entity);
-        //    appointmentRepository.SaveChanges();
+            var appointment = Appointment.SettleAppointment(
+                vet, 
+                pet, 
+                appointmentDto.ScheduledDate, 
+                appointmentDto.EstimatedDurationInMinutes
+            );
+            if (appointment.IsFailure)
+            {
+                return BadRequest(appointment.Error);
+            }
 
-        //    return NoContent();
-        //}
+            var result = medicalHistory.RegisterAppointmentToHistory(appointment.Entity);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.AppointmentRepository.Add(appointment.Entity);
+            unitOfWork.SaveChanges();
+
+            var fullAppointment = new AppointmentDto
+            {
+                Id = appointment.Entity.Id,
+                ScheduledDate = appointment.Entity.ScheduledDate.ToString(),
+                EstimatedDurationInMinutes = appointment.Entity.EstimatedDurationInMinutes,
+                VetId = appointment.Entity.VetId,
+                PetId = appointment.Entity.PetId,
+                TreatmentId = appointment.Entity.TreatmentId,
+                MedicalHistoryId = appointment.Entity.MedicalHistoryId
+            };
+
+            return Created(nameof(Post), fullAppointment);
+        }
     }
 }

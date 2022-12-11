@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
-      "VetAppointment.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/VetAppointment.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/VetAppointment.Domain.dll": {}
-        }
-      }
-    }
+    "net7.0": {}
   },
-  "libraries": {
-    "VetAppointment.Domain/1.0.0": {
-      "type": "project",
-      "path": "../VetAppointment.Domain/VetAppointment.Domain.csproj",
-      "msbuildProject": "../VetAppointment.Domain/VetAppointment.Domain.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "VetAppointment.Domain >= 1.0.0"
-    ]
+    "net7.0": []
   },
   "packageFolders": {
     "C:\\Users\\Leonard\\.nuget\\packages\\": {},
@@ -33,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+      "projectUniqueName": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
       "projectName": "VetAppointment.Shared",
-      "projectPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+      "projectPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
       "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\obj\\",
+      "outputPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,11 +38,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
-              "projectPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

@@ -1,7 +1,4 @@
-﻿using VetAppointment.Domain;
-using VetAppointment.Domain.Enums;
-
-namespace VetAppointment.Shared.Domain
+﻿namespace VetAppointment.Shared.Domain
 {
     public class Vet : Person
     {

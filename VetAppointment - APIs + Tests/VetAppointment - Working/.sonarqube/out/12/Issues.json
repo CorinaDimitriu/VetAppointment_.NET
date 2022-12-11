@@ -18,7 +18,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
                 "region": {
                   "startLine": 5,
                   "startColumn": 23,
@@ -31,7 +31,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
                 "region": {
                   "startLine": 5,
                   "startColumn": 23,
@@ -52,12 +52,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
                 "region": {
-                  "startLine": 17,
+                  "startLine": 18,
                   "startColumn": 1,
-                  "endLine": 17,
-                  "endColumn": 67
+                  "endLine": 18,
+                  "endColumn": 73
                 }
               }
             }
@@ -73,54 +73,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
                 "region": {
-                  "startLine": 26,
+                  "startLine": 40,
                   "startColumn": 1,
-                  "endLine": 26,
-                  "endColumn": 6
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S5122",
-          "level": "warning",
-          "message": "Make sure this permissive CORS policy is safe here.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
-                "region": {
-                  "startLine": 44,
-                  "startColumn": 3,
-                  "endLine": 44,
-                  "endColumn": 26
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1481",
-          "level": "warning",
-          "message": "Remove the unused local variable 'fullAppointment'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/AppointmentsController.cs",
-                "region": {
-                  "startLine": 66,
-                  "startColumn": 17,
-                  "endLine": 66,
-                  "endColumn": 32
+                  "endLine": 40,
+                  "endColumn": 4
                 }
               }
             }
@@ -136,7 +94,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/DrugsController.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/DrugsController.cs",
                 "region": {
                   "startLine": 37,
                   "startColumn": 13,
@@ -196,39 +154,6 @@
               "C#",
               "MainSourceScope",
               "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S1481": {
-          "id": "S1481",
-          "shortDescription": "Unused local variables should be removed",
-          "fullDescription": "If a local variable is declared but not used, it is dead code and should be removed. Doing so will improve maintainability because developers will not wonder what the variable is used for.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S5122": {
-          "id": "S5122",
-          "shortDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive",
-          "fullDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive. It has led in the past to the following vulnerabilities:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-5122",
-          "properties": {
-            "category": "Minor Security Hotspot",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
               "SonarWay"
             ]
           }

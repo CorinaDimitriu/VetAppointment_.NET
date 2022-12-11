@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\TreatmentTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using VetAppointment.Domain.Helpers;
+
+namespace VetAppointment.Business.Test
+{
+    public class TreatmentTests
+    {
+        [Fact]
+        public void When_CreateTreatment_Then_ShouldReturnTreatment()
+        {
+            // Arrange
+            var sut = CreateSUT();
+
+            // Act
+            var result = Treatment.Create(sut.Item1);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+            result.Entity.Should().NotBeNull();
+            result.Entity.Description.Should().Be(sut.Item1);
+        }
+
+
+        [Fact]
+        public void When_CreateTreatmentWithInvalidDescription_Then_ShouldReturnFailure()
+        {
+            // Arrange
+
+            // Act
+            var result = Treatment.Create(null);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_CalculateTreatmentCost_Then_ShouldReturnSumOfDrugs()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+            var sutDrug = CreateSUTForPrescribedDrug();
+            var prescribedDrug = PrescribedDrug.Create(sutDrug.Item1, sutDrug.Item2).Entity;
+            var drugs = new List&lt;PrescribedDrug&gt;
+            {
+                prescribedDrug
+            };
+            treatment.AppendDrugsToTreatment(drugs);
+
+            // Act
+            var result = treatment.CalculatePriceOfTreatment();
+
+            // Assert
+            result.Should().Be(prescribedDrug.TotalCost);
+        }
+
+        [Fact]
+        public void When_AppendNullDrugsToTreatment_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+            var drugs = new List&lt;PrescribedDrug&gt;();
+
+            // Act
+            var result = treatment.AppendDrugsToTreatment(drugs);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RemoveDrugFromTreatment_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+            var sutDrug = CreateSUTForPrescribedDrug();
+            var prescribedDrug = PrescribedDrug.Create(sutDrug.Item1, sutDrug.Item2).Entity;
+            var drugs = new List&lt;PrescribedDrug&gt;
+            {
+                prescribedDrug
+            };
+            treatment.AppendDrugsToTreatment(drugs);
+
+            // Act
+            var result = treatment.RemoveDrugFromTreatment(prescribedDrug);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RemoveInvalidDrugFromTreatment_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+            var sutDrug = CreateSUTForPrescribedDrug();
+            var prescribedDrug1 = PrescribedDrug.Create(sutDrug.Item1, sutDrug.Item2).Entity;
+            var prescribedDrug2 = PrescribedDrug.Create(30, sutDrug.Item2).Entity;
+            var drugs = new List&lt;PrescribedDrug&gt;
+            {
+                prescribedDrug1
+            };
+            treatment.AppendDrugsToTreatment(drugs);
+
+            // Act
+            var result = treatment.RemoveDrugFromTreatment(prescribedDrug2);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateTreatmentDescription_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+
+            // Act
+            var result = treatment.UpdateDescription(&quot;newDescription&quot;);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateDescriptionWithNull_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+
+            // Act
+            var result = treatment.UpdateDescription(null);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateDescriptionWithOldDescription_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var treatment = Treatment.Create(sut.Item1).Entity;
+
+            // Act
+            var result = treatment.UpdateDescription(treatment.Description);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        private static Tuple&lt;string&gt; CreateSUT()
+        {
+            return new Tuple&lt;string&gt;(&quot;paraacetamol500mg&quot;);
+        }
+        private static Tuple&lt;double, Drug&gt; CreateSUTForPrescribedDrug()
+        {
+            var sutDrug = CreateSUTForDrug();
+            return new Tuple&lt;double, Drug&gt;(4, Drug.Create(sutDrug.Item1, sutDrug.Item2, sutDrug.Item3).Entity);
+        }
+        private static Tuple&lt;string, double, double&gt; CreateSUTForDrug()
+        {
+            return new Tuple&lt;string, double, double&gt;(&quot;Paracetamol&quot;, 11, 95.84);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[9,9,9,10,1],[11,13,11,35,1],[14,13,14,54,1],[17,13,17,48,1],[18,13,18,48,1],[19,13,19,62,1],[20,9,20,10,1],[25,9,25,10,1],[29,13,29,49,1],[32,13,32,48,1],[33,9,33,10,1],[37,9,37,10,1],[39,13,39,35,1],[40,13,40,64,1],[41,13,41,56,1],[42,13,42,93,1],[43,13,46,15,1],[47,13,47,53,1],[50,13,50,64,1],[53,13,53,58,1],[54,9,54,10,1],[58,9,58,10,1],[60,13,60,35,1],[61,13,61,64,1],[62,13,62,52,1],[65,13,65,66,1],[68,13,68,48,1],[69,9,69,10,1],[73,9,73,10,1],[75,13,75,35,1],[76,13,76,64,1],[77,13,77,56,1],[78,13,78,93,1],[79,13,82,15,1],[83,13,83,53,1],[86,13,86,76,1],[89,13,89,48,1],[90,9,90,10,1],[94,9,94,10,1],[96,13,96,35,1],[97,13,97,64,1],[98,13,98,56,1],[99,13,99,94,1],[100,13,100,83,1],[101,13,104,15,1],[105,13,105,53,1],[108,13,108,77,1],[111,13,111,48,1],[112,9,112,10,1],[116,9,116,10,1],[118,13,118,35,1],[119,13,119,64,1],[122,13,122,72,1],[125,13,125,48,1],[126,9,126,10,1],[130,9,130,10,1],[132,13,132,35,1],[133,13,133,64,1],[136,13,136,60,1],[139,13,139,48,1],[140,9,140,10,1],[144,9,144,10,1],[146,13,146,35,1],[147,13,147,64,1],[150,13,150,77,1],[153,13,153,48,1],[154,9,154,10,1],[157,9,157,10,1],[158,13,158,59,1],[159,9,159,10,1],[161,9,161,10,1],[162,13,162,46,1],[163,13,163,112,1],[164,9,164,10,1],[166,9,166,10,1],[167,13,167,80,1],[168,9,168,10,1]]);
+    </script>
+  </body>
+</html>

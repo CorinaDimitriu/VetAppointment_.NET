@@ -14,16 +14,16 @@
         {
           "ruleId": "CS8618",
           "level": "warning",
-          "message": "Non-nullable property 'ScheduledDate' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "message": "Non-nullable field 'appointmentRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
                 "region": {
-                  "startLine": 5,
-                  "startColumn": 23,
-                  "endLine": 5,
-                  "endColumn": 36
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
                 }
               }
             }
@@ -31,12 +31,12 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Dtos/Create/CreateAppointmentDto.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
                 "region": {
-                  "startLine": 5,
-                  "startColumn": 23,
-                  "endLine": 5,
-                  "endColumn": 36
+                  "startLine": 13,
+                  "startColumn": 42,
+                  "endLine": 13,
+                  "endColumn": 63
                 }
               }
             }
@@ -46,102 +46,395 @@
           }
         },
         {
-          "ruleId": "S125",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Remove this commented out code.",
+          "message": "Non-nullable field 'drugRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
                 "region": {
-                  "startLine": 17,
-                  "startColumn": 1,
-                  "endLine": 17,
-                  "endColumn": 67
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
-                "region": {
-                  "startLine": 26,
-                  "startColumn": 1,
-                  "endLine": 26,
-                  "endColumn": 6
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1481",
-          "level": "warning",
-          "message": "Remove the unused local variable 'fullAppointment'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/AppointmentsController.cs",
-                "region": {
-                  "startLine": 66,
-                  "startColumn": 17,
-                  "endLine": 66,
-                  "endColumn": 32
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S5122",
-          "level": "warning",
-          "message": "Make sure this permissive CORS policy is safe here.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Program.cs",
-                "region": {
-                  "startLine": 44,
-                  "startColumn": 3,
-                  "endLine": 44,
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
                   "endColumn": 26
                 }
               }
             }
           ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 35,
+                  "endLine": 24,
+                  "endColumn": 49
+                }
+              }
+            }
+          ],
           "properties": {
             "warningLevel": 1
           }
         },
         {
-          "ruleId": "S1199",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Extract this nested code block into a separate method.",
+          "message": "Non-nullable field 'medicalHistoryRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.API/Controllers/DrugsController.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
                 "region": {
-                  "startLine": 37,
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 45,
+                  "endLine": 34,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'petOwnerRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 39,
+                  "endLine": 44,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'petRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 34,
+                  "endLine": 54,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'prescribedDrugRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 45,
+                  "endLine": 64,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'treatmentRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 40,
+                  "endLine": 74,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'vetClinicRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 40,
+                  "endLine": 84,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'vetRepository' must contain a non-null value when exiting constructor. Consider declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/UnitOfWork.cs",
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 34,
+                  "endLine": 94,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/PetOwnerRepository.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 50,
+                  "endLine": 17,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/MedicalHistoryRepository.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 56,
+                  "endLine": 17,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/VetClinicRepository.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 51,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/TreatmentRepository.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 51,
+                  "endLine": 17,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/DatabaseContext.cs",
+                "region": {
+                  "startLine": 26,
                   "startColumn": 13,
-                  "endLine": 37,
-                  "endColumn": 14
+                  "endLine": 26,
+                  "endColumn": 79
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Data/DatabaseContext.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 9,
+                  "endLine": 30,
+                  "endColumn": 12
                 }
               }
             }
@@ -152,6 +445,20 @@
         }
       ],
       "rules": {
+        "CS8603": {
+          "id": "CS8603",
+          "shortDescription": "Possible null reference return.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8603)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
         "CS8618": {
           "id": "CS8618",
           "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.",
@@ -163,23 +470,6 @@
             "tags": [
               "Compiler",
               "Telemetry"
-            ]
-          }
-        },
-        "S1199": {
-          "id": "S1199",
-          "shortDescription": "Nested code blocks should not be used",
-          "fullDescription": "Nested code blocks can be used to create a new scope and restrict the visibility of the variables defined inside it. Using this feature in a method typically indicates that the method has too many responsibilities, and should be refactored into smaller methods.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1199",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
             ]
           }
         },
@@ -196,39 +486,6 @@
               "C#",
               "MainSourceScope",
               "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S1481": {
-          "id": "S1481",
-          "shortDescription": "Unused local variables should be removed",
-          "fullDescription": "If a local variable is declared but not used, it is dead code and should be removed. Doing so will improve maintainability because developers will not wonder what the variable is used for.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S5122": {
-          "id": "S5122",
-          "shortDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive",
-          "fullDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive. It has led in the past to the following vulnerabilities:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-5122",
-          "properties": {
-            "category": "Minor Security Hotspot",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
               "SonarWay"
             ]
           }

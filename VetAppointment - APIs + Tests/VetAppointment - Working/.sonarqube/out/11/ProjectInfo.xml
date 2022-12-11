@@ -4,14 +4,14 @@
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Product</ProjectType>
   <ProjectGuid>16e3fab8-f3d4-448f-9904-55bf00b5975a</ProjectGuid>
-  <FullPath>D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj</FullPath>
+  <FullPath>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
-    <AnalysisResult Id="FilesToAnalyze" Location="D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\conf\11\FilesToAnalyze.txt" />
+    <AnalysisResult Id="FilesToAnalyze" Location="D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\conf\11\FilesToAnalyze.txt" />
   </AnalysisResults>
   <AnalysisSettings>
-    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\out\11\Issues.json</Property>
-    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\out\11</Property>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\out\11\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\out\11</Property>
   </AnalysisSettings>
   <Configuration>Debug</Configuration>
   <Platform>AnyCPU</Platform>

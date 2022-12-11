@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Integration.Test\PetOwnersControllerTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+#nullable disable
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
+using VetAppointment.API.Controllers;
+using VetAppointment.Application;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.Integration.Tests
+{
+    public class PetOwnersControllerTests : BaseIntegrationTests
+    {
+        private const string ApiURL = &quot;v1/api/petowners&quot;;
+
+        public PetOwnersControllerTests(WebApplicationFactory&lt;VetClinicsController&gt; factory) : base(factory)
+        {
+        }
+
+        [Fact]
+        public async Task When_RegisterPetsToOwner_Then_ShouldSavePetsToOwnerAsync()
+        {
+            var HttpClient = _factory.WithWebHostBuilder(builder =&gt;
+            {
+                builder.ConfigureTestServices(services =&gt;
+                {
+                    services.AddDbContext&lt;DatabaseContext&gt;(options =&gt;
+                    {
+                        options.UseSqlite(&quot;Data Source = VetAppointmentTest9.db&quot;);
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions&lt;DatabaseContext&gt; options = new DbContextOptionsBuilder&lt;DatabaseContext&gt;()
+                .UseSqlite(&quot;Data Source = VetAppointmentTest9.db&quot;).Options;
+            DatabaseContext db = new DatabaseContext(options);
+            db.RemoveRange(db.Vets.ToList());
+            db.RemoveRange(db.Pets.ToList());
+            db.RemoveRange(db.PetOwners.ToList());
+            db.RemoveRange(db.VetClinics.ToList());
+            db.SaveChanges();
+            // Arrange
+            //using (var scope = _factory.Services.CreateScope())
+            //{
+            //    var scopedServices = scope.ServiceProvider;
+            //    var db = scopedServices.GetRequiredService&lt;DatabaseContext&gt;();
+
+            //    db.RemoveRange(db.PetOwners.ToList());
+            //    db.RemoveRange(db.VetClinics.ToList());
+            //    db.RemoveRange(db.Pets.ToList());
+            //    db.SaveChanges();
+            //}
+
+            CreatePetOwnerDto createPetOwnerDto = CreateSUT();
+            var createPetOwnerResponse = await HttpClient.PostAsJsonAsync(&quot;v1/API/PetOwners&quot;, createPetOwnerDto);
+            var pets = new List&lt;PetDto&gt;
+            {
+                new PetDto
+                {
+                    Name = &quot;Bobita&quot;,
+                    Birthdate = &quot;9/10/2021&quot;,
+                    Race = &quot;Dog&quot;,
+                    Gender = &quot;Male&quot;
+                }
+            };
+            var petOwner = await createPetOwnerResponse.Content.ReadFromJsonAsync&lt;PetOwnerDto&gt;();
+
+            // Act
+            var resultResponse = await HttpClient.PostAsJsonAsync($&quot;{ApiURL}/{petOwner.Id}/pets&quot;, pets);
+
+            // Assert
+            resultResponse.EnsureSuccessStatusCode();
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+        }
+
+        [Fact]
+        public async void When_RegisterEmptyListOfPetsToOwner_Then_ShouldReturnBadRequestAsync()
+        {
+            var HttpClient = _factory.WithWebHostBuilder(builder =&gt;
+            {
+                builder.ConfigureTestServices(services =&gt;
+                {
+                    services.AddDbContext&lt;DatabaseContext&gt;(options =&gt;
+                    {
+                        options.UseSqlite(&quot;Data Source = VetAppointmentTest8.db&quot;);
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions&lt;DatabaseContext&gt; options = new DbContextOptionsBuilder&lt;DatabaseContext&gt;()
+                .UseSqlite(&quot;Data Source = VetAppointmentTest8.db&quot;).Options;
+            DatabaseContext db = new DatabaseContext(options);
+            db.RemoveRange(db.Vets.ToList());
+            db.RemoveRange(db.Pets.ToList());
+            db.RemoveRange(db.PetOwners.ToList());
+            db.RemoveRange(db.VetClinics.ToList());
+            db.SaveChanges();
+            //using (var scope = _factory.Services.CreateScope())
+            //{
+            //    var scopedServices = scope.ServiceProvider;
+            //    var db = scopedServices.GetRequiredService&lt;DatabaseContext&gt;();
+
+            //    db.RemoveRange(db.PetOwners.ToList());
+            //    db.RemoveRange(db.VetClinics.ToList());
+            //    db.RemoveRange(db.Pets.ToList());
+            //    db.SaveChanges();
+            //}
+            // Arrange
+            CreatePetOwnerDto createPetOwnerDto = CreateSUT();
+
+            var createPetOwnerResponse = await HttpClient.PostAsJsonAsync(ApiURL, createPetOwnerDto);
+            var pets = new List&lt;PetDto&gt;();
+            var petOwner = await createPetOwnerResponse.Content.ReadFromJsonAsync&lt;PetOwnerDto&gt;();
+
+            // Act
+            var resultResponse = await HttpClient.PostAsJsonAsync($&quot;{ApiURL}/{petOwner.Id}/pets&quot;, pets);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        private static CreatePetOwnerDto CreateSUT()
+        {
+            return new CreatePetOwnerDto
+            {
+                Name = &quot;Ion&quot;,
+                Surname = &quot;Ionescu&quot;,
+                Birthdate = &quot;19-10-1986&quot;,
+                Gender = &quot;Male&quot;,
+                Address = &quot;Iasi&quot;,
+                Email = &quot;ion@gmail.com&quot;,
+                Phone = &quot;+40732961298&quot;
+            };
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[17,96,17,109,1],[18,9,18,10,1],[19,9,19,10,1],[23,9,23,10,1],[24,13,25,13,1],[25,13,25,14,1],[25,14,26,17,1],[26,17,27,17,1],[27,17,27,18,1],[27,18,28,21,1],[28,21,29,21,1],[29,21,29,22,1],[29,22,30,25,1],[30,25,30,83,1],[30,83,31,21,1],[31,21,31,22,1],[31,22,31,24,1],[31,24,32,17,1],[32,17,32,18,1],[32,18,32,20,1],[32,20,33,13,1],[33,13,33,14,1],[33,14,36,16,1],[37,13,38,76,1],[39,13,39,63,1],[40,13,40,46,1],[41,13,41,46,1],[42,13,42,51,1],[43,13,43,52,1],[44,13,44,30,1],[57,13,57,63,1],[58,13,58,114,1],[59,13,68,15,1],[69,13,69,98,1],[72,13,72,105,1],[75,13,75,54,1],[76,13,76,75,1],[77,9,77,10,1],[81,9,81,10,1],[82,13,83,13,1],[83,13,83,14,1],[83,14,84,17,1],[84,17,85,17,1],[85,17,85,18,1],[85,18,86,21,1],[86,21,87,21,1],[87,21,87,22,1],[87,22,88,25,1],[88,25,88,83,1],[88,83,89,21,1],[89,21,89,22,1],[89,22,89,24,1],[89,24,90,17,1],[90,17,90,18,1],[90,18,90,20,1],[90,20,91,13,1],[91,13,91,14,1],[91,14,94,16,1],[95,13,96,76,1],[97,13,97,63,1],[98,13,98,46,1],[99,13,99,46,1],[100,13,100,51,1],[101,13,101,52,1],[102,13,102,30,1],[114,13,114,63,1],[116,13,116,102,1],[117,13,117,43,1],[118,13,118,98,1],[121,13,121,105,1],[124,13,124,78,1],[125,9,125,10,1],[128,9,128,10,1],[129,13,138,15,1],[139,9,139,10,1]]);
+    </script>
+  </body>
+</html>

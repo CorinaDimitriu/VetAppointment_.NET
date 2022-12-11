@@ -88,3 +88,18 @@ D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppo
 D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\refint\VetAppointment.Application.dll
 D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.pdb
 D:\10.12.2022\VetAppoinement\VetAppointment.Application\obj\Debug\net7.0\ref\VetAppointment.Application.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.deps.json
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Application.pdb
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Domain.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\bin\Debug\net7.0\VetAppointment.Domain.pdb
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.AssemblyReference.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.AssemblyInfoInputs.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.AssemblyInfo.cs
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.csproj.CopyComplete
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\refint\VetAppointment.Application.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\VetAppointment.Application.pdb
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Application\obj\Debug\net7.0\ref\VetAppointment.Application.dll

@@ -1,0 +1,4 @@
+dotnet sonarscanner begin /k:"VetAppointment" /d:sonar.host.url="http://localhost:8080"  /d:sonar.login="sqp_18019bd79faa8d55819310607bfd39316b947ddd"
+dotnet build
+dotnet dotcover test --dcReportType=HTML
+dotnet sonarscanner end /d:sonar.login="sqp_18019bd79faa8d55819310607bfd39316b947ddd"

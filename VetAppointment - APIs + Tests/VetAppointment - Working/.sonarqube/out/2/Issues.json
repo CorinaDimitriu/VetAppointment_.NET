@@ -12,216 +12,31 @@
       },
       "results": [
         {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 13,
-                  "startColumn": 98,
-                  "endLine": 13,
-                  "endColumn": 115
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 34,
-                  "startColumn": 92,
-                  "endLine": 34,
-                  "endColumn": 112
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 49,
-                  "startColumn": 94,
-                  "endLine": 49,
-                  "endColumn": 111
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 61,
-                  "startColumn": 83,
-                  "endLine": 61,
-                  "endColumn": 92
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 77,
-                  "startColumn": 83,
-                  "endLine": 77,
-                  "endColumn": 92
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 80,
-                  "startColumn": 83,
-                  "endLine": 80,
-                  "endColumn": 108
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 91,
-                  "startColumn": 83,
-                  "endLine": 91,
-                  "endColumn": 92
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 94,
-                  "startColumn": 83,
-                  "endLine": 94,
-                  "endColumn": 108
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 105,
-                  "startColumn": 83,
-                  "endLine": 105,
-                  "endColumn": 92
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 108,
-                  "startColumn": 83,
-                  "endLine": 108,
-                  "endColumn": 108
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/AppointmentTests.cs",
-                "region": {
-                  "startLine": 119,
-                  "startColumn": 17,
-                  "endLine": 119,
-                  "endColumn": 37
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS8600",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Converting null literal or possible null value to non-nullable type.",
+          "message": "Non-nullable property 'AppointmentDataService' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/AppointmentsOverview.razor.cs",
                 "region": {
-                  "startLine": 65,
-                  "startColumn": 34,
-                  "endLine": 65,
-                  "endColumn": 38
+                  "startLine": 10,
+                  "startColumn": 40,
+                  "endLine": 10,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/AppointmentsOverview.razor.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 40,
+                  "endLine": 10,
+                  "endColumn": 62
                 }
               }
             }
@@ -231,54 +46,31 @@
           }
         },
         {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
-                "region": {
-                  "startLine": 24,
-                  "startColumn": 105,
-                  "endLine": 24,
-                  "endColumn": 125
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS1503",
-          "level": "error",
-          "message": "Argument 3: cannot convert from 'System.DateTime' to 'string'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
-                "region": {
-                  "startLine": 85,
-                  "startColumn": 95,
-                  "endLine": 85,
-                  "endColumn": 112
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CS8600",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Converting null literal or possible null value to non-nullable type.",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
                 "region": {
-                  "startLine": 52,
-                  "startColumn": 34,
-                  "endLine": 52,
-                  "endColumn": 38
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 27
                 }
               }
             }
@@ -288,18 +80,31 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForClinic' does not access instance data and can be marked as static",
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Birthdate' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetTets.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
                 "region": {
-                  "startLine": 201,
-                  "startColumn": 60,
-                  "endLine": 201,
-                  "endColumn": 78
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 32
                 }
               }
             }
@@ -309,18 +114,31 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Race' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
                 "region": {
-                  "startLine": 74,
-                  "startColumn": 71,
-                  "endLine": 74,
-                  "endColumn": 80
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 27
                 }
               }
             }
@@ -330,17 +148,268 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Gender' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/DrugTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
                 "region": {
-                  "startLine": 99,
-                  "startColumn": 47,
-                  "endLine": 99,
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelPet.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Id' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Address' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'ContactEmail' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'ContactPhone' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 23,
+                  "endLine": 10,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Models/ModelClinic.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 23,
+                  "endLine": 10,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'PetDataService' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/PetsOverview.razor.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 32,
+                  "endLine": 10,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/PetsOverview.razor.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 32,
+                  "endLine": 10,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'PetOwnerDataService' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/PetOwnersOverview.razor.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 37,
+                  "endLine": 10,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/PetOwnersOverview.razor.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 37,
+                  "endLine": 10,
                   "endColumn": 56
                 }
               }
@@ -351,18 +420,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForClinic' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/MedicalHistoryTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/AppointmentDataService.cs",
                 "region": {
-                  "startLine": 104,
-                  "startColumn": 60,
-                  "endLine": 104,
-                  "endColumn": 78
+                  "startLine": 19,
+                  "startColumn": 20,
+                  "endLine": 20,
+                  "endColumn": 67
                 }
               }
             }
@@ -372,18 +441,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetDataService.cs",
                 "region": {
-                  "startLine": 110,
-                  "startColumn": 78,
-                  "endLine": 110,
-                  "endColumn": 87
+                  "startLine": 21,
+                  "startColumn": 20,
+                  "endLine": 22,
+                  "endColumn": 67
                 }
               }
             }
@@ -393,18 +462,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForPet' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetDataService.cs",
                 "region": {
-                  "startLine": 115,
-                  "startColumn": 55,
-                  "endLine": 115,
-                  "endColumn": 70
+                  "startLine": 32,
+                  "startColumn": 20,
+                  "endLine": 32,
+                  "endColumn": 104
                 }
               }
             }
@@ -414,18 +483,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForDrug' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PrescribedDrugTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/AppointmentDataService.cs",
                 "region": {
-                  "startLine": 89,
-                  "startColumn": 47,
-                  "endLine": 89,
-                  "endColumn": 63
+                  "startLine": 30,
+                  "startColumn": 20,
+                  "endLine": 30,
+                  "endColumn": 112
                 }
               }
             }
@@ -435,18 +504,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForPet' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetOwnerDataService.cs",
                 "region": {
-                  "startLine": 284,
-                  "startColumn": 55,
-                  "endLine": 284,
-                  "endColumn": 70
+                  "startLine": 19,
+                  "startColumn": 20,
+                  "endLine": 20,
+                  "endColumn": 84
                 }
               }
             }
@@ -456,18 +525,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetOwnerDataService.cs",
                 "region": {
-                  "startLine": 280,
-                  "startColumn": 60,
-                  "endLine": 280,
-                  "endColumn": 69
+                  "startLine": 30,
+                  "startColumn": 20,
+                  "endLine": 30,
+                  "endColumn": 109
                 }
               }
             }
@@ -477,18 +546,388 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUTForClinicOwner' does not access instance data and can be marked as static",
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetOwnerDataService.cs",
                 "region": {
-                  "startLine": 294,
-                  "startColumn": 71,
-                  "endLine": 294,
-                  "endColumn": 94
+                  "startLine": 37,
+                  "startColumn": 20,
+                  "endLine": 37,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/ClinicsOverview.razor.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 13,
+                  "endLine": 120,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/PetOwnersOverview.razor.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 9,
+                  "endLine": 21,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/IPetDataService.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 9,
+                  "endLine": 8,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/IPetDataService.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 9,
+                  "endLine": 10,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/IPetOwnerDataService.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 9,
+                  "endLine": 7,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Validators/PetValidator.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 13,
+                  "endLine": 14,
+                  "endColumn": 172
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetDataService.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 39,
+                  "endLine": 11,
+                  "endColumn": 75
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/AppointmentDataService.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 39,
+                  "endLine": 9,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/PetOwnerDataService.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 39,
+                  "endLine": 10,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/VetClinicDataService.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 39,
+                  "endLine": 11,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/ClinicsOverview.razor.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 17,
+                  "endLine": 43,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/ClinicsOverview.razor.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 13,
+                  "endLine": 41,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1116",
+          "level": "warning",
+          "message": "Remove this empty statement.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Validators/PetValidator.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 122,
+                  "endLine": 11,
+                  "endColumn": 123
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1116",
+          "level": "warning",
+          "message": "Remove this empty statement.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Validators/PetValidator.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 112,
+                  "endLine": 12,
+                  "endColumn": 113
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Remove this hardcoded path-delimiter.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/VetClinicDataService.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 58,
+                  "endLine": 51,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'options'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/VetClinicDataService.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 17,
+                  "endLine": 40,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'options'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/VetClinicDataService.cs",
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 17,
+                  "endLine": 59,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'options'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.UI/Pages/Services/VetClinicDataService.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 17,
+                  "endLine": 86,
+                  "endColumn": 24
                 }
               }
             }
@@ -499,47 +938,115 @@
         }
       ],
       "rules": {
-        "CA1822": {
-          "id": "CA1822",
-          "shortDescription": "Mark members as static",
-          "fullDescription": "Members that do not access instance data or call instance methods can be marked as static. After you mark the methods as static, the compiler will emit nonvirtual call sites to these members. This can give you a measurable performance gain for performance-sensitive code.",
-          "defaultLevel": "note",
-          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1822",
-          "properties": {
-            "category": "Performance",
-            "isEnabledByDefault": true,
-            "tags": [
-              "PortedFromFxCop",
-              "Telemetry",
-              "EnabledRuleInAggressiveMode"
-            ]
-          }
-        },
-        "CS1503": {
-          "id": "CS1503",
-          "defaultLevel": "error",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1503)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry",
-              "NotConfigurable"
-            ]
-          }
-        },
-        "CS8600": {
-          "id": "CS8600",
-          "shortDescription": "Converting null literal or possible null value to non-nullable type.",
+        "CS8603": {
+          "id": "CS8603",
+          "shortDescription": "Possible null reference return.",
           "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8600)",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8603)",
           "properties": {
             "category": "Compiler",
             "isEnabledByDefault": true,
             "tags": [
               "Compiler",
               "Telemetry"
+            ]
+          }
+        },
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S1066": {
+          "id": "S1066",
+          "shortDescription": "Collapsible \"if\" statements should be merged",
+          "fullDescription": "Merging collapsible if statements increases the code’s readability.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1066",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1075": {
+          "id": "S1075",
+          "shortDescription": "URIs should not be hardcoded",
+          "fullDescription": "Hardcoding a URI makes it difficult to test a program: path literals are not always portable across operating systems, a given absolute path may not exist on a specific test environment, a specified Internet URL may not be available when executing the tests, production environment filesystems usually differ from the development environment, …​etc. For all those reasons, a URI should never be hardcoded. Instead, it should be replaced by customizable parameter.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1075",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1116": {
+          "id": "S1116",
+          "shortDescription": "Empty statements should be removed",
+          "fullDescription": "Empty statements, i.e. ;, are usually introduced by mistake, for example because:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1116",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S125": {
+          "id": "S125",
+          "shortDescription": "Sections of code should not be commented out",
+          "fullDescription": "Programmers should not comment out code as it bloats programs and reduces readability.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1481": {
+          "id": "S1481",
+          "shortDescription": "Unused local variables should be removed",
+          "fullDescription": "If a local variable is declared but not used, it is dead code and should be removed. Doing so will improve maintainability because developers will not wonder what the variable is used for.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
             ]
           }
         }

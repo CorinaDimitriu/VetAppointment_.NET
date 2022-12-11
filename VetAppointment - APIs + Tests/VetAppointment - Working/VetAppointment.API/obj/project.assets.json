@@ -1765,23 +1765,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Leonard\\.nuget\\packages\\": {},
+    "C:\\Users\\dimit\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.API\\VetAppointment.API.csproj",
+      "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.API\\VetAppointment.API.csproj",
       "projectName": "VetAppointment.API",
-      "projectPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.API\\VetAppointment.API.csproj",
-      "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
-      "outputPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.API\\obj\\",
+      "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.API\\VetAppointment.API.csproj",
+      "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
+      "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Leonard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1790,17 +1790,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Application\\VetAppointment.Application.csproj": {
-              "projectPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Application\\VetAppointment.Application.csproj"
+            "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Application\\VetAppointment.Application.csproj": {
+              "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Application\\VetAppointment.Application.csproj"
             },
-            "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj": {
-              "projectPath": "D:\\10.12.2022\\VetAppoinement\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj"
+            "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj": {
+              "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12\\VetAppointment - APIs + Tests\\VetAppointment - Working\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj"
             }
           }
         }

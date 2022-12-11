@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\Repository.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Linq.Expressions;
+using VetAppointment.Application;
+using VetAppointment.Infrastructure.Data;
+
+#nullable disable
+namespace VetAppointment.Infrastructure.Repositories
+{
+    public class Repository&lt;T&gt; : IRepository&lt;T&gt; where T : class
+    {
+        private readonly DatabaseContext context;
+
+        public Repository(DatabaseContext context) =&gt; this.context = context;
+
+        public virtual T Add(T entity) =&gt; context.Add(entity).Entity;
+
+        public virtual T Update(T entity) =&gt; context.Update(entity).Entity;
+
+        public virtual T Get(Guid id) =&gt; context.Set&lt;T&gt;().Find(id);
+        
+        public virtual void Delete(T entity) =&gt; context.Set&lt;T&gt;().Remove(entity);
+
+        public virtual IEnumerable&lt;T&gt; All() =&gt; context.Set&lt;T&gt;().ToList();
+
+        public virtual IEnumerable&lt;T&gt; Find(Expression&lt;Func&lt;T, bool&gt;&gt; predicate) =&gt; context.Set&lt;T&gt;().Where(predicate).ToList();
+
+        public void SaveChanges() =&gt; context.Save();
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[12,9,12,51,1],[12,55,12,77,1],[14,43,14,69,1],[16,46,16,75,1],[18,42,18,67,1],[20,49,20,80,1],[22,48,22,73,1],[24,84,24,126,0],[26,38,26,52,1]]);
+    </script>
+  </body>
+</html>

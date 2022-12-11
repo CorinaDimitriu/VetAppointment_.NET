@@ -12,18 +12,18 @@
       },
       "results": [
         {
-          "ruleId": "S1104",
+          "ruleId": "S1118",
           "level": "warning",
-          "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Domain/VetClinic.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Domain/Helpers/Validations.cs",
                 "region": {
-                  "startLine": 19,
-                  "startColumn": 28,
-                  "endLine": 19,
-                  "endColumn": 33
+                  "startLine": 3,
+                  "startColumn": 18,
+                  "endLine": 3,
+                  "endColumn": 29
                 }
               }
             }
@@ -33,18 +33,18 @@
           }
         },
         {
-          "ruleId": "S1118",
+          "ruleId": "S1104",
           "level": "warning",
-          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "message": "Make this field 'private' and encapsulate it in a 'public' property.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Domain/Helpers/Validations.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Domain/VetClinic.cs",
                 "region": {
-                  "startLine": 3,
-                  "startColumn": 18,
-                  "endLine": 3,
-                  "endColumn": 29
+                  "startLine": 19,
+                  "startColumn": 28,
+                  "endLine": 19,
+                  "endColumn": 33
                 }
               }
             }
@@ -60,7 +60,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Domain/Treatment.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Domain/Treatment.cs",
                 "region": {
                   "startLine": 55,
                   "startColumn": 27,

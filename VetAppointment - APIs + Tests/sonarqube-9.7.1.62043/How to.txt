@@ -1,9 +1,0 @@
-https://docs.sonarqube.org/latest/setup/get-started-2-minutes/
-
-1. run - sonarqube\bin\windows-x86-64\StartSonar.bat
-
-2. open - http://localhost:9000 
-
-3. login - admin admin
-
-4. commands 

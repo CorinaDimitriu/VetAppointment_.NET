@@ -12,60 +12,18 @@
       },
       "results": [
         {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change AppointmentsControllerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 21,
-                  "endLine": 9,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreatePetSUT' does not access instance data and can be marked as static",
+          "message": "Member 'CleanDatabases' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/BaseIntegrationTests.cs",
                 "region": {
-                  "startLine": 48,
+                  "startLine": 20,
                   "startColumn": 24,
-                  "endLine": 48,
-                  "endColumn": 36
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateVetSUT' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/AppointmentsControllerTests.cs",
-                "region": {
-                  "startLine": 59,
-                  "startColumn": 24,
-                  "endLine": 59,
-                  "endColumn": 36
+                  "endLine": 20,
+                  "endColumn": 38
                 }
               }
             }
@@ -81,32 +39,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/DrugTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/DrugTests.cs",
                 "region": {
-                  "startLine": 41,
+                  "startLine": 70,
                   "startColumn": 21,
-                  "endLine": 41,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change PetOwnersControllerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/PetOwnersControllerTests.cs",
-                "region": {
-                  "startLine": 65,
-                  "startColumn": 21,
-                  "endLine": 65,
+                  "endLine": 70,
                   "endColumn": 28
                 }
               }
@@ -123,11 +60,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Documents/GitHub/VetAppointment_.NET/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/VetClinicsControllerTests_.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Integration.Test/VetClinicsControllerTests_.cs",
                 "region": {
-                  "startLine": 176,
+                  "startLine": 339,
                   "startColumn": 21,
-                  "endLine": 176,
+                  "endLine": 339,
                   "endColumn": 28
                 }
               }

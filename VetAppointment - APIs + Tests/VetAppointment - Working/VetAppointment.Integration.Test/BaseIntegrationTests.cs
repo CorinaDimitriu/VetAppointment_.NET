@@ -1,26 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
 using VetAppointment.API.Controllers;
 using VetAppointment.Infrastructure.Data;
 
 namespace VetAppointment.Integration.Tests
 {
-    public class BaseIntegrationTests
+    public class BaseIntegrationTests : IClassFixture<WebApplicationFactory<VetClinicsController>>
     {
-        private DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseSqlite("Data Source = VetAppointmentTest.db").Options;
-        private DatabaseContext databaseContext { get; set; }
-
-
-        protected HttpClient HttpClient { get; private set; }
-        protected BaseIntegrationTests()
+        protected readonly WebApplicationFactory<VetClinicsController> _factory;
+        protected BaseIntegrationTests(WebApplicationFactory<VetClinicsController> factory)
         {
-            HttpClient = new WebApplicationFactory<VetClinicsController>().WithWebHostBuilder(builder => { }).CreateClient();
-            databaseContext = new DatabaseContext(options);
-            CleanDatabases();
+            _factory = factory;
         }
 
-        protected void CleanDatabases()
+        protected static void CleanDatabases(DatabaseContext databaseContext)
         {
             databaseContext.PetOwners.RemoveRange(databaseContext.PetOwners.ToList());
             databaseContext.VetClinics.RemoveRange(databaseContext.VetClinics.ToList());
@@ -28,6 +20,9 @@ namespace VetAppointment.Integration.Tests
             databaseContext.Pets.RemoveRange(databaseContext.Pets.ToList());
             databaseContext.Vets.RemoveRange(databaseContext.Vets.ToList());
             databaseContext.Drugs.RemoveRange(databaseContext.Drugs.ToList());
+            databaseContext.PrescribedDrugs.RemoveRange(databaseContext.PrescribedDrugs.ToList());
+            databaseContext.Treatments.RemoveRange(databaseContext.Treatments.ToList());
+            databaseContext.MedicalHistories.RemoveRange(databaseContext.MedicalHistories.ToList());
             databaseContext.SaveChanges();
         }
     }

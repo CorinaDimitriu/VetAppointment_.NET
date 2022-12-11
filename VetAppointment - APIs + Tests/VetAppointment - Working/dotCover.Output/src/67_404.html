@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\VetClinicTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+namespace VetAppointment.Business.Test
+{
+    public class VetClinicTests
+    {
+        [Fact]
+        public void When_CreateVetClinicWithValidData_Then_ShouldReturnSucceed()
+        {
+            // Arrange
+            var vet = CreateSUT();
+
+            //Act
+            var result = VetClinic.Create(vet.Item1, vet.Item2, vet.Item3, vet.Item4, vet.Item5);
+
+            //Assert
+            result.IsSuccess.Should().BeTrue();
+            result.Entity.Should().NotBeNull();
+            result.Entity.Id.Should().NotBeEmpty();
+            result.Entity.Name.Should().Be(vet.Item1);
+            result.Entity.Address.Should().Be(vet.Item2);
+            result.Entity.NumberOfPlaces.Should().Be(vet.Item3);
+            result.Entity.ContactEmail.Should().Be(vet.Item4);
+            result.Entity.ContactPhone.Should().Be(vet.Item5);
+        }
+
+        [Fact]
+        public void When_CreateVetClinicWithInvalidNumberOfPlaces_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var vet = CreateSUT();
+            var invalidNumberOfPlaces = -1;
+
+            //Act
+            var result = VetClinic.Create(vet.Item1, vet.Item2, invalidNumberOfPlaces, vet.Item4, vet.Item5);
+
+            //Assert
+            result.IsFailure.Should().BeTrue();
+            result.Error.Should().Be($&quot;The number of places for the shelter needs to be greater than &#39;{0}&#39;&quot;);
+        }
+
+        [Fact]
+        public void When_CreateVetClinicWithInvalidEmail_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var vet = CreateSUT();
+            var invalidEmail = &quot;invalidEmail&quot;;
+
+            //Act
+            var result = VetClinic.Create(vet.Item1, vet.Item2, vet.Item3, invalidEmail, vet.Item5);
+
+            //Assert
+            result.IsFailure.Should().BeTrue();
+            result.Error.Should().Be($&quot;Email {invalidEmail} is not valid&quot;);
+        }
+
+        [Fact]
+        public void When_CreateVetClinicWithInvalidPhoneNumber_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var vet = CreateSUT();
+            var invalidPhoneNumber = &quot;invalidPhoneNumber&quot;;
+
+            //Act
+            var result = VetClinic.Create(vet.Item1, vet.Item2, vet.Item3, vet.Item4, invalidPhoneNumber);
+
+            //Assert
+            result.IsFailure.Should().BeTrue();
+            result.Error.Should().Be($&quot;Phone number {invalidPhoneNumber} is not valid&quot;);
+        }
+
+        [Fact]
+        public void When_AttachMedicalHistoryToClinic_Then_IdShouldNotBeNull()
+        {
+            // Arrange
+            var medicalHistory = MedicalHistory.Create().Entity;
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+
+            // Act
+            clinic.AttachMedicalHistory(medicalHistory.Id);
+
+            // Assert
+            clinic.MedicalHistoryId.Should().Be(medicalHistory.Id);
+        }
+
+        [Fact]
+        public void When_RegisterPetFamilyToClinic_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var sutPet = CreateSUTForPet();
+            var pet = Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity;
+            var pets = new List&lt;Pet&gt;();
+            pets.Add(pet);
+
+            // Act
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterNullPetFamilyToClinic_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var pets = new List&lt;Pet&gt;();
+
+            // Act
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterPetFamilyToOcupiedClinic_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, 1, sut.Item4, sut.Item5).Entity;
+            var sutPet = CreateSUTForPet();
+            var pet1 = Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity;
+            var pet2 = Pet.Create(sutPet.Item1, sutPet.Item2, sutPet.Item3, sutPet.Item4).Entity;
+            var pets = new List&lt;Pet&gt;();
+            pets.Add(pet1);
+            pets.Add(pet2);
+
+            // Act
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_RegisterVetToClinic_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var sutVet = CreateSUTForVet();
+            var vet = Vet.Create(sutVet.Item1, sutVet.Item2, sutVet.Item3, sutVet.Item4, sutVet.Item5, sutVet.Item6, sutVet.Item7).Entity;
+
+            // Act
+            var result = clinic.RegisterVetToClinic(vet);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_ConnectClinicToOwner_Then_OwnerShouldNotBeNull()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var sutOwner = CreateSUTForClinicOwner();
+            var owner = ClinicOwner.Create(sutOwner.Item1, sutOwner.Item2, sutOwner.Item3, sutOwner.Item4, sutOwner.Item5, sutOwner.Item6).Entity;
+
+            // Act
+            clinic.ConnectToOwner(owner);
+
+            // Assert
+            clinic.Owner.Should().Be(owner);
+        }
+
+        [Fact]
+        public void When_UpdateClinic_Then_ShouldReturnSuccess()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var newClinic = VetClinic.Create(&quot;Vet Clinic1&quot;, &quot;Address1&quot;, 11, &quot;email@gmail.com&quot;, &quot;+40123456788&quot;).Entity;
+
+            // Act
+            var result = clinic.Update(newClinic.Name, newClinic.Address, newClinic.NumberOfPlaces, newClinic.ContactEmail, newClinic.ContactPhone);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+            result.Entity.Should().NotBeNull();
+            result.Entity.Id.Should().NotBeEmpty();
+            result.Entity.Name.Should().Be(clinic.Name);
+            result.Entity.Address.Should().Be(clinic.Address);
+            result.Entity.NumberOfPlaces.Should().Be(clinic.NumberOfPlaces);
+            result.Entity.ContactEmail.Should().Be(clinic.ContactEmail);
+            result.Entity.ContactPhone.Should().Be(clinic.ContactPhone);
+        }
+
+        [Fact]
+        public void When_UpdateClinicWithInvalidNumberOfPlaces_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var nbOfPlaces = -5;
+
+            // Act
+            var result = clinic.Update(clinic.Name, clinic.Address, nbOfPlaces, clinic.ContactEmail, clinic.ContactPhone);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateClinicWithInvalidEmail_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var email = &quot;invalidemail&quot;;
+
+            // Act
+            var result = clinic.Update(clinic.Name, clinic.Address, clinic.NumberOfPlaces, email, clinic.ContactPhone);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateClinicWithNullEmail_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+
+            // Act
+            var result = clinic.Update(clinic.Name, clinic.Address, clinic.NumberOfPlaces, null, clinic.ContactPhone);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateClinicWithEmptyEmail_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+
+            // Act
+            var result = clinic.Update(clinic.Name, clinic.Address, clinic.NumberOfPlaces, &quot;&quot;, clinic.ContactPhone);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateClinicWithInvalidPhone_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+            var phone = &quot;invalidphone&quot;;
+
+            // Act
+            var result = clinic.Update(clinic.Name, clinic.Address, clinic.NumberOfPlaces, clinic.ContactEmail, phone);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_UpdateClinicWithNullPhone_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
+
+            // Act
+            var result = clinic.Update(clinic.Name, clinic.Address, clinic.NumberOfPlaces, clinic.ContactEmail, null);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        //string name, string address, int numberOfPlaces, string contactEmail, string contactPhone
+        private Tuple&lt;string, string, int, string, string&gt; CreateSUT()
+        {
+            return new Tuple&lt;string, string, int, string, string&gt;(&quot;Vet Clinic&quot;, &quot;Address&quot;, 10, &quot;email@gmail.com&quot;, &quot;+40123456789&quot;);
+        }
+        private Tuple&lt;string, string, string, string&gt; CreateSUTForPet()
+        {
+            return new Tuple&lt;string, string, string, string&gt;(&quot;Pisacio&quot;, &quot;12/06/2020&quot;, &quot;Cat&quot;, &quot;Male&quot;);
+        }
+        private static Tuple&lt;string, string, string, string, string, string, string&gt; CreateSUTForVet()
+        {
+            return new Tuple&lt;string, string, string, string, string, string, string&gt;(
+                &quot;John&quot;, &quot;Doe&quot;, &quot;01/01/1990&quot;, &quot;Male&quot;, &quot;john.doe@gmail.com&quot;, &quot;+40123456789&quot;, &quot;PawSurgeon&quot;
+                );
+        }
+        private Tuple&lt;string, string, string, string, string, string&gt; CreateSUTForClinicOwner()
+        {
+            return new Tuple&lt;string, string, string, string, string, string&gt;(
+                &quot;John&quot;, &quot;Doe&quot;, &quot;12/10/2001&quot;, &quot;Male&quot;, &quot;john.doe@gmail.com&quot;, &quot;+40756221345&quot;);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[7,9,7,10,1],[9,13,9,35,1],[12,13,12,98,1],[15,13,15,48,1],[16,13,16,48,1],[17,13,17,52,1],[18,13,18,55,1],[19,13,19,58,1],[20,13,20,65,1],[21,13,21,63,1],[22,13,22,63,1],[23,9,23,10,1],[27,9,27,10,1],[29,13,29,35,1],[30,13,30,44,1],[33,13,33,110,1],[36,13,36,48,1],[37,13,37,110,1],[38,9,38,10,1],[42,9,42,10,1],[44,13,44,35,1],[45,13,45,47,1],[48,13,48,101,1],[51,13,51,48,1],[52,13,52,76,1],[53,9,53,10,1],[57,9,57,10,1],[59,13,59,35,1],[60,13,60,59,1],[63,13,63,107,1],[66,13,66,48,1],[67,13,67,89,1],[68,9,68,10,1],[72,9,72,10,1],[74,13,74,65,1],[75,13,75,35,1],[76,13,76,105,1],[79,13,79,60,1],[82,13,82,68,1],[83,9,83,10,1],[87,9,87,10,1],[89,13,89,35,1],[90,13,90,105,1],[91,13,91,44,1],[92,13,92,97,1],[93,13,93,40,1],[94,13,94,27,1],[97,13,97,66,1],[100,13,100,48,1],[101,9,101,10,1],[105,9,105,10,1],[107,13,107,35,1],[108,13,108,105,1],[109,13,109,40,1],[112,13,112,66,1],[115,13,115,48,1],[116,9,116,10,1],[120,9,120,10,1],[122,13,122,35,1],[123,13,123,97,1],[124,13,124,44,1],[125,13,125,98,1],[126,13,126,98,1],[127,13,127,40,1],[128,13,128,28,1],[129,13,129,28,1],[132,13,132,66,1],[135,13,135,48,1],[136,9,136,10,1],[140,9,140,10,1],[142,13,142,35,1],[143,13,143,105,1],[144,13,144,44,1],[145,13,145,139,1],[148,13,148,58,1],[151,13,151,48,1],[152,9,152,10,1],[156,9,156,10,1],[158,13,158,35,1],[159,13,159,105,1],[160,13,160,54,1],[161,13,161,147,1],[164,13,164,42,1],[167,13,167,45,1],[168,9,168,10,1],[172,9,172,10,1],[174,13,174,35,1],[175,13,175,105,1],[176,13,176,119,1],[179,13,179,149,1],[182,13,182,48,1],[183,13,183,48,1],[184,13,184,52,1],[185,13,185,57,1],[186,13,186,63,1],[187,13,187,77,1],[188,13,188,73,1],[189,13,189,73,1],[190,9,190,10,1],[194,9,194,10,1],[196,13,196,35,1],[197,13,197,105,1],[198,13,198,33,1],[201,13,201,123,1],[204,13,204,48,1],[205,9,205,10,1],[209,9,209,10,1],[211,13,211,35,1],[212,13,212,105,1],[213,13,213,40,1],[216,13,216,120,1],[219,13,219,48,1],[220,9,220,10,1],[224,9,224,10,1],[226,13,226,35,1],[227,13,227,105,1],[230,13,230,119,1],[233,13,233,48,1],[234,9,234,10,1],[238,9,238,10,1],[240,13,240,35,1],[241,13,241,105,1],[244,13,244,117,1],[247,13,247,48,1],[248,9,248,10,1],[252,9,252,10,1],[254,13,254,35,1],[255,13,255,105,1],[256,13,256,40,1],[259,13,259,120,1],[262,13,262,48,1],[263,9,263,10,1],[267,9,267,10,1],[269,13,269,35,1],[270,13,270,105,1],[273,13,273,119,1],[276,13,276,48,1],[277,9,277,10,1],[281,9,281,10,1],[282,13,282,131,1],[283,9,283,10,1],[285,9,285,10,1],[286,13,286,102,1],[287,9,287,10,1],[289,9,289,10,1],[290,13,292,19,1],[293,9,293,10,1],[295,9,295,10,1],[296,13,297,92,1],[298,9,298,10,1]]);
+    </script>
+  </body>
+</html>

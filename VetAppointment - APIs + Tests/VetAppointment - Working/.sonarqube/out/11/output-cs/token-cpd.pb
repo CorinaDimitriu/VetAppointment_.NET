@@ -1,5 +1,5 @@
-Ü
-îD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Data\DatabaseContext.cs
+ä
+òD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Data\DatabaseContext.cs
 	namespace 	
 VetAppointment
  
@@ -189,8 +189,8 @@ Treatments  *
 )%%* +
 ;%%+ ,
 }&& 
-}'' Ì
-êD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Data\IUnitOfWork.cs
+}'' Ò
+îD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Data\IUnitOfWork.cs
 	namespace 	
 VetAppointment
  
@@ -309,8 +309,8 @@ Treatments  *
 ) 
 ; 
 } 
-} Ò0
-èD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Data\UnitOfWork.cs
+} ı0
+ìD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Data\UnitOfWork.cs
 	namespace 	
 VetAppointment
  
@@ -620,8 +620,8 @@ UnitOfWork 
 )hh9 :
 ;hh: ;
 }ii 
-}jj «
-∂D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\AppointmentRepository.cs
+}jj À
+∫D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\AppointmentRepository.cs
 	namespace 	
 VetAppointment
  
@@ -659,8 +659,8 @@ Repository) 3
 }		 
 }
 
- ´
-ØD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\DrugRepository.cs
+ Ø
+≥D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\DrugRepository.cs
 	namespace 	
 VetAppointment
  
@@ -698,8 +698,8 @@ Repository" ,
 }		 
 }
 
- 
-πD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\MedicalHistoryRepository.cs
+ Ù
+ΩD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\MedicalHistoryRepository.cs
 	namespace 	
 VetAppointment
  
@@ -836,8 +836,8 @@ Repository, 6
 ) 
 ; 
 } 
-} ∞
-≥D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetOwnerRepository.cs
+} ¥
+∑D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetOwnerRepository.cs
 	namespace 	
 VetAppointment
  
@@ -974,8 +974,8 @@ Repository& 0
 ) 
 ; 
 } 
-} ß
-ÆD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetRepository.cs
+} ´
+≤D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetRepository.cs
 	namespace 	
 VetAppointment
  
@@ -1013,8 +1013,8 @@ Repository! +
 }		 
 }
 
- ”
-πD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\PrescribedDrugRepository.cs
+ ◊
+ΩD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\PrescribedDrugRepository.cs
 	namespace 	
 VetAppointment
  
@@ -1052,47 +1052,146 @@ Repository, 6
 
  	
 } 
-} ø
-¥D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\TreatmentRepository.cs
-	namespace 	
-VetAppointment
+} “
+∏D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\TreatmentRepository.cs
+	namespace 	
+VetAppointment
  
-. 
-Infrastructure '
-.' (
-Repositories( 4
-.4 5
-GenericRepositories5 H
-{ 
-public 
+. 
+Infrastructure '
+.' (
+Repositories( 4
+.4 5
+GenericRepositories5 H
+{ 
+public 
 
-class 
-TreatmentRepository $
-:% &
+class 
+TreatmentRepository $
+:% &
 
-Repository' 1
-<1 2
-	Treatment2 ;
->; <
-{ 
-public 
-TreatmentRepository "
-(" #
-DatabaseContext# 2
-context3 :
-): ;
-:< =
-base> B
-(B C
-contextC J
-)J K
-{		 	
-}
+Repository' 1
+<1 2
+	Treatment2 ;
+>; <
+{ 
+private		 
+readonly		 
+DatabaseContext		 (
+_databaseContext		) 9
+;		9 :
+public
 
- 	
-} 
-} ⁄
-¥D:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetClinicRepository.cs
+ 
+TreatmentRepository
+
+ "
+(
+
+" #
+DatabaseContext
+
+# 2
+context
+
+3 :
+)
+
+: ;
+:
+
+< =
+base
+
+> B
+(
+
+B C
+context
+
+C J
+)
+
+J K
+{ 	
+_databaseContext 
+= 
+context &
+;& '
+} 	
+public 
+override 
+	Treatment !
+Get" %
+(% &
+Guid& *
+id+ -
+)- .
+=>/ 1
+_databaseContext2 B
+.B C
+SetC F
+<F G
+	TreatmentG P
+>P Q
+(Q R
+)R S
+. 
+Include 
+( 
+x 
+=> 
+x 
+. 
+PrescribedDrugs +
+)+ ,
+. 
+SingleOrDefault 
+( 
+x 
+=> !
+x" #
+.# $
+Id$ &
+==' )
+id* ,
+), -
+;- .
+public 
+override 
+IEnumerable #
+<# $
+	Treatment$ -
+>- .
+All/ 2
+(2 3
+)3 4
+=>5 7
+_databaseContext8 H
+.H I
+SetI L
+<L M
+	TreatmentM V
+>V W
+(W X
+)X Y
+. 
+Include 
+( 
+x 
+=> 
+x 
+. 
+PrescribedDrugs +
+)+ ,
+. 
+ToList 
+( 
+) 
+; 
+} 
+} ﬁ
+∏D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetClinicRepository.cs
 	namespace 	
 VetAppointment
  
@@ -1247,8 +1346,8 @@ Repository' 1
 ) 
 ; 
 } 
-} ß
-ÆD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetRepository.cs
+} ´
+≤D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetRepository.cs
 	namespace 	
 VetAppointment
  
@@ -1284,8 +1383,8 @@ Repository! +
 {F G
 }H I
 }		 
-} ı
-óD:\Documents\GitHub\VetAppointment_.NET\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\Repository.cs
+} ˘
+õD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Infrastructure\Repositories\Repository.cs
 	namespace 	
 VetAppointment
  

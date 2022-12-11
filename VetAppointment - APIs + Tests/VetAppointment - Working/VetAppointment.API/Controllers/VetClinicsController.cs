@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
-using VetAppointment.Application;
 using VetAppointment.Domain;
 using VetAppointment.Infrastructure.Data;
 
@@ -305,7 +304,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{vetClinicId:guid}")]
-        public IActionResult Update(Guid vetClinicId, [FromBody] VetClinicDto vetClinicDto)
+        public IActionResult Update(Guid vetClinicId, [FromBody] CreateVetClinicDto vetClinicDto)
         {
             var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId);
             if (clinic == null)

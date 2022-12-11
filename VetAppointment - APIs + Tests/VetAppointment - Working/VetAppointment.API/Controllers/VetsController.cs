@@ -4,7 +4,7 @@ using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
 using VetAppointment.Domain;
 
-namespace VetAppointment.API.Features.Vets
+namespace VetAppointment.API.Controllers
 {
     [Route("v1/api/[controller]")]
     [ApiController]

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.API\Controllers\PrescribedDrugsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class PrescribedDrugsController : ControllerBase
+    {
+        private readonly IRepository&lt;PrescribedDrug&gt; prescribedDrugRepository;
+        private readonly IRepository&lt;Drug&gt; drugRepository;
+
+        public PrescribedDrugsController(IRepository&lt;PrescribedDrug&gt; prescribedDrugRepository,
+            IRepository&lt;Drug&gt; drugRepository)
+        {
+            this.prescribedDrugRepository = prescribedDrugRepository;
+            this.drugRepository = drugRepository;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var drugs = prescribedDrugRepository
+                .All()
+                .Select(
+                    d =&gt; new PrescribedDrugDto
+                    {
+                        Id = d.Id,
+                        Quantity = d.Quantity,
+                        DrugId = d.DrugToPrescribeId,
+                        TotalCost = d.TotalCost
+                    }
+                );
+
+            return Ok(drugs);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreatePrescribedDrugDto drugDto)
+        {
+            var drug = drugRepository.Get(drugDto.DrugId);
+            if (drug == null)
+            {
+                return NotFound();
+            }
+
+            var prescribedDrug = PrescribedDrug.Create(drugDto.Quantity, drug);
+            if (prescribedDrug.IsFailure)
+            {
+                return BadRequest(prescribedDrug.Error);
+            }
+
+            prescribedDrugRepository.Add(prescribedDrug.Entity);
+            prescribedDrugRepository.SaveChanges();
+
+            var fullPrescribedDrug = new PrescribedDrugDto
+            {
+                Id = prescribedDrug.Entity.Id,
+                Quantity = prescribedDrug.Entity.Quantity,
+                DrugId = prescribedDrug.Entity.DrugToPrescribeId,
+                TotalCost = prescribedDrug.Entity.TotalCost
+            };
+
+            return Created(nameof(Get), fullPrescribedDrug);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,17,46,0],[18,9,18,10,0],[19,13,19,70,0],[20,13,20,50,0],[21,9,21,10,0],[25,9,25,10,0],[26,13,29,26,0],[29,26,35,22,0],[35,22,36,19,0],[38,13,38,30,0],[39,9,39,10,0],[43,9,43,10,0],[44,13,44,59,0],[45,13,45,30,0],[46,13,46,14,0],[47,17,47,35,0],[50,13,50,80,0],[51,13,51,42,0],[52,13,52,14,0],[53,17,53,57,0],[56,13,56,65,0],[57,13,57,52,0],[59,13,65,15,0],[67,13,67,61,0],[68,9,68,10,0]]);
+    </script>
+  </body>
+</html>

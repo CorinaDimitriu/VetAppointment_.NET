@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetAppointment.Shared", "Ve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetAppointment.Integration.Test", "VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj", "{B86AA7EA-6380-4C41-A62B-38BF607BEECC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetAppointment.UI", "VetAppointment.UI\VetAppointment.UI.csproj", "{C42D6D4B-19BA-477B-B2A4-CA886C9B2705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{B86AA7EA-6380-4C41-A62B-38BF607BEECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B86AA7EA-6380-4C41-A62B-38BF607BEECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B86AA7EA-6380-4C41-A62B-38BF607BEECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C42D6D4B-19BA-477B-B2A4-CA886C9B2705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42D6D4B-19BA-477B-B2A4-CA886C9B2705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42D6D4B-19BA-477B-B2A4-CA886C9B2705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42D6D4B-19BA-477B-B2A4-CA886C9B2705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{933E86B2-C711-4485-BB7A-AFEA61C17E1C} = {AB5F59A4-E96F-46D8-8918-19D9D7A943C6}
 		{D8722C6C-9C78-476E-AD5B-78078AE74E83} = {AB5F59A4-E96F-46D8-8918-19D9D7A943C6}
 		{B86AA7EA-6380-4C41-A62B-38BF607BEECC} = {1A19AE28-BEF9-4148-AA1A-2CF39D604543}
+		{C42D6D4B-19BA-477B-B2A4-CA886C9B2705} = {AB5F59A4-E96F-46D8-8918-19D9D7A943C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2717C772-D150-4B9E-BA1F-557F8A8FEB6E}

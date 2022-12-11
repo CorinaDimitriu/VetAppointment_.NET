@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.API\Controllers\AppointmentsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class AppointmentsController : ControllerBase
+    {
+        private readonly IUnitOfWork unitOfWork;
+
+        public AppointmentsController(IUnitOfWork unitOfWork) =&gt; this.unitOfWork = unitOfWork;
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateAppointmentDto appointmentDto)
+        {
+            var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId);
+            if (pet == null)
+            {
+                return NotFound();
+            }
+            
+            var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId);
+            if (vet == null)
+            {
+                return NotFound();
+            }
+            
+            var appointment = Appointment.SettleAppointment(
+                    vet,
+                    pet,
+                    appointmentDto.ScheduledDate,
+                    appointmentDto.EstimatedDurationInMinutes
+                );
+
+            var treatement = unitOfWork.TreatmentRepository.Get(appointmentDto.TreatmentId);
+            if (treatement == null )
+            {
+                return NotFound();
+            }
+
+            var history = unitOfWork.MedicalHistoryRepository.Get(appointmentDto.MedicalHistoryId);
+            if (history == null)
+            {
+                return NotFound();
+            }
+
+            history.RegisterAppointmentToHistory(appointment.Entity);
+            unitOfWork.MedicalHistoryRepository.Update(history);
+            unitOfWork.SaveChanges();
+
+            appointment.Entity.AttachTreatmentToAppointment(treatement);
+            appointment.Entity.AttachAppointmentToMedicalHistory(history);
+
+
+            if (appointment.IsFailure)
+            {
+                return BadRequest(appointment.Error);
+            }
+
+            unitOfWork.AppointmentRepository.Add(appointment.Entity);
+            unitOfWork.SaveChanges();
+            var fullAppointment = new AppointmentDto
+            {
+                Id = appointment.Entity.Id,
+                VetId = appointment.Entity.VetId,
+                PetId = appointment.Entity.PetId,
+                ScheduledDate = appointment.Entity.ScheduledDate.ToString(),
+                EstimatedDurationInMinutes = appointment.Entity.EstimatedDurationInMinutes
+            };
+
+            return Created(nameof(GetAllAppointments), fullAppointment);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllAppointments()
+        {
+            var appointments = unitOfWork.AppointmentRepository.All().Select(appointment =&gt; new AppointmentDto()
+            {
+                Id = appointment.Id,
+                VetId = appointment.VetId,
+                PetId = appointment.PetId,
+                ScheduledDate = appointment.ScheduledDate.ToString(),
+                EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
+                TreatmentId = appointment.TreatmentId,
+                MedicalHistoryId = appointment.MedicalHistoryId
+            });
+            
+            return Ok(appointments);
+        }
+
+        [HttpGet(&quot;{id}&quot;)]
+        public IActionResult GetAppointmentById(Guid id)
+        {
+            var appointment = unitOfWork.AppointmentRepository.Get(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            var appointmentDto = new AppointmentDto
+            {
+                Id = appointment.Id,
+                VetId = appointment.VetId,
+                PetId = appointment.PetId,
+                ScheduledDate = appointment.ScheduledDate.ToString(),
+                EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
+                TreatmentId = appointment.TreatmentId,
+                MedicalHistoryId = appointment.MedicalHistoryId
+            };
+
+            return Ok(appointmentDto);
+        }
+
+        [HttpDelete(&quot;{id}&quot;)]
+        public IActionResult DeleteAppointment(Guid id)
+        {
+            var appointment = unitOfWork.AppointmentRepository.Get(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            unitOfWork.AppointmentRepository.Delete(appointment);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{id}&quot;)]
+        public IActionResult UpdateAppointment(Guid id, [FromBody] AppointmentDto appointmentDto)
+        {
+            var appointment = unitOfWork.AppointmentRepository.Get(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            appointment.Update(appointment.VetId, appointmentDto.PetId, appointmentDto.ScheduledDate,
+                appointmentDto.EstimatedDurationInMinutes, appointmentDto.TreatmentId, appointmentDto.MedicalHistoryId);
+
+            unitOfWork.AppointmentRepository.Update(appointment);
+            unitOfWork.SaveChanges();
+
+            return NoContent();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[15,9,15,62,0],[15,66,15,94,0],[19,9,19,10,0],[20,13,20,74,0],[21,13,21,29,0],[22,13,22,14,0],[23,17,23,35,0],[26,13,26,74,0],[27,13,27,29,0],[28,13,28,14,0],[29,17,29,35,0],[32,13,37,19,0],[39,13,39,93,0],[40,13,40,37,0],[41,13,41,14,0],[42,17,42,35,0],[45,13,45,100,0],[46,13,46,33,0],[47,13,47,14,0],[48,17,48,35,0],[51,13,51,70,0],[52,13,52,65,0],[53,13,53,38,0],[55,13,55,73,0],[56,13,56,75,0],[59,13,59,39,0],[60,13,60,14,0],[61,17,61,54,0],[64,13,64,70,0],[65,13,65,38,0],[66,13,73,15,0],[75,13,75,73,0],[76,9,76,10,0],[80,9,80,10,0],[81,13,81,93,0],[81,93,90,14,0],[90,14,90,16,0],[92,13,92,37,0],[93,9,93,10,0],[97,9,97,10,0],[98,13,98,72,0],[99,13,99,37,0],[100,13,100,14,0],[101,17,101,35,0],[104,13,113,15,0],[115,13,115,39,0],[116,9,116,10,0],[120,9,120,10,0],[121,13,121,72,0],[122,13,122,37,0],[123,13,123,14,0],[124,17,124,35,0],[127,13,127,66,0],[128,13,128,38,0],[130,13,130,32,0],[131,9,131,10,0],[135,9,135,10,0],[136,13,136,72,0],[137,13,137,37,0],[138,13,138,14,0],[139,17,139,35,0],[142,13,143,121,0],[145,13,145,66,0],[146,13,146,38,0],[148,13,148,32,0],[149,9,149,10,0]]);
+    </script>
+  </body>
+</html>

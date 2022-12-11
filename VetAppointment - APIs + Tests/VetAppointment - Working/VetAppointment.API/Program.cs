@@ -14,16 +14,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
-builder.Services.AddDbContext<DatabaseContext>(
-	options => options.UseSqlite("Data Source = VetAppointmentTest.db"));
+//builder.Services.AddDbContext<DatabaseContext>(
+//	options => options.UseSqlite("Data Source = VetAppointmentTest.db"));
 
 //builder.Services.AddDbContext<DatabaseContext>(
-//	options => options.UseSqlite(
-//		builder.Configuration.GetConnectionString("TestConnection"), 
-//		b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)
-//		)
-//	);
+//    options => options.UseSqlite(
+//        builder.Configuration.GetConnectionString("DefaultConnection"),
+//        b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)
+//        )
+//    );
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
@@ -37,13 +36,29 @@ builder.Services.AddScoped<IRepository<MedicalHistory>, MedicalHistoryRepository
 builder.Services.AddScoped<IRepository<PrescribedDrug>, PrescribedDrugRepository>();
 builder.Services.AddScoped<IRepository<Treatment>, TreatmentRepository>();
 
+//builder.Services.AddCors(options =>
+//{
+//	options.AddPolicy("clinicsCors", policy =>
+//	{
+//		policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+//	});
+//});
+
 builder.Services.AddCors(options =>
 {
-	options.AddPolicy("clinicsCors", policy =>
-	{
-		policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-	});
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("https://localhost:7029"); // Safe
+    });
+
+    options.AddPolicy(name: "clinicsCors", builder =>
+    {
+        builder.WithOrigins("https://localhost:7029"); // Safe
+    });
 });
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

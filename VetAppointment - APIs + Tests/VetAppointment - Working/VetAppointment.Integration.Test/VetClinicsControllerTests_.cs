@@ -1,18 +1,46 @@
 ﻿#nullable disable
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using VetAppointment.API.Controllers;
 using VetAppointment.Domain.Enums;
+using VetAppointment.Infrastructure.Data;
 
 namespace VetAppointment.Integration.Tests
 {
-    public class VetClinicsControllerTests : BaseIntegrationTests, IDisposable
+    public class VetClinicsControllerTests : BaseIntegrationTests
     {
         private const string ApiURL = "v1/api/vetclinics";
+
+        public VetClinicsControllerTests(WebApplicationFactory<VetClinicsController> factory) : base(factory)
+        {
+        }
 
         [Fact]
         public async void When_CreateClinic_Then_ShouldReturnClinicInTheGetRequestAsync()
         {
             // Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest7.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest7.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+
             CreateVetClinicDto vetClinicDto = CreateClinitSUT();
-            
+
             // Act
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, vetClinicDto);
             var getClinicResult = await HttpClient.GetAsync(ApiURL);
@@ -31,7 +59,25 @@ namespace VetAppointment.Integration.Tests
         [Fact]
         public async Task When_RegisterPetsFamilyToClinic_Then_ShouldSavePetsInClinicAsync()
         {
-            // Arrange
+            //Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest6.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest6.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+
             var createVetClinicDto = CreateClinitSUT();
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
             var pets = new List<PetDto> { CreatePetSUT() };
@@ -48,7 +94,25 @@ namespace VetAppointment.Integration.Tests
         [Fact]
         public async void When_RegisterEmptyListOfPetsToClinic_Then_ShouldReturnBadRequestAsync()
         {
-            // Arrange
+            //Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest5.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest5.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+
             CreateVetClinicDto createVetClinicDto = CreateClinitSUT();
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
             var pets = new List<PetDto>();
@@ -64,7 +128,25 @@ namespace VetAppointment.Integration.Tests
         [Fact]
         public async void When_RegisterVetToClinic_Then_ShouldSaveVetInClinicAsync()
         {
-            // Arrange
+            //Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest4.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest4.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+            
             var createVetClinicDto = CreateClinitSUT();
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
             var vet = CreateVetSUT();
@@ -82,6 +164,24 @@ namespace VetAppointment.Integration.Tests
         public async void When_UpdateVet_Then_ShouldUpdateVetInClinic()
         {
             // Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest3.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest3.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+
             var clinicSUT = CreateClinitSUT();
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, clinicSUT);
             var clinic = await createClinicResponse.Content.ReadFromJsonAsync<VetClinicDto>();
@@ -103,7 +203,25 @@ namespace VetAppointment.Integration.Tests
         [Fact]
         public async void When_DeleteVet_Then_ShouldDeleteVetFromClinic()
         {
-            // Arrange
+            //Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest2.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest2.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+
             var clinicSUT = CreateClinitSUT();
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, clinicSUT);
             var clinic = await createClinicResponse.Content.ReadFromJsonAsync<VetClinicDto>();
@@ -123,7 +241,25 @@ namespace VetAppointment.Integration.Tests
         [Fact]
         public async void When_DeleteClinic_Then_ShouldDeleteClinic()
         {
-            // Arrange
+            //Arrange
+            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureTestServices(services =>
+                {
+                    services.AddDbContext<DatabaseContext>(options =>
+                    {
+                        options.UseSqlite("Data Source = VetAppointmentTest1.db");
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+            DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite("Data Source = VetAppointmentTest1.db").Options;
+            DatabaseContext db = new DatabaseContext(options);
+            CleanDatabases(db);
+
             var clinicSUT = CreateClinitSUT();
             var createClinicResponse = await HttpClient.PostAsJsonAsync(ApiURL, clinicSUT);
             var clinic = await createClinicResponse.Content.ReadFromJsonAsync<VetClinicDto>();
@@ -171,11 +307,6 @@ namespace VetAppointment.Integration.Tests
                 Gender = PersonGender.Female.ToString(),
                 Specialisation = VetSpecialisation.Nutritionist.ToString()
             };
-        }
-
-        public void Dispose()
-        {
-            CleanDatabases();
         }
     }
 }

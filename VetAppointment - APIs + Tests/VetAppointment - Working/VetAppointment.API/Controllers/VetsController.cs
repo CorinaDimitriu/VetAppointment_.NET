@@ -32,7 +32,10 @@ namespace VetAppointment.API.Controllers
                         Specialisation = v.Specialisation.ToString()
                     }
                 );
-            
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(vets);
         }
 
@@ -70,6 +73,9 @@ namespace VetAppointment.API.Controllers
                 Specialisation = vet.Entity.Specialisation.ToString()
             };
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Get), fullVet);
         }
     }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Runtime.InteropServices;
+using VetAppointment.Domain.Enums;
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Models;
 using VetAppointment.UI.Pages.Services;
@@ -19,17 +21,18 @@ namespace VetAppointment.UI.Pages
         public VetClinic ClinicToGet { get; set; } = default!;
         public ModelClinic ClinicToUpdate { get; set; } = default!;
         public ModelPetsInClinic ModelPets { get; set; } = default!;
-        public Vet Vet { get; set; } = default!;
+        public ModelVet Vet { get; set; } = default!;
         public string Id { get; set; } = default!;
         public string IdToDelete { get; set; } = default!;
         public bool IsCreating { get; set; } = false;
         public bool IsUpdating { get; set; } = false;
         public bool IsRetrieving { get; set; } = false;
         public bool IsDeleting { get; set; } = false;
-
         public bool IsVetBeingAdded { get; set; } = false;
-
         public bool ArePetsBeingAdded { get; set; } = false;
+
+        public List<string> Specialisations { get; set; } = 
+            Enum.GetNames(typeof(VetSpecialisation)).Select(s => s.ToString()).ToList();
 
         protected async override Task OnInitializedAsync()
         {
@@ -117,17 +120,15 @@ namespace VetAppointment.UI.Pages
 
         protected void StartRetrieving()
         {
-            /*IsRetrieving = !IsRetrieving;
-            if (IsCreating)
+            IsRetrieving = !IsRetrieving;
+            if (IsRetrieving)
             {
                 Id = "";
             }
             else
             {
                 Id = default!;
-            }*/
-            IsRetrieving = true;
-            Id = "";
+            }
         }
 
         protected async Task DeleteClinic()

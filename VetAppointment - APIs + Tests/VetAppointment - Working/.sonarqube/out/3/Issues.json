@@ -18,11 +18,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
                 "region": {
-                  "startLine": 65,
+                  "startLine": 52,
                   "startColumn": 34,
-                  "endLine": 65,
+                  "endLine": 52,
                   "endColumn": 38
                 }
               }
@@ -39,33 +39,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
-                "region": {
-                  "startLine": 52,
-                  "startColumn": 34,
-                  "endLine": 52,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
                 "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
                 "region": {
-                  "startLine": 74,
-                  "startColumn": 71,
-                  "endLine": 74,
-                  "endColumn": 80
+                  "startLine": 65,
+                  "startColumn": 34,
+                  "endLine": 65,
+                  "endColumn": 38
                 }
               }
             }
@@ -102,12 +81,33 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/ClinicOwnerTests.cs",
                 "region": {
-                  "startLine": 110,
-                  "startColumn": 78,
-                  "endLine": 110,
-                  "endColumn": 87
+                  "startLine": 74,
+                  "startColumn": 71,
+                  "endLine": 74,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'CreateSUT' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/DrugTests.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 47,
+                  "endLine": 99,
+                  "endColumn": 56
                 }
               }
             }
@@ -144,12 +144,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/DrugTests.cs",
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/PetOwnerTests.cs",
                 "region": {
-                  "startLine": 99,
-                  "startColumn": 47,
-                  "endLine": 99,
-                  "endColumn": 56
+                  "startLine": 110,
+                  "startColumn": 78,
+                  "endLine": 110,
+                  "endColumn": 87
                 }
               }
             }
@@ -203,16 +203,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreateSUTForClinicOwner' does not access instance data and can be marked as static",
+          "message": "Member 'CreateSUTForPet' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
                 "region": {
-                  "startLine": 294,
-                  "startColumn": 71,
-                  "endLine": 294,
-                  "endColumn": 94
+                  "startLine": 284,
+                  "startColumn": 55,
+                  "endLine": 284,
+                  "endColumn": 70
                 }
               }
             }
@@ -224,16 +224,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'CreateSUTForPet' does not access instance data and can be marked as static",
+          "message": "Member 'CreateSUTForClinicOwner' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Business.Test/VetClinicTests.cs",
                 "region": {
-                  "startLine": 284,
-                  "startColumn": 55,
-                  "endLine": 284,
-                  "endColumn": 70
+                  "startLine": 294,
+                  "startColumn": 71,
+                  "endLine": 294,
+                  "endColumn": 94
                 }
               }
             }

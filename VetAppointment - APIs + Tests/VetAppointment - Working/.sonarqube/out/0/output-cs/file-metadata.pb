@@ -1,5 +1,9 @@
 ò
-éD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Appointment.csutf-8ì
+éD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Appointment.csutf-8ü
+ïD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\AnimalGender.csutf-8ù
+ìD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\AnimalRace.csutf-8ü
+ïD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\PersonGender.csutf-8§
+öD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\VetSpecialisation.csutf-8ì
 âD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Person.csutf-8ê
 ÜD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Pet.csutf-8ï
 ãD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\PetOwner.csutf-8ê

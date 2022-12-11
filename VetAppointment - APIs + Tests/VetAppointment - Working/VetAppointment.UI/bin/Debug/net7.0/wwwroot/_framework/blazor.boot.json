@@ -37,6 +37,8 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-q4ruoDSCjV\/QJY9ZkzV6uxvEvZUVrDbyUjU3SSh5SlE=",
       "Microsoft.JSInterop.dll": "sha256-q17WovokqNgFuXZO8JzEh+dShJEutXJL12V9hSr+Q6s=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-LS1TECEw0D6FskWRcaDt51suj930x2zRQySVGe2mJ3o=",
+      "Newtonsoft.Json.dll": "sha256-mRd6TL4DYldo1ko9czkjEDcoiPdMPrJxz3dekwV6OOY=",
+      "Smart.Blazor.dll": "sha256-sttHanXF8GZ8URpq\/zUulzLpM3PpC4vquthpZEYMDLc=",
       "System.IO.Pipelines.dll": "sha256-P\/MqD0fCBd5bgTM16JC1QC\/Zz7s+CwViyzmDFkBG4\/c=",
       "Microsoft.CSharp.dll": "sha256-H2iVC6N2FKaujhjo5ymgRU5qPnElYWEM2SWi7kARbdI=",
       "Microsoft.VisualBasic.Core.dll": "sha256-6A8aISqpO8yZDf6t9XNQk3hY5NXcyecT6yZbhY8yYiw=",
@@ -206,15 +208,15 @@
       "mscorlib.dll": "sha256-pO\/W4w\/X+UjVMUMaxE5tYTQ0tILP+hmMu0zi0MSVBLc=",
       "netstandard.dll": "sha256-kj5cBXzwPYC+HD+P8+6VybY34JtEzjXjMIHXEI3hIiM=",
       "System.Private.CoreLib.dll": "sha256-Awk1lCiFfH7r9AAZfBtGqS8rhv6UJ5lUu3yF6HDH3tQ=",
-      "VetAppointment.Shared.dll": "sha256-gnqmapxxOCbPK17bAZtk3J10Ou2+8k4i1jt680lm\/4w=",
-      "VetAppointment.UI.dll": "sha256-Omw9qbKL0uEwiInBQY4l3pCGyldknrQiyqGK14prxDg="
+      "VetAppointment.Shared.dll": "sha256-vGDa0h4D1xiO5VlLNcj1Ul2+UjReC7AeUVdDFYuyvmw=",
+      "VetAppointment.UI.dll": "sha256-LdIacrZw4Q8G9GhK1+cfaxoDft7dE7k2v7Wjj5GIKeE="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "VetAppointment.Shared.pdb": "sha256-6XXKMr65z7J\/Zjld4ImQXGmsllBZLn0mnnTdvLzEWfc=",
-      "VetAppointment.UI.pdb": "sha256-bkFSo+ffmM4mehAb3PR807Eds+FXADYM5j7503xWaDg="
+      "VetAppointment.Shared.pdb": "sha256-9yrDPFZvYMjagU2JrgxS6E5LFD6JvXNJhwxPD4DmW+U=",
+      "VetAppointment.UI.pdb": "sha256-M84a5\/nKNyeepa2Nk3aM4TcLOErMgwSSd2dlk6n+FSw="
     },
     "runtime": {
       "dotnet.7.0.0.848z4fwc4x.js": "sha256-2jNLve8W0sST0LAebgAc1IwSnGhkbjOKO8QPWWiJssI=",

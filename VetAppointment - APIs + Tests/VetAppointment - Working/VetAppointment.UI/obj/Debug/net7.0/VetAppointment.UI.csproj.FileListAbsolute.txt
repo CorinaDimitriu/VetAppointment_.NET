@@ -1,3 +1,9 @@
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.AssemblyReference.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfoInputs.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.MvcApplicationPartsAssemblyInfo.cache
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\blazor.boot.json
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\blazor.webassembly.js
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Blazored.FluentValidation.dll
@@ -44,6 +50,8 @@ D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetApp
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Win32.Registry.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\mscorlib.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\netstandard.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Newtonsoft.Json.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Smart.Blazor.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.AppContext.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Buffers.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Collections.Concurrent.dll
@@ -223,6 +231,7 @@ D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetApp
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Xml.XDocument.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Globalization.Extensions.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\icudt.dat.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Smart.Blazor.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Security.Cryptography.Primitives.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.Serialization.Formatters.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Private.Xml.dll.gz
@@ -360,6 +369,7 @@ D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetApp
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Net.WebSockets.Client.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.Components.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Configuration.dll.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\VetAppointment.UI.pdb.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\System.Collections.Immutable.dll.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll.gz
@@ -454,6 +464,8 @@ D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetApp
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Microsoft.JSInterop.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Microsoft.JSInterop.WebAssembly.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Smart.Blazor.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\System.IO.Pipelines.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Microsoft.CSharp.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\Microsoft.VisualBasic.Core.dll
@@ -632,12 +644,6 @@ D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetApp
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\icudt_no_CJK.dat
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Shared.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\bin\Debug\net7.0\VetAppointment.Shared.pdb
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.AssemblyReference.cache
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfoInputs.cache
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.csproj.CoreCompileInputs.cache
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.MvcApplicationPartsAssemblyInfo.cache
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\BtbbCwY5.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\1FEnzP+R.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\+yV+irJz.gz
@@ -668,6 +674,8 @@ D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetApp
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\sfYRWeit.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\Iao4ep2R.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\jcIRPXkT.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\OolhPgFt.gz
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\25xd8t+V.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\iwgWf7Fk.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\sMLK+CPu.gz
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\obj\Debug\net7.0\build-gz\CAcfro38.gz

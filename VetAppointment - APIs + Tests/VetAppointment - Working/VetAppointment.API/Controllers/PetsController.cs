@@ -28,7 +28,10 @@ namespace VetAppointment.API.Controllers
                         Gender = p.Gender.ToString()
                     }
                 );
-            
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(pets);
         }
     } 

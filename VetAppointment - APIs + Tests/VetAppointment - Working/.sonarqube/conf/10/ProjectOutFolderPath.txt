@@ -1,1 +1,0 @@
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\.sonarqube\out\10

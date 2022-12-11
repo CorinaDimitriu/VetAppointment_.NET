@@ -95,7 +95,147 @@
 ;/ 0
 }1 2
 } 
-} ˆ
+} ˝
+ïD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Domain 
+.  
+Enums  %
+{ 
+public 
+
+enum 
+AnimalGender 
+{ 
+Male 
+= 
+$num 
+, 
+Female 
+= 
+$num 
+} 
+} ä
+ìD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Domain 
+.  
+Enums  %
+{ 
+public 
+
+enum 
+
+AnimalRace 
+{ 
+Dog 
+= 
+$num 
+, 
+Cat 
+= 
+$num 
+, 
+Bird 
+= 
+$num 
+, 
+Fish 
+= 
+$num 
+, 
+Rabbit		 
+=		 
+$num		 
+,		 
+Hamster
+
+ 
+=
+
+ 
+$num
+
+ 
+,
+
+ 
+Reptile 
+= 
+$num 
+, 
+Other 
+= 
+$num 
+} 
+} ¿
+ïD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Domain 
+.  
+Enums  %
+{ 
+public 
+
+enum 
+PersonGender 
+{ 
+Male 
+= 
+$num 
+, 
+Female 
+= 
+$num 
+, 
+Other 
+= 
+$num 
+} 
+}		 £
+öD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Domain 
+.  
+Enums  %
+{ 
+public 
+
+enum 
+VetSpecialisation !
+{ 
+
+PawSurgeon 
+= 
+$num 
+, 
+DentalCaretaker 
+= 
+$num 
+, 
+Nutritionist 
+= 
+$num 
+, 
+Other 
+= 
+$num 
+}		 
+}
+
+ ˆ
 âD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Person.cs
 	namespace 	
 VetAppointment
@@ -285,86 +425,86 @@
 } 
 } ó	
 ÜD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Vet.cs
-	namespace 	
-VetAppointment
+	namespace 	
+VetAppointment
  
-. 
-Shared 
-.  
-Domain  &
-{ 
-public 
+. 
+Shared 
+.  
+Domain  &
+{ 
+public 
 
-class 
-Vet 
-: 
-Person 
-{ 
-public 
-Guid 
-Id 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-string 
-Email 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-string 
-Phone 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
+class 
+Vet 
+: 
+Person 
+{ 
+public 
+Guid 
+Id 
+{ 
+get 
+; 
+set !
+;! "
+}# $
 public 
-string 
-ClinicId 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
+string 
+Email 
+{ 
+get !
+;! "
+set# &
+;& '
+}( )
+public		 
+string		 
+Phone		 
+{		 
+get		 !
+;		! "
+set		# &
+;		& '
+}		( )
 public
 
  
 string
 
- 
-Specialisation
+ 
+ClinicId
 
- $
+ 
 {
 
-% &
+  
 get
 
-' *
+! $
 ;
 
-* +
+$ %
 set
 
-, /
+& )
 ;
 
-/ 0
+) *
 }
 
-1 2
-} 
-} ù
++ ,
+public 
+string 
+Specialisation $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
+} 
+} ù
 åD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\VetClinic.cs
 	namespace 	
 VetAppointment

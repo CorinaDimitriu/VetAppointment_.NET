@@ -635,8 +635,8 @@ D:\10.12.2022\VetAppoinement\VetAppointment.Business.Test\obj\Debug\net7.0\VetAp
 D:\10.12.2022\VetAppoinement\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.genruntimeconfig.cache
 D:\10.12.2022\VetAppoinement\VetAppointment.Business.Test\obj\Debug\net7.0\ref\VetAppointment.Business.Test.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\CoverletSourceRootsMapping
-D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\testhost.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\testhost.exe
+D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\testhost.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\xunit.runner.reporters.netcoreapp10.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Business.Test\bin\Debug\net7.0\xunit.runner.utility.netcoreapp10.dll

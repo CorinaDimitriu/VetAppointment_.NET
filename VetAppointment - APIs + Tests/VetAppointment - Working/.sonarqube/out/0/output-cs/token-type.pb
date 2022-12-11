@@ -9,7 +9,21 @@
 
 " %
 
-' *  ' *, /°
+' *  ' *, /ê
+•D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+ 	 
+    ¼
+“D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+ 	 
+      		 
+
+   ø
+•D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+ 	 
+     ‹
+šD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+ 	 
+  !    °
 ‰D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Person.cs
  	 
         " %    #% (  " %' *   "$ '×
@@ -26,18 +40,19 @@
 $ '²
 ‹D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\PetOwner.cs
  	 
-   "    !    #% (   !# &		 		 		 !		# &å
+   "    !    #% (   !# &		 		 		 !		# &ñ
 †D:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\Vet.cs
- 	 
-       !   !# &   !# &  ! $& )
+ 
+ 	 
+       !   !# &		 		 		 !		# &
 
  
 
  
 
-' *
+! $
 
-, /¹
+& )  ' *, /¹
 ŒD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.Shared\Domain\VetClinic.cs
  
  	 

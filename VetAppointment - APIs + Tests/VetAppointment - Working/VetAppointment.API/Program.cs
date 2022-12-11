@@ -17,12 +17,12 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddDbContext<DatabaseContext>(
 //	options => options.UseSqlite("Data Source = VetAppointmentTest.db"));
 
-//builder.Services.AddDbContext<DatabaseContext>(
-//    options => options.UseSqlite(
-//        builder.Configuration.GetConnectionString("DefaultConnection"),
-//        b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)
-//        )
-//    );
+builder.Services.AddDbContext<DatabaseContext>(
+    options => options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)
+        )
+    );
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
@@ -48,12 +48,14 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("https://localhost:7029"); // Safe
+        builder.WithOrigins("https://localhost:7029").
+        WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("Content-Type", "x-requested-with");
     });
 
     options.AddPolicy(name: "clinicsCors", builder =>
     {
-        builder.WithOrigins("https://localhost:7029"); // Safe
+        builder.WithOrigins("https://localhost:7029").
+        WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("Content-Type", "x-requested-with");
     });
 });
 

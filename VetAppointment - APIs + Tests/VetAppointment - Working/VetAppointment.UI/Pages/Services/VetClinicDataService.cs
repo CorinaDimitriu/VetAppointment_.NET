@@ -34,11 +34,21 @@ namespace VetAppointment.UI.Pages.Services
             return await JsonSerializer.DeserializeAsync<VetClinic>(response.Content.ReadAsStream(), options);
         }
 
-        public async Task<string> AddVetToClinic(Guid clinicId, Vet vet)
+        public async Task<string> AddVetToClinic(Guid clinicId, ModelVet vet)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet";
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-            var json = JsonSerializer.Serialize(vet);
+            var vetDto = new Vet()
+            {
+                Name = vet.Name,
+                Surname = vet.Surname,
+                Birthdate = vet.Birthdate.ToString(),
+                Gender = vet.Gender,
+                Email = vet.Email,
+                Phone = vet.Phone,
+                Specialisation = vet.Specialisation[0]
+            };
+            var json = JsonSerializer.Serialize(vetDto);
             var response = await httpClient.PostAsync
                     (ApiURLClinic, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
             response.EnsureSuccessStatusCode();

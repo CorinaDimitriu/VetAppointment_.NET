@@ -37,6 +37,9 @@ namespace VetAppointment.API.Controllers
                         Phone = owner.Phone
                     });
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(petOwners);
         }
 
@@ -73,6 +76,9 @@ namespace VetAppointment.API.Controllers
                 Id = petOwner.Entity.Id
             };
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Get), fullPetOwner);
 
         }
@@ -103,6 +109,9 @@ namespace VetAppointment.API.Controllers
             pets.ForEach(p => petRepository.Add(p.Entity));
             petOwnerRepository.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Get), owner);
         }
     }

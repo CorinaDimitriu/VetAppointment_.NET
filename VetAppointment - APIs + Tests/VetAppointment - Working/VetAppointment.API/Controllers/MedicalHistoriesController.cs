@@ -22,6 +22,10 @@ namespace VetAppointment.API.Controllers
                 .All()
                 .Select( history => new MedicalHistoryDto { Id = history.Id, ClinicId = history.ClinicId } );
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+
             return Ok(medicalHistories);
         }
 
@@ -77,6 +81,9 @@ namespace VetAppointment.API.Controllers
                 MedicalHistoryId = appointment.Entity.MedicalHistoryId
             };
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Post), fullAppointment);
         }
     }

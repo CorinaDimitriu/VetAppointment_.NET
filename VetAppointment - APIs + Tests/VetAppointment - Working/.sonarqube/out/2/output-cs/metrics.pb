@@ -1,8 +1,7 @@
 π
 òD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\Pages\AppointmentsOverview.razor.cs 8r	
-Çî
-ìD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\Pages\ClinicsOverview.razor.cs6 08Ejxy{}rå
- "#$%'()*+,-./12345679:;<=>?@ABCDFGHIJKLMNOPQSTUVWXY[\]^_`abcdefhijklmnpqrstvwÅÇÉÖÜáàâäãçéèêëíìîïñóòöõúùûü°¢£§•¶ß®©™´¨ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√≈∆«»… ÀÃÕœ–—“”‘’÷◊ÿŸxÇ[$)*+-35;<>BHIKOUW]^`djlrsÅÇáâèêíñúûü¢£•¶ß®™∞±≥πªΩ¡«… Ã—”‘÷ß
+Çì
+ìD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\Pages\ClinicsOverview.razor.cs8 08Frí	!"#$&'()*+,-.012345689:;<=>?@ABCEFGHIJKLMNOPRSTUVWXZ[\]^_`abcdeghijklmopqrsuvwxyz{|}~ÄÇÉÑÖÜáàäãåçéèêëíìîïóòôöõúûü†°¢£§•¶ß®©´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¬√ƒ≈∆«»… ÃÕŒœ–—“”‘’÷xÇ[#()*,24:;=AGHJNTV\]_cikqrwxz~ÑÜåçèìôõúü†¢£§•ß≠Æ∞∂∏∫æƒ∆«…Œ–—”ß
 êD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\Pages\Models\ModelClinic.cs 8r	
 £
 çD:\Facultate\Anul_3\.NET\VetAppointment_S12\VetAppointment - APIs + Tests\VetAppointment - Working\VetAppointment.UI\Pages\Models\ModelPet.cs 

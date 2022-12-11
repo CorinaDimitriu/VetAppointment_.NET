@@ -153,15 +153,21 @@ else
         </div>
         <div class="form-group">
             <label for="surname">Vet Surame</label>
-            <InputText id="surname" @bind-Value="Vet.Surname" placeholder="Vet Surame" class="form-control" />
+            <InputText id="surname" @bind-Value="Vet.Surname" placeholder="Vet Surname" class="form-control" />
         </div>
         <div class="form-group">
-            <label for="birthdate">Vet Birthdate</label>
-            <InputText id="birthdate" @bind-Value="Vet.Birthdate" placeholder="Vet Birthdate" class="form-control" />
+            <label>Vet Birthdate</label>
+            @*<InputDate @bind-Value="Vet.Birthdate" id="birthdate" placeholder="Vet Birthdate" @bind-Value:format="MM/dd/yyyy" class="form-control" />*@
+            <DateInput @bind-Value="@Vet.Birthdate" class="form-control"></DateInput>
         </div>
         <div class="form-group">
-            <label for="gender">Gender</label>
-            <InputText id="gender" @bind-Value="Vet.Gender" placeholder="Vet Gender" class="form-control" />
+                <label for="gender">Vet Gender</label>
+                <input type="radio" name="gender" id="gender" checked="@(Vet.Gender == "Male")" @onchange="@(() => Vet.Gender = "Male")" />
+                    Male
+                <input type="radio" name="gender" id="gender" checked="@(Vet.Gender == "Female")" @onchange="@(() => Vet.Gender = "Female")" />
+                    Female
+                <input type="radio" name="gender" id="gender" checked="@(Vet.Gender == "Other")" @onchange="@(() => Vet.Gender = "Other")" />
+                    Other
         </div>
         <div class="form-group">
             <label for="email">Vet Email</label>
@@ -172,8 +178,8 @@ else
             <InputText id="phone" @bind-Value="Vet.Phone" placeholder="Vet Phone Number" class="form-control" />
         </div>
         <div class="form-group">
-            <label for="specialisation">Vet Specialisation</label>
-            <InputText id="specialisation" @bind-Value="Vet.Specialisation" placeholder="Vet Specialisation" class="form-control" />
+            <label>Vet Specialisation</label>
+            <DropDownList DataSource="Specialisations" @bind-SelectedValues="Vet.Specialisation" />
         </div>
 
         <div class="row">
@@ -451,7 +457,7 @@ else
         </div>
 
         <button id="addRow" type="button" class="btn btn-info float-right" @onclick="AddInputFields">+</button>
-        <button id="removeRow" type="button" class="btn btn-danger" @onclick="RemoveInput">Remove</button>
+        <button id="removeRow" type="button" class="btn btn-danger" @onclick="RemoveInput">-</button>
 
         <div id="error-overflow" class="row" hidden="hidden">
             <div class="col">

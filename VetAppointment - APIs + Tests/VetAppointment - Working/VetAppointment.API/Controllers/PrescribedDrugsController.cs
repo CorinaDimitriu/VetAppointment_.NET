@@ -35,6 +35,9 @@ namespace VetAppointment.API.Controllers
                     }
                 );
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(drugs);
         }
 
@@ -64,6 +67,9 @@ namespace VetAppointment.API.Controllers
                 TotalCost = prescribedDrug.Entity.TotalCost
             };
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Get), fullPrescribedDrug);
         }
     }

@@ -28,6 +28,9 @@ namespace VetAppointment.API.Controllers
                     }
                 );
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(drugs);
         }
 
@@ -50,6 +53,9 @@ namespace VetAppointment.API.Controllers
                     UnitPrice = drug.UnitPrice
                 };
 
+                Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+                Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+                Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
                 return Ok(drugDto);
             }
         }
@@ -71,6 +77,9 @@ namespace VetAppointment.API.Controllers
             drugRepository.Add(drug.Entity);
             drugRepository.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Get), drug.Entity);
         }
 
@@ -85,6 +94,10 @@ namespace VetAppointment.API.Controllers
             
             drugRepository.Delete(drug);
             drugRepository.SaveChanges();
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok();
         }
 
@@ -102,6 +115,9 @@ namespace VetAppointment.API.Controllers
             drugRepository.Update(drug);
             drugRepository.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(drug);
         }
     }

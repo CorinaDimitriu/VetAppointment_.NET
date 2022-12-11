@@ -22,6 +22,9 @@ namespace VetAppointment.API.Controllers
                 .All()
                 .Select ( t => new TreatmentDto { Id = t.Id, Description = t.Description } );
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(treatments);
         }
 
@@ -43,6 +46,9 @@ namespace VetAppointment.API.Controllers
                 Description = treat.Entity.Description
             };
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Created(nameof(Get), fullTreatment);
         }
 
@@ -72,6 +78,9 @@ namespace VetAppointment.API.Controllers
             drugs.ForEach(d => unitOfWork.PrescribedDrugRepository.Add(d.Entity));
             unitOfWork.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
         }
 
@@ -93,6 +102,9 @@ namespace VetAppointment.API.Controllers
             unitOfWork.TreatmentRepository.Update(treatment);
             unitOfWork.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
         }
 
@@ -128,6 +140,9 @@ namespace VetAppointment.API.Controllers
             unitOfWork.PrescribedDrugRepository.Update(drugPrescribed);
             unitOfWork.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
         }
 
@@ -155,6 +170,9 @@ namespace VetAppointment.API.Controllers
             unitOfWork.PrescribedDrugRepository.Delete(drug);
             unitOfWork.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
         }
 
@@ -170,6 +188,9 @@ namespace VetAppointment.API.Controllers
             unitOfWork.TreatmentRepository.Delete(treatment);
             unitOfWork.SaveChanges();
 
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
         }
 

@@ -345,6 +345,27 @@
           "locations": [
             {
               "resultFile": {
+                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/TreatmentRepository.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 51,
+                  "endLine": 17,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
                 "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/MedicalHistoryRepository.cs",
                 "region": {
                   "startLine": 15,
@@ -371,27 +392,6 @@
                   "startLine": 15,
                   "startColumn": 51,
                   "endLine": 18,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8603",
-          "level": "warning",
-          "message": "Possible null reference return.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Facultate/Anul_3/.NET/VetAppointment_S12/VetAppointment%20-%20APIs%20+%20Tests/VetAppointment%20-%20Working/VetAppointment.Infrastructure/Repositories/GenericRepositories/TreatmentRepository.cs",
-                "region": {
-                  "startLine": 15,
-                  "startColumn": 51,
-                  "endLine": 17,
                   "endColumn": 46
                 }
               }

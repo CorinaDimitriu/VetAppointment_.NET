@@ -137,6 +137,10 @@
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Smart.Blazor": {
+              "target": "Package",
+              "version": "[14.4.39, )"
             }
           },
           "imports": [

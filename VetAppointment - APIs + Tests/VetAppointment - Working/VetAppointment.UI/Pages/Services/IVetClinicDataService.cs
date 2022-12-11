@@ -8,7 +8,7 @@ namespace VetAppointment.UI.Pages.Services
         Task<IEnumerable<VetClinic>> GetAllClinics();
         Task<VetClinic> AddClinic(VetClinic clinic);
         Task<VetClinic> GetClinicById(Guid id);
-        Task<string> AddVetToClinic(Guid clinicId, Vet vet);
+        Task<string> AddVetToClinic(Guid clinicId, ModelVet vet);
         Task<string> DeleteClinicById(Guid clinicId);
         Task<string> AddPetsToClinic(Guid clinicId, List<Pet> pets);
 

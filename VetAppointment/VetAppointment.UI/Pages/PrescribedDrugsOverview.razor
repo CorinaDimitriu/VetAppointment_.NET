@@ -1,0 +1,28 @@
+﻿@page "/prescribeddrugsoverview"
+<h2>Prescribed Drugs Overview</h2>
+@if (PrescribedDrugs == null)
+{
+        <p><em>Loading...</em></p>
+}
+else
+{
+        <tabel class="table table-light">
+            <thead class="table-primary">
+            <th>Prescribed Drug Id</th>
+            <th>Source Drug Id</th>
+            <th>Drug Quantity</th>
+            <th>Drug Total Cost</th>
+            </thead>
+            <tbody>
+            @foreach (var drug in PrescribedDrugs)
+            {
+                        <tr>
+                            <td>@drug.Id</td>
+                            <td>@drug.DrugToPrescribeId</td>
+                            <td>@drug.Quantity</td>
+                            <td>@drug.TotalCost</td>
+                        </tr>
+            }
+            </tbody>
+        </tabel>
+}

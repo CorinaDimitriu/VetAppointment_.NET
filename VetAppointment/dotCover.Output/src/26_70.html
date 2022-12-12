@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\PetOwnersController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class PetOwnersController : ControllerBase
+    {
+        private readonly IRepository&lt;PetOwner&gt; petOwnerRepository;
+        private readonly IRepository&lt;Pet&gt; petRepository;
+
+        public PetOwnersController(IRepository&lt;PetOwner&gt; petOwnerRepository, IRepository&lt;Pet&gt; petRepository)
+        {
+            this.petOwnerRepository = petOwnerRepository;
+            this.petRepository = petRepository;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var petOwners = petOwnerRepository
+                .All().Result
+                .Select(
+                    owner =&gt; new PetOwnerDto
+                    {
+                        Id = owner.Id,
+                        Name = owner.Name,
+                        Surname = owner.Surname,
+                        Birthdate = owner.Birthdate.ToString(),
+                        Gender = owner.Gender.ToString(),
+                        Address = owner.Address,
+                        Email = owner.Email,
+                        Phone = owner.Phone
+                    });
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(petOwners);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreatePetOwnerDto petOwnerDto)
+        {
+            var petOwner = PetOwner.Create (
+                    petOwnerDto.Name,
+                    petOwnerDto.Surname,
+                    petOwnerDto.Birthdate,
+                    petOwnerDto.Gender,
+                    petOwnerDto.Address,
+                    petOwnerDto.Email,
+                    petOwnerDto.Phone
+                );
+
+            if (petOwner.IsFailure)
+            {
+                return BadRequest(petOwner.Error);
+            }
+
+            petOwnerRepository.Add(petOwner.Entity);
+            petOwnerRepository.SaveChanges();
+
+            var fullPetOwner = new PetOwnerDto()
+            {
+                Name = petOwner.Entity.Name,
+                Surname = petOwner.Entity.Surname,
+                Address = petOwner.Entity.Address,
+                Birthdate = petOwner.Entity.Birthdate.ToString(),
+                Email = petOwner.Entity.Email,
+                Gender = petOwner.Entity.Gender.ToString(),
+                Phone = petOwner.Entity.Phone,
+                Id = petOwner.Entity.Id
+            };
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(Get), fullPetOwner);
+
+        }
+
+        [HttpPost (&quot;{ownerId:guid}/pets&quot;)]
+        public IActionResult RegisterPetsToOwner(Guid ownerId, [FromBody] List&lt;CreatePetDto&gt; petsDtos)
+        {
+            var owner = petOwnerRepository.Get(ownerId).Result;
+            if (owner == null)
+            {
+                return NotFound();
+            }
+
+            var pets = petsDtos.Select(p =&gt; Pet.Create(p.Name, p.Birthdate, p.Race, p.Gender)).ToList();
+            if(pets.Any(p =&gt; p.IsFailure))
+            {
+                return BadRequest();
+            
+            }
+
+            var result = owner.RegisterPetsToOwner(pets.Select(p =&gt; p.Entity).ToList());
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            pets.ForEach(p =&gt; petRepository.Add(p.Entity));
+            petOwnerRepository.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(Get), owner);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,16,109,1],[17,9,17,10,1],[18,13,18,58,1],[19,13,19,48,1],[20,9,20,10,1],[24,9,24,10,0],[25,13,28,30,0],[28,30,38,22,0],[38,22,38,24,0],[40,13,40,106,0],[41,13,41,101,0],[42,13,42,91,0],[43,13,43,34,0],[44,9,44,10,0],[48,9,48,10,1],[49,13,57,19,1],[59,13,59,36,1],[60,13,60,14,0],[61,17,61,51,0],[64,13,64,53,1],[65,13,65,46,1],[67,13,77,15,1],[79,13,79,106,1],[80,13,80,101,1],[81,13,81,91,1],[82,13,82,55,1],[84,9,84,10,1],[88,9,88,10,1],[89,13,89,64,1],[90,13,90,31,1],[91,13,91,14,0],[92,17,92,35,0],[95,13,95,45,1],[95,45,95,94,1],[95,94,95,105,1],[96,13,96,30,1],[96,30,96,41,1],[96,41,96,43,1],[97,13,97,14,0],[98,17,98,37,0],[102,13,102,69,1],[102,69,102,77,1],[102,77,102,89,1],[104,13,104,34,1],[105,13,105,14,1],[106,17,106,49,1],[109,13,109,31,1],[109,31,109,58,1],[109,58,109,60,1],[110,13,110,46,1],[112,13,112,100,1],[113,13,113,101,1],[114,13,114,91,1],[115,13,115,48,1],[116,9,116,10,1]]);
+    </script>
+  </body>
+</html>

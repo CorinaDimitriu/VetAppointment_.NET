@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetClinicRepository.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.Infrastructure.Repositories.GenericRepositories
+{
+    public class VetClinicRepository : Repository&lt;VetClinic&gt;
+    {
+        private readonly DatabaseContext _databaseContext;
+        public VetClinicRepository(DatabaseContext context) : base(context) 
+        {
+            _databaseContext = context;
+        }
+
+        public override async Task&lt;VetClinic&gt; Get(Guid id)
+        {
+            return await _databaseContext.Set&lt;VetClinic&gt;()
+            .Include(x =&gt; x.Pets)
+            .Include(x =&gt; x.Vets)
+            .SingleOrDefaultAsync(x =&gt; x.Id == id);
+        }
+
+        public override async Task&lt;IEnumerable&lt;VetClinic&gt;&gt; All()
+        {
+            return await _databaseContext.Set&lt;VetClinic&gt;()
+            .Include(x =&gt; x.Pets)
+            .Include(x =&gt; x.Vets)
+            .ToListAsync();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,63,10,76,1],[11,9,11,10,1],[12,13,12,40,1],[13,9,13,10,1],[16,9,16,10,1],[17,13,20,52,1],[21,9,21,10,1],[24,9,24,10,1],[25,13,28,28,1],[29,9,29,10,1]]);
+    </script>
+  </body>
+</html>

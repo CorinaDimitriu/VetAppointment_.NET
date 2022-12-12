@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\PetsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class PetsController : ControllerBase
+    {
+        private readonly IRepository&lt;Pet&gt; petRepository;
+
+        public PetsController(IRepository&lt;Pet&gt; petRepository) =&gt; this.petRepository = petRepository;
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var pets = petRepository
+                .All().Result
+                .Select(
+                    p =&gt; new PetDto
+                    {
+                        Id= p.Id,
+                        Name = p.Name,
+                        Birthdate = p.Birthdate.ToString(),
+                        Race = p.Race.ToString(),
+                        Gender = p.Gender.ToString()
+                    }
+                );
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(pets);
+        }
+    } 
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[14,9,14,62,0],[14,66,14,100,0],[18,9,18,10,0],[19,13,22,26,0],[22,26,29,22,0],[29,22,30,19,0],[32,13,32,100,0],[33,13,33,101,0],[34,13,34,91,0],[35,13,35,29,0],[36,9,36,10,0]]);
+    </script>
+  </body>
+</html>

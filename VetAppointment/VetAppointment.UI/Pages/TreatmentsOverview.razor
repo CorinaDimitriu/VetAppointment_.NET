@@ -1,0 +1,24 @@
+﻿@page "/treatmentsoverview"
+<h2>Pets Overview</h2>
+@if (Treatments == null)
+{
+        <p><em>Loading...</em></p>
+}
+else
+{
+        <tabel class="table table-light">
+            <thead class="table-primary">
+            <th>Treatment Id</th>
+            <th>Treatment Description</th>
+            </thead>
+            <tbody>
+            @foreach (var treat in Treatments)
+            {
+                        <tr>
+                            <td>@treat.Id</td>
+                            <td>@treat.Description</td>
+                        </tr>
+            }
+            </tbody>
+        </tabel>
+}

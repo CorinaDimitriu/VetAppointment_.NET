@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>VetAppointment.Application</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>63b22a62-79fe-4cea-95ac-1e6406639c12</ProjectGuid>
+  <FullPath>D:\10.12.2022\VetAppointment\VetAppointment.Application\VetAppointment.Application.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="D:\10.12.2022\VetAppointment\.sonarqube\conf\31\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\10.12.2022\VetAppointment\.sonarqube\out\31\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\10.12.2022\VetAppointment\.sonarqube\out\31</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net7.0</TargetFramework>
+</ProjectInfo>

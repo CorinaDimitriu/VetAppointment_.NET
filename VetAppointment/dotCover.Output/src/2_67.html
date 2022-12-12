@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.Integration.Test\BaseIntegrationTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc.Testing;
+using VetAppointment.API.Controllers;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.Integration.Tests
+{
+    public class BaseIntegrationTests : IClassFixture&lt;WebApplicationFactory&lt;VetClinicsController&gt;&gt;
+    {
+        protected readonly WebApplicationFactory&lt;VetClinicsController&gt; _factory;
+        protected BaseIntegrationTests(WebApplicationFactory&lt;VetClinicsController&gt; factory)
+        {
+            _factory = factory;
+        }
+
+        protected static void CleanDatabases(DatabaseContext databaseContext)
+        {
+            databaseContext.PetOwners.RemoveRange(databaseContext.PetOwners.ToList());
+            databaseContext.VetClinics.RemoveRange(databaseContext.VetClinics.ToList());
+            databaseContext.Appointments.RemoveRange(databaseContext.Appointments.ToList());
+            databaseContext.Pets.RemoveRange(databaseContext.Pets.ToList());
+            databaseContext.Vets.RemoveRange(databaseContext.Vets.ToList());
+            databaseContext.Drugs.RemoveRange(databaseContext.Drugs.ToList());
+            databaseContext.PrescribedDrugs.RemoveRange(databaseContext.PrescribedDrugs.ToList());
+            databaseContext.Treatments.RemoveRange(databaseContext.Treatments.ToList());
+            databaseContext.MedicalHistories.RemoveRange(databaseContext.MedicalHistories.ToList());
+            databaseContext.SaveChanges();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,92,1],[11,9,11,10,1],[12,13,12,32,1],[13,9,13,10,1],[16,9,16,10,1],[17,13,17,87,1],[18,13,18,89,1],[19,13,19,93,1],[20,13,20,77,1],[21,13,21,77,1],[22,13,22,79,1],[23,13,23,99,1],[24,13,24,89,1],[25,13,25,101,1],[26,13,26,43,1],[27,9,27,10,1]]);
+    </script>
+  </body>
+</html>

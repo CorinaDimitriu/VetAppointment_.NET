@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\10.12.2022\VetAppointment\VetAppointment.Infrastructure\Repositories\Repository.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using VetAppointment.Application;
+using VetAppointment.Infrastructure.Data;
+
+#nullable disable
+namespace VetAppointment.Infrastructure.Repositories
+{
+    public class Repository&lt;T&gt; : IRepository&lt;T&gt; where T : class
+    {
+        private readonly DatabaseContext context;
+
+        public Repository(DatabaseContext context) =&gt; this.context = context;
+
+        public virtual async Task&lt;T&gt; Add(T entity)
+        {
+            await context.AddAsync(entity);
+            await context.SaveChangesAsync();
+            return entity;
+        }
+
+        public virtual T Update(T entity) =&gt; context.Update(entity).Entity;
+
+        public virtual async Task&lt;T&gt; Get(Guid id) =&gt; await context.Set&lt;T&gt;().FindAsync(id);
+
+        public virtual void Delete(T entity) =&gt; context.Set&lt;T&gt;().Remove(entity);
+
+        public virtual async Task&lt;IEnumerable&lt;T&gt;&gt; All() =&gt; await context.Set&lt;T&gt;().ToListAsync();
+
+        public virtual async Task&lt;IEnumerable&lt;T&gt;&gt; Find(Expression&lt;Func&lt;T, bool&gt;&gt; predicate)
+            =&gt; await context.Set&lt;T&gt;().Where(predicate).ToListAsync();
+
+        public async void SaveChanges() =&gt; await context.SaveChangesAsync();
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[13,9,13,51,1],[13,55,13,77,1],[16,9,16,10,1],[17,13,17,44,1],[18,13,18,46,1],[19,13,19,27,1],[20,9,20,10,1],[22,46,22,75,1],[24,54,24,90,1],[26,49,26,80,1],[28,60,28,96,1],[31,16,31,69,0],[33,44,33,76,1]]);
+    </script>
+  </body>
+</html>

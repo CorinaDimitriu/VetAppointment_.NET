@@ -1,2 +1,0 @@
-﻿D:\10.12.2022\VetAppointment\VetAppointment.Application\IDatabaseContext.cs
-D:\10.12.2022\VetAppointment\VetAppointment.Application\IRepository.cs

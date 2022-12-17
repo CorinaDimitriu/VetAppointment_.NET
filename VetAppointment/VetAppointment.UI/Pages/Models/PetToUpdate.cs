@@ -1,4 +1,5 @@
-﻿namespace VetAppointment.UI.Pages.Models
+﻿#nullable disable
+namespace VetAppointment.UI.Pages.Models
 {
     public class PetToUpdate
     {

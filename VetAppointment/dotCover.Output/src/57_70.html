@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\PetOwnersController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.API.Mappers;
+using VetAppointment.API.Validators;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class PetOwnersController : ControllerBase
+    {
+        private readonly IRepository&lt;PetOwner&gt; petOwnerRepository;
+        private readonly IRepository&lt;Pet&gt; petRepository;
+        private readonly CreatePetOwnerDtoValidator createPetOwnerDtoValidator = new();
+        private readonly CreatePetDtoValidator createPetDtoValidator = new();
+
+        public PetOwnersController(IRepository&lt;PetOwner&gt; petOwnerRepository, IRepository&lt;Pet&gt; petRepository)
+        {
+            this.petOwnerRepository = petOwnerRepository;
+            this.petRepository = petRepository;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var petOwners = petOwnerRepository.All().Result.Select(PetOwnerMapper.Mapper.Map&lt;PetOwnerDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(petOwners);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreatePetOwnerDto petOwnerDto)
+        {
+            var validatorResult = createPetOwnerDtoValidator.Validate(petOwnerDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+            var petOwner = PetOwnerMapper.Mapper.Map&lt;PetOwner&gt;(petOwnerDto);
+
+            if (petOwner == null)
+            {
+                return BadRequest();
+            }
+
+            petOwnerRepository.Add(petOwner);
+            petOwnerRepository.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(Get), PetOwnerMapper.Mapper.Map&lt;PetOwnerDto&gt;(petOwner));
+
+        }
+
+        [HttpPost (&quot;{ownerId:guid}/pets&quot;)]
+        public IActionResult RegisterPetsToOwner(Guid ownerId, [FromBody] List&lt;CreatePetDto&gt; petsDtos)
+        {
+            var owner = petOwnerRepository.Get(ownerId).Result;
+            if (owner == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var petDto in petsDtos)
+            {
+                var validatorResult = createPetDtoValidator.Validate(petDto);
+                if (!validatorResult.IsValid)
+                {
+                    return BadRequest(validatorResult.Errors);
+                }
+            }
+
+            var pets = petsDtos.Select(PetMapper.Mapper.Map&lt;Pet&gt;).ToList();
+            if(pets.Any(p =&gt; p == null))
+            {
+                return BadRequest();
+            }
+
+            var result = owner.RegisterPetsToOwner(pets);
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            pets.ForEach(p =&gt; petRepository.Add(p));
+            petOwnerRepository.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(Get), PetOwnerMapper.Mapper.Map&lt;PetOwnerDto&gt;(owner));
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[17,9,17,88,1],[18,9,18,78,1],[20,9,20,109,1],[21,9,21,10,1],[22,13,22,58,1],[23,13,23,48,1],[24,9,24,10,1],[28,9,28,10,1],[29,13,29,108,1],[31,13,31,106,1],[32,13,32,101,1],[33,13,33,91,1],[34,13,34,34,1],[35,9,35,10,1],[39,9,39,10,1],[40,13,40,84,1],[41,13,41,42,1],[42,13,42,14,0],[43,17,43,59,0],[45,13,45,77,1],[47,13,47,34,1],[48,13,48,14,0],[49,17,49,37,0],[52,13,52,46,1],[53,13,53,46,1],[55,13,55,106,1],[56,13,56,101,1],[57,13,57,91,1],[58,13,58,91,1],[60,9,60,10,1],[64,9,64,10,1],[65,13,65,64,1],[66,13,66,31,1],[67,13,67,14,1],[68,17,68,35,1],[71,13,71,20,1],[71,22,71,32,1],[71,33,71,35,1],[71,36,71,44,1],[72,13,72,14,1],[73,17,73,78,1],[74,17,74,46,1],[75,17,75,18,0],[76,21,76,63,0],[78,13,78,14,1],[80,13,80,76,1],[81,13,81,30,1],[81,30,81,39,1],[81,39,81,41,1],[82,13,82,14,0],[83,17,83,37,0],[86,13,86,58,1],[88,13,88,34,1],[89,13,89,14,1],[90,17,90,49,1],[93,13,93,31,1],[93,31,93,51,1],[93,51,93,53,1],[94,13,94,46,1],[96,13,96,100,1],[97,13,97,101,1],[98,13,98,91,1],[99,13,99,88,1],[100,9,100,10,1]]);
+    </script>
+  </body>
+</html>

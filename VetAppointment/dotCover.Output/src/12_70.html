@@ -2,25 +2,32 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\TreatmentDto.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreatePetDtoValidator.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
+using FluentValidation;
 using VetAppointment.API.Dtos.Create;
 
-namespace VetAppointment.API.Dtos
+namespace VetAppointment.API.Validators
 {
-    public class TreatmentDto : CreateTreatmentDto
+    public class CreatePetDtoValidator : AbstractValidator&lt;CreatePetDto&gt;
     {
-        public Guid Id { get; set; }
+        public CreatePetDtoValidator()
+        {
+            RuleFor(dto =&gt; dto.Name).NotNull().NotEmpty().Length(1, 100);
+            RuleFor(dto =&gt; dto.Birthdate).NotNull().NotEmpty().Must(new Validations().BeValidDate);
+            RuleFor(dto =&gt; dto.Race).NotNull().NotEmpty().Must(new Validations().BeInAnimalRaceEnum);
+            RuleFor(dto =&gt; dto.Gender).NotNull().NotEmpty().Must(new Validations().BeInAnimalGenderEnum);
+        }
     }
 }
 
     </pre>
     <script type="text/javascript">
-      highlightRanges([[7,26,7,30,0],[7,31,7,35,0]]);
+      highlightRanges([[8,9,8,39,1],[9,9,9,10,1],[10,13,10,74,1],[11,13,11,100,1],[12,13,12,102,1],[13,13,13,106,1],[14,9,14,10,1]]);
     </script>
   </body>
 </html>

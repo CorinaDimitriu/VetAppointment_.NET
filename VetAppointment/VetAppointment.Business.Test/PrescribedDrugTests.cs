@@ -81,7 +81,7 @@
             result.IsFailure.Should().BeTrue();
         }
 
-        private Tuple<double, Drug> CreateSUT()
+        private static Tuple<double, Drug> CreateSUT()
         {
             var sutDrug = CreateSUTForDrug();
             return new Tuple<double, Drug>(4, Drug.Create(sutDrug.Item1, sutDrug.Item2, sutDrug.Item3).Entity);

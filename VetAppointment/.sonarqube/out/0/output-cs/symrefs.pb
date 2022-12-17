@@ -1,5 +1,5 @@
-™
-HD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Appointment.cs
+≥
+QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Appointment.cs
 
  
 
@@ -17,20 +17,31 @@ HD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Appointment.cs
 
  
 
- $]
-OD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+ $à
+JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Drug.cs
 
- [
-MD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+ 
 
- ]
-OD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+ 
 
- b
-TD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+ 
 
- !Å
-CD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Person.cs
+ 
+
+		 f
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+
+ d
+VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+
+ f
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+
+ k
+]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+
+ !ä
+LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Person.cs
 
   
 
@@ -40,8 +51,8 @@ CD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Person.cs
 
   
 
- ä
-@D:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Pet.cs
+ ì
+IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Pet.cs
 
  
 
@@ -55,8 +66,8 @@ CD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Person.cs
 
 
 
- É
-ED:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
+ å
+NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PetOwner.cs
 
  
 
@@ -66,8 +77,26 @@ ED:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
 
  
 
-		 ~
-@D:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Vet.cs
+		 í
+TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PrescribedDrug.cs
+
+ 
+
+ 
+
+ 
+
+ %
+
+		 u
+OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Treatment.cs
+
+ 
+
+ 
+
+ !á
+IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Vet.cs
 
  
 
@@ -77,8 +106,8 @@ ED:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
 
  
 
-		 $ú
-FD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\VetClinic.cs
+		 $•
+OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\VetClinic.cs
 
  
 

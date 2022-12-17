@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\MedicalHistoriesController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.API.Mappers;
+using VetAppointment.API.Validators;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class MedicalHistoriesController : ControllerBase
+    {
+        private readonly IUnitOfWork unitOfWork;
+        private readonly CreateAppointmentDtoValidator createAppointmentDtoValidator = new();
+
+        public MedicalHistoriesController(IUnitOfWork unitOfWork) =&gt; this.unitOfWork = unitOfWork;
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var medicalHistories = unitOfWork.MedicalHistoryRepository 
+                .All().Result.Select(MedicalHistoryMapper.Mapper.Map&lt;MedicalHistoryDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+
+            return Ok(medicalHistories);
+        }
+
+        [HttpGet(&quot;{clinicId:Guid}&quot;)]
+        public IActionResult GetByClinicId(Guid clinicId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(clinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+            var medicalHistory = MedicalHistoryMapper.Mapper
+                .Map&lt;MedicalHistoryDto&gt;(unitOfWork.MedicalHistoryRepository
+                .Find(md =&gt; md.ClinicId == clinicId));
+            if (medicalHistory == null)
+            {
+                return NotFound();
+            }
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+
+            return Ok(medicalHistory);
+        }
+
+        [HttpPost(&quot;{medicalHistoryId:Guid}/appointment&quot;)]
+        public IActionResult Post(Guid medicalHistoryId, [FromBody] CreateAppointmentDto appointmentDto)
+        {
+            var validatorResult = createAppointmentDtoValidator.Validate(appointmentDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+            var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(medicalHistoryId).Result;
+            if (medicalHistory == null)
+            {
+                return NotFound();
+            }
+
+            var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId).Result;
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId).Result;
+            if (vet == null)
+            {
+                return NotFound();
+            }
+
+            var appointment = Appointment.SettleAppointment(
+                vet, 
+                pet, 
+                appointmentDto.ScheduledDate, 
+                appointmentDto.EstimatedDurationInMinutes
+            );
+            if (appointment.IsFailure)
+            {
+                return BadRequest(appointment.Error);
+            }
+
+            var result = medicalHistory.RegisterAppointmentToHistory(appointment.Entity);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.AppointmentRepository.Add(appointment.Entity);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(Post), AppointmentMapper.Mapper.Map&lt;AppointmentDto&gt;(appointment.Entity));
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,16,94,0],[18,9,18,66,0],[18,70,18,98,0],[22,9,22,10,0],[23,13,24,90,0],[26,13,26,100,0],[27,13,27,101,0],[28,13,28,91,0],[30,13,30,41,0],[31,9,31,10,0],[35,9,35,10,0],[36,13,36,78,0],[37,13,37,32,0],[38,13,38,14,0],[39,17,39,35,0],[41,13,43,55,0],[44,13,44,40,0],[45,13,45,14,0],[46,17,46,35,0],[49,13,49,100,0],[50,13,50,101,0],[51,13,51,91,0],[53,13,53,39,0],[54,9,54,10,0],[58,9,58,10,0],[59,13,59,90,0],[60,13,60,42,0],[61,13,61,14,0],[62,17,62,59,0],[64,13,64,99,0],[65,13,65,40,0],[66,13,66,14,0],[67,17,67,35,0],[70,13,70,81,0],[71,13,71,29,0],[72,13,72,14,0],[73,17,73,35,0],[76,13,76,81,0],[77,13,77,29,0],[78,13,78,14,0],[79,17,79,35,0],[82,13,87,15,0],[88,13,88,39,0],[89,13,89,14,0],[90,17,90,54,0],[93,13,93,90,0],[94,13,94,34,0],[95,13,95,14,0],[96,17,96,49,0],[99,13,99,70,0],[100,13,100,38,0],[102,13,102,100,0],[103,13,103,101,0],[104,13,104,91,0],[105,13,105,108,0],[106,9,106,10,0]]);
+    </script>
+  </body>
+</html>

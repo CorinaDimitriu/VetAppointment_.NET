@@ -9,7 +9,7 @@ namespace VetAppointment.API.Mappers
         public MedicalHistoryMapperProfile()
         {
             CreateMap<MedicalHistory, MedicalHistoryDto>();
-            CreateMap<CreateMedicalHistoryDto, MedicalHistory>();
+            CreateMap<MedicalHistoryDto, MedicalHistory>();
         }
     }
 }

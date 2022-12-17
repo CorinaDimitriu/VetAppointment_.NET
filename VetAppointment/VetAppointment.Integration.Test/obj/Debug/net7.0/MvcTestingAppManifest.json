@@ -1,6 +1,6 @@
 {
-  "VetAppointment.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12_Another\\VetAppointment\\VetAppointment.API",
-  "VetAppointment.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12_Another\\VetAppointment\\VetAppointment.Application",
-  "VetAppointment.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12_Another\\VetAppointment\\VetAppointment.Domain",
-  "VetAppointment.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12_Another\\VetAppointment\\VetAppointment.Infrastructure"
+  "VetAppointment.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.API",
+  "VetAppointment.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Application",
+  "VetAppointment.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Domain",
+  "VetAppointment.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Infrastructure"
 }

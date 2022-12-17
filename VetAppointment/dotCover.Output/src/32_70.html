@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\TreatmentMapperProfile.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using AutoMapper;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Mappers
+{
+    public class TreatmentMapperProfile : Profile
+    {
+        public TreatmentMapperProfile()
+        {
+            CreateMap&lt;Treatment, TreatmentDto&gt;();
+            CreateMap&lt;CreateTreatmentDto, Treatment&gt;();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,40,1],[11,9,11,10,1],[12,13,12,50,1],[13,13,13,56,1],[14,9,14,10,1]]);
+    </script>
+  </body>
+</html>

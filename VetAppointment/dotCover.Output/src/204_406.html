@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\ClinicOwnerTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+namespace VetAppointment.Business.Test
+{
+    public class ClinicOwnerTests
+    {
+        [Fact]
+        public void When_CreateClinicOwner_Then_ShouldReturnClinicOwner()
+        {
+            // Arrange
+            var sut = CreateSUT();
+
+            // Act
+            var result = ClinicOwner.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, sut.Item6);
+
+            // Assert
+            result.IsSuccess.Should().BeTrue();
+            result.Entity.Should().NotBeNull();
+        }
+        [Fact]
+        public void When_CreatePetOwnerWithInvalidBirthdate_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var date = &quot;invaliddate&quot;;
+
+            // Act
+            var result = ClinicOwner.Create(sut.Item1, sut.Item2, date, sut.Item4, sut.Item5, sut.Item6);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_CreateClinicOwnerWithInvalidGender_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var gender = &quot;invalid&quot;;
+
+            // Act
+            var result = ClinicOwner.Create(sut.Item1, sut.Item2, sut.Item3, gender, sut.Item5, sut.Item6);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_CreateClinicOwnerWithInvalidEmail_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            var mail = &quot;invalidmail&quot;;
+
+            // Act
+            var result = ClinicOwner.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, mail, sut.Item6);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }
+
+        [Fact]
+        public void When_CreateClinicOwnerWithInvalidPhoneNumber_Then_ShouldReturnFailure()
+        {
+            // Arrange
+            var sut = CreateSUT();
+            string phoneNumber = &quot;&quot;;
+
+            // Act
+            var result = ClinicOwner.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5, phoneNumber);
+
+            // Assert
+            result.IsFailure.Should().BeTrue();
+        }        
+
+        private static Tuple&lt;string, string, string, string, string, string&gt; CreateSUT()
+        {
+            return new Tuple&lt;string,string, string, string, string, string&gt;(
+                &quot;John&quot;, &quot;Doe&quot;, &quot;12/10/2001&quot;, &quot;Male&quot;, &quot;john.doe@gmail.com&quot;, &quot;+40756221345&quot;);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[7,9,7,10,1],[9,13,9,35,1],[12,13,12,111,1],[15,13,15,48,1],[16,13,16,48,1],[17,9,17,10,1],[20,9,20,10,1],[22,13,22,35,1],[23,13,23,38,1],[26,13,26,106,1],[29,13,29,48,1],[30,9,30,10,1],[34,9,34,10,1],[36,13,36,35,1],[37,13,37,36,1],[40,13,40,108,1],[43,13,43,48,1],[44,9,44,10,1],[48,9,48,10,1],[50,13,50,35,1],[51,13,51,38,1],[54,13,54,106,1],[57,13,57,48,1],[58,9,58,10,1],[62,9,62,10,1],[64,13,64,35,1],[65,13,65,37,1],[68,13,68,113,1],[71,13,71,48,1],[72,9,72,10,1],[75,9,75,10,1],[76,13,77,92,1],[78,9,78,10,1]]);
+    </script>
+  </body>
+</html>

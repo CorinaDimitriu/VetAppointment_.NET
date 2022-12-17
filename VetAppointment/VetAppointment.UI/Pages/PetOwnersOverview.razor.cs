@@ -2,6 +2,7 @@
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Services;
 
+#nullable disable
 namespace VetAppointment.UI.Pages
 {
     public partial class PetOwnersOverview : ComponentBase
@@ -16,10 +17,5 @@ namespace VetAppointment.UI.Pages
 
             PetOwners.ForEach(p => { Console.WriteLine(p.Id + " " + p.Name); });
         }
-
-        //protected async override Task OnInitializedAsync()
-        //{
-        //    Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
-        //}
     }
 }

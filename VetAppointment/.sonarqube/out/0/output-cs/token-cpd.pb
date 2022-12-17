@@ -1,5 +1,5 @@
-•
-HD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Appointment.cs
+ž
+QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Appointment.cs
 	namespace 	
 VetAppointment
  
@@ -96,8 +96,62 @@ HD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Appointment.cs
 ;/ 0
 }1 2
 } 
-} ¶
-OD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+} ™
+JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Drug.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Shared 
+.  
+Domain  &
+{ 
+public 
+
+class 
+Drug 
+{ 
+public 
+Guid 
+Id 
+{ 
+get 
+; 
+set !
+;! "
+}# $
+public 
+string 
+Name 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+double 
+Quantity 
+{  
+get! $
+;$ %
+set& )
+;) *
+}+ ,
+public		 
+double		 
+	UnitPrice		 
+{		  !
+get		" %
+;		% &
+set		' *
+;		* +
+}		, -
+}
+
+ 
+} ¿
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
 	namespace 	
 VetAppointment
  
@@ -119,8 +173,8 @@ OD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
 = 
 $num 
 } 
-} Ã
-MD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+} Ì
+VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
 	namespace 	
 VetAppointment
  
@@ -175,8 +229,8 @@ AnimalRace 
 = 
 $num 
 } 
-} ù
-OD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+} ‚
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\PersonGender.cs
 	namespace 	
 VetAppointment
  
@@ -202,8 +256,8 @@ OD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\PersonGender.cs
 = 
 $num 
 } 
-}		 Ü
-TD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+}		 å
+]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
 	namespace 	
 VetAppointment
  
@@ -236,8 +290,8 @@ PawSurgeon 
 }		 
 }
 
- ë
-CD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Person.cs
+ ô
+LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Person.cs
 	namespace 	
 VetAppointment
  
@@ -295,8 +349,8 @@ CD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Person.cs
 }		 
 }
 
- ¤
-@D:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Pet.cs
+ ­
+IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Pet.cs
 	namespace 	
 VetAppointment
  
@@ -374,8 +428,8 @@ CD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Person.cs
 
 ) *
 } 
-} ·
-ED:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
+} À
+NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PetOwner.cs
 	namespace 	
 VetAppointment
  
@@ -428,8 +482,102 @@ ED:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
 ;		& '
 }		( )
 } 
-} ´
-@D:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\Vet.cs
+} Œ
+TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PrescribedDrug.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Shared 
+.  
+Domain  &
+{ 
+public 
+
+class 
+PrescribedDrug 
+{ 
+public 
+Guid 
+Id 
+{ 
+get 
+; 
+private %
+set& )
+;) *
+}+ ,
+public 
+double 
+Quantity 
+{  
+get! $
+;$ %
+private& -
+set. 1
+;1 2
+}3 4
+public 
+Guid 
+DrugToPrescribeId %
+{& '
+get( +
+;+ ,
+private- 4
+set5 8
+;8 9
+}: ;
+public		 
+double		 
+	TotalCost		 
+{		  !
+get		" %
+;		% &
+private		' .
+set		/ 2
+;		2 3
+}		4 5
+}
+
+ 
+} ›
+OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Treatment.cs
+	namespace 	
+VetAppointment
+ 
+. 
+Shared 
+.  
+Domain  &
+{ 
+public 
+
+class 
+	Treatment 
+{ 
+public 
+Guid 
+Id 
+{ 
+get 
+; 
+private %
+set& )
+;) *
+}+ ,
+public 
+string 
+Description !
+{" #
+get$ '
+;' (
+private) 0
+set1 4
+;4 5
+}6 7
+} 
+}		 ½
+IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Vet.cs
 	namespace 	
 VetAppointment
  
@@ -484,8 +632,8 @@ ED:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
 }
 
  
-} Ö
-FD:\10.12.2022\VetAppointment\VetAppointment.Shared\Domain\VetClinic.cs
+} ß
+OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\VetClinic.cs
 	namespace 	
 VetAppointment
  

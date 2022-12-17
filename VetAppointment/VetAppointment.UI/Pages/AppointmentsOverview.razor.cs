@@ -2,6 +2,7 @@
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Services;
 
+#nullable disable
 namespace VetAppointment.UI.Pages
 {
     public partial class AppointmentsOverview : ComponentBase

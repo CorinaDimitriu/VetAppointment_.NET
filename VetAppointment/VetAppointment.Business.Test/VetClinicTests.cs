@@ -152,22 +152,6 @@
         }
 
         [Fact]
-        public void When_ConnectClinicToOwner_Then_OwnerShouldNotBeNull()
-        {
-            // Arrange
-            var sut = CreateSUT();
-            var clinic = VetClinic.Create(sut.Item1, sut.Item2, sut.Item3, sut.Item4, sut.Item5).Entity;
-            var sutOwner = CreateSUTForClinicOwner();
-            var owner = ClinicOwner.Create(sutOwner.Item1, sutOwner.Item2, sutOwner.Item3, sutOwner.Item4, sutOwner.Item5, sutOwner.Item6).Entity;
-
-            // Act
-            clinic.ConnectToOwner(owner);
-
-            // Assert
-            clinic.Owner.Should().Be(owner);
-        }
-
-        [Fact]
         public void When_UpdateClinic_Then_ShouldReturnSuccess()
         {
             // Arrange

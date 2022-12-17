@@ -2,45 +2,72 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.Integration.Test\BaseIntegrationTests.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PetsControllerTests.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using VetAppointment.API.Controllers;
 using VetAppointment.Infrastructure.Data;
+using VetAppointment.Integration.Tests;
 
-namespace VetAppointment.Integration.Tests
+namespace VetAppointment.Integration.Test
 {
-    public class BaseIntegrationTests : IClassFixture&lt;WebApplicationFactory&lt;VetClinicsController&gt;&gt;
+    public class PetsControllerTests : BaseIntegrationTests
     {
-        protected readonly WebApplicationFactory&lt;VetClinicsController&gt; _factory;
-        protected BaseIntegrationTests(WebApplicationFactory&lt;VetClinicsController&gt; factory)
-        {
-            _factory = factory;
-        }
+        private const string ApiURL = &quot;v1/api/pets&quot;;
 
-        protected static void CleanDatabases(DatabaseContext databaseContext)
+        private HttpClient GetHttpClient(string databaseName)
         {
-            databaseContext.PetOwners.RemoveRange(databaseContext.PetOwners.ToList());
-            databaseContext.VetClinics.RemoveRange(databaseContext.VetClinics.ToList());
-            databaseContext.Appointments.RemoveRange(databaseContext.Appointments.ToList());
-            databaseContext.Pets.RemoveRange(databaseContext.Pets.ToList());
-            databaseContext.Vets.RemoveRange(databaseContext.Vets.ToList());
-            databaseContext.Drugs.RemoveRange(databaseContext.Drugs.ToList());
-            databaseContext.PrescribedDrugs.RemoveRange(databaseContext.PrescribedDrugs.ToList());
-            databaseContext.Treatments.RemoveRange(databaseContext.Treatments.ToList());
-            databaseContext.MedicalHistories.RemoveRange(databaseContext.MedicalHistories.ToList());
-            databaseContext.SaveChanges();
+            HttpClient httpClient = _factory.WithWebHostBuilder(builder =&gt;
+            {
+                builder.ConfigureTestServices(services =&gt;
+                {
+                    services.AddDbContext&lt;DatabaseContext&gt;(options =&gt;
+                    {
+                        options.UseSqlite($&quot;Data Source = {databaseName}.db&quot;);
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+
+            DbContextOptions&lt;DatabaseContext&gt; options = new DbContextOptionsBuilder&lt;DatabaseContext&gt;()
+                .UseSqlite($&quot;Data Source = {databaseName}.db&quot;).Options;
+            DatabaseContext db = new(options);
+            CleanDatabases(db);
+
+            return httpClient;
+        }
+        
+        public PetsControllerTests(WebApplicationFactory&lt;VetClinicsController&gt; factory) : base(factory) { }
+
+        [Fact]
+        public async void When_GetPets_Then_ShouldReturnPetsAndOk()
+        {
+            // Arrange
+            var httpClient = GetHttpClient(&quot;When_GetPets_Then_ShouldReturnPetsAndOk&quot;);
+
+            // Act
+            var getPets = await httpClient.GetAsync(ApiURL);
+            var pets = await getPets.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            // Assert
+            getPets.StatusCode.Should().Be(HttpStatusCode.OK);
+            pets.Should().NotBeNull();
         }
     }
 }
 
     </pre>
     <script type="text/javascript">
-      highlightRanges([[10,9,10,92,1],[11,9,11,10,1],[12,13,12,32,1],[13,9,13,10,1],[16,9,16,10,1],[17,13,17,87,1],[18,13,18,89,1],[19,13,19,93,1],[20,13,20,77,1],[21,13,21,77,1],[22,13,22,79,1],[23,13,23,99,1],[24,13,24,89,1],[25,13,25,101,1],[26,13,26,43,1],[27,9,27,10,1]]);
+      highlightRanges([[16,9,16,10,1],[17,13,18,13,1],[18,13,18,14,1],[18,14,19,17,1],[19,17,20,17,1],[20,17,20,18,1],[20,18,21,21,1],[21,21,22,21,1],[22,21,22,22,1],[22,22,23,25,1],[23,25,23,79,1],[23,79,24,21,1],[24,21,24,22,1],[24,22,24,24,1],[24,24,25,17,1],[25,17,25,18,1],[25,18,25,20,1],[25,20,26,13,1],[26,13,26,14,1],[26,14,29,16,1],[31,13,32,72,1],[33,13,33,47,1],[34,13,34,32,1],[36,13,36,31,1],[37,9,37,10,1],[39,91,39,104,1],[39,105,39,106,1],[39,107,39,108,1],[43,9,43,10,1],[45,13,45,87,1],[48,13,48,61,1],[49,13,49,80,1],[52,13,52,63,1],[53,13,53,39,1],[54,9,54,10,1]]);
     </script>
   </body>
 </html>

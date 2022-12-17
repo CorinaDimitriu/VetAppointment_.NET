@@ -1,38 +1,25 @@
-[
-RD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\AppointmentsOverview.razor.csutf-8V
-MD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\ClinicsOverview.razor.csutf-8S
-JD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Models\ModelClinic.csutf-8P
-GD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Models\ModelPet.csutf-8Y
-PD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Models\ModelPetsInClinic.csutf-8P
-GD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Models\ModelVet.csutf-8X
-OD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\PetOwnersOverview.razor.csutf-8S
-JD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\PetsOverview.razor.csutf-8`
-WD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\AppointmentDataService.csutf-8a
-XD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\IAppointmentDataService.csutf-8Y
-PD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\IPetDataService.csutf-8^
-UD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\IPetOwnerDataService.csutf-8_
-VD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\IVetClinicDataService.csutf-8X
-OD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\PetDataService.csutf-8]
-TD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\PetOwnerDataService.csutf-8^
-UD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Services\VetClinicDataService.csutf-8]
-TD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Validators\ModelPetValidator.csutf-8X
-OD:\10.12.2022\VetAppointment\VetAppointment.UI\Pages\Validators\PetValidator.csutf-8B
-9D:\10.12.2022\VetAppointment\VetAppointment.UI\Program.csutf-8n
-cD:\10.12.2022\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GlobalUsings.g.csutf-8y
-nD:\10.12.2022\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8l
-aD:\10.12.2022\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.csutf-8w
+S
+JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Appointment.csutf-8S
+JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.csutf-8L
+CC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Drug.csutf-8Z
+QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalGender.csutf-8X
+OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalRace.csutf-8Z
+QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\PersonGender.csutf-8_
+VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\VetSpecialisation.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.csutf-8^
+UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEntity.csutf-8[
+RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Validations.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.csutf-8N
+EC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Person.csutf-8K
+BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Pet.csutf-8P
+GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PrescribedDrug.csutf-8Q
+HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Treatment.csutf-8K
+BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Vet.csutf-8Q
+HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.csutf-8
+tC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GlobalUsings.g.csutf-8Ü
+{C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8}
+rC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSExportGenerator\JSExports.g.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSImportGenerator\JSImports.g.csutf-8p
-eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8Ä
-uMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\App_razor.g.csutf-8ò
-åMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_AppointmentsOverview_razor.g.csutf-8ì
-áMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicsOverview_razor.g.csutf-8ä
-Microsoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_Counter_razor.g.csutf-8ç
-ÅMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_FetchData_razor.g.csutf-8à
-}Microsoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_Index_razor.g.csutf-8ï
-âMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_PetOwnersOverview_razor.g.csutf-8ê
-ÑMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_PetsOverview_razor.g.csutf-8ë
-ÖMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Shared_SurveyPrompt_razor.g.csutf-8Ö
-zMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\_Imports_razor.g.csutf-8è
-ÉMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Shared_MainLayout_razor.g.csutf-8å
-ÄMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Shared_NavMenu_razor.g.csutf-8
+eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8

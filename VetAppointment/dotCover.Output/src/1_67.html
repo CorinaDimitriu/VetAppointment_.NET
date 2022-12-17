@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.Integration.Test\DrugTests.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\DrugTests.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
@@ -16,6 +16,7 @@ using VetAppointment.API.Controllers;
 using VetAppointment.Infrastructure.Data;
 using VetAppointment.Integration.Tests;
 
+#nullable disable
 namespace VetAppointment.Integration.Test
 {
     public class DrugTests : BaseIntegrationTests
@@ -23,53 +24,125 @@ namespace VetAppointment.Integration.Test
 
         private const string ApiURL = &quot;v1/api/drugs&quot;;
 
-        public DrugTests(WebApplicationFactory&lt;VetClinicsController&gt; factory) : base(factory)
+        private HttpClient GetHttpClient(string databaseName)
         {
-        }
-
-        [Fact]
-        public async void When_CreateDrugWithValidData_Then_ShouldAddToDataBase()
-        {
-            var HttpClient = _factory.WithWebHostBuilder(builder =&gt;
+            HttpClient httpClient = _factory.WithWebHostBuilder(builder =&gt;
             {
                 builder.ConfigureTestServices(services =&gt;
                 {
                     services.AddDbContext&lt;DatabaseContext&gt;(options =&gt;
                     {
-                        options.UseSqlite(&quot;Data Source = VetAppointmentTest10.db&quot;);
+                        options.UseSqlite($&quot;Data Source = {databaseName}.db&quot;);
                     });
                 });
             }).CreateClient(new WebApplicationFactoryClientOptions
             {
                 AllowAutoRedirect = false,
             });
+
             DbContextOptions&lt;DatabaseContext&gt; options = new DbContextOptionsBuilder&lt;DatabaseContext&gt;()
-                .UseSqlite(&quot;Data Source = VetAppointmentTest10.db&quot;).Options;
-            DatabaseContext db = new DatabaseContext(options);
-            db.RemoveRange(db.Drugs.ToList());
-            db.SaveChanges();
+                .UseSqlite($&quot;Data Source = {databaseName}.db&quot;).Options;
+            DatabaseContext db = new(options);
+            CleanDatabases(db);
 
-            //Arrange
-            var drugSUT = CreateDrugSUT();
-
-            // Act
-            var createDrugResponse = await HttpClient.PostAsJsonAsync(ApiURL, drugSUT);
-            var getDrugResult = await HttpClient.GetAsync(ApiURL);
-
-            // Assert
-            createDrugResponse.EnsureSuccessStatusCode();
-            createDrugResponse.StatusCode.Should().Be(HttpStatusCode.Created);
-
-            getDrugResult.EnsureSuccessStatusCode();
-            var clinics = await getDrugResult.Content.ReadFromJsonAsync&lt;List&lt;VetClinicDto&gt;&gt;();
-
-            clinics.Should().HaveCount(1);
-            clinics.Should().NotBeNull();
+            return httpClient;
         }
 
-        private static DrugDto CreateDrugSUT()
+        public DrugTests(WebApplicationFactory&lt;VetClinicsController&gt; factory) : base(factory) { }
+
+        [Fact]
+        public async Task When_GetDrugs_Then_SouldReturnDrugsAndOk()
         {
-            return new DrugDto
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_GetDrugs_Then_SouldReturnDrugsAndOk&quot;);
+
+            // Act
+            var response = await httpClient.GetAsync(ApiURL);
+            var drugs = await response.Content.ReadFromJsonAsync&lt;IEnumerable&lt;DrugDto&gt;&gt;().ConfigureAwait(false);
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            drugs.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async void When_GetDrugById_Then_SouldReturnDrug()
+        {
+            // Arrange
+            var httpClient = GetHttpClient(&quot;When_GetDrugById_Then_SouldReturnDrug&quot;);
+            var drudDto = CreateDrugSUT();
+
+            var postDrug = await httpClient.PostAsJsonAsync(ApiURL, drudDto);
+            var drug = postDrug.Content.ReadFromJsonAsync&lt;DrugDto&gt;().Result;
+
+            // Act
+            var respondeGet = await httpClient.GetAsync($&quot;{ApiURL}/{drug.Id}&quot;);
+            var getDrug = respondeGet.Content.ReadFromJsonAsync&lt;DrugDto&gt;();
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.OK);
+            getDrug.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async void When_GetDrugByIdWithInvalidId_Then_SouldReturnNotFound()
+        {
+            // Arrange
+            var httpClient = GetHttpClient(&quot;When_GetDrugByIdWithInvalidId_Then_SouldReturnNotFound&quot;);
+
+            // Act
+            var respondeGet = await httpClient.GetAsync($&quot;{ApiURL}/{Guid.NewGuid()}&quot;);
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdateDrugWithValidData_Then_SouldReturnOkAndDrug()
+        {
+            // Arrange
+            var httpClient = GetHttpClient(&quot;When_GetDrugById_Then_SouldReturnDrug&quot;);
+            var drudDto = CreateDrugSUT();
+
+            var postDrug = await httpClient.PostAsJsonAsync(ApiURL, drudDto);
+            var drug = postDrug.Content.ReadFromJsonAsync&lt;DrugDto&gt;().Result;
+
+            // Act
+
+            drug.Name = &quot;UpdatedName&quot;;
+
+            var respondeGet = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{drug.Id}&quot;, drug);
+            var getDrug = respondeGet.Content.ReadFromJsonAsync&lt;DrugDto&gt;();
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.OK);
+            getDrug.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async void When_UpdateDrugWithInvalidId_Then_SouldReturnOkAndDrug()
+        {
+            // Arrange
+            var httpClient = GetHttpClient(&quot;When_UpdateDrugWithInvalidId_Then_SouldReturnNotFound&quot;);
+            var drudDto = CreateDrugSUT();
+
+            var postDrug = await httpClient.PostAsJsonAsync(ApiURL, drudDto);
+            var drug = postDrug.Content.ReadFromJsonAsync&lt;DrugDto&gt;().Result;
+
+            // Act
+
+            drug.Name = &quot;UpdatedName&quot;;
+
+            var respondeGet = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}&quot;, drug);
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        private static CreateDrugDto CreateDrugSUT()
+        {
+            return new CreateDrugDto
             {
                 Name = &quot;Aspirina Saracului&quot;,
                 Quantity = 9999,
@@ -78,10 +151,9 @@ namespace VetAppointment.Integration.Test
         }
     }
 }
-
     </pre>
     <script type="text/javascript">
-      highlightRanges([[16,81,16,94,1],[17,9,17,10,1],[18,9,18,10,1],[22,9,22,10,1],[23,13,24,13,1],[24,13,24,14,1],[24,14,25,17,1],[25,17,26,17,1],[26,17,26,18,1],[26,18,27,21,1],[27,21,28,21,1],[28,21,28,22,1],[28,22,29,25,1],[29,25,29,84,1],[29,84,30,21,1],[30,21,30,22,1],[30,22,30,24,1],[30,24,31,17,1],[31,17,31,18,1],[31,18,31,20,1],[31,20,32,13,1],[32,13,32,14,1],[32,14,35,16,1],[36,13,37,77,1],[38,13,38,63,1],[39,13,39,47,1],[40,13,40,30,1],[43,13,43,43,1],[46,13,46,88,1],[47,13,47,67,1],[50,13,50,58,1],[51,13,51,79,1],[53,13,53,53,1],[54,13,54,95,1],[56,13,56,43,1],[57,13,57,42,1],[58,9,58,10,1],[61,9,61,10,1],[62,13,67,15,1],[68,9,68,10,1]]);
+      highlightRanges([[18,9,18,10,1],[19,13,20,13,1],[20,13,20,14,1],[20,14,21,17,1],[21,17,22,17,1],[22,17,22,18,1],[22,18,23,21,1],[23,21,24,21,1],[24,21,24,22,1],[24,22,25,25,1],[25,25,25,79,1],[25,79,26,21,1],[26,21,26,22,1],[26,22,26,24,1],[26,24,27,17,1],[27,17,27,18,1],[27,18,27,20,1],[27,20,28,13,1],[28,13,28,14,1],[28,14,31,16,1],[33,13,34,72,1],[35,13,35,47,1],[36,13,36,32,1],[38,13,38,31,1],[39,9,39,10,1],[41,81,41,94,1],[41,95,41,96,1],[41,97,41,98,1],[45,9,45,10,1],[47,13,47,95,1],[50,13,50,62,1],[51,13,51,112,1],[54,13,54,48,1],[55,13,55,64,1],[56,13,56,40,1],[57,9,57,10,1],[61,9,61,10,1],[63,13,63,85,1],[64,13,64,43,1],[66,13,66,78,1],[67,13,67,77,1],[70,13,70,80,1],[71,13,71,76,1],[74,13,74,67,1],[75,13,75,42,1],[76,9,76,10,1],[80,9,80,10,1],[82,13,82,102,1],[85,13,85,87,1],[88,13,88,73,1],[89,9,89,10,1],[93,9,93,10,1],[95,13,95,85,1],[96,13,96,43,1],[98,13,98,78,1],[99,13,99,77,1],[103,13,103,39,1],[105,13,105,92,1],[106,13,106,76,1],[109,13,109,67,1],[110,13,110,42,1],[111,9,111,10,1],[115,9,115,10,1],[117,13,117,101,1],[118,13,118,43,1],[120,13,120,78,1],[121,13,121,77,1],[125,13,125,39,1],[127,13,127,99,1],[130,13,130,73,1],[131,9,131,10,1],[134,9,134,10,1],[135,13,140,15,1],[141,9,141,10,1]]);
     </script>
   </body>
 </html>

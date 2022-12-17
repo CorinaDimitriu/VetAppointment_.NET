@@ -3,7 +3,7 @@
 #nullable disable
 namespace VetAppointment.API.Mappers
 {
-    public class AppointmentMapper
+    public static class AppointmentMapper
     {
         private static readonly Lazy<IMapper> Lazy =
             new(() =>

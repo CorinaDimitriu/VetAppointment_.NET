@@ -2,9 +2,9 @@
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Services;
 
+#nullable disable
 namespace VetAppointment.UI.Pages
 {
-#nullable disable
     public partial class PrescribedDrugsOverview : ComponentBase
     {
         [Inject]

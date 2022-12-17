@@ -6,6 +6,7 @@ using VetAppointment.API.Controllers;
 using VetAppointment.Infrastructure.Data;
 using VetAppointment.Integration.Tests;
 
+#nullable disable
 namespace VetAppointment.Integration.Test
 {
     public class DrugTests : BaseIntegrationTests
@@ -13,53 +14,125 @@ namespace VetAppointment.Integration.Test
 
         private const string ApiURL = "v1/api/drugs";
 
-        public DrugTests(WebApplicationFactory<VetClinicsController> factory) : base(factory)
+        private HttpClient GetHttpClient(string databaseName)
         {
-        }
-
-        [Fact]
-        public async void When_CreateDrugWithValidData_Then_ShouldAddToDataBase()
-        {
-            var HttpClient = _factory.WithWebHostBuilder(builder =>
+            HttpClient httpClient = _factory.WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
                 {
                     services.AddDbContext<DatabaseContext>(options =>
                     {
-                        options.UseSqlite("Data Source = VetAppointmentTest10.db");
+                        options.UseSqlite($"Data Source = {databaseName}.db");
                     });
                 });
             }).CreateClient(new WebApplicationFactoryClientOptions
             {
                 AllowAutoRedirect = false,
             });
+
             DbContextOptions<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseSqlite("Data Source = VetAppointmentTest10.db").Options;
-            DatabaseContext db = new DatabaseContext(options);
-            db.RemoveRange(db.Drugs.ToList());
-            db.SaveChanges();
+                .UseSqlite($"Data Source = {databaseName}.db").Options;
+            DatabaseContext db = new(options);
+            CleanDatabases(db);
 
-            //Arrange
-            var drugSUT = CreateDrugSUT();
-
-            // Act
-            var createDrugResponse = await HttpClient.PostAsJsonAsync(ApiURL, drugSUT);
-            var getDrugResult = await HttpClient.GetAsync(ApiURL);
-
-            // Assert
-            createDrugResponse.EnsureSuccessStatusCode();
-            createDrugResponse.StatusCode.Should().Be(HttpStatusCode.Created);
-
-            getDrugResult.EnsureSuccessStatusCode();
-            var clinics = await getDrugResult.Content.ReadFromJsonAsync<List<VetClinicDto>>();
-
-            clinics.Should().HaveCount(1);
-            clinics.Should().NotBeNull();
+            return httpClient;
         }
 
-        private static DrugDto CreateDrugSUT()
+        public DrugTests(WebApplicationFactory<VetClinicsController> factory) : base(factory) { }
+
+        [Fact]
+        public async Task When_GetDrugs_Then_SouldReturnDrugsAndOk()
         {
-            return new DrugDto
+            // Arrange
+            HttpClient httpClient = GetHttpClient("When_GetDrugs_Then_SouldReturnDrugsAndOk");
+
+            // Act
+            var response = await httpClient.GetAsync(ApiURL);
+            var drugs = await response.Content.ReadFromJsonAsync<IEnumerable<DrugDto>>().ConfigureAwait(false);
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            drugs.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async void When_GetDrugById_Then_SouldReturnDrug()
+        {
+            // Arrange
+            var httpClient = GetHttpClient("When_GetDrugById_Then_SouldReturnDrug");
+            var drudDto = CreateDrugSUT();
+
+            var postDrug = await httpClient.PostAsJsonAsync(ApiURL, drudDto);
+            var drug = postDrug.Content.ReadFromJsonAsync<DrugDto>().Result;
+
+            // Act
+            var respondeGet = await httpClient.GetAsync($"{ApiURL}/{drug.Id}");
+            var getDrug = respondeGet.Content.ReadFromJsonAsync<DrugDto>();
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.OK);
+            getDrug.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async void When_GetDrugByIdWithInvalidId_Then_SouldReturnNotFound()
+        {
+            // Arrange
+            var httpClient = GetHttpClient("When_GetDrugByIdWithInvalidId_Then_SouldReturnNotFound");
+
+            // Act
+            var respondeGet = await httpClient.GetAsync($"{ApiURL}/{Guid.NewGuid()}");
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdateDrugWithValidData_Then_SouldReturnOkAndDrug()
+        {
+            // Arrange
+            var httpClient = GetHttpClient("When_GetDrugById_Then_SouldReturnDrug");
+            var drudDto = CreateDrugSUT();
+
+            var postDrug = await httpClient.PostAsJsonAsync(ApiURL, drudDto);
+            var drug = postDrug.Content.ReadFromJsonAsync<DrugDto>().Result;
+
+            // Act
+
+            drug.Name = "UpdatedName";
+
+            var respondeGet = await httpClient.PutAsJsonAsync($"{ApiURL}/{drug.Id}", drug);
+            var getDrug = respondeGet.Content.ReadFromJsonAsync<DrugDto>();
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.OK);
+            getDrug.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async void When_UpdateDrugWithInvalidId_Then_SouldReturnOkAndDrug()
+        {
+            // Arrange
+            var httpClient = GetHttpClient("When_UpdateDrugWithInvalidId_Then_SouldReturnNotFound");
+            var drudDto = CreateDrugSUT();
+
+            var postDrug = await httpClient.PostAsJsonAsync(ApiURL, drudDto);
+            var drug = postDrug.Content.ReadFromJsonAsync<DrugDto>().Result;
+
+            // Act
+
+            drug.Name = "UpdatedName";
+
+            var respondeGet = await httpClient.PutAsJsonAsync($"{ApiURL}/{Guid.NewGuid()}", drug);
+
+            // Assert
+            respondeGet.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        private static CreateDrugDto CreateDrugSUT()
+        {
+            return new CreateDrugDto
             {
                 Name = "Aspirina Saracului",
                 Quantity = 9999,

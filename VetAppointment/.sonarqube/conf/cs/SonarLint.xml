@@ -18,8 +18,12 @@
       <Value>false</Value>
     </Setting>
     <Setting>
-      <Key>sonar.cs.dotcover.reportsPaths</Key>
+      <Key>sonar.cs.dotcover.it.reportsPaths</Key>
       <Value>**/dotCover.Output.html</Value>
+    </Setting>
+    <Setting>
+      <Key>sonar.cs.dotcover.reportsPaths</Key>
+      <Value>**\dotCover.Output.html</Value>
     </Setting>
   </Settings>
   <Rules>

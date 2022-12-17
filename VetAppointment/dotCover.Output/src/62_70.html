@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\VetsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Mappers;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class VetsController : ControllerBase
+    {
+        private readonly IRepository&lt;Vet&gt; vetRepository;
+
+        public VetsController(IRepository&lt;Vet&gt; vetRepository) =&gt; this.vetRepository = vetRepository;
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var vets = vetRepository.All().Result.Select(VetMapper.Mapper.Map&lt;VetDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(vets);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[15,9,15,62,1],[15,66,15,100,1],[19,9,19,10,1],[20,13,20,88,1],[22,13,22,100,1],[23,13,23,101,1],[24,13,24,91,1],[25,13,25,29,1],[26,9,26,10,1]]);
+    </script>
+  </body>
+</html>

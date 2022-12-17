@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using VetAppointment.API.Dtos.Create;
-using VetAppointment.Domain.Enums;
 
 namespace VetAppointment.API.Validators
 {

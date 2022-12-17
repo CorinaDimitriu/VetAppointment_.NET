@@ -1,3 +1,18 @@
-﻿D:\10.12.2022\VetAppointment\VetAppointment.Application\IDatabaseContext.cs
-D:\10.12.2022\VetAppointment\VetAppointment.Application\IRepository.cs
-D:\10.12.2022\VetAppointment\VetAppointment.Application\Mappers\PetMappingProfile.cs
+﻿C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\AppointmentTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\ClinicOwnerTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\DrugTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\MedicalHistoryTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\PetOwnerTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\PetTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\PrescribedDrugTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\TreatmentTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\Usings.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\ValidationTest.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\VetClinicTests.cs
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\VetTets.cs
+C:\Users\Leonard\.nuget\packages\microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs
+C:\Users\Leonard\.nuget\packages\microsoft.testplatform.testhost\17.3.2\build\netcoreapp2.1\x64\testhost.exe
+C:\Users\Leonard\.nuget\packages\microsoft.testplatform.testhost\17.3.2\build\netcoreapp2.1\x64\testhost.dll
+C:\Users\Leonard\.nuget\packages\xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Leonard\.nuget\packages\xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Leonard\.nuget\packages\xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll

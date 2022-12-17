@@ -2,27 +2,35 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\VetClinicDto.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreatePetOwnerDtoValidator.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
+using FluentValidation;
 using VetAppointment.API.Dtos.Create;
 
-namespace VetAppointment.API.Dtos
+namespace VetAppointment.API.Validators
 {
-    public class VetClinicDto : CreateVetClinicDto
+    public class CreatePetOwnerDtoValidator : AbstractValidator&lt;CreatePetOwnerDto&gt;
     {
-        public Guid Id { get; set; }
-        public Guid MedicalHistoryId { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        public CreatePetOwnerDtoValidator()
+        {
+            RuleFor(dto =&gt; dto.Name).NotNull().NotEmpty().Length(1, 100);
+            RuleFor(dto =&gt; dto.Surname).NotNull().NotEmpty().Length(1, 100);
+            RuleFor(dto =&gt; dto.Birthdate).NotNull().NotEmpty().Must(new Validations().BeValidDate);
+            RuleFor(dto =&gt; dto.Gender).NotNull().NotEmpty().Must(new Validations().BeInPersonGenderEnum);
+            RuleFor(dto =&gt; dto.Address).NotNull().NotEmpty().Length(1, 250);
+            RuleFor(dto =&gt; dto.Email).NotNull().NotEmpty().EmailAddress();
+            RuleFor(dto =&gt; dto.Phone).NotNull().NotEmpty().Matches(&quot;^\\+40\\d{9}$&quot;);
+        }
     }
 }
 
     </pre>
     <script type="text/javascript">
-      highlightRanges([[7,26,7,30,1],[7,31,7,35,1],[8,40,8,44,1],[8,45,8,49,1],[9,44,9,48,1],[9,49,9,53,1]]);
+      highlightRanges([[8,9,8,44,1],[9,9,9,10,1],[10,13,10,74,1],[11,13,11,77,1],[12,13,12,100,1],[13,13,13,106,1],[14,13,14,77,1],[15,13,15,75,1],[16,13,16,85,1],[17,9,17,10,1]]);
     </script>
   </body>
 </html>

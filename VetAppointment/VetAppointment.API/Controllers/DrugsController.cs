@@ -39,13 +39,6 @@ namespace VetAppointment.API.Controllers
             }
 
             var drugDto = DrugMapper.Mapper.Map<DrugDto>(drug);
-            //var drugDto = new DrugDto
-            //{
-            //    Id = drug.Id,
-            //    Name = drug.Name,
-            //    Quantity = drug.Quantity,
-            //    UnitPrice = drug.UnitPrice
-            //};
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
@@ -61,11 +54,7 @@ namespace VetAppointment.API.Controllers
             {
                 return BadRequest(validatorResult.Errors);
             }
-            //var drug = Drug.Create(
-            //        drugDto.Name,
-            //        drugDto.Quantity,
-            //        drugDto.UnitPrice
-            //    );
+            
             var drug = DrugMapper.Mapper.Map<Drug>(drugDto);
 
             if (drug == null)

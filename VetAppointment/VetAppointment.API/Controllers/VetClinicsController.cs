@@ -163,7 +163,6 @@ namespace VetAppointment.API.Controllers
             }
 
             pets.ForEach(p => unitOfWork.PetRepository.Add(p));
-            //unitOfWork.SaveChanges();
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
@@ -200,7 +199,6 @@ namespace VetAppointment.API.Controllers
 
             unitOfWork.VetClinicRepository.Update(clinic);
             unitOfWork.VetRepository.Add(doctor);
-            //unitOfWork.SaveChanges();
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");

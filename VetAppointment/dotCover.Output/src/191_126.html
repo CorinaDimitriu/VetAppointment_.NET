@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\Repository.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using VetAppointment.Application;
+using VetAppointment.Infrastructure.Data;
+
+#nullable disable
+namespace VetAppointment.Infrastructure.Repositories
+{
+    public class Repository&lt;T&gt; : IRepository&lt;T&gt; where T : class
+    {
+        private readonly DatabaseContext context;
+
+        public Repository(DatabaseContext context) =&gt; this.context = context;
+
+        public virtual async Task&lt;T&gt; Add(T entity)
+        {
+            await context.AddAsync(entity);
+            await context.SaveChangesAsync();
+            return entity;
+        }
+
+        public virtual async Task&lt;T&gt; Update(T entity)
+        {
+            context.Update(entity);
+            await context.SaveChangesAsync();
+            return entity;
+        }
+
+        public virtual async Task&lt;T&gt; Get(Guid id) =&gt; await context.Set&lt;T&gt;().FindAsync(id);
+
+        public virtual async Task Delete(T entity)
+        {
+            context.Set&lt;T&gt;().Remove(entity);
+            await context.SaveChangesAsync();
+        }
+        public virtual async Task&lt;IEnumerable&lt;T&gt;&gt; All() =&gt; await context.Set&lt;T&gt;().ToListAsync();
+
+        public virtual async Task&lt;T&gt; Find(Expression&lt;Func&lt;T, bool&gt;&gt; predicate)
+        {
+            var entity = context.Set&lt;T&gt;().Where(predicate).SingleOrDefault&lt;T&gt;();
+            return await context.Set&lt;T&gt;().FindAsync(entity);
+        }
+        public async Task SaveChanges() =&gt; await context.SaveChangesAsync();
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[13,9,13,51,1],[13,55,13,77,1],[16,9,16,10,1],[17,13,17,44,1],[18,13,18,46,1],[19,13,19,27,1],[20,9,20,10,1],[23,9,23,10,1],[24,13,24,36,1],[25,13,25,46,1],[26,13,26,27,1],[27,9,27,10,1],[29,54,29,90,1],[32,9,32,10,1],[33,13,33,45,1],[34,13,34,46,1],[35,9,35,10,1],[36,60,36,96,1],[39,9,39,10,0],[40,13,40,81,0],[41,13,41,61,0],[42,9,42,10,0],[43,44,43,76,1]]);
+    </script>
+  </body>
+</html>

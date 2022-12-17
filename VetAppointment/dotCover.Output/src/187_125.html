@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using VetAppointment.Domain.Helpers;
+
+#nullable disable
+namespace VetAppointment.Domain
+{
+    public class VetClinic
+    {
+        public Guid Id { get; private set; }
+        public string Name { get; private set; }
+        public string Address { get; private set; }
+        public int NumberOfPlaces { get; private set; }
+        public string ContactEmail { get; private set; }
+        public string ContactPhone { get; private set; }
+        public DateTime RegistrationDate { get; private set; }
+        public List&lt;Pet&gt; Pets { get; private set; }
+        public List&lt;Vet&gt; Vets { get; private set; }
+        public Guid MedicalHistoryId { get; private set; }
+
+        public static Result&lt;VetClinic&gt; Create(string name, string address, int numberOfPlaces, string contactEmail,
+            string contactPhone)
+        {
+            var minimumNumberOfPlaces = 0;
+            if (numberOfPlaces &lt;= 0)
+            {
+                return Result&lt;VetClinic&gt;.Failure($&quot;The number of &quot; +
+                    $&quot;places for the shelter needs to be greater than &quot; +
+                    $&quot;&#39;{minimumNumberOfPlaces}&#39;&quot;);
+            }
+
+            if (!Validations.IsValidEmail(contactEmail))
+            {
+                return Result&lt;VetClinic&gt;.Failure($&quot;Email {contactEmail} is not valid&quot;);
+            }
+
+            if (!Validations.IsValidPhoneNumber(contactPhone))
+            {
+                return Result&lt;VetClinic&gt;.Failure($&quot;Phone number {contactPhone} is not valid&quot;);
+            }
+
+            var vetClinic = new VetClinic
+            {
+                Id = Guid.NewGuid(),
+                Name = name,
+                Address = address,
+                ContactEmail = contactEmail,
+                ContactPhone = contactPhone,
+                RegistrationDate = DateTime.Now,
+                NumberOfPlaces = numberOfPlaces,
+                Pets = new List&lt;Pet&gt;(),
+                Vets = new List&lt;Vet&gt;(),
+            };
+
+            return Result&lt;VetClinic&gt;.Success(vetClinic);
+        }
+
+        public void AttachMedicalHistory(Guid medicalHistoryId)
+        {
+            MedicalHistoryId = medicalHistoryId;
+        }
+
+        public Result RegisterPetsFamilyToClinic(List&lt;Pet&gt; pets)
+        {
+            if (!pets.Any())
+            {
+                return Result.Failure(&quot;Register at least a pet to the clinic&quot;);
+            }
+
+            if (pets.Count &gt; GetAvailableNumberOfPlaces())
+            {
+                return Result.Failure($&quot;The newly added pets number &#39;{pets.Count}&#39; &quot; +
+                    $&quot;exceed the available number of places &#39;{GetAvailableNumberOfPlaces()}&#39;&quot;);
+            }
+
+            pets.ForEach(pet =&gt;
+            {
+                pet.RegisterPetToClinic(this);
+                Pets.Add(pet);
+            });
+
+            return Result.Success();
+        }
+
+        public Result RegisterVetToClinic(Vet vet)
+        {
+            vet.RegisterVetToClinic(this);
+            Vets.Add(vet);
+
+            return Result.Success();
+        }
+
+        public int GetAvailableNumberOfPlaces() =&gt; NumberOfPlaces - Pets.Count;
+
+        public Result&lt;VetClinic&gt; Update(string name, string address, int numberOfPlaces, string contactEmail, string contactPhone)
+        {
+            if (name != &quot;&quot; &amp;&amp; name != null)
+            {
+                this.Name = name;
+            }
+
+            if (address != &quot;&quot; &amp;&amp; address != null)
+            {
+                this.Address = address;
+            }
+
+            if ( numberOfPlaces &lt;= 0)
+            {
+                return Result&lt;VetClinic&gt;.Failure($&quot;The number of &quot; +
+                    $&quot;places for the shelter needs to be greater than &quot; +
+                    $&quot;&#39;{0}&#39;&quot;);
+            }
+            this.NumberOfPlaces = numberOfPlaces;
+
+            if (!Validations.IsValidEmail(contactEmail))
+            {
+                return Result&lt;VetClinic&gt;.Failure($&quot;Email {contactEmail} is not valid&quot;);
+            }
+            this.ContactEmail = contactEmail;
+
+            if (!Validations.IsValidPhoneNumber(contactPhone))
+            {
+                return Result&lt;VetClinic&gt;.Failure($&quot;Phone number {contactPhone} is not valid&quot;);
+            }
+            this.ContactPhone = contactPhone;
+
+
+            return Result&lt;VetClinic&gt;.Success(this);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[8,26,8,30,1],[8,31,8,43,1],[9,30,9,34,1],[9,35,9,47,1],[10,33,10,37,1],[10,38,10,50,1],[11,37,11,41,1],[11,42,11,54,1],[12,38,12,42,1],[12,43,12,55,1],[13,38,13,42,1],[13,43,13,55,1],[14,44,14,48,1],[14,49,14,61,1],[15,33,15,37,1],[15,38,15,50,1],[16,33,16,37,1],[16,38,16,50,1],[17,40,17,44,1],[17,45,17,57,1],[21,9,21,10,1],[22,13,22,43,1],[23,13,23,37,1],[24,13,24,14,1],[25,17,27,51,1],[30,13,30,57,1],[31,13,31,14,1],[32,17,32,88,1],[35,13,35,63,1],[36,13,36,14,1],[37,17,37,95,1],[40,13,51,15,1],[53,13,53,57,1],[54,9,54,10,1],[57,9,57,10,1],[58,13,58,49,1],[59,9,59,10,1],[62,9,62,10,1],[63,13,63,29,1],[64,13,64,14,1],[65,17,65,80,1],[68,13,68,59,1],[69,13,69,14,1],[70,17,71,96,1],[74,13,75,13,1],[75,13,75,14,1],[75,14,76,17,1],[76,17,76,47,1],[76,47,77,17,1],[77,17,77,31,1],[77,31,78,13,1],[78,13,78,14,1],[78,14,78,16,1],[80,13,80,37,1],[81,9,81,10,1],[84,9,84,10,1],[85,13,85,43,1],[86,13,86,27,1],[88,13,88,37,1],[89,9,89,10,1],[91,52,91,79,1],[94,9,94,10,1],[95,13,95,44,1],[96,13,96,14,1],[97,17,97,34,1],[98,13,98,14,1],[100,13,100,50,1],[101,13,101,14,1],[102,17,102,40,1],[103,13,103,14,1],[105,13,105,38,1],[106,13,106,14,1],[107,17,109,31,1],[111,13,111,50,1],[113,13,113,57,1],[114,13,114,14,1],[115,17,115,88,1],[117,13,117,46,1],[119,13,119,63,1],[120,13,120,14,1],[121,17,121,95,1],[123,13,123,46,1],[126,13,126,52,1],[127,9,127,10,1]]);
+    </script>
+  </body>
+</html>

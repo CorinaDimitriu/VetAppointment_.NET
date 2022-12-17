@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\TreatmentsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.API.Mappers;
+using VetAppointment.API.Validators;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class TreatmentsController : ControllerBase
+    {
+        private readonly IUnitOfWork unitOfWork;
+        private readonly CreateTreatmentDtoValidator createTreatmentDtoValidator = new();
+        private readonly CreatePrescribedDrugDtoValidator createPrescribedDrugDtoValidator = new();
+
+        public TreatmentsController(IUnitOfWork unitOfWork) =&gt; this.unitOfWork = unitOfWork;
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var treatments = unitOfWork.TreatmentRepository.All().Result.Select (TreatmentMapper.Mapper.Map&lt;TreatmentDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(treatments);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateTreatmentDto treatmentDto)
+        {
+            var validatorResult = createTreatmentDtoValidator.Validate(treatmentDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+            var treat = TreatmentMapper.Mapper.Map&lt;Treatment&gt;(treatmentDto);
+            if (treat == null)
+            {
+                return BadRequest();
+            }
+
+            unitOfWork.TreatmentRepository.Add(treat);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(Get), TreatmentMapper.Mapper.Map&lt;TreatmentDto&gt;(treat));
+        }
+
+        [HttpPost(&quot;{treatmentId:Guid}/prescribedDrugs&quot;)]
+        public IActionResult AddDrugsToTreatment(Guid treatmentId, [FromBody] List&lt;PrescribedDrugDto&gt; prescribedDrugDtos)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var prescribedDrug in prescribedDrugDtos)
+            {
+                var validatorResult = createPrescribedDrugDtoValidator.Validate(prescribedDrug);
+                if (!validatorResult.IsValid)
+                {
+                    return BadRequest(validatorResult.Errors);
+                }
+            }
+
+            var drugs = prescribedDrugDtos.Select(PrescribedDrugMapper.Mapper.Map&lt;PrescribedDrug&gt;).ToList();
+            if (drugs.Any(p =&gt; p == null))
+            {
+                return BadRequest();
+            }
+
+            var result = treatment.AppendDrugsToTreatment(drugs);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            drugs.ForEach(p =&gt; unitOfWork.PrescribedDrugRepository.Add(p));
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{treatmentId:Guid}&quot;)]
+        public IActionResult UpdateTreatment(Guid treatmentId, [FromBody] CreateTreatmentDto treatmentDto)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createTreatmentDtoValidator.Validate(treatmentDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var result = treatment.UpdateDescription(treatmentDto.Description);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.TreatmentRepository.Update(treatment);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}&quot;)]
+        public IActionResult UpdateDrugInTreatment(Guid treatmentId, Guid prescribedDrugId, 
+            [FromBody] PrescribedDrugDto prescribedDrugDto)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var drugPrescribed = unitOfWork.PrescribedDrugRepository.Get(prescribedDrugId).Result;
+            if (drugPrescribed == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createPrescribedDrugDtoValidator.Validate(prescribedDrugDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var drug = unitOfWork.DrugRepository.Get(prescribedDrugDto.DrugId).Result;
+            if (drug == null)
+            {
+                return NotFound();
+            }
+
+            var result = drugPrescribed.Update(prescribedDrugDto.Quantity, drug);
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.PrescribedDrugRepository.Update(drugPrescribed);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}&quot;)]
+        public IActionResult RemoveDrugFromTreatment(Guid treatmentId, Guid prescribedDrugId)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var drug = unitOfWork.PrescribedDrugRepository.Get(prescribedDrugId).Result;
+            if (drug == null)
+            {
+                return NotFound();
+            }
+
+            var result = treatment.RemoveDrugFromTreatment(drug);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.PrescribedDrugRepository.Delete(drug);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{treatmentId:Guid}&quot;)]
+        public IActionResult Delete(Guid treatmentId)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            unitOfWork.TreatmentRepository.Delete(treatment);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,16,90,1],[17,9,17,100,1],[19,9,19,60,1],[19,64,19,92,1],[23,9,23,10,1],[24,13,24,124,1],[26,13,26,100,1],[27,13,27,101,1],[28,13,28,91,1],[29,13,29,35,1],[30,9,30,10,1],[34,9,34,10,1],[35,13,35,86,1],[36,13,36,42,1],[37,13,37,14,0],[38,17,38,59,0],[40,13,40,77,1],[41,13,41,31,1],[42,13,42,14,0],[43,17,43,37,0],[46,13,46,55,1],[47,13,47,38,1],[49,13,49,100,1],[50,13,50,101,1],[51,13,51,91,1],[52,13,52,90,1],[53,9,53,10,1],[57,9,57,10,1],[58,13,58,84,1],[59,13,59,35,1],[60,13,60,14,1],[61,17,61,35,1],[64,13,64,20,1],[64,22,64,40,1],[64,41,64,43,1],[64,44,64,62,1],[65,13,65,14,1],[66,17,66,97,1],[67,17,67,46,1],[68,17,68,18,1],[69,21,69,63,1],[71,13,71,14,1],[73,13,73,109,1],[74,13,74,32,1],[74,32,74,41,1],[74,41,74,43,1],[75,13,75,14,0],[76,17,76,37,0],[79,13,79,66,1],[80,13,80,34,1],[81,13,81,14,0],[82,17,82,49,0],[85,13,85,32,1],[85,32,85,74,1],[85,74,85,76,1],[86,13,86,38,1],[88,13,88,100,1],[89,13,89,101,1],[90,13,90,91,1],[91,13,91,32,1],[92,9,92,10,1],[96,9,96,10,1],[97,13,97,84,1],[98,13,98,35,1],[99,13,99,14,1],[100,17,100,35,1],[103,13,103,86,1],[104,13,104,42,1],[105,13,105,14,1],[106,17,106,59,1],[109,13,109,80,1],[110,13,110,34,1],[111,13,111,14,0],[112,17,112,49,0],[115,13,115,62,1],[116,13,116,38,1],[118,13,118,100,1],[119,13,119,101,1],[120,13,120,91,1],[121,13,121,32,1],[122,9,122,10,1],[127,9,127,10,1],[128,13,128,84,1],[129,13,129,35,1],[130,13,130,14,1],[131,17,131,35,1],[134,13,134,99,1],[135,13,135,40,1],[136,13,136,14,1],[137,17,137,35,1],[140,13,140,96,1],[141,13,141,42,1],[142,13,142,14,0],[143,17,143,59,0],[146,13,146,87,1],[147,13,147,30,1],[148,13,148,14,1],[149,17,149,35,1],[152,13,152,82,1],[154,13,154,34,1],[155,13,155,14,1],[156,17,156,49,1],[159,13,159,72,1],[160,13,160,38,1],[162,13,162,100,1],[163,13,163,101,1],[164,13,164,91,1],[165,13,165,32,1],[166,9,166,10,1],[170,9,170,10,0],[171,13,171,84,0],[172,13,172,35,0],[173,13,173,14,0],[174,17,174,35,0],[177,13,177,89,0],[178,13,178,30,0],[179,13,179,14,0],[180,17,180,35,0],[183,13,183,66,0],[184,13,184,34,0],[185,13,185,14,0],[186,17,186,49,0],[189,13,189,62,0],[190,13,190,38,0],[192,13,192,100,0],[193,13,193,101,0],[194,13,194,91,0],[195,13,195,32,0],[196,9,196,10,0],[200,9,200,10,1],[201,13,201,84,1],[202,13,202,35,1],[203,13,203,14,1],[204,17,204,35,1],[207,13,207,62,1],[208,13,208,38,1],[210,13,210,100,1],[211,13,211,101,1],[212,13,212,91,1],[213,13,213,32,1],[214,9,214,10,1]]);
+    </script>
+  </body>
+</html>

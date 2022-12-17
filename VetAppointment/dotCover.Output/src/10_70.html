@@ -2,25 +2,35 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\PetOwnerDto.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateAppointmentDtoValidator.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
+using FluentValidation;
 using VetAppointment.API.Dtos.Create;
 
-namespace VetAppointment.API.Dtos
+namespace VetAppointment.API.Validators
 {
-    public class PetOwnerDto : CreatePetOwnerDto
+#nullable disable
+    public class CreateAppointmentDtoValidator : AbstractValidator&lt;CreateAppointmentDto&gt;
     {
-        public Guid Id { get; set; }
+        public CreateAppointmentDtoValidator()
+        {
+            RuleFor(dto =&gt; dto.ScheduledDate).NotNull().NotEmpty().Must(new Validations().BeValidDate);
+            RuleFor(dto =&gt; dto.EstimatedDurationInMinutes).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(dto =&gt; dto.VetId).NotNull().NotEmpty();
+            RuleFor(dto =&gt; dto.PetId).NotNull().NotEmpty();
+            RuleFor(dto =&gt; dto.TreatmentId).NotNull().NotEmpty();
+            RuleFor(dto =&gt; dto.MedicalHistoryId).NotNull().NotEmpty();
+        }
     }
 }
 
     </pre>
     <script type="text/javascript">
-      highlightRanges([[7,26,7,30,1],[7,31,7,35,1]]);
+      highlightRanges([[9,9,9,47,1],[10,9,10,10,1],[11,13,11,104,1],[12,13,12,96,1],[13,13,13,60,1],[14,13,14,60,1],[15,13,15,66,1],[16,13,16,71,1],[17,9,17,10,1]]);
     </script>
   </body>
 </html>

@@ -1,35 +1,62 @@
-^
-UD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\AppointmentsController.csutf-8W
-ND:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\DrugsController.csutf-8b
-YD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\MedicalHistoriesController.csutf-8[
-RD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\PetOwnersController.csutf-8V
-MD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\PetsController.csutf-8a
-XD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\PrescribedDrugsController.csutf-8\
-SD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\TreatmentsController.csutf-8\
-SD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\VetClinicsController.csutf-8V
-MD:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\VetsController.csutf-8O
-FD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\AppointmentDto.csutf-8\
-SD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateAppointmentDto.csutf-8U
-LD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateDrugDto.csutf-8T
-KD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreatePetDto.csutf-8Y
-PD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreatePetOwnerDto.csutf-8_
-VD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreatePrescribedDrugDto.csutf-8Z
-QD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateTreatmentDto.csutf-8Z
-QD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateVetClinicDto.csutf-8T
-KD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateVetDto.csutf-8H
-?D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\DrugDto.csutf-8R
-ID:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\MedicalHistoryDto.csutf-8G
->D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\PetDto.csutf-8L
-CD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\PetOwnerDto.csutf-8R
-ID:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\PrescribedDrugDto.csutf-8M
-DD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\TreatmentDto.csutf-8M
-DD:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\VetClinicDto.csutf-8G
->D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\VetDto.csutf-8C
-:D:\10.12.2022\VetAppointment\VetAppointment.API\Program.csutf-8p
-eD:\10.12.2022\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.GlobalUsings.g.csutf-8z
-oD:\10.12.2022\VetAppointment\VetAppointment.API\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8n
-cD:\10.12.2022\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.AssemblyInfo.csutf-8Å
-vD:\10.12.2022\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.MvcApplicationPartsAssemblyInfo.csutf-8w
+g
+^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\AppointmentsController.csutf-8`
+WC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\DrugsController.csutf-8k
+bC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\MedicalHistoriesController.csutf-8d
+[C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\PetOwnersController.csutf-8_
+VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\PetsController.csutf-8j
+aC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\PrescribedDrugsController.csutf-8e
+\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\TreatmentsController.csutf-8e
+\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\VetClinicsController.csutf-8_
+VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\VetsController.csutf-8X
+OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\AppointmentDto.csutf-8e
+\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreateAppointmentDto.csutf-8^
+UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreateDrugDto.csutf-8]
+TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreatePetDto.csutf-8b
+YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreatePetOwnerDto.csutf-8h
+_C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreatePrescribedDrugDto.csutf-8c
+ZC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreateTreatmentDto.csutf-8c
+ZC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreateVetClinicDto.csutf-8]
+TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\Create\CreateVetDto.csutf-8Q
+HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\DrugDto.csutf-8[
+RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\MedicalHistoryDto.csutf-8P
+GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\PetDto.csutf-8U
+LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\PetOwnerDto.csutf-8[
+RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\PrescribedDrugDto.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\TreatmentDto.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\VetClinicDto.csutf-8P
+GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Dtos\VetDto.csutf-8^
+UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\AppointmentMapper.csutf-8e
+\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\AppointmentMapperProfile.csutf-8W
+NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\DrugMapper.csutf-8^
+UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\DrugMapperProfile.csutf-8a
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\MedicalHistoryMapper.csutf-8h
+_C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\MedicalHistoryMapperProfile.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\PetMapper.csutf-8^
+UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\PetMappingProfile.csutf-8[
+RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\PetOwnerMapper.csutf-8b
+YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\PetOwnerMapperProfile.csutf-8a
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\PrescribedDrugMapper.csutf-8h
+_C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\PrescribedDrugMapperProfile.csutf-8\
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\TreatmentMapper.csutf-8c
+ZC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\TreatmentMapperProfile.csutf-8\
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\VetClinicMapper.csutf-8c
+ZC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\VetClinicMapperProfile.csutf-8V
+MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\VetMapper.csutf-8^
+UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\VetMappingProfile.csutf-8L
+CC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Program.csutf-8m
+dC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateAppointmentDtoValidator.csutf-8f
+]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateDrugDtoValidator.csutf-8e
+\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreatePetDtoValidator.csutf-8j
+aC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreatePetOwnerDtoValidator.csutf-8p
+gC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreatePrescribedDrugDtoValidator.csutf-8k
+bC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateTreatmentDtoValidator.csutf-8k
+bC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateVetClinicDtoValidator.csutf-8e
+\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateVetDtoValidator.csutf-8[
+RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\Validations.csutf-8y
+nC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.GlobalUsings.g.csutf-8É
+xC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8w
+lC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.AssemblyInfo.csutf-8ä
+C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.MvcApplicationPartsAssemblyInfo.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSExportGenerator\JSExports.g.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSImportGenerator\JSImports.g.csutf-8p
 eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8

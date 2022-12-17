@@ -14,10 +14,7 @@ namespace VetAppointment.Domain
         public DateTime RegistrationDate { get; private set; }
         public List<Pet> Pets { get; private set; }
         public List<Vet> Vets { get; private set; }
-
-        //public List<Vet> Appointments { get; private set; }
         public Guid MedicalHistoryId { get; private set; }
-        public ClinicOwner Owner;
 
         public static Result<VetClinic> Create(string name, string address, int numberOfPlaces, string contactEmail,
             string contactPhone)
@@ -90,8 +87,6 @@ namespace VetAppointment.Domain
 
             return Result.Success();
         }
-
-        public void ConnectToOwner(ClinicOwner owner) => Owner = owner;
 
         public int GetAvailableNumberOfPlaces() => NumberOfPlaces - Pets.Count;
 

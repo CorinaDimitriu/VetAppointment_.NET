@@ -60,8 +60,7 @@ namespace VetAppointment.UI.Pages
         protected async Task CreateClinic()
         {
             if (Clinic.Name != null && Clinic.ContactEmail != null && Clinic.ContactPhone != null
-                && Clinic.Address != null && Clinic.NumberOfPlaces != 0)
-                if (IsCreating)
+                && Clinic.Address != null && Clinic.NumberOfPlaces != 0 && IsCreating)
                 {
                     Clinic = await VetClinicDataService.AddClinic(Clinic);
                 }

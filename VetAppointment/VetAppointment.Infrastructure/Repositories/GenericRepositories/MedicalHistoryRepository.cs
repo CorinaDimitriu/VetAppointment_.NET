@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
 using VetAppointment.Domain;
 using VetAppointment.Infrastructure.Data;
 

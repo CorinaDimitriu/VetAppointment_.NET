@@ -32,6 +32,7 @@ builder.Services.AddScoped<IRepository<Drug>, DrugRepository>();
 builder.Services.AddScoped<IRepository<MedicalHistory>, MedicalHistoryRepository>();
 builder.Services.AddScoped<IRepository<PrescribedDrug>, PrescribedDrugRepository>();
 builder.Services.AddScoped<IRepository<Treatment>, TreatmentRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddCors(options =>
 {

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Controllers\VetClinicsController.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.API.Mappers;
+using VetAppointment.API.Validators;
+using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.API.Controllers
+{
+    [Route(&quot;v1/api/[controller]&quot;)]
+    [ApiController]
+    public class VetClinicsController : ControllerBase
+    {
+        private readonly IUnitOfWork unitOfWork;
+        private readonly CreateVetClinicDtoValidator createVetClinicDtoValidator = new();
+        private readonly CreatePetDtoValidator createPetDtoValidator = new();
+        private readonly CreateVetDtoValidator createVetDtoValidator = new();
+        private readonly CreateAppointmentDtoValidator createAppointmentDtoValidator = new();
+
+        public VetClinicsController(IUnitOfWork unitOfWork) =&gt; this.unitOfWork = unitOfWork;
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateVetClinicDto vetClinicDto)
+        {
+            var history = MedicalHistory.Create();
+
+            var validatorResult = createVetClinicDtoValidator.Validate(vetClinicDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+            var vetClinic = VetClinicMapper.Mapper.Map&lt;VetClinic&gt;(vetClinicDto);
+
+            if (vetClinic == null)
+            {
+                return BadRequest();
+            }
+
+            history.Entity.AtachToClinic(vetClinic.Id);
+            vetClinic.AttachMedicalHistory(history.Entity.Id);
+
+            unitOfWork.MedicalHistoryRepository.Add(history.Entity);
+            unitOfWork.SaveChanges();
+            
+            unitOfWork.VetClinicRepository.Add(vetClinic);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(GetAllVetClinics), VetClinicMapper.Mapper.Map&lt;VetClinicDto&gt;(vetClinic));
+        }
+
+        // Gets - Clinic, Vets, Pets, Appointments, MedicalHistory (by vet, pet, clinic), Drug
+        [HttpGet]
+        public IActionResult GetAllVetClinics()
+        {
+            var vetClinics = unitOfWork.VetClinicRepository.All().Result.Select(VetClinicMapper.Mapper.Map&lt;VetClinicDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(vetClinics);
+        }
+
+        [HttpGet(&quot;{vetClinicId:guid}&quot;)]
+        public IActionResult GetById(Guid vetClinicId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(clinic);
+        }
+
+        [HttpGet(&quot;{vetClinicId:guid}/vets&quot;)]
+        public IActionResult GetVetsByClinicId(Guid vetClinicId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var vets = clinic.Vets.Select(VetMapper.Mapper.Map&lt;VetDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(vets);
+        }
+
+        [HttpGet(&quot;{vetClinicId:guid}/pets&quot;)]
+        public IActionResult GetPetsByClinicId(Guid vetClinicId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var pets = clinic.Pets.Select(PetMapper.Mapper.Map&lt;PetDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(pets);
+        }
+
+        [HttpGet(&quot;{vetClinicId:guid}/appointments&quot;)]
+        public IActionResult GetAppointmentsByClinicId(Guid vetClinicId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(clinic.MedicalHistoryId).Result;
+            var appointments = medicalHistory.Appointments.Select(AppointmentMapper.Mapper.Map&lt;AppointmentDto&gt;);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Ok(appointments);
+        }
+
+        // Post - Vet, Pets, Appointment, Drug
+        [HttpPost(&quot;{vetClinicId:guid}/pets&quot;)]
+        public IActionResult RegisterPetsFamily(Guid vetClinicId, [FromBody] List&lt;CreatePetDto&gt; petsDtos)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var dto in petsDtos)
+            {
+                var validatorResult = createPetDtoValidator.Validate(dto);
+                if (!validatorResult.IsValid)
+                {
+                    return BadRequest(validatorResult.Errors);
+                }
+            }
+
+            var pets = petsDtos.Select(PetMapper.Mapper.Map&lt;Pet&gt;).ToList();
+            if (pets.Any(p =&gt; p == null))
+            {
+                return BadRequest();
+            }
+
+            var result = clinic.RegisterPetsFamilyToClinic(pets.ToList());
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            pets.ForEach(p =&gt; unitOfWork.PetRepository.Add(p));
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(GetPetsByClinicId), pets.Select(PetMapper.Mapper.Map&lt;PetDto&gt;));
+        }
+
+        [HttpPost(&quot;{vetClinicId:guid}/vet&quot;)]
+        public IActionResult RegisterVet(Guid vetClinicId, [FromBody] CreateVetDto vetDto)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createVetDtoValidator.Validate(vetDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var doctor = VetMapper.Mapper.Map&lt;Vet&gt;(vetDto);
+            if (doctor == null)
+            {
+                return BadRequest();
+            }
+
+            var result = clinic.RegisterVetToClinic(doctor);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.VetClinicRepository.Update(clinic);
+            unitOfWork.VetRepository.Add(doctor);
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(RegisterVet), VetMapper.Mapper.Map&lt;VetDto&gt;(doctor));
+        }
+
+        [HttpPost(&quot;{vetClinicId:guid}/appointment&quot;)]
+        public IActionResult RegisterAppointment(Guid vetClinicId, [FromBody] CreateAppointmentDto appointmentDto)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createAppointmentDtoValidator.Validate(appointmentDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(clinic.MedicalHistoryId).Result;
+
+            var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId).Result;
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId).Result;
+            if (vet == null)
+            {
+                return NotFound();
+            }
+
+            var appointment = AppointmentMapper.Mapper.Map&lt;Appointment&gt;(appointmentDto);
+            if (appointment == null)
+            {
+                return BadRequest();
+            }
+
+            var result = medicalHistory.RegisterAppointmentToHistory(appointment);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.MedicalHistoryRepository.Update(medicalHistory);
+            unitOfWork.AppointmentRepository.Add(appointment);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return Created(nameof(RegisterAppointment), AppointmentMapper.Mapper.Map&lt;AppointmentDto&gt;(appointment));
+        }
+
+        [HttpPut(&quot;{vetClinicId:guid}&quot;)]
+        public IActionResult Update(Guid vetClinicId, [FromBody] CreateVetClinicDto vetClinicDto)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createVetClinicDtoValidator.Validate(vetClinicDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var result = clinic.Update(vetClinicDto.Name, vetClinicDto.Address, vetClinicDto.NumberOfPlaces, 
+                vetClinicDto.ContactEmail, vetClinicDto.ContactPhone);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.VetClinicRepository.Update(result.Entity);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{vetClinicId:guid}/vet/{vetId:guid}&quot;)]
+        public IActionResult UpdateVet(Guid vetClinicId, Guid vetId, [FromBody] CreateVetDto vetDto)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var vet = unitOfWork.VetRepository.Get(vetId).Result;
+            if (vet == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createVetDtoValidator.Validate(vetDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var result = vet.Update(vetDto.Name, vetDto.Surname, vetDto.Birthdate, vetDto.Gender, vetDto.Email, 
+                vetDto.Phone, vetDto.Specialisation);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+            
+            unitOfWork.VetRepository.Update(vet);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content - Type, x - requested - with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpPut(&quot;{vetClinicId:guid}/pet/{petId:guid}&quot;)]
+        public IActionResult UpdatePet(Guid vetClinicId, Guid petId, [FromBody] CreatePetDto petDto)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var pet = unitOfWork.PetRepository.Get(petId).Result;
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            var validatorResult = createPetDtoValidator.Validate(petDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
+
+            var result = pet.Update(petDto.Name, petDto.Birthdate, petDto.Race, petDto.Gender);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            unitOfWork.PetRepository.Update(pet);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;DELETE, GET, POST, OPTIONS, PUT&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{vetClinicId:guid}&quot;)]
+        public IActionResult Delete(Guid vetClinicId)
+        {
+            var vetClinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (vetClinic == null)
+            {
+                return NotFound();
+            }
+
+            var medicalHistorys = unitOfWork.MedicalHistoryRepository.All().Result.Where(m =&gt; m.ClinicId == vetClinicId);
+            if (medicalHistorys != null)
+            {
+                foreach (var item in medicalHistorys)
+                {
+                    unitOfWork.MedicalHistoryRepository.Delete(item);
+                }
+            }
+
+            var vets = unitOfWork.VetRepository.All().Result.Where(v =&gt; v.ClinicId == vetClinicId);
+            if (vets != null)
+            {
+                foreach (var item in vets)
+                {
+                    unitOfWork.VetRepository.Delete(item);
+                }
+            }
+
+            var pets = unitOfWork.PetRepository.All().Result.Where(p =&gt; p.ClinicId == vetClinicId);
+            if (pets != null)
+            {
+                foreach (var item in pets)
+                {
+                    unitOfWork.PetRepository.Delete(item);
+                }
+            }
+
+            unitOfWork.VetClinicRepository.Delete(vetClinic);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;DELETE, GET, POST, OPTIONS, PUT&quot;);  
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{vetClinicId:guid}/vet/{vetId:guid}&quot;)]
+        public IActionResult DeleteVet(Guid vetClinicId, Guid vetId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var vet = unitOfWork.VetRepository.Get(vetId).Result;
+            if (vet == null)
+            {
+                return NotFound();
+            }
+
+            unitOfWork.VetRepository.Delete(vet);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+
+        [HttpDelete(&quot;{vetClinicId:guid}/pet/{petId:guid}&quot;)]
+        public IActionResult DeletePet(Guid vetClinicId, Guid petId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var pet = unitOfWork.PetRepository.Get(petId).Result;
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            unitOfWork.PetRepository.Delete(pet);
+            unitOfWork.SaveChanges();
+
+            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
+            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
+            return NoContent();
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,16,90,1],[17,9,17,78,1],[18,9,18,78,1],[19,9,19,94,1],[21,9,21,60,1],[21,64,21,92,1],[25,9,25,10,1],[26,13,26,51,1],[28,13,28,86,1],[29,13,29,42,1],[30,13,30,14,0],[31,17,31,59,0],[33,13,33,81,1],[35,13,35,35,1],[36,13,36,14,0],[37,17,37,37,0],[40,13,40,56,1],[41,13,41,63,1],[43,13,43,69,1],[44,13,44,38,1],[46,13,46,59,1],[47,13,47,38,1],[49,13,49,100,1],[50,13,50,101,1],[51,13,51,91,1],[52,13,52,107,1],[53,9,53,10,1],[58,9,58,10,1],[59,13,59,123,1],[61,13,61,100,1],[62,13,62,101,1],[63,13,63,91,1],[64,13,64,35,1],[65,9,65,10,1],[69,9,69,10,0],[70,13,70,81,0],[71,13,71,32,0],[72,13,72,14,0],[73,17,73,35,0],[76,13,76,100,0],[77,13,77,101,0],[78,13,78,91,0],[79,13,79,31,0],[80,9,80,10,0],[84,9,84,10,1],[85,13,85,81,1],[86,13,86,32,1],[87,13,87,14,1],[88,17,88,35,1],[91,13,91,73,1],[93,13,93,100,1],[94,13,94,101,1],[95,13,95,91,1],[96,13,96,29,1],[97,9,97,10,1],[101,9,101,10,0],[102,13,102,81,0],[103,13,103,32,0],[104,13,104,14,0],[105,17,105,35,0],[108,13,108,73,0],[110,13,110,100,0],[111,13,111,101,0],[112,13,112,91,0],[113,13,113,29,0],[114,9,114,10,0],[118,9,118,10,0],[119,13,119,81,0],[120,13,120,32,0],[121,13,121,14,0],[122,17,122,35,0],[125,13,125,106,0],[126,13,126,113,0],[128,13,128,100,0],[129,13,129,101,0],[130,13,130,91,0],[131,13,131,37,0],[132,9,132,10,0],[137,9,137,10,1],[138,13,138,81,1],[139,13,139,32,1],[140,13,140,14,1],[141,17,141,35,1],[144,13,144,20,1],[144,22,144,29,1],[144,30,144,32,1],[144,33,144,41,1],[145,13,145,14,1],[146,17,146,75,1],[147,17,147,46,1],[148,17,148,18,0],[149,21,149,63,0],[151,13,151,14,1],[153,13,153,76,1],[154,13,154,31,1],[154,31,154,40,1],[154,40,154,42,1],[155,13,155,14,0],[156,17,156,37,0],[159,13,159,75,1],[160,13,160,34,1],[161,13,161,14,1],[162,17,162,49,1],[165,13,165,31,1],[165,31,165,62,1],[165,62,165,64,1],[167,13,167,100,1],[168,13,168,101,1],[169,13,169,91,1],[170,13,170,98,1],[171,9,171,10,1],[175,9,175,10,1],[176,13,176,81,1],[177,13,177,32,1],[178,13,178,14,1],[179,17,179,35,1],[182,13,182,74,1],[183,13,183,42,1],[184,13,184,14,0],[185,17,185,59,0],[188,13,188,60,1],[189,13,189,32,1],[190,13,190,14,0],[191,17,191,37,0],[194,13,194,61,1],[195,13,195,34,1],[196,13,196,14,0],[197,17,197,49,0],[200,13,200,59,1],[201,13,201,50,1],[203,13,203,100,1],[204,13,204,101,1],[205,13,205,91,1],[206,13,206,87,1],[207,9,207,10,1],[211,9,211,10,1],[212,13,212,81,1],[213,13,213,32,1],[214,13,214,14,1],[215,17,215,35,1],[218,13,218,90,1],[219,13,219,42,1],[220,13,220,14,0],[221,17,221,59,0],[224,13,224,106,1],[226,13,226,81,1],[227,13,227,29,1],[228,13,228,14,0],[229,17,229,35,0],[232,13,232,81,1],[233,13,233,29,1],[234,13,234,14,1],[235,17,235,35,1],[238,13,238,89,1],[239,13,239,37,1],[240,13,240,14,0],[241,17,241,37,0],[244,13,244,83,1],[245,13,245,34,1],[246,13,246,14,0],[247,17,247,49,0],[250,13,250,72,1],[251,13,251,63,1],[252,13,252,38,1],[254,13,254,106,1],[255,13,255,101,1],[256,13,256,91,1],[257,13,257,116,1],[258,9,258,10,1],[262,9,262,10,1],[263,13,263,81,1],[264,13,264,32,1],[265,13,265,14,1],[266,17,266,35,1],[269,13,269,86,1],[270,13,270,42,1],[271,13,271,14,1],[272,17,272,59,1],[275,13,276,71,1],[277,13,277,34,1],[278,13,278,14,0],[279,17,279,49,0],[282,13,282,66,1],[283,13,283,38,1],[285,13,285,106,1],[286,13,286,101,1],[287,13,287,91,1],[288,13,288,32,1],[289,9,289,10,1],[293,9,293,10,1],[294,13,294,81,1],[295,13,295,32,1],[296,13,296,14,1],[297,17,297,35,1],[300,13,300,66,1],[301,13,301,29,1],[302,13,302,14,1],[303,17,303,35,1],[306,13,306,74,1],[307,13,307,42,1],[308,13,308,14,1],[309,17,309,59,1],[312,13,313,54,1],[314,13,314,34,1],[315,13,315,14,0],[316,17,316,49,0],[319,13,319,50,1],[320,13,320,38,1],[322,13,322,106,1],[323,13,323,101,1],[324,13,324,91,1],[325,13,325,32,1],[326,9,326,10,1],[330,9,330,10,1],[331,13,331,81,1],[332,13,332,32,1],[333,13,333,14,1],[334,17,334,35,1],[337,13,337,66,1],[338,13,338,29,1],[339,13,339,14,1],[340,17,340,35,1],[343,13,343,74,1],[344,13,344,42,1],[345,13,345,14,1],[346,17,346,59,1],[349,13,349,96,1],[350,13,350,34,1],[351,13,351,14,0],[352,17,352,49,0],[355,13,355,50,1],[356,13,356,38,1],[358,13,358,100,1],[359,13,359,101,1],[360,13,360,91,1],[361,13,361,32,1],[362,9,362,10,1],[366,9,366,10,1],[367,13,367,84,1],[368,13,368,35,1],[369,13,369,14,1],[370,17,370,35,1],[373,13,373,95,1],[373,95,373,120,1],[373,120,373,122,1],[374,13,374,41,1],[375,13,375,14,1],[376,17,376,24,1],[376,26,376,34,0],[376,35,376,37,1],[376,38,376,53,1],[377,17,377,18,0],[378,21,378,70,0],[379,17,379,18,0],[380,13,380,14,1],[382,13,382,73,1],[382,73,382,98,0],[382,98,382,100,1],[383,13,383,30,1],[384,13,384,14,1],[385,17,385,24,1],[385,26,385,34,0],[385,35,385,37,1],[385,38,385,42,1],[386,17,386,18,0],[387,21,387,59,0],[388,17,388,18,0],[389,13,389,14,1],[391,13,391,73,1],[391,73,391,98,0],[391,98,391,100,1],[392,13,392,30,1],[393,13,393,14,1],[394,17,394,24,1],[394,26,394,34,0],[394,35,394,37,1],[394,38,394,42,1],[395,17,395,18,0],[396,21,396,59,0],[397,17,397,18,0],[398,13,398,14,1],[400,13,400,62,1],[401,13,401,38,1],[403,13,403,100,1],[404,13,404,91,1],[405,13,405,101,1],[406,13,406,32,1],[407,9,407,10,1],[411,9,411,10,1],[412,13,412,81,1],[413,13,413,32,1],[414,13,414,14,1],[415,17,415,35,1],[418,13,418,66,1],[419,13,419,29,1],[420,13,420,14,1],[421,17,421,35,1],[424,13,424,50,1],[425,13,425,38,1],[427,13,427,100,1],[428,13,428,101,1],[429,13,429,91,1],[430,13,430,32,1],[431,9,431,10,1],[435,9,435,10,1],[436,13,436,81,1],[437,13,437,32,1],[438,13,438,14,1],[439,17,439,35,1],[442,13,442,66,1],[443,13,443,29,1],[444,13,444,14,1],[445,17,445,35,1],[448,13,448,50,1],[449,13,449,38,1],[451,13,451,100,1],[452,13,452,101,1],[453,13,453,91,1],[454,13,454,32,1],[455,9,455,10,1]]);
+    </script>
+  </body>
+</html>

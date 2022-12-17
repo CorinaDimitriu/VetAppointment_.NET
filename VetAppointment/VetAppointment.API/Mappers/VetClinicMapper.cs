@@ -3,7 +3,7 @@ using AutoMapper;
 
 namespace VetAppointment.API.Mappers
 {
-    public class VetClinicMapper
+    public static class VetClinicMapper
     {
         private static readonly Lazy<IMapper> Lazy =
             new(() =>

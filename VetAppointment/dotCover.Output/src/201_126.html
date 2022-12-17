@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Data\DatabaseContext.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using VetAppointment.Application;
+using VetAppointment.Domain;
+
+namespace VetAppointment.Infrastructure.Data
+{
+    public class DatabaseContext : DbContext, IDatabaseContext
+    {
+        public DatabaseContext(DbContextOptions options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
+
+        public DbSet&lt;Pet&gt; Pets =&gt; Set&lt;Pet&gt;();
+        public DbSet&lt;Vet&gt; Vets =&gt; Set&lt;Vet&gt;();
+        public DbSet&lt;PetOwner&gt; PetOwners =&gt; Set&lt;PetOwner&gt;();
+        public DbSet&lt;VetClinic&gt; VetClinics =&gt; Set&lt;VetClinic&gt;();
+        public DbSet&lt;Appointment&gt; Appointments =&gt; Set&lt;Appointment&gt;();
+        public DbSet&lt;Drug&gt; Drugs =&gt; Set&lt;Drug&gt;();
+        public DbSet&lt;MedicalHistory&gt; MedicalHistories =&gt; Set&lt;MedicalHistory&gt;();
+        public DbSet&lt;Treatment&gt; Treatments =&gt; Set&lt;Treatment&gt;();
+        public DbSet&lt;PrescribedDrug&gt; PrescribedDrugs =&gt; Set&lt;PrescribedDrug&gt;();
+        
+        public void Save() =&gt; SaveChanges();
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[9,60,9,73,1],[10,9,10,10,1],[11,13,11,38,1],[12,9,12,10,1],[14,35,14,45,1],[15,35,15,45,1],[16,45,16,60,1],[17,47,17,63,1],[18,51,18,69,1],[19,37,19,48,1],[20,58,20,79,1],[21,47,21,63,1],[22,57,22,78,1],[24,31,24,44,0]]);
+    </script>
+  </body>
+</html>

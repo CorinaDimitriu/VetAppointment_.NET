@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+#nullable disable
 namespace VetAppointment.UI.Pages.Models
 {
     public class ModelPetsInClinic

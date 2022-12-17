@@ -1,40 +1,44 @@
-≤
-AD:\10.12.2022\VetAppointment\VetAppointment.Domain\Appointment.cs 8rG	
- !#$%&'()*,-/01245679:;<=>?ABCDFGHIKLMNOPRSTUxÇ %,16<>ACFHKLMNOPRÜ
-AD:\10.12.2022\VetAppointment\VetAppointment.Domain\ClinicOwner.cs 8	r)	
- !"$%&'()*+,./01xÇ !.ä
-:D:\10.12.2022\VetAppointment\VetAppointment.Domain\Drug.cs 
-8r0	
-!"#$%&()*+-./02346789xÇ#%(*-/2346T
-HD:\10.12.2022\VetAppointment\VetAppointment.Domain\Enums\AnimalGender.csrX
-FD:\10.12.2022\VetAppointment\VetAppointment.Domain\Enums\AnimalRace.csr	
-U
-HD:\10.12.2022\VetAppointment\VetAppointment.Domain\Enums\PersonGender.csr		[
-MD:\10.12.2022\VetAppointment\VetAppointment.Domain\Enums\VetSpecialisation.csr
-	
-Y
-DD:\10.12.2022\VetAppointment\VetAppointment.Domain\Helpers\Result.cs 8r
-b
-LD:\10.12.2022\VetAppointment\VetAppointment.Domain\Helpers\ResultOfEntity.cs 
+‹
+VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\ClinicsOverview.razor.cs_ d8árø	 !"#$%&'()*+,-./013456789:<=>?@ABCEFGHIJKMNOPQRSUVWXYZ[]^_`abcdefghjklmnopqrstuwxyz{|}~ÄÅÇÑÖÜáàâäãåçéèëíìîïñóôöõúùûü†°¢£§¶ß®©™´¨ÆØ∞±≤≥¥∂∑∏π∫ªºæø¿¡¬√ƒ∆«»… ÃÕŒœ–—“”‘’÷◊Ÿ⁄€‹›ﬁﬂ‡·‚„‰ÊÁËÈÍÎÏÌÓÔÒÛÙıˆ˜¯˘˙˚¸˝˛ÄÅÇÉÑÖÜàâäãåçéêëíìîïñòôöõúùûü†°¢£•¶ß®©™´¨≠ÆØ∞≤≥¥µ∂∑∏π∫ªºΩø¿¡¬√ƒ≈∆«»… ÀÃÕŒ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚x.Ç≥469>?AGIOQWY_`bflmosyz|ÄÜáâçìïõúû¢®™∞≤∏∫¿¬»…Œœ—’€‹ﬁ‚ËÈÎÔıˆ¯¸ÇÑäåíîöõù°ß®™Æ¥µ∑ª¡ƒ≈«»… Ã“”’€›ﬂ„ÈÎÏÓÛıˆ¯i
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelClinic.cs 8r	
+i
+PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPet.cs 
 8
-r	ó
-ID:\10.12.2022\VetAppointment\VetAppointment.Domain\Helpers\Validations.cs 8	r-	
- !#$%&'(*,-./02345xÇ	%'*,./2ã
-DD:\10.12.2022\VetAppointment\VetAppointment.Domain\MedicalHistory.cs 
-8r*	
-!"$%&')*+,-.02345xÇ!&+-02Q
-<D:\10.12.2022\VetAppointment\VetAppointment.Domain\Person.cs 8r	
-≤
-9D:\10.12.2022\VetAppointment\VetAppointment.Domain\Pet.cs 8rK	
-!"#$&'()*+,-/02345789:<=>?@ABCEFGHIJLMNOQRSTVWXYxÇ!#(/49>@ABEGHILNQRSTVû
->D:\10.12.2022\VetAppointment\VetAppointment.Domain\PetOwner.cs 8r=	
-!"#$%&()*+,-./01235689:;<=?@ABCEFGHxÇ!#$%*5:<?ABEï
-DD:\10.12.2022\VetAppointment\VetAppointment.Domain\PrescribedDrug.cs 8r0	
-!"#$%&'()*+,./01346789xÇ!%)+.0346•
-?D:\10.12.2022\VetAppointment\VetAppointment.Domain\Treatment.cs 8r@	
- !"#$%'()*+,.01345789:<=?@ABCDFGHIKLMNOxÇ "$)+.0579<ACFHKLŒ
-9D:\10.12.2022\VetAppointment\VetAppointment.Domain\Vet.cs' 8r]	
- "#$%&'()*+,-0123456789:<=?@ABDEFHIJKMNOPRSTUWXYZ[\^_`abcefghijkmnopx
-Ç'"$%&(*+,2<AHJMORTWYZ[^`abefghijkmÁ
-?D:\10.12.2022\VetAppointment\VetAppointment.Domain\VetClinic.cs# 8)rq	
- !"$%&')*+,-./01234679:;<>?@ABCEFGHIKLMNOQRTUVWYZ\^`abcdeghijlmnopqrtuvwxz{|}~ÅÇÉÑxÇ&!$&+06;@BEGHKMNQVWY^bdgilnrtvxz|~Å
+r	
+Çn
+YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPetsInClinic.cs 8r	
+m
+PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelVet.cs 8r	
+Çe
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToDelete.cs 8r	m
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToUpdate.cs 8r	
+Ç	e
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToDelete.cs 8r	p
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToUpdate.cs 8r	
+Çs
+SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\PetsOverview.razor.cs 8r	
+Çg
+YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IPetDataService.csr	{
+_C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IVetClinicDataService.csr	
+~
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataService.cs 8r	
+Ç¬
+^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\VetClinicDataService.cs> 8r‰	
+ !"#%&'()*+,-./012345679:;<=>?@BCDEFGHIJKLMNOPQRTUVWXYZ\]^_`abcdfghijklmopqrstuvxyz{|}~ÅÇÉÑÖÜáàâãåçéèêëíìïñóòôöõúùûü†°¢£§•ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºÇp !"*+,-./023456<=GHIJKMNOPQWXY_`abcijrs{|ÉÑÜáàçéêëíóõúùû†°¢£§©≠ÆØ∞±≤≥µ∂∑∏πÜ
+`C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelClinicValidator.cs 8r	
+Ç
+{
+]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelPetValidator.cs 8r	
+Ç
+á
+]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelVetValidator.cs 8r	
+Ç
+z
+XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\PetValidator.cs 8r	
+Ç
+Ñ
+^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\VetClinicValidator.cs 8r	
+Ç
+h
+BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Program.csr	Ç
+	

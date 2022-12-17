@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<SonarProjectConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/analyzer/2021/1">
-  <AnalysisConfigPath>D:\10.12.2022\VetAppointment\.sonarqube\conf\SonarQubeAnalysisConfig.xml</AnalysisConfigPath>
-  <ProjectPath>D:\10.12.2022\VetAppointment\VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj</ProjectPath>
-  <FilesToAnalyzePath>D:\10.12.2022\VetAppointment\.sonarqube\conf\59\FilesToAnalyze.txt</FilesToAnalyzePath>
-  <OutPath>D:\10.12.2022\VetAppointment\.sonarqube\out\59</OutPath>
-  <ProjectType>Test</ProjectType>
-  <TargetFramework>net7.0</TargetFramework>
-</SonarProjectConfig>

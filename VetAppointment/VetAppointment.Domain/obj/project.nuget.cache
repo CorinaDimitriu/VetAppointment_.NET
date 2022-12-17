@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1sPoLuKSlSlftwGxf1RSRRLeI+FRcfYn1oBOYGjVb3dfqsyTtXS4yuL3L1w22NqjWsvwSI+XXyPIgrj+DAwZeQ==",
+  "dgSpecHash": "m+Y38nLtlwYB+DpMyRyylV8w2xdPBJvwr3uzQ9RzDsGyhiu8788Qk0ijDOHPcttUjmU0krDScYBcsPlIE/CGfg==",
   "success": true,
-  "projectFilePath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_S12_Another\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
+  "projectFilePath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\VetClinicsControllerTests_.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+#nullable disable
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using VetAppointment.API.Controllers;
+using VetAppointment.Domain.Enums;
+using VetAppointment.Infrastructure.Data;
+
+namespace VetAppointment.Integration.Tests
+{
+    public class VetClinicsControllerTests : BaseIntegrationTests
+    {
+        private const string ApiURL = &quot;v1/api/vetclinics&quot;;
+
+        private HttpClient GetHttpClient(string databaseName)
+        {
+            HttpClient httpClient = _factory.WithWebHostBuilder(builder =&gt;
+            {
+                builder.ConfigureTestServices(services =&gt;
+                {
+                    services.AddDbContext&lt;DatabaseContext&gt;(options =&gt;
+                    {
+                        options.UseSqlite($&quot;Data Source = {databaseName}.db&quot;);
+                    });
+                });
+            }).CreateClient(new WebApplicationFactoryClientOptions
+            {
+                AllowAutoRedirect = false,
+            });
+
+            DbContextOptions&lt;DatabaseContext&gt; options = new DbContextOptionsBuilder&lt;DatabaseContext&gt;()
+                .UseSqlite($&quot;Data Source = {databaseName}.db&quot;).Options;
+            DatabaseContext db = new(options);
+            CleanDatabases(db);
+
+            return httpClient;
+        }
+
+        public VetClinicsControllerTests(WebApplicationFactory&lt;VetClinicsController&gt; factory) : base(factory) { }
+
+        [Fact]
+        public async void When_GetVetsFromClinic_Then_ShouldRetrunVets()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_GetVetsFromClinic_Then_ShouldRetrunVets&quot;);
+
+            var createVetClinicDto = CreateClinitSUT();
+            var vetDto = CreateVetSUT();
+            
+            var createClinicResult = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = createClinicResult.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;().Result;
+
+            var addVetToClinicResult = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetDto);
+            var vet = addVetToClinicResult.Content.ReadFromJsonAsync&lt;VetDto&gt;().Result;
+
+            var vets = new List&lt;VetDto&gt; { vet };
+
+            // Act
+
+            var getVetsFromClinicResult = await httpClient.GetAsync($&quot;{ApiURL}/{clinic.Id}/vets&quot;);
+            var vetsGet = getVetsFromClinicResult.Content.ReadFromJsonAsync&lt;List&lt;VetDto&gt;&gt;().Result;
+
+            var vetGet = vetsGet.First();
+
+            var result = vetsGet.Count == vets.Count &amp;&amp; vetGet.Id == vet.Id &amp;&amp; vetGet.Name == vet.Name &amp;&amp; vetGet.Surname == vet.Surname
+                &amp;&amp; vetGet.Specialisation == vet.Specialisation &amp;&amp; vetGet.ClinicId == vet.ClinicId &amp;&amp; vetGet.Gender == vet.Gender;
+
+            // Assert
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public async void When_UpdateClinic_Then_ShouldReturnNoContent()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdateClinic_Then_ShouldReturnNoContent&quot;);
+
+            var createVetClinicDto = CreateClinitSUT();
+            var createClinicResult = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = createClinicResult.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;().Result;
+
+            var newName = &quot;NewName&quot;;
+            clinic.Name = newName;
+
+            // Act
+            var updateClinicResult = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}&quot;, clinic);
+
+            // Assert
+            updateClinicResult.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async void When_UpdateInvalidClinic_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdateClinic_Then_ShouldReturnNoContent&quot;);
+
+            var clinic = CreateClinitSUT();
+
+            // Act
+            var updateClinicResult = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}&quot;, clinic);
+
+            // Assert
+            updateClinicResult.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdateClinicWithInvalidData_Then_ShouldReturnBadRequest()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdateClinic_Then_ShouldReturnNoContent&quot;);
+
+            var createVetClinicDto = CreateClinitSUT();
+            var createClinicResult = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = createClinicResult.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;().Result;
+
+            var newEmail = &quot;badMail&quot;;
+            clinic.ContactEmail = newEmail;
+
+            // Act
+            var updateClinicResult = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}&quot;, clinic);
+
+            // Assert
+            updateClinicResult.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async void When_GetVetsFromInvalidClinic_Then_ShouldRetrunVets()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_GetVetsFromInvalidClinic_Then_ShouldRetrunVets&quot;);
+
+            // Act
+
+            var getVetsFromClinicResult = await httpClient.GetAsync($&quot;{ApiURL}/{Guid.NewGuid()}/vets&quot;);
+            // Assert
+
+            getVetsFromClinicResult.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_CreateClinic_Then_ShouldReturnClinicInTheGetRequestAsync()
+        {
+            // Arrange
+
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest7&quot;);
+
+            CreateVetClinicDto vetClinicDto = CreateClinitSUT();
+
+            // Act
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, vetClinicDto);
+            var getClinicResult = await httpClient.GetAsync(ApiURL);
+
+            // Assert
+            createClinicResponse.EnsureSuccessStatusCode();
+            createClinicResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+
+            getClinicResult.EnsureSuccessStatusCode();
+            var clinics = await getClinicResult.Content.ReadFromJsonAsync&lt;List&lt;VetClinicDto&gt;&gt;();
+
+            clinics.Should().HaveCount(1);
+            clinics.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task When_RegisterPetsFamilyToClinic_Then_ShouldSavePetsInClinicAsync()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest6&quot;);
+
+            var createVetClinicDto = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var pets = new List&lt;PetDto&gt; { CreatePetSUT() };
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, pets);
+
+            // Assert
+            //resultResponse();
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+        }
+
+        [Fact]
+        public async Task When_RegisterPetsFamilyToNullClinic_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest6&quot;);
+
+            var pets = new List&lt;PetDto&gt; { CreatePetSUT() };
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}/pets&quot;, pets);
+
+            // Assert
+            //resultResponse();
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_RegisterEmptyListOfPetsToClinic_Then_ShouldReturnBadRequestAsync()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest5&quot;);
+
+            CreateVetClinicDto createVetClinicDto = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var pets = new List&lt;PetDto&gt;();
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, pets);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(System.Net.HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async void When_RegisterAppoientmentToClinic_Then_ShouldReturnAppointment()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest8&quot;);
+            
+            CreateVetClinicDto createVetClinicDto = CreateClinitSUT();
+            CreateAppointmentDto appointment = CreateAppointmentSUT();
+            VetDto vetDto = CreateVetSUT();
+            PetDto petDto = CreatePetSUT();
+
+            
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetDto);
+            var vet = await vetResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            var petResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petDto });
+            var pet = await petResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            appointment.VetId = vet.Id;
+            appointment.PetId = pet.First().Id;
+            appointment.MedicalHistoryId = Guid.NewGuid();
+            appointment.TreatmentId = Guid.NewGuid();
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/appointment&quot;, appointment);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+        }
+
+        [Fact]
+        public async void When_RegisterAppoientmentToNullClinic_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest8&quot;);
+
+            CreateVetClinicDto createVetClinicDto = CreateClinitSUT();
+            CreateAppointmentDto appointment = CreateAppointmentSUT();
+            VetDto vetDto = CreateVetSUT();
+            PetDto petDto = CreatePetSUT();
+
+
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetDto);
+            var vet = await vetResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            var petResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petDto });
+            var pet = await petResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            appointment.VetId = vet.Id;
+            appointment.PetId = pet.First().Id;
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}/appointment&quot;, appointment);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_RegisterAppoientmentToClinicWithInvalidVet_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest8&quot;);
+
+            CreateVetClinicDto createVetClinicDto = CreateClinitSUT();
+            CreateAppointmentDto appointment = CreateAppointmentSUT();
+            PetDto petDto = CreatePetSUT();
+
+
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petDto });
+            var pet = await petResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            appointment.VetId = Guid.NewGuid();
+            appointment.PetId = pet.First().Id;
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/appointment&quot;, appointment);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_RegisterAppoientmentToClinicWithInvalidPet_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest8&quot;);
+
+            CreateVetClinicDto createVetClinicDto = CreateClinitSUT();
+            CreateAppointmentDto appointment = CreateAppointmentSUT();
+            VetDto vetDto = CreateVetSUT();
+
+
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetDto);
+            var vet = await vetResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            appointment.VetId = vet.Id;
+            appointment.PetId = Guid.NewGuid();
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}/appointment&quot;, appointment);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_RegisterVetToClinic_Then_ShouldSaveVetInClinicAsync()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest4&quot;);
+
+            var createVetClinicDto = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var vet = CreateVetSUT();
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vet);
+
+            // Assert
+            resultResponse.EnsureSuccessStatusCode();
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+        }
+
+        [Fact]
+        public async void When_RegisterVetToInvalidClinicId_Then_ShouldSaveVetInClinicAsync()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_RegisterVetToInvalidClinicId_Then_ShouldSaveVetInClinicAsync&quot;);
+
+            var createVetClinicDto = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, createVetClinicDto);
+            var vet = CreateVetSUT();
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            // Act
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}/vet&quot;, vet);
+
+            // Assert
+            resultResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdateVet_Then_ShouldUpdateVetInClinic()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest3&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            vet.Name = &quot;UpdatedFirstName&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet/{vet.Id}&quot;, vet);
+
+            // Assert
+            updateVetResponse.EnsureSuccessStatusCode();
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async void When_UpdateVetWithInvalidClinic_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdateVetWithInvalidClinic_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            vet.Name = &quot;UpdatedFirstName&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}/vet/{vet.Id}&quot;, vet);
+
+            // Assert
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdateInvalidVet_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdateInvalidVet_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            vet.Name = &quot;UpdatedFirstName&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet/{Guid.NewGuid()}&quot;, vet);
+
+            // Assert
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdateVetWithInvalidData_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdateVetWithInvalidData_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            vet.Email = &quot;InvalidEmail&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet/{vet.Id}&quot;, vet);
+
+            // Assert
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async void When_DeleteVet_Then_ShouldDeleteVetFromClinic()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest2&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            // Act
+            var deleteVetResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{clinic.Id}/vet/{vet.Id}&quot;);
+
+            // Assert
+            deleteVetResponse.EnsureSuccessStatusCode();
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async void When_DeleteVetWithInvalidClinic_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_DeleteVetWithInvalidClinic_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            // Act
+            var deleteVetResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{Guid.NewGuid()}/vet/{vet.Id}&quot;);
+
+            // Assert
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_DeleteVetWithInvalidVetId_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_DeleteVetWithInvalidVetId_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var vetSUT = CreateVetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/vet&quot;, vetSUT);
+            var vet = await resultResponse.Content.ReadFromJsonAsync&lt;VetDto&gt;();
+
+            // Act
+            var deleteVetResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{clinic.Id}/vet/{Guid.NewGuid()}&quot;);
+
+            // Assert
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_DeletePet_Then_ShouldDeletePetFromClinic()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_DeletePet_Then_ShouldDeletePetFromClinic&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSUT = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSUT } );
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            // Act
+            var deleteVetResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{clinic.Id}/pet/{pets.First().Id}&quot;);
+
+            // Assert
+            deleteVetResponse.EnsureSuccessStatusCode();
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async void When_DeletePetWithInvalidClinicId_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_DeletePetWithInvalidClinicId_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSUT = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSUT });
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            // Act
+            var deleteVetResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{Guid.NewGuid()}/pet/{pets.First().Id}&quot;);
+
+            // Assert
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_DeletePetWithInvalidPetId_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_DeletePetWithInvalidClinicId_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSUT = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSUT });
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+
+            // Act
+            var deleteVetResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{clinic.Id}/pet/{Guid.NewGuid()}&quot;);
+
+            // Assert
+            deleteVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_DeleteClinic_Then_ShouldDeleteClinic()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;VetAppointmentTest1&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            // Act
+            var deleteClinicResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{clinic.Id}&quot;);
+
+            // Assert
+            deleteClinicResponse.EnsureSuccessStatusCode();
+            deleteClinicResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async void When_DeleteClinicWithInvalidId_Then_ShouldReturnNotFound()
+        {
+            //Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_DeleteClinicWithInvalidId_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            // Act
+            var deleteClinicResponse = await httpClient.DeleteAsync($&quot;{ApiURL}/{Guid.NewGuid()}&quot;);
+
+            // Assert
+            deleteClinicResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdatePet_Then_ShouldUpdatePetInClinic()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdatePet_Then_ShouldUpdatePetInClinic&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSut = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSut } );
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+            var pet = pets.First();
+            
+            pet.Name = &quot;updateName&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pet/{pet.Id}&quot;, pet);
+
+            // Assert
+            updateVetResponse.EnsureSuccessStatusCode();
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async void When_UpdatePetWithInvalidClinic_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdatePetWithInvalidClinic_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSut = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSut });
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+            var pet = pets.First();
+
+            pet.Name = &quot;updateName&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{Guid.NewGuid()}/pet/{pet.Id}&quot;, pet);
+
+            // Assert
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void When_UpdatePetWithInvalidPetId_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdatePetWithInvalidPetId_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSut = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSut });
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+            var pet = pets.First();
+
+            pet.Name = &quot;updateName&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pet/{Guid.NewGuid()}&quot;, pet);
+
+            // Assert
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+
+        [Fact]
+        public async void When_UpdatePetWithInvalidPetData_Then_ShouldReturnNotFound()
+        {
+            // Arrange
+            HttpClient httpClient = GetHttpClient(&quot;When_UpdatePetWithInvalidPetId_Then_ShouldReturnNotFound&quot;);
+
+            var clinicSUT = CreateClinitSUT();
+            var createClinicResponse = await httpClient.PostAsJsonAsync(ApiURL, clinicSUT);
+            var clinic = await createClinicResponse.Content.ReadFromJsonAsync&lt;VetClinicDto&gt;();
+
+            var petSut = CreatePetSUT();
+            var resultResponse = await httpClient.PostAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pets&quot;, new List&lt;PetDto&gt; { petSut });
+            var pets = await resultResponse.Content.ReadFromJsonAsync&lt;List&lt;PetDto&gt;&gt;();
+            var pet = pets.First();
+
+            pet.Race = &quot;badRace&quot;;
+
+            // Act
+            var updateVetResponse = await httpClient.PutAsJsonAsync($&quot;{ApiURL}/{clinic.Id}/pet/{pet.Id}&quot;, pet);
+
+            // Assert
+            updateVetResponse.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+        
+        private static CreateVetClinicDto CreateClinitSUT()
+        {
+            return new CreateVetClinicDto()
+            {
+                Name = &quot;Pet Lovers&quot;,
+                Address = &quot;strada animalutelor&quot;,
+                NumberOfPlaces = 3,
+                ContactEmail = &quot;love@pets.com&quot;,
+                ContactPhone = &quot;+40742845280&quot;
+            };
+        }
+
+        private static PetDto CreatePetSUT()
+        {
+            return new PetDto()
+            {
+                Name = &quot;Bobita&quot;,
+                Birthdate = DateTime.Now.AddYears(-1).ToString(),
+                Race = AnimalRace.Rabbit.ToString(),
+                Gender = AnimalGender.Male.ToString()
+            };
+        }
+
+        private static VetDto CreateVetSUT()
+        {
+            return new VetDto()
+            {
+                Name = &quot;Maria&quot;,
+                Surname = &quot;Popovici&quot;,
+                Birthdate = DateTime.Now.AddYears(-32).ToString(),
+                Email = &quot;maria.popovici@gmail.com&quot;,
+                Phone = &quot;+40123456789&quot;,
+                Gender = PersonGender.Female.ToString(),
+                Specialisation = VetSpecialisation.Nutritionist.ToString()
+            };
+        }
+    
+        private static CreateAppointmentDto CreateAppointmentSUT()
+        {
+            return new CreateAppointmentDto()
+            {
+                EstimatedDurationInMinutes = 30,
+                ScheduledDate = DateTime.Now.AddDays(1).ToString(),
+                PetId = Guid.Empty,
+                VetId = Guid.Empty,
+                TreatmentId = Guid.NewGuid(),
+                MedicalHistoryId = Guid.NewGuid()
+            };
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[17,9,17,10,1],[18,13,19,13,1],[19,13,19,14,1],[19,14,20,17,1],[20,17,21,17,1],[21,17,21,18,1],[21,18,22,21,1],[22,21,23,21,1],[23,21,23,22,1],[23,22,24,25,1],[24,25,24,79,1],[24,79,25,21,1],[25,21,25,22,1],[25,22,25,24,1],[25,24,26,17,1],[26,17,26,18,1],[26,18,26,20,1],[26,20,27,13,1],[27,13,27,14,1],[27,14,30,16,1],[32,13,33,72,1],[34,13,34,47,1],[35,13,35,32,1],[37,13,37,31,1],[38,9,38,10,1],[40,97,40,110,1],[40,111,40,112,1],[40,113,40,114,1],[44,9,44,10,1],[46,13,46,99,1],[48,13,48,56,1],[49,13,49,41,1],[51,13,51,99,1],[52,13,52,94,1],[54,13,54,110,1],[55,13,55,87,1],[57,13,57,49,1],[61,13,61,99,1],[62,13,62,100,1],[64,13,64,42,1],[66,13,67,130,1],[71,13,71,33,1],[72,9,72,10,1],[76,9,76,10,1],[78,13,78,99,1],[80,13,80,56,1],[81,13,81,99,1],[82,13,82,94,1],[84,13,84,37,1],[85,13,85,35,1],[88,13,88,103,1],[91,13,91,81,1],[92,9,92,10,1],[96,9,96,10,1],[98,13,98,99,1],[100,13,100,44,1],[103,13,103,108,1],[106,13,106,80,1],[107,9,107,10,1],[111,9,111,10,1],[113,13,113,99,1],[115,13,115,56,1],[116,13,116,99,1],[117,13,117,94,1],[119,13,119,38,1],[120,13,120,44,1],[123,13,123,103,1],[126,13,126,82,1],[127,9,127,10,1],[131,9,131,10,1],[133,13,133,106,1],[137,13,137,104,1],[140,13,140,85,1],[141,9,141,10,1],[145,9,145,10,1],[148,13,148,74,1],[150,13,150,65,1],[153,13,153,95,1],[154,13,154,69,1],[157,13,157,60,1],[158,13,158,81,1],[160,13,160,55,1],[161,13,161,97,1],[163,13,163,43,1],[164,13,164,42,1],[165,9,165,10,1],[169,9,169,10,1],[171,13,171,74,1],[173,13,173,56,1],[174,13,174,101,1],[175,13,175,60,1],[176,13,176,95,1],[179,13,179,103,1],[183,13,183,75,1],[184,9,184,10,1],[188,9,188,10,1],[190,13,190,74,1],[192,13,192,60,1],[195,13,195,108,1],[199,13,199,76,1],[200,9,200,10,1],[204,9,204,10,1],[206,13,206,74,1],[208,13,208,71,1],[209,13,209,101,1],[210,13,210,43,1],[211,13,211,95,1],[214,13,214,103,1],[217,13,217,89,1],[218,9,218,10,1],[222,9,222,10,1],[224,13,224,74,1],[226,13,226,71,1],[227,13,227,71,1],[228,13,228,44,1],[229,13,229,44,1],[232,13,232,101,1],[233,13,233,95,1],[235,13,235,101,1],[236,13,236,77,1],[238,13,238,123,1],[239,13,239,83,1],[241,13,241,40,1],[242,13,242,48,1],[243,13,243,59,1],[244,13,244,54,1],[247,13,247,117,1],[250,13,250,75,1],[251,9,251,10,1],[255,9,255,10,1],[257,13,257,74,1],[259,13,259,71,1],[260,13,260,71,1],[261,13,261,44,1],[262,13,262,44,1],[265,13,265,101,1],[266,13,266,95,1],[268,13,268,101,1],[269,13,269,77,1],[271,13,271,123,1],[272,13,272,83,1],[274,13,274,40,1],[275,13,275,48,1],[278,13,278,122,1],[281,13,281,76,1],[282,9,282,10,1],[286,9,286,10,1],[288,13,288,74,1],[290,13,290,71,1],[291,13,291,71,1],[292,13,292,44,1],[295,13,295,101,1],[296,13,296,95,1],[298,13,298,123,1],[299,13,299,83,1],[301,13,301,48,1],[302,13,302,48,1],[305,13,305,117,1],[308,13,308,76,1],[309,9,309,10,1],[313,9,313,10,1],[315,13,315,74,1],[317,13,317,71,1],[318,13,318,71,1],[319,13,319,44,1],[322,13,322,101,1],[323,13,323,95,1],[325,13,325,101,1],[326,13,326,77,1],[328,13,328,40,1],[329,13,329,48,1],[332,13,332,122,1],[335,13,335,76,1],[336,9,336,10,1],[340,9,340,10,1],[342,13,342,74,1],[344,13,344,56,1],[345,13,345,101,1],[346,13,346,38,1],[347,13,347,95,1],[350,13,350,101,1],[353,13,353,54,1],[354,13,354,75,1],[355,9,355,10,1],[359,9,359,10,1],[361,13,361,120,1],[363,13,363,56,1],[364,13,364,101,1],[365,13,365,38,1],[366,13,366,95,1],[369,13,369,106,1],[372,13,372,76,1],[373,9,373,10,1],[377,9,377,10,1],[379,13,379,74,1],[381,13,381,47,1],[382,13,382,92,1],[383,13,383,95,1],[385,13,385,41,1],[386,13,386,104,1],[387,13,387,80,1],[389,13,389,43,1],[392,13,392,112,1],[395,13,395,57,1],[396,13,396,80,1],[397,9,397,10,1],[401,9,401,10,1],[403,13,403,112,1],[405,13,405,47,1],[406,13,406,92,1],[407,13,407,95,1],[409,13,409,41,1],[410,13,410,104,1],[411,13,411,80,1],[413,13,413,43,1],[416,13,416,117,1],[419,13,419,79,1],[420,9,420,10,1],[424,9,424,10,1],[426,13,426,102,1],[428,13,428,47,1],[429,13,429,92,1],[430,13,430,95,1],[432,13,432,41,1],[433,13,433,104,1],[434,13,434,80,1],[436,13,436,43,1],[439,13,439,120,1],[442,13,442,79,1],[443,9,443,10,1],[447,9,447,10,1],[449,13,449,110,1],[451,13,451,47,1],[452,13,452,92,1],[453,13,453,95,1],[455,13,455,41,1],[456,13,456,104,1],[457,13,457,80,1],[459,13,459,40,1],[462,13,462,112,1],[465,13,465,81,1],[466,9,466,10,1],[470,9,470,10,1],[472,13,472,74,1],[474,13,474,47,1],[475,13,475,92,1],[476,13,476,95,1],[478,13,478,41,1],[479,13,479,104,1],[480,13,480,80,1],[483,13,483,104,1],[486,13,486,57,1],[487,13,487,80,1],[488,9,488,10,1],[492,9,492,10,1],[494,13,494,112,1],[496,13,496,47,1],[497,13,497,92,1],[498,13,498,95,1],[500,13,500,41,1],[501,13,501,104,1],[502,13,502,80,1],[505,13,505,109,1],[508,13,508,79,1],[509,9,509,10,1],[513,9,513,10,1],[515,13,515,111,1],[517,13,517,47,1],[518,13,518,92,1],[519,13,519,95,1],[521,13,521,41,1],[522,13,522,104,1],[523,13,523,80,1],[526,13,526,112,1],[529,13,529,79,1],[530,9,530,10,1],[534,9,534,10,1],[536,13,536,100,1],[538,13,538,47,1],[539,13,539,92,1],[540,13,540,95,1],[542,13,542,41,1],[543,13,543,127,1],[544,13,544,87,1],[547,13,547,113,1],[550,13,550,57,1],[551,13,551,80,1],[552,9,552,10,1],[556,9,556,10,1],[558,13,558,114,1],[560,13,560,47,1],[561,13,561,92,1],[562,13,562,95,1],[564,13,564,41,1],[565,13,565,126,1],[566,13,566,87,1],[569,13,569,118,1],[572,13,572,79,1],[573,9,573,10,1],[577,9,577,10,1],[579,13,579,114,1],[581,13,581,47,1],[582,13,582,92,1],[583,13,583,95,1],[585,13,585,41,1],[586,13,586,126,1],[587,13,587,87,1],[590,13,590,112,1],[593,13,593,79,1],[594,9,594,10,1],[598,9,598,10,1],[600,13,600,74,1],[602,13,602,47,1],[603,13,603,92,1],[604,13,604,95,1],[607,13,607,94,1],[610,13,610,60,1],[611,13,611,83,1],[612,9,612,10,1],[616,9,616,10,1],[618,13,618,111,1],[620,13,620,47,1],[621,13,621,92,1],[622,13,622,95,1],[625,13,625,99,1],[628,13,628,82,1],[629,9,629,10,1],[633,9,633,10,1],[635,13,635,98,1],[637,13,637,47,1],[638,13,638,92,1],[639,13,639,95,1],[641,13,641,41,1],[642,13,642,127,1],[643,13,643,87,1],[644,13,644,36,1],[646,13,646,37,1],[649,13,649,112,1],[652,13,652,57,1],[653,13,653,80,1],[654,9,654,10,1],[658,9,658,10,1],[660,13,660,112,1],[662,13,662,47,1],[663,13,663,92,1],[664,13,664,95,1],[666,13,666,41,1],[667,13,667,126,1],[668,13,668,87,1],[669,13,669,36,1],[671,13,671,37,1],[674,13,674,117,1],[677,13,677,79,1],[678,9,678,10,1],[682,9,682,10,1],[684,13,684,111,1],[686,13,686,47,1],[687,13,687,92,1],[688,13,688,95,1],[690,13,690,41,1],[691,13,691,126,1],[692,13,692,87,1],[693,13,693,36,1],[695,13,695,37,1],[698,13,698,120,1],[701,13,701,79,1],[702,9,702,10,1],[707,9,707,10,1],[709,13,709,111,1],[711,13,711,47,1],[712,13,712,92,1],[713,13,713,95,1],[715,13,715,41,1],[716,13,716,126,1],[717,13,717,87,1],[718,13,718,36,1],[720,13,720,34,1],[723,13,723,112,1],[726,13,726,81,1],[727,9,727,10,1],[730,9,730,10,1],[731,13,738,15,1],[739,9,739,10,1],[742,9,742,10,1],[743,13,749,15,1],[750,9,750,10,1],[753,9,753,10,1],[754,13,763,15,1],[764,9,764,10,1],[767,9,767,10,1],[768,13,776,15,1],[777,9,777,10,1]]);
+    </script>
+  </body>
+</html>

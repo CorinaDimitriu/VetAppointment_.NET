@@ -2,24 +2,32 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateTreatmentDto.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\AppointmentMapperProfile.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
-namespace VetAppointment.API.Dtos.Create
+using AutoMapper;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
+using VetAppointment.Domain;
+
+namespace VetAppointment.API.Mappers
 {
-    # nullable disable
-    public class CreateTreatmentDto
+    public class AppointmentMapperProfile : Profile
     {
-        public string Description { get; set; }
+        public AppointmentMapperProfile()
+        {
+            CreateMap&lt;Appointment, AppointmentDto&gt;();
+            CreateMap&lt;CreateAppointmentDto, Appointment&gt;();
+        }
     }
 }
 
     </pre>
     <script type="text/javascript">
-      highlightRanges([[6,37,6,41,0],[6,42,6,46,0]]);
+      highlightRanges([[10,9,10,42,1],[11,9,11,10,1],[12,13,12,54,1],[13,13,13,60,1],[14,9,14,10,1]]);
     </script>
   </body>
 </html>

@@ -2,26 +2,33 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Dtos\Create\CreateDrugDto.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Validators\CreateVetClinicDtoValidator.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
-#nullable disable
-namespace VetAppointment.API.Dtos.Create
+using FluentValidation;
+using VetAppointment.API.Dtos.Create;
+
+namespace VetAppointment.API.Validators
 {
-    public class CreateDrugDto
+    public class CreateVetClinicDtoValidator : AbstractValidator&lt;CreateVetClinicDto&gt;
     {
-        public string Name { get; set; }
-        public double Quantity { get; set; }
-        public double UnitPrice { get; set; }
+        public CreateVetClinicDtoValidator()
+        {
+            RuleFor(dto =&gt; dto.Name).NotNull().NotEmpty().Length(1, 50);
+            RuleFor(dto =&gt; dto.Address).NotNull().NotEmpty().Length(1, 200);
+            RuleFor(dto =&gt; dto.NumberOfPlaces).NotNull().NotEmpty().GreaterThan(0);
+            RuleFor(dto =&gt; dto.ContactEmail).NotNull().NotEmpty().EmailAddress();
+            RuleFor(dto =&gt; dto.ContactPhone).NotNull().NotEmpty().Matches(&quot;^\\+40\\d{9}$&quot;);
+        }
     }
 }
 
     </pre>
     <script type="text/javascript">
-      highlightRanges([[6,30,6,34,1],[6,35,6,39,1],[7,34,7,38,1],[7,39,7,43,1],[8,35,8,39,1],[8,40,8,44,1]]);
+      highlightRanges([[8,9,8,45,1],[9,9,9,10,1],[10,13,10,73,1],[11,13,11,77,1],[12,13,12,84,1],[13,13,13,82,1],[14,13,14,92,1],[15,9,15,10,1]]);
     </script>
   </body>
 </html>

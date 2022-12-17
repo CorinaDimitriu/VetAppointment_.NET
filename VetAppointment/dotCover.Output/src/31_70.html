@@ -2,96 +2,40 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>D:\10.12.2022\VetAppointment\VetAppointment.API\Controllers\VetsController.cs</title>
+    <title>C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\Mappers\TreatmentMapper.cs</title>
     <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
   </head>
   <body>
     <pre id="content" class="source-code">
-using Microsoft.AspNetCore.Mvc;
-using VetAppointment.API.Dtos;
-using VetAppointment.API.Dtos.Create;
-using VetAppointment.Application;
-using VetAppointment.Domain;
+#nullable disable
+using AutoMapper;
 
-namespace VetAppointment.API.Controllers
+namespace VetAppointment.API.Mappers
 {
-    [Route(&quot;v1/api/[controller]&quot;)]
-    [ApiController]
-    public class VetsController : ControllerBase
+    public static class TreatmentMapper
     {
-        private readonly IRepository&lt;Vet&gt; vetRepository;
-
-        public VetsController(IRepository&lt;Vet&gt; vetRepository) =&gt; this.vetRepository = vetRepository;
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var vets = vetRepository.All().Result
-                .Select(
-                    v =&gt; new VetDto()
-                    {
-                        Id = v.Id,
-                        Name = v.Name,
-                        Surname = v.Surname,
-                        Birthdate = v.Birthdate.ToString(),
-                        Gender = v.Gender.ToString(),
-                        Email = v.Email,
-                        Phone = v.Phone,
-                        Specialisation = v.Specialisation.ToString()
-                    }
-                );
-
-            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
-            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
-            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
-            return Ok(vets);
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody] CreateVetDto vetDto)
-        {
-            var vet = Vet.Create(
-                    vetDto.Name,
-                    vetDto.Surname,
-                    vetDto.Birthdate,
-                    vetDto.Gender,
-                    vetDto.Email,
-                    vetDto.Phone,
-                    vetDto.Specialisation
-                );
-
-            if (vet.IsFailure)
+        private static readonly Lazy&lt;IMapper&gt; Lazy =
+            new(() =&gt;
             {
-                return BadRequest(vet.Error);
-            }
+                var config = new MapperConfiguration(cfg =&gt;
+                {
+                    cfg.ShouldMapProperty = p =&gt;
+                    p.GetMethod.IsPublic ||
+                    p.GetMethod.IsAssembly;
+                    cfg.AddProfile&lt;TreatmentMapperProfile&gt;();
+                });
+                var mapper = config.CreateMapper();
+                return mapper;
+            });
 
-            vetRepository.Add(vet.Entity);
-            vetRepository.SaveChanges();
-
-            var fullVet = new VetDto()
-            {
-                Id = vet.Entity.Id,
-                ClinicId = vet.Entity.ClinicId,
-                Name = vet.Entity.Name,
-                Surname = vet.Entity.Surname,
-                Birthdate = vet.Entity.Birthdate.ToString(),
-                Gender = vet.Entity.Gender.ToString(),
-                Email = vet.Entity.Email,
-                Phone = vet.Entity.Phone,
-                Specialisation = vet.Entity.Specialisation.ToString()
-            };
-
-            Response.Headers.Add(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type, x-requested-with&quot;);
-            Response.Headers.Add(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, OPTIONS, PUT, DELETE&quot;);
-            Response.Headers.Add(&quot;Access-Control-Allow-Origin&quot;, &quot;https://localhost:7029&quot;);
-            return Created(nameof(Get), fullVet);
-        }
+        public static IMapper Mapper =&gt; Lazy.Value;
     }
 }
+
     </pre>
     <script type="text/javascript">
-      highlightRanges([[15,9,15,62,0],[15,66,15,100,0],[19,9,19,10,0],[20,13,22,26,0],[22,26,32,22,0],[32,22,33,19,0],[35,13,35,100,0],[36,13,36,101,0],[37,13,37,91,0],[38,13,38,29,0],[39,9,39,10,0],[43,9,43,10,0],[44,13,52,19,0],[54,13,54,31,0],[55,13,55,14,0],[56,17,56,46,0],[59,13,59,43,0],[60,13,60,41,0],[62,13,73,15,0],[75,13,75,100,0],[76,13,76,101,0],[77,13,77,91,0],[78,13,78,50,0],[79,9,79,10,0]]);
+      highlightRanges([[8,9,10,13,1],[10,13,10,14,1],[10,14,11,17,1],[11,17,12,17,1],[12,17,12,18,1],[12,18,13,21,1],[13,21,14,21,1],[14,21,15,43,1],[15,43,15,44,1],[15,44,16,21,1],[16,21,16,62,1],[16,62,17,17,1],[17,17,17,18,1],[17,18,17,20,1],[17,20,18,17,1],[18,17,18,52,1],[18,52,19,17,1],[19,17,19,31,1],[19,31,20,13,1],[20,13,20,14,1],[20,14,20,16,1],[22,41,22,51,1]]);
     </script>
   </body>
 </html>

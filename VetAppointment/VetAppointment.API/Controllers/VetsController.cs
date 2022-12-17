@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
-using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
 using VetAppointment.Application;
 using VetAppointment.Domain;

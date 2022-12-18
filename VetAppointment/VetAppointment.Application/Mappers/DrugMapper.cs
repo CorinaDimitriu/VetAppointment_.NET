@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 
 #nullable disable
-namespace VetAppointment.API.Mappers
+namespace VetAppointment.Application.Mappers
 {
     public static class DrugMapper
     {
@@ -13,7 +13,7 @@ namespace VetAppointment.API.Mappers
                     cfg.ShouldMapProperty = p =>
                     p.GetMethod.IsPublic ||
                     p.GetMethod.IsAssembly;
-                    cfg.AddProfile<DrugMapperProfile>();
+                    cfg.AddProfile<DrugMappingProfile>();
                 });
                 var mapper = config.CreateMapper();
                 return mapper;

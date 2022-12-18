@@ -8,7 +8,10 @@ namespace VetAppointment.UI.Pages.Services
 {
     public class PetOwnerDataService : IPetOwnerDataService
     {
-        private const string ApiURL = "https://localhost:7112/v1/api/petOwners";
+        //private const string ApiURL = "https://localhost:7112/v1/api/petOwners";
+        private const string version = "v1";
+        private const string ApiURL = $"https://localhost:7112/{version}/api/petOwners";
+
         private readonly HttpClient httpClient;
 
         public PetOwnerDataService(HttpClient httpClient)

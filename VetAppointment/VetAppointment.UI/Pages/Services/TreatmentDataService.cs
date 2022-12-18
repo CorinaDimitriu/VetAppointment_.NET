@@ -6,7 +6,9 @@ namespace VetAppointment.UI.Pages.Services
 {
     public class TreatmentDataService : ITreatmentDataService
     {
-        private const string ApiURL = "https://localhost:7112/v1/api/treatments";
+        //private const string ApiURL = "https://localhost:7112/v1/api/treatments";
+        private const string version = "v1";
+        private const string ApiURL = $"https://localhost:7112/{version}/api/treatments";
         private readonly HttpClient httpClient;
 
         public TreatmentDataService(HttpClient httpClient)

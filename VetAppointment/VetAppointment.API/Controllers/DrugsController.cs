@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
-using VetAppointment.API.Mappers;
-using VetAppointment.API.Validators;
-using VetAppointment.Application;
+using VetAppointment.Application.Commands;
+using VetAppointment.Application.Mappers;
+using VetAppointment.Application.Queries;
+using VetAppointment.Application.Response;
 using VetAppointment.Domain;
 
 namespace VetAppointment.API.Controllers
@@ -12,25 +14,32 @@ namespace VetAppointment.API.Controllers
     [ApiController]
     public class DrugsController : ControllerBase
     {
-        private readonly IRepository<Drug> drugRepository;
-        private readonly CreateDrugDtoValidator createDrugDtoValidator = new();
+        private readonly IMediator mediator;
 
-        public DrugsController(IRepository<Drug> drugRepository) => this.drugRepository = drugRepository;
-
-        [HttpGet]
-        public IActionResult Get()
+        public DrugsController(IMediator mediator)
         {
-            var drugs = drugRepository.All().Result.Select(DrugMapper.Mapper.Map<DrugDto>);
-
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return Ok(drugs);
+            this.mediator = mediator;
         }
 
-        [HttpGet("{drugId:Guid}")]
-        public IActionResult Get(Guid drugId)
+        [HttpGet]
+        public async Task<List<DrugResponse>> Get()
         {
+            return await mediator.Send(new GetAllDrugsQuery());
+        
+        /*var drugs = drugRepository.All().Result.Select(DrugMapper.Mapper.Map<DrugDto>);
+
+        Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+        Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+        Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+        return Ok(drugs);
+        */
+        }
+        [HttpGet("{drugId:Guid}")]
+        public async Task<DrugResponse> Get(Guid drugId)
+        {
+            return await mediator.Send(new GetDrugQuery(drugId));
+        
+        /*
             var drug = drugRepository.Get(drugId).Result;
 
             if (drug == null)
@@ -44,75 +53,82 @@ namespace VetAppointment.API.Controllers
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(drugDto);
+        */
         }
-        
         [HttpPost]
-        public IActionResult Create([FromBody] CreateDrugDto drugDto)
+        public async Task<ActionResult<DrugResponse>> Create([FromBody] CreateDrugCommand drugCommnad)
         {
-            var validatorResult = createDrugDtoValidator.Validate(drugDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
+            var result = await mediator.Send(drugCommnad);
+            return Ok(result);
+            //var validatorResult = createDrugDtoValidator.Validate(drugDto);
+            //if (!validatorResult.IsValid)
+            //{
+            //    return BadRequest(validatorResult.Errors);
+            //}
             
-            var drug = DrugMapper.Mapper.Map<Drug>(drugDto);
+            //var drug = DrugMapper.Mapper.Map<Drug>(drugDto);
 
-            if (drug == null)
-            {
-                return BadRequest();
-            }
+            //if (drug == null)
+            //{
+            //    return BadRequest();
+            //}
 
-            drugRepository.Add(drug);
-            drugRepository.SaveChanges();
+            //drugRepository.Add(drug);
+            //drugRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return Created(nameof(Get), DrugMapper.Mapper.Map<DrugDto>(drug));
+            //Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            //Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            //Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            //return Created(nameof(Get), DrugMapper.Mapper.Map<DrugDto>(drug));
         }
 
         [HttpDelete("{drugId:Guid}")]
-        public IActionResult Delete(Guid drugId)
+        public async Task<ActionResult> Delete(Guid drugId)
         {
-            var drug = drugRepository.Get(drugId).Result;
-            if (drug == null)
-            {
-                return NotFound();
-            }
-            
-            drugRepository.Delete(drug);
-            drugRepository.SaveChanges();
-
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            var result = await mediator.Send(new DeleteDrugQuery(drugId));
             return Ok();
+            //var drug = drugRepository.Get(drugId).Result;
+            //if (drug == null)
+            //{
+            //    return NotFound();
+            //}
+            
+            //drugRepository.Delete(drug);
+            //drugRepository.SaveChanges();
+
+            //Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            //Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            //Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            //return Ok();
         }
 
         [HttpPut("{drugId:Guid}")]
-        public IActionResult Update(Guid drugId, [FromBody] CreateDrugDto drugDto)
+        public async Task<ActionResult<DrugResponse>> Update(Guid drugId, [FromBody] CreateDrugCommand drugCommnand)
         {
-            var drug = drugRepository.Get(drugId).Result;
-            if (drug == null)
-            {
-                return NotFound();
-            }
+            var result = await mediator.Send(new UpdateDrugQuery(drugId, drugCommnand));
+            return Ok(result);
 
-            var validatorResult = createDrugDtoValidator.Validate(drugDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
+            //var drug = drugRepository.Get(drugId).Result;
+            //if (drug == null)
+            //{
+            //    return NotFound();
+            //}
 
-            drug.Update(drugDto.Name, drugDto.Quantity, drugDto.UnitPrice);
+            //var validatorResult = createDrugDtoValidator.Validate(drugDto);
+            //if (!validatorResult.IsValid)
+            //{
+            //    return BadRequest(validatorResult.Errors);
+            //}
 
-            drugRepository.Update(drug);
-            drugRepository.SaveChanges();
+            //drug.Update(drugDto.Name, drugDto.Quantity, drugDto.UnitPrice);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return Ok(DrugMapper.Mapper.Map<DrugDto>(drug));
+            //drugRepository.Update(drug);
+            //drugRepository.SaveChanges();
+
+            //Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            //Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            //Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            //return Ok(DrugMapper.Mapper.Map<DrugDto>(drug));
         }
     }
 }

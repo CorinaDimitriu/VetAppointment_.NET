@@ -1,15 +1,11 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using VetAppointment.API.Mappers;
 using VetAppointment.Application.Response;
 using VetAppointment.Domain;
 
 namespace VetAppointment.Application.Queries
 {
-    public class GetAllPetOwnersQueryHandler : IRequestHandler<GetAllPetOwnersQuery, List<PetOwnerResponse>
+    public class GetAllPetOwnersQueryHandler : IRequestHandler<GetAllPetOwnersQuery, List<PetOwnerResponse>>
     {
         private readonly IRepository<PetOwner> repository;
 
@@ -19,7 +15,8 @@ namespace VetAppointment.Application.Queries
         }
         public async Task<List<PetOwnerResponse>> Handle(GetAllPetOwnersQuery request, CancellationToken cancellationToken)
         {
-            var result = PetOwnerMapper.
+            var result = PetOwnerMapper.Mapper.Map<List<PetOwnerResponse>>(await repository.All());
+            return result;
         }
     }
 }

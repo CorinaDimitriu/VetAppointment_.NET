@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationServices();//asta trebuie dar daca il pun ceva nu merge
 
 builder.Services.AddDbContext<DatabaseContext>(
     options => options.UseSqlite(

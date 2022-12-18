@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace CAS.Application
+namespace VetAppointment.Application
 {
     public static class ConfigureServices
     {
@@ -16,7 +16,6 @@ namespace CAS.Application
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
-
         }
     }
 }

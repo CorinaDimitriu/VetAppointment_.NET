@@ -62,11 +62,11 @@ namespace VetAppointment.API.Controllers
             */
         }
 
-            //todo 
         [HttpPost("{ownerId:guid}/pets")]
-        public async Task<PetOwnerResponse> RegisterPetsToOwner(Guid ownerId, [FromBody] List<CreatePetOwnerCommand> petsDtos)
+        public async Task<ActionResult<PetOwnerResponse>> RegisterPetsToOwner(Guid ownerId, [FromBody] List<CreatePetCommand> petsDtos)
         {
-            return null;//tobe continued
+            var result = await mediator.Send(new RegisterPetsToOwnerQuery(ownerId, petsDtos));
+            return Ok(result);
             /*var owner = petOwnerRepository.Get(ownerId).Result;
             if (owner == null)
             {

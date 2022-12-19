@@ -6,8 +6,9 @@ using VetAppointment.Domain;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class PetsController : ControllerBase
     {
         private readonly IRepository<Pet> petRepository;

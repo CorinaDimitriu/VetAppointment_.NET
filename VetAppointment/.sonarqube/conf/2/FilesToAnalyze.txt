@@ -1,48 +1,83 @@
-﻿C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\ClinicsOverview.razor.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelClinic.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPet.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPetsInClinic.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelVet.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToDelete.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToUpdate.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToDelete.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToUpdate.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\PetsOverview.razor.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IPetDataService.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IVetClinicDataService.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataService.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\VetClinicDataService.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelClinicValidator.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelPetValidator.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelVetValidator.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\PetValidator.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\VetClinicValidator.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Program.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GlobalUsings.g.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\App.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\ClinicsOverview.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\PetsOverview.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Shared\MainLayout.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Shared\NavMenu.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Shared\SurveyPrompt.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\_Imports.razor
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\app.css
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\bootstrap\bootstrap.min.css
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\bootstrap\bootstrap.min.css.map
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\FONT-LICENSE
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.eot
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.otf
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.svg
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.ttf
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.woff
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\ICON-LICENSE
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\css\open-iconic\README.md
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\favicon.png
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\icon-192.png
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\wwwroot\index.html
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Shared\MainLayout.razor.css
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Shared\NavMenu.razor.css
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Properties\launchSettings.json
+﻿C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\AppointmentsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicAppointments.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicEditPage.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicPets.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicVets.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\DrugsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\ClinicModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetsInClinicModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetToDeleteModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetToUpdateModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetToDeleteModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetToUpdateModel.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetOwnersOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PrescribedDrugsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\AppointmentDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\DrugDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IAppointmentDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IDrugDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPetDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPetOwnerDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPrescribedDrugDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\ITreatmentDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IVetClinicDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IVetDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PetDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PetOwnerDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PrescribedDrugDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\TreatmentDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\VetClinicDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\VetDataService.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\TreatmentsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\ClinicModelValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\PetModelValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\PetValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\VetClinicValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\VetModelValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetEditPage.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetsOverview.razor.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Program.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GlobalUsings.g.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\App.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\AppointmentsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicAppointments.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicEditPage.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicPets.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicVets.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\DrugsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Index.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetOwnersOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PrescribedDrugsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\TreatmentsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetEditPage.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetsOverview.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Shared\MainLayout.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Shared\NavMenu.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Shared\SurveyPrompt.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\_Imports.razor
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\app.css
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\bootstrap\bootstrap.min.css
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\bootstrap\bootstrap.min.css.map
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\FONT-LICENSE
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.eot
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.otf
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.svg
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.ttf
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\font\fonts\open-iconic.woff
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\ICON-LICENSE
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\css\open-iconic\README.md
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\favicon.png
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\icon-192.png
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\wwwroot\index.html
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Shared\MainLayout.razor.css
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Shared\NavMenu.razor.css
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Properties\launchSettings.json

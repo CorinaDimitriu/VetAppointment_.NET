@@ -3,7 +3,7 @@ using VetAppointment.UI.Pages.Models;
 
 namespace VetAppointment.UI.Pages.Validators
 {
-    public class PetValidator : AbstractValidator<ModelPet>
+    public class PetValidator : AbstractValidator<PetModel>
     {
         public PetValidator()
         {

@@ -1,0 +1,76 @@
+﻿@page "/{ClinicId:guid}/vet/{VetId:guid}"
+
+<PageTitle>Edit Vet</PageTitle>
+<h3>Edit Vet</h3>
+
+<tabel class="table table-light">
+    <thead class="table-primary">
+        <tr>
+            <th>Vet Id</th>
+            <th>Vet Name</th>
+            <th>Vet Surname</th>
+            <th>Vet Birthdate</th>
+            <th>Vet Gender</th>
+            <th>Vet Email</th>
+            <th>Vet Phone</th>
+            <th>Vet Specialisation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@VetToUpdate.Id</td>
+            <td>@VetToUpdate.Name</td>
+            <td>@VetToUpdate.Surname</td>
+            <td>@VetToUpdate.Birthdate</td>
+            <td>@VetToUpdate.Gender</td>
+            <td>@VetToUpdate.Email</td>
+            <td>@VetToUpdate.Phone</td>
+            <td>@VetToUpdate.Specialisation</td>
+        </tr>
+    </tbody>
+</tabel>
+
+<EditForm class="container" Model="VetToUpdate" OnValidSubmit="UpdateVetFromClinic">
+    <div class="form-group">
+        <label for="idvet">Id Vet</label>
+        <InputText id="idvet" @bind-Value="VetToUpdate.Id" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="name">Vet Name</label>
+        <InputText id="name" @bind-Value="VetToUpdate.Name" placeholder="Vet Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="surname">Vet Surame</label>
+        <InputText id="surname" @bind-Value="VetToUpdate.Surname" placeholder="Vet Surname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Vet Birthdate</label>
+        <DateInput @bind-Value="@VetToUpdate.Birthdate" class="form-control"></DateInput>
+    </div>
+    <div class="form-group">
+        <label for="gender">Vet Gender</label>
+        <input type="radio" name="gender" id="gender" checked="@(VetToUpdate.Gender == "Male")" @onchange="@(() => VetToUpdate.Gender = "Male")" />
+        Male
+        <input type="radio" name="gender" id="gender" checked="@(VetToUpdate.Gender == "Female")" @onchange="@(() => VetToUpdate.Gender = "Female")" />
+        Female
+        <input type="radio" name="gender" id="gender" checked="@(VetToUpdate.Gender == "Other")" @onchange="@(() => VetToUpdate.Gender = "Other")" />
+        Other
+    </div>
+    <div class="form-group">
+        <label for="email">Vet Email</label>
+        <InputText id="email" @bind-Value="VetToUpdate.Email" placeholder="Vet Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="phone">Vet Phone Number</label>
+        <InputText id="phone" @bind-Value="VetToUpdate.Phone" placeholder="Vet Phone Number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Vet Specialisation</label>
+        <DropDownList DataSource="Specialisations" @bind-SelectedValues="VetToUpdate.Specialisation" />
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Update Vet</button><br />
+        </div>
+    </div>
+</EditForm>

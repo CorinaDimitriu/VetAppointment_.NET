@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-using System.Text;
-using VetAppointment.Shared.Domain;
+﻿using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Models;
 
 namespace VetAppointment.UI.Pages.Services
@@ -13,13 +11,13 @@ namespace VetAppointment.UI.Pages.Services
         Task<IEnumerable<Vet>> GetVetsByClinicId(Guid clinicId);
         Task<IEnumerable<Pet>> GetPetsByClinicId(Guid clinicId);
         Task<IEnumerable<Appointment>> GetAppointmentsByClinicId(Guid clinicId);
-        Task<string> AddVetToClinic(Guid clinicId, ModelVet vet);
+        Task<string> AddVetToClinic(Guid clinicId, VetModel vet);
         Task<string> DeleteClinicById(Guid clinicId);
-        Task<string> DeleteVetById(VetToDelete vet);
-        Task<string> DeletePetById(PetToDelete pet);
+        Task<string> DeleteVetById(VetToDeleteModel vet);
+        Task<string> DeletePetById(PetToDeleteModel pet);
         Task<string> AddPetsToClinic(Guid clinicId, List<Pet> pets);
-        Task<string> UpdateClinic(Guid clinicId, ModelClinic clinic);
-        Task<string> UpdatePetById(Guid clinicId, PetToUpdate pet);
-        Task<string> UpdateVetById(Guid clinicId, VetToUpdate vet);
+        Task<string> UpdateClinic(Guid clinicId, ClinicModel clinic);
+        Task<string> UpdatePetById(Guid clinicId, PetToUpdateModel pet);
+        Task<string> UpdateVetById(Guid clinicId, VetToUpdateModel vet);
     }
 }

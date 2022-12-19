@@ -1,17 +1,72 @@
-﻿C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\AppointmentsControllerTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\BaseIntegrationTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\DrugTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\MedicalHistoryControllerTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PetOwnersControllerTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PetsControllerTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PrescribedDrugsControllerTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\TreatmentsControllerTests.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\Usings.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\VetClinicsControllerTests_.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\VetsControllerTests.cs
-C:\Users\Leonard\.nuget\packages\microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs
-C:\Users\Leonard\.nuget\packages\microsoft.testplatform.testhost\17.3.2\build\netcoreapp2.1\x64\testhost.exe
-C:\Users\Leonard\.nuget\packages\microsoft.testplatform.testhost\17.3.2\build\netcoreapp2.1\x64\testhost.dll
-C:\Users\Leonard\.nuget\packages\xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-C:\Users\Leonard\.nuget\packages\xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
-C:\Users\Leonard\.nuget\packages\xunit.runner.visualstudio\2.4.5\build\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
+﻿C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\ConfigureServices.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\AppointmentsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\DrugsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\MedicalHistoriesController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\PetOwnersController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\PetsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\PrescribedDrugsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\TreatmentsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\DrugsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\PetOwnersController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\PrescribedDrugsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\VetClinicsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\VetClinicsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\VetsController.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\AppointmentDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateAppointmentDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateDrugDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreatePetDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreatePetOwnerDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreatePrescribedDrugDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateTreatmentDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateVetClinicDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateVetDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\DrugDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\MedicalHistoryDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\PetDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\PetOwnerDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\PrescribedDrugDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\TreatmentDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\VetClinicDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\VetDto.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\AppointmentMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\AppointmentMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\DrugMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\DrugMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\MedicalHistoryMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\MedicalHistoryMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetMappingProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetOwnerMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetOwnerMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PrescribedDrugMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PrescribedDrugMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\TreatmentMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\TreatmentMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetClinicMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetClinicMapperProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetMapper.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetMappingProfile.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Program.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateAppointmentDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateDrugDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreatePetDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreatePetOwnerDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreatePrescribedDrugDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateTreatmentDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateVetClinicDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateVetDtoValidator.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\Validations.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.GlobalUsings.g.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.AssemblyInfo.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\appsettings.Development.json
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\appsettings.json
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointment.db
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointment.db-shm
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointment.db-wal
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointmentTest.db
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointmentTest.db-shm
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointmentTest.db-wal
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Properties\launchSettings.json

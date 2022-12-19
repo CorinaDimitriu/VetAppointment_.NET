@@ -1,44 +1,86 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using VetAppointment.API.Dtos;
+using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
-using VetAppointment.API.Validators;
 using VetAppointment.Application;
-using VetAppointment.Application.Commands;
-using VetAppointment.Application.Queries;
-using VetAppointment.Application.Response;
 using VetAppointment.Domain;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class PetOwnersController : ControllerBase
     {
-        private readonly IMediator mediator;
-
-        public PetOwnersController(IMediator medediator)
+        private readonly IRepository<PetOwner> petOwnerRepository;
+        private readonly IRepository<Pet> petRepository;
+        
+        public PetOwnersController(IRepository<PetOwner> petOwnerRepository, IRepository<Pet> petRepository)
         {
-            this.mediator= medediator;
+            this.petOwnerRepository = petOwnerRepository;
+            this.petRepository = petRepository;
         }
 
         [HttpGet]
-        public async Task<List<PetOwnerResponse>> Get()
+        public IActionResult Get()
         {
-            return await mediator.Send(new GetAllPetOwnersQuery());
+            var petOwners = petOwnerRepository.All().Result.Select(PetOwnerMapper.Mapper.Map<PetOwnerDto>);
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(petOwners);
         }
 
         [HttpPost]
-        public async Task<ActionResult<PetOwnerResponse>> Create([FromBody] CreatePetOwnerCommand command)
+        public IActionResult Create([FromBody] CreatePetOwnerDto petOwnerDto)
         {
-            var result = await mediator.Send(command);
-            return Ok(result);
+            var petOwner = PetOwnerMapper.Mapper.Map<PetOwner>(petOwnerDto);
+
+            if (petOwner == null)
+            {
+                return BadRequest();
+            }
+
+            petOwnerRepository.Add(petOwner);
+            petOwnerRepository.SaveChanges();
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Created(nameof(Get), PetOwnerMapper.Mapper.Map<PetOwnerDto>(petOwner));
+
         }
 
-        [HttpPost("{ownerId:guid}/pets")]
-        public async Task<ActionResult<PetOwnerResponse>> RegisterPetsToOwner(Guid ownerId, [FromBody] List<CreatePetCommand> petsDtos)
+        [HttpPost ("{ownerId:guid}/pets")]
+        public IActionResult RegisterPetsToOwner(Guid ownerId, [FromBody] List<CreatePetDto> petsDtos)
         {
-            var result = await mediator.Send(new RegisterPetsToOwnerQuery(ownerId, petsDtos));
-            return Ok(result);
+            var owner = petOwnerRepository.Get(ownerId).Result;
+            if (owner == null)
+            {
+                return NotFound();
+            }
+
+            var pets = petsDtos.Select(PetMapper.Mapper.Map<Pet>).ToList();
+            if(pets.Any(p => p == null))
+            {
+                return BadRequest();
+            }
+
+            var result = owner.RegisterPetsToOwner(pets);
+
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            pets.ForEach(p => petRepository.Add(p));
+            petOwnerRepository.SaveChanges();
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Created(nameof(Get), PetOwnerMapper.Mapper.Map<PetOwnerDto>(owner));
         }
     }
 }

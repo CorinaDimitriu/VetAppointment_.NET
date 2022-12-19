@@ -14,11 +14,20 @@ namespace VetAppointment.UI.Pages.Services
         {
             this.httpClient = httpClient;
         }
+
         public async Task<IEnumerable<Vet>> GetAllVets()
         {
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
             return await JsonSerializer.DeserializeAsync<IEnumerable<Vet>>
                 (await httpClient.GetStreamAsync(ApiURL), options);
+        }
+
+        public async Task<Vet> GetVetById(Guid id)
+        {
+            return await JsonSerializer.DeserializeAsync<Vet>(
+                await httpClient.GetStreamAsync($"{ApiURL}/{id}"),
+                new JsonSerializerOptions()
+                { PropertyNameCaseInsensitive = true });
         }
     }
 }

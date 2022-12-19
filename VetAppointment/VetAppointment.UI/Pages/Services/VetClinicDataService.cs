@@ -9,7 +9,7 @@ namespace VetAppointment.UI.Pages.Services
     public class VetClinicDataService : IVetClinicDataService
     {
         private const string version = "v1";
-        private const string ApiURL = $"https://localhost:7112/{version}/api/VetClinics";
+        private const string ApiURL = $"https://localhost:7112/{version}/api/vetclinics";
         private readonly HttpClient httpClient;
 
         public VetClinicDataService(HttpClient httpClient)
@@ -35,7 +35,7 @@ namespace VetAppointment.UI.Pages.Services
             return await JsonSerializer.DeserializeAsync<VetClinic>(response.Content.ReadAsStream(), options);
         }
 
-        public async Task<string> AddVetToClinic(Guid clinicId, ModelVet vet)
+        public async Task<string> AddVetToClinic(Guid clinicId, VetModel vet)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet";
             var vetDto = new Vet()
@@ -63,7 +63,7 @@ namespace VetAppointment.UI.Pages.Services
                 { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<string> UpdateClinic(Guid clinicId, ModelClinic clinic)
+        public async Task<string> UpdateClinic(Guid clinicId, ClinicModel clinic)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}";
             var vetClinic = new VetClinic()
@@ -126,7 +126,7 @@ namespace VetAppointment.UI.Pages.Services
                 { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<string> DeleteVetById(VetToDelete vet)
+        public async Task<string> DeleteVetById(VetToDeleteModel vet)
         {
             var clinicId = Guid.Parse(vet.IdToDeleteClinic);
             var vetId = Guid.Parse(vet.IdToDeleteVet);
@@ -136,7 +136,7 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> DeletePetById(PetToDelete pet)
+        public async Task<string> DeletePetById(PetToDeleteModel pet)
         {
             var clinicId = Guid.Parse(pet.IdToDeleteClinic);
             var petId = Guid.Parse(pet.IdToDeletePet);
@@ -146,7 +146,7 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> UpdatePetById(Guid clinicId, PetToUpdate pet)
+        public async Task<string> UpdatePetById(Guid clinicId, PetToUpdateModel pet)
         {
             var petId = Guid.Parse(pet.Id);
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/pet/{{{petId}}}";
@@ -164,7 +164,7 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> UpdateVetById(Guid clinicId, VetToUpdate vet)
+        public async Task<string> UpdateVetById(Guid clinicId, VetToUpdateModel vet)
         {
             var vetId = Guid.Parse(vet.Id);
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet/{{{vetId}}}";

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.993" branch-rate="0.9704999999999999" version="1.9" timestamp="1670856321" lines-covered="1283" lines-valid="1292" branches-covered="132" branches-valid="136">
+<coverage line-rate="0.993" branch-rate="0.9704999999999999" version="1.9" timestamp="1671452927" lines-covered="1283" lines-valid="1292" branches-covered="132" branches-valid="136">
   <sources>
-    <source>C:\Users\Leonard\</source>
+    <source>C:\Users\biian\</source>
   </sources>
   <packages>
     <package name="VetAppointment.Business.Test" line-rate="0.9934000000000001" branch-rate="1" complexity="119">
@@ -18,7 +18,7 @@
             <line number="4" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.AppointmentTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\AppointmentTests.cs" line-rate="1" branch-rate="1" complexity="12">
+        <class name="VetAppointment.Business.Test.AppointmentTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\AppointmentTests.cs" line-rate="1" branch-rate="1" complexity="12">
           <methods>
             <method name="When_CreateAppointmentWithValidData_Then_ShouldReturnSuccess" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -236,7 +236,7 @@
             <line number="156" hits="8" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.ClinicOwnerTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\ClinicOwnerTests.cs" line-rate="1" branch-rate="1" complexity="6">
+        <class name="VetAppointment.Business.Test.ClinicOwnerTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\ClinicOwnerTests.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="When_CreateClinicOwner_Then_ShouldReturnClinicOwner" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -334,7 +334,7 @@
             <line number="78" hits="5" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.DrugTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\DrugTests.cs" line-rate="1" branch-rate="1" complexity="8">
+        <class name="VetAppointment.Business.Test.DrugTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\DrugTests.cs" line-rate="1" branch-rate="1" complexity="8">
           <methods>
             <method name="When_CreateDrug_Then_ShouldReturnDrug" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -470,7 +470,7 @@
             <line number="102" hits="7" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.MedicalHistoryTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\MedicalHistoryTests.cs" line-rate="1" branch-rate="1" complexity="11">
+        <class name="VetAppointment.Business.Test.MedicalHistoryTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\MedicalHistoryTests.cs" line-rate="1" branch-rate="1" complexity="11">
           <methods>
             <method name="When_CreateMedicalHistory_Then_ShouldReturnMedicalHistory" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -648,7 +648,7 @@
             <line number="126" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.PetOwnerTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\PetOwnerTests.cs" line-rate="1" branch-rate="1" complexity="9">
+        <class name="VetAppointment.Business.Test.PetOwnerTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\PetOwnerTests.cs" line-rate="1" branch-rate="1" complexity="9">
           <methods>
             <method name="When_CreatePetOwner_Then_ShouldReturnPetOwner" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -798,7 +798,7 @@
             <line number="118" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.PetTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\PetTests.cs" line-rate="1" branch-rate="1" complexity="13">
+        <class name="VetAppointment.Business.Test.PetTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\PetTests.cs" line-rate="1" branch-rate="1" complexity="13">
           <methods>
             <method name="When_CreatePet_Then_ShouldReturnPet" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1018,7 +1018,7 @@
             <line number="169" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.PrescribedDrugTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\PrescribedDrugTests.cs" line-rate="1" branch-rate="1" complexity="8">
+        <class name="VetAppointment.Business.Test.PrescribedDrugTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\PrescribedDrugTests.cs" line-rate="1" branch-rate="1" complexity="8">
           <methods>
             <method name="When_CreatePrescribedDrug_Then_ShouldReturnPrescribedDrug" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1148,7 +1148,7 @@
             <line number="92" hits="7" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.TreatmentTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\TreatmentTests.cs" line-rate="1" branch-rate="1" complexity="12">
+        <class name="VetAppointment.Business.Test.TreatmentTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\TreatmentTests.cs" line-rate="1" branch-rate="1" complexity="12">
           <methods>
             <method name="When_CreateTreatment_Then_ShouldReturnTreatment" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1374,7 +1374,7 @@
             <line number="166" hits="3" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.ValidationTest" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\ValidationTest.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="VetAppointment.Business.Test.ValidationTest" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\ValidationTest.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="When_EmailIsValid_Then_ShouldReturnTrue" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1436,7 +1436,7 @@
             <line number="55" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.VetClinicTests" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\VetClinicTests.cs" line-rate="0.9723999999999999" branch-rate="1" complexity="20">
+        <class name="VetAppointment.Business.Test.VetClinicTests" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\VetClinicTests.cs" line-rate="0.9723999999999999" branch-rate="1" complexity="20">
           <methods>
             <method name="When_CreateVetClinicWithValidData_Then_ShouldReturnSucceed" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1812,7 +1812,7 @@
             <line number="282" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Business.Test.VetTets" filename="Desktop\Clean VetApp\VetAppointment.Business.Test\VetTets.cs" line-rate="1" branch-rate="1" complexity="15">
+        <class name="VetAppointment.Business.Test.VetTets" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Business.Test\VetTets.cs" line-rate="1" branch-rate="1" complexity="15">
           <methods>
             <method name="When_CreateVetWithValidData_Then_ShouldReturnSuccess" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2088,7 +2088,7 @@
     </package>
     <package name="VetAppointment.Domain" line-rate="0.9924" branch-rate="0.9704999999999999" complexity="212">
       <classes>
-        <class name="VetAppointment.Domain.Appointment" filename="Desktop\Clean VetApp\VetAppointment.Domain\Appointment.cs" line-rate="0.9245" branch-rate="0.8332999999999999" complexity="21">
+        <class name="VetAppointment.Domain.Appointment" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Appointment.cs" line-rate="0.9245" branch-rate="0.8332999999999999" complexity="21">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2292,7 +2292,7 @@
             <line number="83" hits="3" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.ClinicOwner" filename="Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.cs" line-rate="1" branch-rate="1" complexity="10">
+        <class name="VetAppointment.Domain.ClinicOwner" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\ClinicOwner.cs" line-rate="1" branch-rate="1" complexity="10">
           <methods>
             <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2398,7 +2398,7 @@
             <line number="47" hits="5" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Drug" filename="Desktop\Clean VetApp\VetAppointment.Domain\Drug.cs" line-rate="1" branch-rate="1" complexity="14">
+        <class name="VetAppointment.Domain.Drug" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Drug.cs" line-rate="1" branch-rate="1" complexity="14">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2536,7 +2536,7 @@
             <line number="55" hits="4" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.MedicalHistory" filename="Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.cs" line-rate="1" branch-rate="1" complexity="9">
+        <class name="VetAppointment.Domain.MedicalHistory" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\MedicalHistory.cs" line-rate="1" branch-rate="1" complexity="9">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2644,7 +2644,7 @@
             <line number="51" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Person" filename="Desktop\Clean VetApp\VetAppointment.Domain\Person.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="VetAppointment.Domain.Person" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Person.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2674,7 +2674,7 @@
             <line number="11" hits="26" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Pet" filename="Desktop\Clean VetApp\VetAppointment.Domain\Pet.cs" line-rate="1" branch-rate="1" complexity="21">
+        <class name="VetAppointment.Domain.Pet" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Pet.cs" line-rate="1" branch-rate="1" complexity="21">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2886,7 +2886,7 @@
             <line number="87" hits="4" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.PetOwner" filename="Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.cs" line-rate="1" branch-rate="1" complexity="15">
+        <class name="VetAppointment.Domain.PetOwner" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\PetOwner.cs" line-rate="1" branch-rate="1" complexity="15">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3050,7 +3050,7 @@
             <line number="70" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.PrescribedDrug" filename="Desktop\Clean VetApp\VetAppointment.Domain\PrescribedDrug.cs" line-rate="1" branch-rate="1" complexity="13">
+        <class name="VetAppointment.Domain.PrescribedDrug" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\PrescribedDrug.cs" line-rate="1" branch-rate="1" complexity="13">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3184,7 +3184,7 @@
             <line number="55" hits="3" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Treatment" filename="Desktop\Clean VetApp\VetAppointment.Domain\Treatment.cs" line-rate="1" branch-rate="1" complexity="15">
+        <class name="VetAppointment.Domain.Treatment" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Treatment.cs" line-rate="1" branch-rate="1" complexity="15">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3364,7 +3364,7 @@
             <line number="77" hits="3" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Vet" filename="Desktop\Clean VetApp\VetAppointment.Domain\Vet.cs" line-rate="1" branch-rate="1" complexity="26">
+        <class name="VetAppointment.Domain.Vet" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Vet.cs" line-rate="1" branch-rate="1" complexity="26">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3622,7 +3622,7 @@
             <line number="109" hits="6" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.VetClinic" filename="Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.cs" line-rate="1" branch-rate="0.9166" complexity="37">
+        <class name="VetAppointment.Domain.VetClinic" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\VetClinic.cs" line-rate="1" branch-rate="0.9166" complexity="37">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3948,7 +3948,7 @@
             <line number="127" hits="7" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Helpers.Result" filename="Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.cs" line-rate="1" branch-rate="1" complexity="5">
+        <class name="VetAppointment.Domain.Helpers.Result" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Helpers\Result.cs" line-rate="1" branch-rate="1" complexity="5">
           <methods>
             <method name="get_Error" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3984,7 +3984,7 @@
             <line number="12" hits="24" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Helpers.Result`1" filename="Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEntity.cs" line-rate="1" branch-rate="1" complexity="6">
+        <class name="VetAppointment.Domain.Helpers.Result`1" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Helpers\ResultOfEntity.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Entity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4026,7 +4026,7 @@
             <line number="13" hits="33" branch="False" />
           </lines>
         </class>
-        <class name="VetAppointment.Domain.Helpers.Validations" filename="Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Validations.cs" line-rate="1" branch-rate="1" complexity="16">
+        <class name="VetAppointment.Domain.Helpers.Validations" filename="Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\Helpers\Validations.cs" line-rate="1" branch-rate="1" complexity="16">
           <methods>
             <method name="IsValidEmail" signature="(System.String)" line-rate="1" branch-rate="1" complexity="6">
               <lines>

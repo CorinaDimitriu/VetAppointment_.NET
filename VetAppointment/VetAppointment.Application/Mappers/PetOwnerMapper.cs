@@ -1,7 +1,7 @@
-﻿#nullable disable
-using AutoMapper;
+﻿using AutoMapper;
 
-namespace VetAppointment.API.Mappers
+#nullable disable
+namespace VetAppointment.Application.Mappers
 {
     public static class PetOwnerMapper
     {
@@ -10,10 +10,8 @@ namespace VetAppointment.API.Mappers
             {
                 var config = new MapperConfiguration(cfg =>
                 {
-                    cfg.ShouldMapProperty = p =>
-                    p.GetMethod.IsPublic ||
-                    p.GetMethod.IsAssembly;
-                    cfg.AddProfile<PetOwnerMappingProfile>();
+                    cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
+                    cfg.AddProfile<PetOwnerMapperProfile>();
                 });
                 var mapper = config.CreateMapper();
                 return mapper;

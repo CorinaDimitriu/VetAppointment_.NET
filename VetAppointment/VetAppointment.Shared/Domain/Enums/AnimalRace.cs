@@ -1,4 +1,4 @@
-﻿namespace VetAppointment.Domain.Enums
+﻿namespace VetAppointment.Shared.Domain.Enums
 {
     public enum AnimalRace
     {

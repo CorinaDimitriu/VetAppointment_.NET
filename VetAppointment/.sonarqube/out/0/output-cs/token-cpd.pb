@@ -1,5 +1,5 @@
-û
-QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Appointment.cs
+†
+SC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Appointment.cs
 	namespace 	
 VetAppointment
  
@@ -96,8 +96,8 @@ QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Appointment.
 ;/ 0
 }1 2
 } 
-} ô
-JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Drug.cs
+} õ
+LC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Drug.cs
 	namespace 	
 VetAppointment
  
@@ -150,15 +150,17 @@ JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Drug.cs
 }
 
  
-} ø
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+} ‰
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
 	namespace 	
 VetAppointment
  
 . 
-Domain 
-.  
-Enums  %
+Shared 
+.  
+Domain  &
+.& '
+Enums' ,
 { 
 public 
 
@@ -173,15 +175,17 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\Animal
 = 
 $num 
 } 
-} Ã
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+} Ò
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
 	namespace 	
 VetAppointment
  
 . 
-Domain 
-.  
-Enums  %
+Shared 
+.  
+Domain  &
+.& '
+Enums' ,
 { 
 public 
 
@@ -229,15 +233,17 @@ AnimalRace 
 = 
 $num 
 } 
-} Ç
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+} ß
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\PersonGender.cs
 	namespace 	
 VetAppointment
  
 . 
-Domain 
-.  
-Enums  %
+Shared 
+.  
+Domain  &
+.& '
+Enums' ,
 { 
 public 
 
@@ -256,15 +262,17 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\Person
 = 
 $num 
 } 
-}		 Â
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+}		 ä
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
 	namespace 	
 VetAppointment
  
 . 
-Domain 
-.  
-Enums  %
+Shared 
+.  
+Domain  &
+.& '
+Enums' ,
 { 
 public 
 
@@ -290,8 +298,8 @@ PawSurgeon 
 }		 
 }
 
- Ù
-LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Person.cs
+ ˆ
+NC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Person.cs
 	namespace 	
 VetAppointment
  
@@ -349,8 +357,8 @@ LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Person.cs
 }		 
 }
 
- ≠
-IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Pet.cs
+ Ø
+KC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Pet.cs
 	namespace 	
 VetAppointment
  
@@ -428,8 +436,8 @@ IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Pet.cs
 
 ) *
 } 
-} ¿
-NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PetOwner.cs
+} ¬
+PC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
 	namespace 	
 VetAppointment
  
@@ -482,8 +490,8 @@ NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PetOwner.cs
 ;		& '
 }		( )
 } 
-} å
-TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PrescribedDrug.cs
+} é
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\PrescribedDrug.cs
 	namespace 	
 VetAppointment
  
@@ -540,8 +548,8 @@ TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PrescribedDr
 }
 
  
-} õ
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Treatment.cs
+} ù
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Treatment.cs
 	namespace 	
 VetAppointment
  
@@ -576,8 +584,8 @@ OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Treatment.cs
 ;4 5
 }6 7
 } 
-}		 Ω
-IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Vet.cs
+}		 ø
+KC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Vet.cs
 	namespace 	
 VetAppointment
  
@@ -632,164 +640,92 @@ IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Vet.cs
 }
 
  
-} ﬂ
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\VetClinic.cs
-	namespace 	
-VetAppointment
+} Ê	
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\VetClinic.cs
+	namespace 	
+VetAppointment
  
-. 
-Shared 
-.  
-Domain  &
-{ 
-public 
+. 
+Shared 
+.  
+Domain  &
+{ 
+public 
 
-class 
-	VetClinic 
-{ 
-public 
-Guid 
-Id 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-[		 	
-Required			 
-(		 
-ErrorMessage		 
-=		  
-$str		! /
-)		/ 0
-]		0 1
+class 
+	VetClinic 
+{ 
+public 
+Guid 
+Id 
+{ 
+get 
+; 
+set !
+;! "
+}# $
+public 
+string 
+Name 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+string 
+Address 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public		 
+int		 
+NumberOfPlaces		 !
+{		" #
+get		$ '
+;		' (
+set		) ,
+;		, -
+}		. /
 public
 
  
 string
 
- 
-Name
+ 
+ContactEmail
 
- 
+ "
 {
 
- 
+# $
 get
 
-  
+% (
 ;
 
-  !
+( )
 set
 
-" %
+* -
 ;
 
-% &
+- .
 }
 
-' (
-[ 	
-Required	 
-( 
-ErrorMessage 
-=  
-$str! 3
-)3 4
-]4 5
-public 
-string 
-Address 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-[ 	
-Required	 
-( 
-ErrorMessage 
-=  
-$str! 9
-)9 :
-]: ;
-[ 	
-Range	 
-( 
-$num 
-, 
-$num 
-, 
-ErrorMessage )
-=* +
-$str, L
-)L M
-]M N
-public 
-int 
-NumberOfPlaces !
-{" #
-get$ '
-;' (
-set) ,
-;, -
-}. /
-[ 	
-Required	 
-( 
-ErrorMessage 
-=  
-$str! 1
-)1 2
-]2 3
-[ 	
-RegularExpression	 
-( 
-$str E
-,E F
-ErrorMessageG S
-=T U
-$strV k
-)k l
-]l m
-public 
-string 
-ContactEmail "
-{# $
-get% (
-;( )
-set* -
-;- .
-}/ 0
-[ 	
-Required	 
-( 
-ErrorMessage 
-=  
-$str! 7
-)7 8
-]8 9
-[ 	
-RegularExpression	 
-( 
-$str -
-,- .
-ErrorMessage/ ;
-=< =
-$str> Z
-)Z [
-][ \
-public 
-string 
-ContactPhone "
-{# $
-get% (
-;( )
-set* -
-;- .
-}/ 0
-} 
-} 
+/ 0
+public 
+string 
+ContactPhone "
+{# $
+get% (
+;( )
+set* -
+;- .
+}/ 0
+} 
+} 

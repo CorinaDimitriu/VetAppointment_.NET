@@ -1,19 +1,67 @@
-m
-dC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\AppointmentsControllerTests.csutf-8f
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\BaseIntegrationTests.csutf-8[
-RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\DrugTests.csutf-8o
-fC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\MedicalHistoryControllerTests.csutf-8j
-aC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PetOwnersControllerTests.csutf-8e
-\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PetsControllerTests.csutf-8p
-gC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\PrescribedDrugsControllerTests.csutf-8k
-bC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\TreatmentsControllerTests.csutf-8X
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\Usings.csutf-8l
-cC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\VetClinicsControllerTests_.csutf-8e
-\C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\VetsControllerTests.csutf-8
-tC:\Users\Leonard\.nuget\packages\microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.csutf-8î
-àC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\obj\Debug\net7.0\VetAppointment.Integration.Test.GlobalUsings.g.csutf-8ë
-ÖC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8í
-ÜC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\obj\Debug\net7.0\VetAppointment.Integration.Test.AssemblyInfo.csutf-8w
+X
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\ConfigureServices.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\AppointmentsController.csutf-8b
+YC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\DrugsController.csutf-8m
+dC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\MedicalHistoriesController.csutf-8f
+]C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\PetOwnersController.csutf-8a
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\PetsController.csutf-8l
+cC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\PrescribedDrugsController.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\TreatmentsController.csutf-8e
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\DrugsController.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\PetOwnersController.csutf-8o
+fC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\PrescribedDrugsController.csutf-8j
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\v2\VetClinicsController.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\VetClinicsController.csutf-8a
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Controllers\VetsController.csutf-8Z
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\AppointmentDto.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateAppointmentDto.csutf-8`
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateDrugDto.csutf-8_
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreatePetDto.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreatePetOwnerDto.csutf-8j
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreatePrescribedDrugDto.csutf-8e
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateTreatmentDto.csutf-8e
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateVetClinicDto.csutf-8_
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\Create\CreateVetDto.csutf-8S
+JC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\DrugDto.csutf-8]
+TC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\MedicalHistoryDto.csutf-8R
+IC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\PetDto.csutf-8W
+NC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\PetOwnerDto.csutf-8]
+TC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\PrescribedDrugDto.csutf-8X
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\TreatmentDto.csutf-8X
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\VetClinicDto.csutf-8R
+IC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Dtos\VetDto.csutf-8`
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\AppointmentMapper.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\AppointmentMapperProfile.csutf-8Y
+PC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\DrugMapper.csutf-8`
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\DrugMapperProfile.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\MedicalHistoryMapper.csutf-8j
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\MedicalHistoryMapperProfile.csutf-8X
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetMapper.csutf-8`
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetMappingProfile.csutf-8]
+TC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetOwnerMapper.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PetOwnerMapperProfile.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PrescribedDrugMapper.csutf-8j
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\PrescribedDrugMapperProfile.csutf-8^
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\TreatmentMapper.csutf-8e
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\TreatmentMapperProfile.csutf-8^
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetClinicMapper.csutf-8e
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetClinicMapperProfile.csutf-8X
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetMapper.csutf-8`
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Mappers\VetMappingProfile.csutf-8N
+EC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Program.csutf-8o
+fC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateAppointmentDtoValidator.csutf-8h
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateDrugDtoValidator.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreatePetDtoValidator.csutf-8l
+cC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreatePetOwnerDtoValidator.csutf-8r
+iC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreatePrescribedDrugDtoValidator.csutf-8m
+dC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateTreatmentDtoValidator.csutf-8m
+dC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateVetClinicDtoValidator.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\CreateVetDtoValidator.csutf-8]
+TC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\Validators\Validations.csutf-8{
+pC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.GlobalUsings.g.csutf-8Ö
+zC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8y
+nC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.AssemblyInfo.csutf-8ç
+ÅC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.MvcApplicationPartsAssemblyInfo.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSExportGenerator\JSExports.g.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSImportGenerator\JSImports.g.csutf-8p
 eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8

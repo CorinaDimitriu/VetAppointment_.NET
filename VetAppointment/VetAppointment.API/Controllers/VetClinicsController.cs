@@ -2,21 +2,17 @@
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
-using VetAppointment.API.Validators;
 using VetAppointment.Domain;
-using VetAppointment.Infrastructure.Data;
+using VetAppointment.Application;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class VetClinicsController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly CreateVetClinicDtoValidator createVetClinicDtoValidator = new();
-        private readonly CreatePetDtoValidator createPetDtoValidator = new();
-        private readonly CreateVetDtoValidator createVetDtoValidator = new();
-        private readonly CreateAppointmentDtoValidator createAppointmentDtoValidator = new();
 
         public VetClinicsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
@@ -25,11 +21,6 @@ namespace VetAppointment.API.Controllers
         {
             var history = MedicalHistory.Create();
 
-            var validatorResult = createVetClinicDtoValidator.Validate(vetClinicDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
             var vetClinic = VetClinicMapper.Mapper.Map<VetClinic>(vetClinicDto);
 
             if (vetClinic == null)
@@ -141,15 +132,6 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            foreach (var dto in petsDtos)
-            {
-                var validatorResult = createPetDtoValidator.Validate(dto);
-                if (!validatorResult.IsValid)
-                {
-                    return BadRequest(validatorResult.Errors);
-                }
-            }
-
             var pets = petsDtos.Select(PetMapper.Mapper.Map<Pet>).ToList();
             if (pets.Any(p => p == null))
             {
@@ -177,12 +159,6 @@ namespace VetAppointment.API.Controllers
             if (clinic == null)
             {
                 return NotFound();
-            }
-
-            var validatorResult = createVetDtoValidator.Validate(vetDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
             }
 
             var doctor = VetMapper.Mapper.Map<Vet>(vetDto);
@@ -213,12 +189,6 @@ namespace VetAppointment.API.Controllers
             if (clinic == null)
             {
                 return NotFound();
-            }
-
-            var validatorResult = createAppointmentDtoValidator.Validate(appointmentDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
             }
 
             var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(clinic.MedicalHistoryId).Result;
@@ -266,12 +236,6 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            var validatorResult = createVetClinicDtoValidator.Validate(vetClinicDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
-
             var result = clinic.Update(vetClinicDto.Name, vetClinicDto.Address, vetClinicDto.NumberOfPlaces, 
                 vetClinicDto.ContactEmail, vetClinicDto.ContactPhone);
             if (result.IsFailure)
@@ -303,12 +267,6 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            var validatorResult = createVetDtoValidator.Validate(vetDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
-
             var result = vet.Update(vetDto.Name, vetDto.Surname, vetDto.Birthdate, vetDto.Gender, vetDto.Email, 
                 vetDto.Phone, vetDto.Specialisation);
             if (result.IsFailure)
@@ -338,12 +296,6 @@ namespace VetAppointment.API.Controllers
             if (pet == null)
             {
                 return NotFound();
-            }
-
-            var validatorResult = createPetDtoValidator.Validate(petDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
             }
 
             var result = pet.Update(petDto.Name, petDto.Birthdate, petDto.Race, petDto.Gender);

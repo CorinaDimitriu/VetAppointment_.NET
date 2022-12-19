@@ -47,6 +47,7 @@
                     error.removeAttribute("hidden");
             }
         }
+
         function RemoveInputFields() {
             var total = document.getElementById("total");
             var rowCount = parseInt(total.value);
@@ -62,6 +63,15 @@
                 if (error.getAttribute("hidden"))
                     error.removeAttribute("hidden");
             }
+        }
+
+        function ConfirmDelete(name, id) {
+            let confirmDelete = confirm("Are you sure you want to delete the " + name.toString() + " with ID " + id + "?");
+            return confirmDelete;
+        }
+
+        function Alert(message){
+            alert(message);
         }
     </script>
 </body>

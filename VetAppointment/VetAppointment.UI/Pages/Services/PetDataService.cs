@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 using VetAppointment.Shared.Domain;
 
 #nullable disable

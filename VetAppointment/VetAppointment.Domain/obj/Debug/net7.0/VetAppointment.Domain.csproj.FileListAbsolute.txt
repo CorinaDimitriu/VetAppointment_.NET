@@ -1,15 +1,3 @@
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
-C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
 D:\Facultate\Anul_3\.NET\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
@@ -142,15 +130,39 @@ C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\Vet
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
-D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\biian\Desktop\.NET\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\Leonard\Downloads\VetAppointment_5\VetAppointment_5\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll

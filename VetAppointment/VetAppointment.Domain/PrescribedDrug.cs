@@ -36,6 +36,16 @@ namespace VetAppointment.Domain
         {
             return quantity * price;
         }
+
+        public void CalculatePresribedDrugCost(Drug drug)
+        {
+            TotalCost = CalculateDrugCost(Quantity, drug.UnitPrice);
+        }
+
+        public void UpdateDrugToPrescribeId(Guid drugToPrescribeId) => DrugToPrescribeId = drugToPrescribeId;
+
+        public void UpdateQuantity(double quantity) => Quantity = quantity;
+
         public Result Update(double quantity, Drug drugToPrescribe)
         {
             if (quantity < 0)

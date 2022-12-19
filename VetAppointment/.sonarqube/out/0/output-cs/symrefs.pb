@@ -1,5 +1,5 @@
-³
-QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Appointment.cs
+µ
+SC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Appointment.cs
 
  
 
@@ -17,8 +17,8 @@ QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Appointment.
 
  
 
- $ˆ
-JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Drug.cs
+ $Š
+LC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Drug.cs
 
  
 
@@ -28,20 +28,20 @@ JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Drug.cs
 
  
 
-		 f
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
+		 h
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalGender.cs
 
- d
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
+ f
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\AnimalRace.cs
 
- f
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\PersonGender.cs
+ h
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\PersonGender.cs
 
- k
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
+ m
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Enums\VetSpecialisation.cs
 
- !Š
-LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Person.cs
+ !Œ
+NC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Person.cs
 
   
 
@@ -51,8 +51,8 @@ LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Person.cs
 
   
 
- “
-IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Pet.cs
+ •
+KC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Pet.cs
 
  
 
@@ -66,8 +66,8 @@ IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Pet.cs
 
 
 
- Œ
-NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PetOwner.cs
+ Ž
+PC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\PetOwner.cs
 
  
 
@@ -77,8 +77,8 @@ NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PetOwner.cs
 
  
 
-		 ’
-TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PrescribedDrug.cs
+		 ”
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\PrescribedDrug.cs
 
  
 
@@ -88,15 +88,15 @@ TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\PrescribedDr
 
  %
 
-		 u
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Treatment.cs
+		 w
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Treatment.cs
 
  
 
  
 
- !‡
-IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Vet.cs
+ !‰
+KC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\Vet.cs
 
  
 
@@ -106,21 +106,21 @@ IC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\Vet.cs
 
  
 
-		 $¥
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\Domain\VetClinic.cs
+		 $§
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\Domain\VetClinic.cs
 
- 
+ 
 
- 
+ 
+
+ 
+
+ 
+
+		 !
 
 
 
- 
+ "
 
- 
-
- !
-
- "
-
- "
+ "

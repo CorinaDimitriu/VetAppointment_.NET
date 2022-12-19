@@ -1,33 +1,68 @@
-_
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\ClinicsOverview.razor.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelClinic.csutf-8Y
-PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPet.csutf-8b
-YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPetsInClinic.csutf-8Y
-PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelVet.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToDelete.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToUpdate.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToDelete.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToUpdate.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\PetsOverview.razor.csutf-8b
-YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IPetDataService.csutf-8h
-_C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IVetClinicDataService.csutf-8a
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataService.csutf-8g
-^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\VetClinicDataService.csutf-8i
-`C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelClinicValidator.csutf-8f
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelPetValidator.csutf-8f
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelVetValidator.csutf-8a
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\PetValidator.csutf-8g
-^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\VetClinicValidator.csutf-8K
-BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Program.csutf-8w
-lC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GlobalUsings.g.csutf-8Ç
-wC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8u
-jC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.csutf-8w
+f
+]C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\AppointmentsOverview.razor.csutf-8p
+gC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicAppointments.razor.csutf-8l
+cC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicEditPage.razor.csutf-8h
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicPets.razor.csutf-8m
+dC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicsOverview.razor.csutf-8h
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicVets.razor.csutf-8_
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\DrugsOverview.razor.csutf-8^
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\ClinicModel.csutf-8[
+RC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetModel.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetsInClinicModel.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetToDeleteModel.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetToUpdateModel.csutf-8[
+RC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetModel.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetToDeleteModel.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetToUpdateModel.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetOwnersOverview.razor.csutf-8^
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetsOverview.razor.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PrescribedDrugsOverview.razor.csutf-8k
+bC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\AppointmentDataService.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\DrugDataService.csutf-8l
+cC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IAppointmentDataService.csutf-8e
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IDrugDataService.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPetDataService.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPetOwnerDataService.csutf-8o
+fC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPrescribedDrugDataService.csutf-8j
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\ITreatmentDataService.csutf-8j
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IVetClinicDataService.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IVetDataService.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PetDataService.csutf-8h
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PetOwnerDataService.csutf-8n
+eC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PrescribedDrugDataService.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\TreatmentDataService.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\VetClinicDataService.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\VetDataService.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\TreatmentsOverview.razor.csutf-8k
+bC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\ClinicModelValidator.csutf-8h
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\PetModelValidator.csutf-8c
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\PetValidator.csutf-8i
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\VetClinicValidator.csutf-8h
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\VetModelValidator.csutf-8f
+]C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetEditPage.razor.csutf-8g
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetsOverview.razor.csutf-8M
+DC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Program.csutf-8y
+nC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.GlobalUsings.g.csutf-8Ñ
+yC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8w
+lC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\obj\Debug\net7.0\VetAppointment.UI.AssemblyInfo.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSExportGenerator\JSExports.g.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSImportGenerator\JSImports.g.csutf-8p
 eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8Ä
-uMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\App_razor.g.csutf-8ì
-áMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicsOverview_razor.g.csutf-8ê
-ÑMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_PetsOverview_razor.g.csutf-8ë
+uMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\App_razor.g.csutf-8ò
+åMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_AppointmentsOverview_razor.g.csutf-8¢
+ñMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicPages_ClinicAppointments_razor.g.csutf-8û
+íMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicPages_ClinicEditPage_razor.g.csutf-8ö
+éMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicPages_ClinicPets_razor.g.csutf-8ü
+ìMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicPages_ClinicsOverview_razor.g.csutf-8ö
+éMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_ClinicPages_ClinicVets_razor.g.csutf-8ë
+ÖMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_DrugsOverview_razor.g.csutf-8à
+}Microsoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_Index_razor.g.csutf-8ï
+âMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_PetOwnersOverview_razor.g.csutf-8ê
+ÑMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_PetsOverview_razor.g.csutf-8õ
+èMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_PrescribedDrugsOverview_razor.g.csutf-8ñ
+äMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_TreatmentsOverview_razor.g.csutf-8ò
+åMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_VetPages_VetEditPage_razor.g.csutf-8ô
+çMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Pages_VetPages_VetsOverview_razor.g.csutf-8ë
 ÖMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Shared_SurveyPrompt_razor.g.csutf-8Ö
 zMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\_Imports_razor.g.csutf-8è
 ÉMicrosoft.NET.Sdk.Razor.SourceGenerators\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Shared_MainLayout_razor.g.csutf-8å

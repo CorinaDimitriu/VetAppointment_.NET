@@ -1,29 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
-using VetAppointment.API.Validators;
+using VetAppointment.Application;
 using VetAppointment.Domain;
-using VetAppointment.Infrastructure.Data;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class AppointmentsController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly CreateAppointmentDtoValidator createAppointmentDtoValidator = new();
 
         public AppointmentsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpPost]
         public IActionResult Create([FromBody] CreateAppointmentDto appointmentDto)
         {
-            var validatorResult = createAppointmentDtoValidator.Validate(appointmentDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
             var pet = unitOfWork.PetRepository.Get(appointmentDto.PetId).Result;
             if (pet == null)
             {
@@ -156,12 +150,6 @@ namespace VetAppointment.API.Controllers
             if (appointment == null)
             {
                 return NotFound();
-            }
-
-            var validatorResult = createAppointmentDtoValidator.Validate(appointmentDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
             }
 
             appointment.Update(appointment.VetId, appointmentDto.PetId, appointmentDto.ScheduledDate,

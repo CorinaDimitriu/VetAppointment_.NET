@@ -1,0 +1,90 @@
+﻿@page "/clinic/{ClinicId:guid}"
+
+<PageTitle>Edit Clinic</PageTitle>
+<h3>Edit Clinic</h3>
+
+@if (ClinicToUpdate == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>Clinic ID</th>
+                <th>Clinic Name</th>
+                <th>Clinic Address</th>
+                <th>Clinic NumberOfPlaces</th>
+                <th>Clinic ContactEmail</th>
+                <th>Clinic ContactPhone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@ClinicToUpdate.Id</td>
+                <td>@ClinicToUpdate.Name</td>
+                <td>@ClinicToUpdate.Address</td>
+                <td>@ClinicToUpdate.NumberOfPlaces</td>
+                <td>@ClinicToUpdate.ContactEmail</td>
+                <td>@ClinicToUpdate.ContactPhone</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <EditForm class="container" Model="ClinicToUpdate" OnValidSubmit="UpdateClinic">
+        <FluentValidationValidator />
+        <div>
+            <label for="name">Name</label>
+            <InputText id="name" @bind-Value="ClinicToUpdate.Name" placeholder="Clinic Name" class="form-control" />
+            <ValidationMessage For="@(() => ClinicToUpdate.Name)"></ValidationMessage>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <InputText id="address" @bind-Value="ClinicToUpdate.Address" class="form-control" />
+            <ValidationMessage For="@(() => ClinicToUpdate.Name)"></ValidationMessage>
+        </div>
+
+        <div class="form-group">
+            <label for="places">Number of places</label>
+            <InputNumber id="places" @bind-Value="ClinicToUpdate.NumberOfPlaces" class="form-control" />
+            <ValidationMessage For="@(() => ClinicToUpdate.NumberOfPlaces)"></ValidationMessage>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <InputText id="email" @bind-Value="ClinicToUpdate.ContactEmail" class="form-control" />
+            <ValidationMessage For="@(() => ClinicToUpdate.ContactEmail)"></ValidationMessage>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone number</label>
+            <InputText id="phone" @bind-Value="ClinicToUpdate.ContactPhone" class="form-control" />
+            <ValidationMessage For="@(() => ClinicToUpdate.ContactPhone)"></ValidationMessage>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-success">Update Clinic</button><br />
+            </div>
+        </div>
+    </EditForm>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info" @onclick="NavigateToAddPets">Add Pets to Clinic</button><br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info" @onclick="NavigateToAddVets">Add Vets to Clinic</button><br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info" @onclick="NavigateToAddAppointments">Add Appointments to Clinic</button><br />
+        </div>
+    </div>
+}

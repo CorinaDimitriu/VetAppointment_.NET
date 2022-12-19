@@ -53,6 +53,11 @@ namespace VetAppointment.Domain
             return Result<VetClinic>.Success(vetClinic);
         }
 
+        public void SetRegistrationDate()
+        {
+            RegistrationDate = DateTime.Now;
+        }
+
         public void AttachMedicalHistory(Guid medicalHistoryId)
         {
             MedicalHistoryId = medicalHistoryId;

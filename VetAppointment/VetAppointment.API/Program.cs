@@ -1,10 +1,7 @@
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System.Reflection;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using VetAppointment.API;
 using VetAppointment.Application;
-using VetAppointment.Domain;
-using VetAppointment.Infrastructure.Data;
-using VetAppointment.Infrastructure.Repositories.GenericRepositories;
+using VetAppointment.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,29 +11,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddApplicationServices();
-
-builder.Services.AddDbContext<DatabaseContext>(
-    options => options.UseSqlite(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)
-        )
-    );
-
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-
-builder.Services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
-builder.Services.AddScoped<IRepository<PetOwner>, PetOwnerRepository>();
-builder.Services.AddScoped<IRepository<Pet>, PetRepository>();
-builder.Services.AddScoped<IRepository<VetClinic>, VetClinicRepository>();
-builder.Services.AddScoped<IRepository<Vet>, VetRepository>();
-builder.Services.AddScoped<IRepository<Drug>, DrugRepository>();
-builder.Services.AddScoped<IRepository<MedicalHistory>, MedicalHistoryRepository>();
-builder.Services.AddScoped<IRepository<PrescribedDrug>, PrescribedDrugRepository>();
-builder.Services.AddScoped<IRepository<Treatment>, TreatmentRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSwaggerGen(options =>
+    {
+        options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo() 
+            { 
+                Title = "Api version  1", Version = "1", Description = "V1", 
+            }
+        );
+        options.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo() 
+            { 
+                Title = "Api version  2", Version = "2", Description = "V2 - With MediatR", 
+            }
+        );
+    }
+);
 
 builder.Services.AddCors(options =>
 {
@@ -53,7 +41,32 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddApiVersioning(options =>
+    {
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+        options.ReportApiVersions = true;
+        options.ApiVersionReader = ApiVersionReader.Combine
+            (
+                new QueryStringApiVersionReader("api-version"),
+                new HeaderApiVersionReader("X-version"),
+                new MediaTypeApiVersionReader("ver")
+            );
+    }
+);
+
+builder.Services.AddVersionedApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    }
+);
+
 builder.Services.AddControllers();
+builder.Services.AddApplicationServices();
+builder.Services.AddAPIServices();
+builder.Services.AddInfrastrutureServices(builder.Configuration);
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -61,11 +74,17 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
-	app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint($"/swagger/v1/swagger.json", $"v1");
+            options.SwaggerEndpoint($"/swagger/v2/swagger.json", $"v2");
+        }
+    );
 }
 
 app.UseHttpsRedirection();
 app.UseCors("clinicsCors");
+app.UseHealthChecks("/health");
 
 app.UseAuthorization();
 

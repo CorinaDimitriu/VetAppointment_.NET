@@ -1,5 +1,5 @@
-Ì
-JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Appointment.csF
+Î
+LC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Appointment.csF
   ( ) )   )##" -,, %
  %% 
 		 && KK 
@@ -34,8 +34,8 @@ JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Appointment.csF
 99U o<< *NN) C
 :: OO %
 ::# 3PP /
-AAE RFF MM )‡
-JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.csP
+AAE RFF MM )‰
+LC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\ClinicOwner.csP
   ( ) ) )!! )$$" -.. %
 		 ** 
 
@@ -54,8 +54,8 @@ JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.csP
 F R)) %
  (  A U
    ,	!!y ‘
-$$ ../ :û
-CC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Drug.cs<
+$$ ../ :ý
+EC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Drug.cs<
   ! " "  
 
  
@@ -74,20 +74,20 @@ CC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Drug.cs<
 !! 
 !!$ (##% )22 (
 !!1 9(( **6 >33 $(
-!!B G-- //3 844 "_
-QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalGender.cs
+!!B G-- //3 844 "a
+SC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\AnimalGender.cs
 
- ]
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalRace.cs
+ _
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\AnimalRace.cs
 
- _
-QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\PersonGender.cs
+ a
+SC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\PersonGender.cs
 
- d
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\VetSpecialisation.cs
+ f
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\VetSpecialisation.cs
 
- !ß
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.cs
+ !á
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\Result.cs
  
 
   
@@ -102,8 +102,8 @@ MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.cs
  $
 
  $
-, 1X ]Ç
-UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEntity.cs
+, 1X ]É
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\ResultOfEntity.cs
    2
    $. 5 $
  I O
@@ -115,8 +115,8 @@ UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEnt
 6 <R X
 
 & -
-5 :a fÆ
-RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Validations.cs
+5 :a fÈ
+TC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\Validations.cs
 
  #
 
@@ -125,8 +125,8 @@ RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Validations
   
 
 ## -d
-##5 @%% ** ** %,, .. .. )// "//3 >//T _õ
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.cs(
+##5 @%% ** ** %,, .. .. )// "//3 >//T _÷
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\MedicalHistory.cs(
   +% 3 (
   (
 		! -  00 
@@ -144,8 +144,8 @@ MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.cs(
 $$' /&& $
 
 )) 2
-))? J++ 00  +ƒ
-EC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Person.cs
+))? J++ 00  +…
+GC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Person.cs
 
   
 
@@ -157,8 +157,8 @@ EC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Person.cs
 
  !
 
- "ã
-BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Pet.csF
+ "å
+DC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Pet.csF
     ! !## !&& // 
 		 (( 
 
@@ -201,8 +201,8 @@ BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Pet.csF
 EE= ITT !
 GG (HHA U
 HH ,	IIj ‚
-LL; ?RR °
-GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.csP
+LL; ?RR ²
+IC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\PetOwner.csP
   % & & &%% &(( $55 "
 		 ** 
 
@@ -228,28 +228,37 @@ GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.csP
 
 88 )
 884 8:: ?? 
-?? AA BB Í
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PrescribedDrug.cs<
+?? AA BB ç
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\PrescribedDrug.cs<
   + , ,% 3!! (
-  
-		  33 
+  2
+		  *** 2//7 ?== 
 
 
- % !
-  44 
+ % !--G X(
+  ** >> 
 
 - 3F
 ; C B J B J #. 6(
 J Y *$ 38 G
- !!2 @
-## / -44 )
+ !!2 @(
+## / -** )>> )
 ##7 ?%% 
 ##H M%% #
 
-'' F
-''$ ,)) ++2 :.. 002 :33 44* 2
-''3 B.. *444 Cš
-HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Treatment.cs2
+(( .
+((4 8**4 8
+
+-- +
+--1 B--[ l
+
+// "
+//* 2//B J
+
+11 F
+11$ ,33 552 :88 ::2 :== >>* 2
+113 B88 *>>4 Cœ
+JC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Treatment.cs2
   & '  ) #
   (
 		 ! FF  KK 2
@@ -273,8 +282,8 @@ HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Treatment.cs2
 55 77 
 
 ?? '(
-??/ :AA FF( 3KK *ö
-BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Vet.csZ
+??/ :AA FF( 3KK *ø
+DC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Vet.csZ
     ! ! !%% !++ !// ;; 
 		 11 
 
@@ -320,21 +329,23 @@ BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Vet.csZ
 ]]J [jj .
 __ )``B W
 `` -
-aa„ õ
-HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.csx
-  & '   '%% '((  )55 #]] kk 'ss 'yy '~~ #
+aa„ “	
+JC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\VetClinic.csz
+  & '   '%% '((  )55 #bb pp 'xx '~~ '
+ƒƒ #
  ** 
-		 ++ aa 
+		 ++ ff 
 
 
- ,, ff (
- !00 [[3 Aoo 
- "-- uu 
- ".. {{ 
- (//  (
- 11 MM [[D H
- 22 VV 
- $:: 
+ ,, kk (
+ !00 ``3 Att 
+ "-- zz  
+ ".. 
+€€ 
+ (//  :: (
+ 11 RR ``D H
+ 22 [[ 
+ $?? 
 
 ( .
 6 :++ 
@@ -345,20 +356,23 @@ HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.csx
  % -
 (( 55- 6
 
-88 (
-88. >:: /
+88 '
 
-== 02
-==; ??? DD FFF JJJ 
-JJ LL MM 
+== (
+==. >?? /
 
-SS )
-SS. 1UU VV 
-[[ -DD 7GG> X
+BB 02
+BB; ?DD II KKF JOO 
+OO QQ RR 
 
-]]! '(
-]]/ 3__ __ "aa  (
-]]< Cdd dd! (ff &
-]]I Wii oo" 0(
-]]` lqq* 6ss: Fuu  ,)
-	]]u ww0 <yyA M{{  ,
+XX )
+XX. 1ZZ [[ 
+`` -II 7LL> X
+
+bb! '(
+bb/ 3dd dd "ff  (
+bb< Cii ii! (kk &
+bbI Wnn tt" 0(
+bb` lvv* 6xx: Fzz  ,+
+	bbu ||0 <~~A M
+€€  ,

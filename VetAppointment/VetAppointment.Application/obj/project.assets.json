@@ -871,23 +871,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tomes\\.nuget\\packages\\": {},
+    "C:\\Users\\Leonard\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Facultate\\Anul 3\\.net\\Proiect .net\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
       "projectName": "VetAppointment.Application",
-      "projectPath": "D:\\Facultate\\Anul 3\\.net\\Proiect .net\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
-      "packagesPath": "C:\\Users\\tomes\\.nuget\\packages\\",
-      "outputPath": "D:\\Facultate\\Anul 3\\.net\\Proiect .net\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Application\\obj\\",
+      "projectPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
+      "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tomes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leonard\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -902,8 +902,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Facultate\\Anul 3\\.net\\Proiect .net\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
-              "projectPath": "D:\\Facultate\\Anul 3\\.net\\Proiect .net\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
+            "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
+              "projectPath": "C:\\Users\\Leonard\\Desktop\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
             }
           }
         }
@@ -967,7 +967,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -2,19 +2,18 @@
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
-using VetAppointment.API.Validators;
 using VetAppointment.Application;
 using VetAppointment.Domain;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class PrescribedDrugsController : ControllerBase
     {
         private readonly IRepository<PrescribedDrug> prescribedDrugRepository;
         private readonly IRepository<Drug> drugRepository;
-        private readonly CreatePrescribedDrugDtoValidator createPrescribedDrugDtoValidator = new();
 
         public PrescribedDrugsController(IRepository<PrescribedDrug> prescribedDrugRepository, IRepository<Drug> drugRepository)
         {
@@ -36,12 +35,6 @@ namespace VetAppointment.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreatePrescribedDrugDto drugDto)
         {
-            var validatorResult = createPrescribedDrugDtoValidator.Validate(drugDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
-
             var drug = drugRepository.Get(drugDto.DrugId).Result;
             if (drug == null)
             {

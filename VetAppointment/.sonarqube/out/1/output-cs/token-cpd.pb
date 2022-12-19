@@ -1,5 +1,5 @@
-ı7
-JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Appointment.cs
+˜7
+LC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Appointment.cs
 	namespace 	
 VetAppointment
  
@@ -414,8 +414,8 @@ dateStringJ T
 ;RR# $
 }SS 	
 }TT 
-}UU ‹$
-JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.cs
+}UU ﬁ$
+LC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\ClinicOwner.cs
 	namespace 	
 VetAppointment
  
@@ -702,8 +702,8 @@ JC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.cs
 ;..; <
 }// 	
 }00 
-}11 »"
-CC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Drug.cs
+}11  "
+EC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Drug.cs
 	namespace 	
 VetAppointment
  
@@ -978,8 +978,8 @@ CC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Drug.cs
 ;66# $
 }77 	
 }88 
-}99 ∏
-QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalGender.cs
+}99 ∫
+SC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\AnimalGender.cs
 	namespace 	
 VetAppointment
  
@@ -1001,8 +1001,8 @@ QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalGender.
 = 
 $num 
 } 
-} ≈
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalRace.cs
+} «
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\AnimalRace.cs
 	namespace 	
 VetAppointment
  
@@ -1057,8 +1057,8 @@ AnimalRace 
 = 
 $num 
 } 
-} ˚
-QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\PersonGender.cs
+} ˝
+SC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\PersonGender.cs
 	namespace 	
 VetAppointment
  
@@ -1084,8 +1084,8 @@ QC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\PersonGender.
 = 
 $num 
 } 
-}		 ﬁ
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\VetSpecialisation.cs
+}		 ‡
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\VetSpecialisation.cs
 	namespace 	
 VetAppointment
  
@@ -1118,8 +1118,8 @@ PawSurgeon 
 }		 
 }
 
- Ÿ
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.cs
+ €
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\Result.cs
 	namespace 	
 VetAppointment
  
@@ -1234,8 +1234,8 @@ MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.cs
 }^ _
 ;_ `
 } 
-} ô
-UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEntity.cs
+} õ
+WC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\ResultOfEntity.cs
 	namespace 	
 VetAppointment
  
@@ -1343,8 +1343,8 @@ UC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEnt
 }g h
 ;h i
 } 
-} Œ
-RC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Validations.cs
+} –
+TC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\Validations.cs
 	namespace 	
 VetAppointment
  
@@ -1525,8 +1525,8 @@ StartsWith//` j
 ;22 
 }33 	
 }44 
-}55 ¸
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.cs
+}55 ˛
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\MedicalHistory.cs
 	namespace 	
 VetAppointment
  
@@ -1740,8 +1740,8 @@ MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.cs
 ;22# $
 }33 	
 }44 
-}55 Ú
-EC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Person.cs
+}55 Ù
+GC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Person.cs
 	namespace 	
 VetAppointment
  
@@ -1815,8 +1815,8 @@ EC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Person.cs
 ;7 8
 }9 :
 } 
-} ãJ
-BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Pet.cs
+} çJ
+DC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Pet.cs
 	namespace 	
 VetAppointment
  
@@ -2388,8 +2388,8 @@ animalRaceSS 
 ;VV# $
 }WW 	
 }XX 
-}YY Å4
-GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.cs
+}YY É4
+IC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\PetOwner.cs
 	namespace 	
 VetAppointment
  
@@ -2793,8 +2793,8 @@ GC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.cs
 ;EE# $
 }FF 	
 }GG 
-}HH ı%
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PrescribedDrug.cs
+}HH ﬁ,
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\PrescribedDrug.cs
 	namespace 	
 VetAppointment
  
@@ -2999,89 +2999,133 @@ MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PrescribedDrug.cs
 price%% #
 ;%%# $
 }&& 	
-public'' 
-Result'' 
-Update'' 
-('' 
-double'' #
-quantity''$ ,
-,'', -
-Drug''. 2
-drugToPrescribe''3 B
-)''B C
-{(( 	
-if)) 
-()) 
-quantity)) 
-<)) 
-$num)) 
-))) 
-{** 
-return++ 
-Result++ 
-.++ 
-Failure++ %
-(++% &
-$"++& (
-$str++( 1
-{++1 2
-quantity++2 :
-}++: ;
-$str++; [
-"++[ \
-)++\ ]
-;++] ^
-},, 
-if.. 
-(.. 
-quantity.. 
->.. 
-drugToPrescribe.. *
-...* +
-Quantity..+ 3
-)..3 4
-{// 
-return00 
-Result00 
-.00 
-Failure00 %
-(00% &
-$"00& (
-$str00( 1
-{001 2
-quantity002 :
-}00: ;
-$str00; e
-"00e f
-)00f g
-;00g h
-}11 
-Quantity33 
-=33 
-quantity33 
-;33  
-	TotalCost44 
-=44 
-CalculateDrugCost44 )
-(44) *
-quantity44* 2
-,442 3
-drugToPrescribe444 C
-.44C D
-	UnitPrice44D M
-)44M N
-;44N O
-return66 
-Result66 
-.66 
-Success66 !
-(66! "
-)66" #
-;66# $
-}77 	
-}88 
-}99 À+
-HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Treatment.cs
+public(( 
+void(( &
+CalculatePresribedDrugCost(( .
+(((. /
+Drug((/ 3
+drug((4 8
+)((8 9
+{)) 	
+	TotalCost** 
+=** 
+CalculateDrugCost** )
+(**) *
+Quantity*** 2
+,**2 3
+drug**4 8
+.**8 9
+	UnitPrice**9 B
+)**B C
+;**C D
+}++ 	
+public-- 
+void-- #
+UpdateDrugToPrescribeId-- +
+(--+ ,
+Guid--, 0
+drugToPrescribeId--1 B
+)--B C
+=>--D F
+DrugToPrescribeId--G X
+=--Y Z
+drugToPrescribeId--[ l
+;--l m
+public// 
+void// 
+UpdateQuantity// "
+(//" #
+double//# )
+quantity//* 2
+)//2 3
+=>//4 6
+Quantity//7 ?
+=//@ A
+quantity//B J
+;//J K
+public11 
+Result11 
+Update11 
+(11 
+double11 #
+quantity11$ ,
+,11, -
+Drug11. 2
+drugToPrescribe113 B
+)11B C
+{22 	
+if33 
+(33 
+quantity33 
+<33 
+$num33 
+)33 
+{44 
+return55 
+Result55 
+.55 
+Failure55 %
+(55% &
+$"55& (
+$str55( 1
+{551 2
+quantity552 :
+}55: ;
+$str55; [
+"55[ \
+)55\ ]
+;55] ^
+}66 
+if88 
+(88 
+quantity88 
+>88 
+drugToPrescribe88 *
+.88* +
+Quantity88+ 3
+)883 4
+{99 
+return:: 
+Result:: 
+.:: 
+Failure:: %
+(::% &
+$"::& (
+$str::( 1
+{::1 2
+quantity::2 :
+}::: ;
+$str::; e
+"::e f
+)::f g
+;::g h
+};; 
+Quantity== 
+=== 
+quantity== 
+;==  
+	TotalCost>> 
+=>> 
+CalculateDrugCost>> )
+(>>) *
+quantity>>* 2
+,>>2 3
+drugToPrescribe>>4 C
+.>>C D
+	UnitPrice>>D M
+)>>M N
+;>>N O
+return@@ 
+Result@@ 
+.@@ 
+Success@@ !
+(@@! "
+)@@" #
+;@@# $
+}AA 	
+}BB 
+}CC Õ+
+JC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Treatment.cs
 	namespace 	
 VetAppointment
  
@@ -3419,8 +3463,8 @@ totalPrice$$ 
 ;LL# $
 }MM 	
 }NN 
-}OO ≥[
-BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Vet.cs
+}OO µ[
+DC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Vet.cs
 	namespace 	
 VetAppointment
  
@@ -4110,8 +4154,8 @@ BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Vet.cs
 ;ll# $
 }mm 	
 }nn 
-}oo äZ
-HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.cs
+}oo •\
+JC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\VetClinic.cs
 	namespace 	
 VetAppointment
  
@@ -4444,341 +4488,372 @@ HC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.cs
 ;557 8
 }66 	
 public88 
-void88  
-AttachMedicalHistory88 (
-(88( )
-Guid88) -
-medicalHistoryId88. >
-)88> ?
+void88 
+SetRegistrationDate88 '
+(88' (
+)88( )
 {99 	
-MedicalHistoryId:: 
-=:: 
-medicalHistoryId:: /
-;::/ 0
+RegistrationDate:: 
+=:: 
+DateTime:: '
+.::' (
+Now::( +
+;::+ ,
 };; 	
-public== 
-Result== &
-RegisterPetsFamilyToClinic== 0
-(==0 1
-List==1 5
-<==5 6
-Pet==6 9
->==9 :
-pets==; ?
-)==? @
-{>> 	
-if?? 
-(?? 
-!?? 
-pets?? 
-.?? 
-Any?? 
-(?? 
-)?? 
-)?? 
-{@@ 
-returnAA 
-ResultAA 
-.AA 
-FailureAA %
-(AA% &
-$strAA& M
-)AAM N
-;AAN O
-}BB 
+public== 
+void==  
+AttachMedicalHistory== (
+(==( )
+Guid==) -
+medicalHistoryId==. >
+)==> ?
+{>> 	
+MedicalHistoryId?? 
+=?? 
+medicalHistoryId?? /
+;??/ 0
+}@@ 	
+publicBB 
+ResultBB &
+RegisterPetsFamilyToClinicBB 0
+(BB0 1
+ListBB1 5
+<BB5 6
+PetBB6 9
+>BB9 :
+petsBB; ?
+)BB? @
+{CC 	
 ifDD 
-(DD 
-petsDD 
-.DD 
-CountDD 
->DD &
-GetAvailableNumberOfPlacesDD 7
-(DD7 8
-)DD8 9
-)DD9 :
+(DD 
+!DD 
+petsDD 
+.DD 
+AnyDD 
+(DD 
+)DD 
+)DD 
 {EE 
 returnFF 
 ResultFF 
 .FF 
 FailureFF %
-(FF% &
-$"FF& (
-$strFF( E
-{FFE F
-petsFFF J
-.FFJ K
-CountFFK P
-}FFP Q
-$strFFQ S
-"FFS T
-+FFU V
-$"GG 
-$strGG =
-{GG= >&
-GetAvailableNumberOfPlacesGG> X
-(GGX Y
-)GGY Z
-}GGZ [
-$strGG[ \
-"GG\ ]
-)GG] ^
-;GG^ _
-}HH 
-petsJJ 
-.JJ 
-ForEachJJ 
-(JJ 
-petJJ 
-=>JJ 
-{KK 
-petLL 
-.LL 
-RegisterPetToClinicLL '
-(LL' (
-thisLL( ,
-)LL, -
-;LL- .
-PetsMM 
-.MM 
-AddMM 
-(MM 
-petMM 
-)MM 
-;MM 
-}NN 
-)NN 
-;NN 
-returnPP 
-ResultPP 
-.PP 
-SuccessPP !
-(PP! "
-)PP" #
-;PP# $
-}QQ 	
-publicSS 
-ResultSS 
-RegisterVetToClinicSS )
-(SS) *
-VetSS* -
-vetSS. 1
-)SS1 2
-{TT 	
-vetUU 
-.UU 
-RegisterVetToClinicUU #
-(UU# $
-thisUU$ (
-)UU( )
-;UU) *
-VetsVV 
-.VV 
-AddVV 
-(VV 
-vetVV 
-)VV 
-;VV 
-returnXX 
-ResultXX 
-.XX 
-SuccessXX !
-(XX! "
-)XX" #
-;XX# $
-}YY 	
-public[[ 
-int[[ &
-GetAvailableNumberOfPlaces[[ -
-([[- .
-)[[. /
-=>[[0 2
-NumberOfPlaces[[3 A
--[[B C
-Pets[[D H
-.[[H I
-Count[[I N
-;[[N O
-public]] 
-Result]] 
-<]] 
-	VetClinic]] 
->]]  
-Update]]! '
-(]]' (
-string]]( .
-name]]/ 3
-,]]3 4
-string]]5 ;
-address]]< C
-,]]C D
-int]]E H
-numberOfPlaces]]I W
-,]]W X
-string]]Y _
-contactEmail]]` l
-,]]l m
-string]]n t
-contactPhone	]]u Å
+(FF% &
+$strFF& M
+)FFM N
+;FFN O
+}GG 
+ifII 
+(II 
+petsII 
+.II 
+CountII 
+>II &
+GetAvailableNumberOfPlacesII 7
+(II7 8
+)II8 9
+)II9 :
+{JJ 
+returnKK 
+ResultKK 
+.KK 
+FailureKK %
+(KK% &
+$"KK& (
+$strKK( E
+{KKE F
+petsKKF J
+.KKJ K
+CountKKK P
+}KKP Q
+$strKKQ S
+"KKS T
++KKU V
+$"LL 
+$strLL =
+{LL= >&
+GetAvailableNumberOfPlacesLL> X
+(LLX Y
+)LLY Z
+}LLZ [
+$strLL[ \
+"LL\ ]
+)LL] ^
+;LL^ _
+}MM 
+petsOO 
+.OO 
+ForEachOO 
+(OO 
+petOO 
+=>OO 
+{PP 
+petQQ 
+.QQ 
+RegisterPetToClinicQQ '
+(QQ' (
+thisQQ( ,
+)QQ, -
+;QQ- .
+PetsRR 
+.RR 
+AddRR 
+(RR 
+petRR 
+)RR 
+;RR 
+}SS 
+)SS 
+;SS 
+returnUU 
+ResultUU 
+.UU 
+SuccessUU !
+(UU! "
+)UU" #
+;UU# $
+}VV 	
+publicXX 
+ResultXX 
+RegisterVetToClinicXX )
+(XX) *
+VetXX* -
+vetXX. 1
+)XX1 2
+{YY 	
+vetZZ 
+.ZZ 
+RegisterVetToClinicZZ #
+(ZZ# $
+thisZZ$ (
+)ZZ( )
+;ZZ) *
+Vets[[ 
+.[[ 
+Add[[ 
+([[ 
+vet[[ 
+)[[ 
+;[[ 
+return]] 
+Result]] 
+.]] 
+Success]] !
+(]]! "
+)]]" #
+;]]# $
+}^^ 	
+public`` 
+int`` &
+GetAvailableNumberOfPlaces`` -
+(``- .
+)``. /
+=>``0 2
+NumberOfPlaces``3 A
+-``B C
+Pets``D H
+.``H I
+Count``I N
+;``N O
+publicbb 
+Resultbb 
+<bb 
+	VetClinicbb 
+>bb  
+Updatebb! '
+(bb' (
+stringbb( .
+namebb/ 3
+,bb3 4
+stringbb5 ;
+addressbb< C
+,bbC D
+intbbE H
+numberOfPlacesbbI W
+,bbW X
+stringbbY _
+contactEmailbb` l
+,bbl m
+stringbbn t
+contactPhone	bbu Å
 )
-]]Å Ç
-{^^ 	
-if__ 
-(__ 
-name__ 
-!=__ 
-$str__ 
-&&__ 
-name__ "
-!=__# %
-null__& *
-)__* +
-{`` 
-thisaa 
-.aa 
-Nameaa 
-=aa 
-nameaa  
-;aa  !
-}bb 
+bbÅ Ç
+{cc 	
 ifdd 
-(dd 
-addressdd 
-!=dd 
-$strdd 
-&&dd  
-addressdd! (
-!=dd) +
-nulldd, 0
-)dd0 1
+(dd 
+namedd 
+!=dd 
+$strdd 
+&&dd 
+namedd "
+!=dd# %
+nulldd& *
+)dd* +
 {ee 
 thisff 
-.ff 
-Addressff 
-=ff 
-addressff &
-;ff& '
+.ff 
+Nameff 
+=ff 
+nameff  
+;ff  !
 }gg 
 ifii 
-(ii 
-numberOfPlacesii 
-<=ii  "
-$numii# $
-)ii$ %
-{jj 
-returnkk 
-Resultkk 
-<kk 
-	VetClinickk '
->kk' (
-.kk( )
-Failurekk) 0
-(kk0 1
-$"kk1 3
-$strkk3 A
-"kkA B
-+kkC D
-$"ll 
-$strll F
-"llF G
-+llH I
-$"mm 
-$strmm 
-{mm 
-$nummm 
-}mm 
-$strmm 
-"mm 
-)mm 
-;mm 
-}nn 
-thisoo 
-.oo 
-NumberOfPlacesoo 
-=oo  !
-numberOfPlacesoo" 0
-;oo0 1
-ifqq 
-(qq 
-!qq 
-Validationsqq 
-.qq 
-IsValidEmailqq )
-(qq) *
-contactEmailqq* 6
-)qq6 7
-)qq7 8
-{rr 
-returnss 
-Resultss 
-<ss 
-	VetClinicss '
->ss' (
-.ss( )
-Failuress) 0
-(ss0 1
-$"ss1 3
-$strss3 9
-{ss9 :
-contactEmailss: F
-}ssF G
-$strssG T
-"ssT U
-)ssU V
-;ssV W
-}tt 
-thisuu 
-.uu 
-ContactEmailuu 
-=uu 
-contactEmailuu  ,
-;uu, -
-ifww 
-(ww 
-!ww 
-Validationsww 
-.ww 
-IsValidPhoneNumberww /
-(ww/ 0
-contactPhoneww0 <
-)ww< =
-)ww= >
-{xx 
-returnyy 
-Resultyy 
-<yy 
-	VetClinicyy '
->yy' (
-.yy( )
-Failureyy) 0
-(yy0 1
-$"yy1 3
-$stryy3 @
-{yy@ A
-contactPhoneyyA M
-}yyM N
-$stryyN [
-"yy[ \
-)yy\ ]
-;yy] ^
-}zz 
-this{{ 
-.{{ 
-ContactPhone{{ 
-={{ 
-contactPhone{{  ,
-;{{, -
-return~~ 
-Result~~ 
-<~~ 
-	VetClinic~~ #
->~~# $
-.~~$ %
-Success~~% ,
-(~~, -
-this~~- 1
-)~~1 2
-;~~2 3
-} 	
+(ii 
+addressii 
+!=ii 
+$strii 
+&&ii  
+addressii! (
+!=ii) +
+nullii, 0
+)ii0 1
+{jj 
+thiskk 
+.kk 
+Addresskk 
+=kk 
+addresskk &
+;kk& '
+}ll 
+ifnn 
+(nn 
+numberOfPlacesnn 
+<=nn  "
+$numnn# $
+)nn$ %
+{oo 
+returnpp 
+Resultpp 
+<pp 
+	VetClinicpp '
+>pp' (
+.pp( )
+Failurepp) 0
+(pp0 1
+$"pp1 3
+$strpp3 A
+"ppA B
++ppC D
+$"qq 
+$strqq F
+"qqF G
++qqH I
+$"rr 
+$strrr 
+{rr 
+$numrr 
+}rr 
+$strrr 
+"rr 
+)rr 
+;rr 
+}ss 
+thistt 
+.tt 
+NumberOfPlacestt 
+=tt  !
+numberOfPlacestt" 0
+;tt0 1
+ifvv 
+(vv 
+!vv 
+Validationsvv 
+.vv 
+IsValidEmailvv )
+(vv) *
+contactEmailvv* 6
+)vv6 7
+)vv7 8
+{ww 
+returnxx 
+Resultxx 
+<xx 
+	VetClinicxx '
+>xx' (
+.xx( )
+Failurexx) 0
+(xx0 1
+$"xx1 3
+$strxx3 9
+{xx9 :
+contactEmailxx: F
+}xxF G
+$strxxG T
+"xxT U
+)xxU V
+;xxV W
+}yy 
+thiszz 
+.zz 
+ContactEmailzz 
+=zz 
+contactEmailzz  ,
+;zz, -
+if|| 
+(|| 
+!|| 
+Validations|| 
+.|| 
+IsValidPhoneNumber|| /
+(||/ 0
+contactPhone||0 <
+)||< =
+)||= >
+{}} 
+return~~ 
+Result~~ 
+<~~ 
+	VetClinic~~ '
+>~~' (
+.~~( )
+Failure~~) 0
+(~~0 1
+$"~~1 3
+$str~~3 @
+{~~@ A
+contactPhone~~A M
+}~~M N
+$str~~N [
+"~~[ \
+)~~\ ]
+;~~] ^
+} 
+this
+ÄÄ 
+.
+ÄÄ 
+ContactPhone
+ÄÄ 
+=
+ÄÄ 
+contactPhone
+ÄÄ  ,
+;
+ÄÄ, -
+return
+ÉÉ 
+Result
+ÉÉ 
+<
+ÉÉ 
+	VetClinic
+ÉÉ #
+>
+ÉÉ# $
+.
+ÉÉ$ %
+Success
+ÉÉ% ,
+(
+ÉÉ, -
+this
+ÉÉ- 1
+)
+ÉÉ1 2
+;
+ÉÉ2 3
 }
-ÄÄ 
-}ÅÅ 
+ÑÑ 	
+}
+ÖÖ 
+}ÜÜ 

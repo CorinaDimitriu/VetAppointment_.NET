@@ -1,225 +1,131 @@
-¶
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\ClinicsOverview.razor.cs
+£
+]C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\AppointmentsOverview.razor.cs
 
- (®
-% 999 1AA# 7II *QQ *YY *
-ïï *
-™™$ 8
-≤≤# 7
-∫∫# 7
-¬¬+ ?
-ÑÑ *
-åå *
-îî *
-ÃÃ *"
- #
-ÓÓ 
-¯¯ 
- &99 
- "
-≤≤ 
- "
-∫∫ 
-! 2
-¬¬ !p
- >> >>' ->>F L?? ??- 3AA AAB Hbb ff 
-»» 
- $
-™™ 2
- )IIC QIIW eoo ss ‚
-! *
-ƒƒ$ -
-«« (
-»»$ -
-…… (
-  ! *
-ÃÃF O
-’’ 
-›› 
-ﬂﬂ 
-„„ 
-ÈÈ 
-ÎÎ 
-ÏÏ 
-ÏÏ (
-ÛÛ 
-ıı 
-ıı (
-ˆˆ :
- 
-ïïE H
-ïïT W
-ûû 
-¢¢ 4
- &QQD OQQ[ f|| 
-ÄÄ 6
- &YYD OYY[ f
-ââ 
-çç .
- &
-åå9 D
-™™ 
-ÆÆ .
- &
-îî9 D
-∑∑ 
-ªª .
-   
-™™R T
-—— 
-’’ .
-!! 
-≤≤U [
-ﬁﬁ 
-‚‚ .
-"" 
-∫∫U [
-ÎÎ 
-ÔÔ .
-## $
-¬¬e s
-¯¯ 
-¸¸ .
-$$  
-ÑÑG Q
-ùù 
-°° >
-%% ??K U__ __ $`` 
-…… 2
-&& GG ll ll $mm 2
-'' !OO yy yy *zz 8
-(( !WW 
-ÜÜ 
-ÜÜ *
-áá :
-)) $
-∞∞  
-€€ 
-€€  0
-‹‹  :
-** $
-∏∏  
-ËË 
-ËË  0
-ÈÈ  :
-++ ,
-¿¿ (
-ıı $
-ıı( @
-ˆˆ (:
-,,  
-®® 
-ŒŒ 
-ŒŒ (
-œœ :
--- 
-ÇÇ 
-öö 
-öö $
-õõ :
-.. !
-ää 
-ßß 
-ßß *
-®® :
-// !
-íí 
-¥¥ 
-¥¥ *
-µµ :
-00 #
-ìì 
-õõ 
-õõ .
-úú :
-11 %
-¡¡ !
-““ 
-““! 2
-”” !
+ -
+' =" 8
+! - 
 
-33 +
-44< =44A B
+& 8œ
+gC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicAppointments.razor.cs
 
-55 !
-665 666: ;
+		 +
+% 9' ;
 
-77& 8
+ #
+ V ^
+! 2 
 
-<< )
+& 8ﬂ
+cC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicEditPage.razor.cs
 
-EE )
+ '
+% 9 /** &
+ #++ (
+! 200 55 :: <
+ > F**4 <004 <554 <::4 <
 
-MM 0
+ +
+< =A BP
+      !!  ""! '## %$$ %
+ ) **> L
 
-UU 0
+& 8
 
-]] (
+(( )
 
-jj (
+.. (
 
-ww %
+33 (
 
-ÑÑ %
+88 0î
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicPets.razor.cs
 
-ëë +
+ #<
+% 9 366 &77 3SS *TT# 7(
+ #AA KK PP$ -<
+ F N667 ?77F NSSe mTTJ R(
+ " 77 TT ™
+! 2 && !(( ..  111 ,22  133 ,44 .<< !>> !?? !??' 8FF !HH !HH' 8II !
 
-ôô *
+ !
+4 59 :
 
-¶¶ $
+& 8
 
-ÆÆ (
+  -
+$$ $$ $$$ %
 
-∂∂ (
+++ ,
+-- // 66A EF
+.. .. ..9 :112 3227 8332 3444 5
 
-ææ 0
+:: +
 
-∆∆ !
+DD (
 
-ÃÃ &
+NN & 
+NN, 1PPX ]
+SSä è
+PP QQ Ê
+dC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicsOverview.razor.cs
 
-ŸŸ *
+
+
+ (<
+% 9 1   /!! 1)) ***! 5
+ #&&$ -
+! 200 (
+ & !! ** 
+      : @
 
-ÊÊ *
+ +
+< =A B
 
-ÛÛ 2
+ !
+5 6: ;
 
-ÄÄ )
+& 8
 
-àà 0
+ )
 
-êê 0
+$$ )
+$$/ 7&&[ c))< D
+&& '' 
 
-òò (
+.. )
+../ 7004 <·
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\ClinicPages\ClinicVets.razor.cs
 
-•• %
+ #2
+% 9 3!! &)) ***# 7
+ #&&$ -
+! 200 <
+ F N!!6 >))e m**J R00, 4
+ " ** 
+ !!@ C
 
-≤≤ %
+ +
+< =A B
 
-øø ,$
+& 8
 
-√√ 
-≈≈ 
-ÃÃ[ _T
+ +
 
-ƒƒ 
-ƒƒ  !
-ƒƒ5 6
-««. /
-»»3 4
-……. /
-  0 1
+$$ & 
+$$, 1&&X ]
+))ä è
+&& '' 
 
-–– +$
+.. )
+../ 400; @ú
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\DrugsOverview.razor.cs
 
-€€ 
-€€  !
-€€( )
+ &
+  / *
+  
 
-ÁÁ +
-
-ÒÒ (©
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelClinic.cs
+& 8´
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\ClinicModel.cs
 
  
 
@@ -235,8 +141,8 @@ SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelClini
 
  "
 
- "ö
-PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPet.cs
+ "ú
+RC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetModel.cs
 
  
 
@@ -250,8 +156,8 @@ PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPet.c
 
 
 
- ã
-YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPetsInClinic.cs
+ Å
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetsInClinicModel.cs
 
  "
 
@@ -259,10 +165,32 @@ YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelPetsI
 
 
 
- 
+ Ä
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetToDeleteModel.cs
 
-  
-PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelVet.cs
+ !
+
+ &
+
+ #∞
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\PetToUpdateModel.cs
+
+ !
+
+ 
+
+ 
+
+ !
+
+		 
+
+
+
+ 
+
+ Ã
+RC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetModel.cs
 
  
 
@@ -284,41 +212,17 @@ PC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\ModelVet.c
 
  
 
- &y
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToDelete.cs
+ &Ä
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetToDeleteModel.cs
 
- 
-
- &
-
- #©
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\PetToUpdate.cs
-
- 
-
- 
-
- 
-
- !
-
-		 
-
-
-
- 
-
- y
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToDelete.cs
-
- 
+ !
 
  &
 
- #Õ
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToUpdate.cs
+ #‘
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Models\VetToUpdateModel.cs
 
- 
+ !
 
  
 
@@ -338,20 +242,96 @@ SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Models\VetToUpdat
 
  
 
- &ô
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\PetsOverview.razor.cs
+ & 
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetOwnersOverview.razor.cs
+
+ *
+$ 7 2
+ '  
+
+& 8
+ 7 8D Eõ
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PetsOverview.razor.cs
 
  %
  - (
   
 
-& 8s
-YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IPetDataService.cs
+& 8¶
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\PrescribedDrugsOverview.razor.cs
+
+ 0
+* C% >
+$ 3 
+
+& 8ˆ
+bC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\AppointmentDataService.cs
+
+ '
+
+
+ $@ G
+ #1 7 (
+$ .  !! +
+1 ; (
+
+4 F
+ : A
+
+' 5
+B M0 ;
+   g n
+ + /
+    F NÌ
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\DrugDataService.cs
+
+  
+		 $
+
+@ G
+
+
+ #1 7
+$ .  !
+* 4 (
+
+- 8
+ : Aï
+cC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IAppointmentDataService.cs
+
+ ,
+
+ (
+
+5 @
+
+' 9v
+\C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IDrugDataService.cs
+
+ %
+
+  +u
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPetDataService.cs
 
  $
 
- )Ì
-_C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IVetClinicDataService.cs
+ )z
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPetOwnerDataService.cs
+
+ )
+
+$ 3Ä
+fC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IPrescribedDrugDataService.cs
+
+ /
+
+* ?{
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\ITreatmentDataService.cs
+
+ *
+
+% 5Ô
+aC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IVetClinicDataService.cs
 
  *
 
@@ -393,11 +373,11 @@ _C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IVetClin
 
  "
 
-/ 2
+4 7
 
  "
 
-/ 2
+4 7
 
  $
 
@@ -415,58 +395,119 @@ _C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\IVetClin
 
 ( 0
 
-> A
+C F
 
  "
 
 ( 0
 
-> A‘
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataService.cs
+C Fç
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\IVetDataService.cs
+
+ $
+
+ )
+
+		 
+
+		" $Ï
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PetDataService.cs
 
  
-		 #1 7
+		 $
+
+@ G
 
 
-$ .  !
-) 3 (
+ #1 7
+$ .  !
+) 3 (
 
-, 6
- : Aê
-^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\VetClinicDataService.cs
+, 6
+ : A’
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PetOwnerDataService.cs
 
-		 %û
- #0 6   ''" (;; "DD" (VV" (^^" (hh" (qq" (zz" (
+		 $
+ $@ G(
+ #p v %%$ *2
+$ . V `! +&&! +
+. 8 (
+
+1 @
+
+$ /
+9 A0 8
+   d k
+ + /
+    C K
+
+##$ 5
+##; E%%- 7
+##Q U&&L P
+%% &&< J
+&& '' !˜
+eC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\PrescribedDrugDataService.cs
+
+ *
+		 $
+
+@ G
+
+
+ #1 7
+$ .  !
+4 > (
+
+7 L
+ : AÚ
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\TreatmentDataService.cs
+
+ %
+		 $
+
+@ G
+
+
+ #1 7
+$ .  !
+/ 9 (
+
+2 B
+ : Aí
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\VetClinicDataService.cs
+
+		 %
+ $@ Gû
+ #0 6!! ((" (==3 9DD" (VV" (^^" (hh" (qq" (zz" (
 ÖÖ" (
 èè" (
 òò" (
 ™™" (®
-$ .   ! +33! +==  NN! +WW! +``! +jj  ss  ||  
+$ .     ! +44! +==  NN! +WW! +``! +jj  ss  ||  
 ÜÜ! +
 êê! +
 °°! +
 ∂∂! +
-/ 9 (
+/ 9 (
 
-2 ?
+2 ?
 
-% .
-9 ?0 6
- ""e l
-   / 3
- !! ""D L
+% .
+9 ?0 6
+ ##e l
+ !!/ 3
+   "" ##D L
 
-%%" 0
-%%6 >''- 5P
-%%I L** ++ ,, -- .. // 00! $
-'' 44 !
-(( 220 6
-22 445 9
-33 55 66 
+&&" 0
+&&6 >((- 5P
+&&I L++ ,, -- .. // 00 11! $
+(( 55 !
+)) 330 6
+33 555 9
+44 66 77 
 
-99% 2
-998 :;;' )
-;; ==0 3
+::% 2
+::8 :==< >
 
 BB" .
 BB4 <DD- 5<
@@ -502,7 +543,7 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataS
 
 ÅÅ" /$
 
-ÅÅ< ?
+ÅÅA D
 ÉÉ& )
 ÑÑ# &
 
@@ -521,7 +562,7 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataS
 
 ãã" /$
 
-ãã< ?
+ããA D
 çç& )
 éé# &
 
@@ -543,7 +584,7 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataS
 ïï5 =
 òò- 5H
 
-ïïK N
+ïïP S
 óó# &
 õõ 
 úú 
@@ -571,7 +612,7 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataS
 ßß5 =
 ™™- 5l
 
-ßßK N
+ßßP S
 ©©# &
 ≠≠ 
 ÆÆ 
@@ -595,8 +636,32 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataS
 
 ∂∂ 
 ∏∏ 
-ππ Ú
-`C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelClinicValidator.cs
+ππ ¢
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Services\VetDataService.cs
+
+ 
+		 $
+
+@ G
+
+
+ #1 73 9(
+$ .  !  
+) 3 (
+
+, 6
+ : A
+
+ )
+/ 1< >°
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\TreatmentsOverview.razor.cs
+
+ +
+% 9  4
+ ) 
+
+& 8Ù
+bC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\ClinicModelValidator.cs
 
  %
 
@@ -608,32 +673,16 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Services\PetDataS
   $
   $
   $
-  $ó
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelPetValidator.cs
+  $É
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\PetModelValidator.cs
 
  "
 
 
   
 
-$ ,
-   (õ
-]C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\ModelVetValidator.cs
-
- "
-
-
- 
-
- 
-  
-  
-  
-  
-  
-  
-  ñ
-XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\PetValidator.cs
+$ ,ò
+ZC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\PetValidator.cs
 
  
 
@@ -651,8 +700,8 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\PetVal
   
 5 8= @
   
-7 :? B
-^C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\VetClinicValidator.cs
+7 :? BÚ
+`C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\VetClinicValidator.cs
 
  #
 
@@ -664,10 +713,55 @@ XC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Pages\Validators\PetVal
   $
   $
   $
-  $‡
-BC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\Program.csb
-  		  / 6 / 6  H O 
-  
-  
+  $ù
+_C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\Validators\VetModelValidator.cs
 
- 
+ "
+
+
+ 
+
+ 
+  
+  
+  
+  
+  
+  
+  ô
+]C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetEditPage.razor.cs
+
+ $
+ - *
+% 9.. &
+ #// 
+ 6 ;..5 :
+ '' #
+  + ..< G
+
+ +
+< =A B
+
+& 8Z
+    !! "" ##+ .$$ %% && ((1 4
+
+,, 0§
+^C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Pages\VetPages\VetsOverview.razor.cs
+
+ %
+ - (
+  
+
+& 8”
+DC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\Program.csŒ
+  		  / 6 / 6 / 6 / 6 / 6 !!/ 6## %%/ 6'' ))/ 6,, -- --H O.. 
+  
+  
+  
+  
+  
+!! !! 
+%% %% 
+)) )) 
+
+-- 

@@ -1,17 +1,18 @@
 Product projects
 ---------------------------------------
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\VetAppointment.Shared.csproj
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetAppointment.Domain.csproj
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.UI\VetAppointment.UI.csproj
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Application\VetAppointment.Application.csproj
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.API\VetAppointment.API.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Shared\VetAppointment.Shared.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\VetAppointment.Domain.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI\VetAppointment.UI.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Application\VetAppointment.Application.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\VetAppointment.Infrastructure.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.API\VetAppointment.API.csproj
 
 
 Test projects
 ---------------------------------------
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\VetAppointment.Business.Test.csproj
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\VetAppointment.Business.Test.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.UI.Test\VetAppointment.UI.Test.csproj
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Integration.Test\VetAppointment.Integration.Test.csproj
 
 
 Invalid projects

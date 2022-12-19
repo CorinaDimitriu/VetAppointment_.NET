@@ -2,18 +2,17 @@
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
-using VetAppointment.API.Validators;
 using VetAppointment.Domain;
-using VetAppointment.Infrastructure.Data;
+using VetAppointment.Application;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class MedicalHistoriesController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly CreateAppointmentDtoValidator createAppointmentDtoValidator = new();
 
         public MedicalHistoriesController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
@@ -56,11 +55,6 @@ namespace VetAppointment.API.Controllers
         [HttpPost("{medicalHistoryId:Guid}/appointment")]
         public IActionResult Post(Guid medicalHistoryId, [FromBody] CreateAppointmentDto appointmentDto)
         {
-            var validatorResult = createAppointmentDtoValidator.Validate(appointmentDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
             var medicalHistory = unitOfWork.MedicalHistoryRepository.Get(medicalHistoryId).Result;
             if (medicalHistory == null)
             {

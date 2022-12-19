@@ -1,20 +1,20 @@
-_
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\AppointmentTests.csutf-8_
-VC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\ClinicOwnerTests.csutf-8X
-OC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\DrugTests.csutf-8b
-YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\MedicalHistoryTests.csutf-8\
-SC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\PetOwnerTests.csutf-8W
-NC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\PetTests.csutf-8b
-YC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\PrescribedDrugTests.csutf-8]
-TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\TreatmentTests.csutf-8U
-LC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\Usings.csutf-8]
-TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\ValidationTest.csutf-8]
-TC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\VetClinicTests.csutf-8V
-MC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\VetTets.csutf-8
-tC:\Users\Leonard\.nuget\packages\microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.csutf-8é
-ÇC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.GlobalUsings.g.csutf-8é
-ÇC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8å
-ÄC:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.AssemblyInfo.csutf-8w
+a
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\AppointmentTests.csutf-8a
+XC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\ClinicOwnerTests.csutf-8Z
+QC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\DrugTests.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\MedicalHistoryTests.csutf-8^
+UC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\PetOwnerTests.csutf-8Y
+PC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\PetTests.csutf-8d
+[C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\PrescribedDrugTests.csutf-8_
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\TreatmentTests.csutf-8W
+NC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\Usings.csutf-8_
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\ValidationTest.csutf-8_
+VC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\VetClinicTests.csutf-8X
+OC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\VetTets.csutf-8
+tC:\Users\Leonard\.nuget\packages\microsoft.net.test.sdk\17.3.2\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.csutf-8ê
+ÑC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.GlobalUsings.g.csutf-8ê
+ÑC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8é
+ÇC:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Business.Test\obj\Debug\net7.0\VetAppointment.Business.Test.AssemblyInfo.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSExportGenerator\JSExports.g.csutf-8w
 lMicrosoft.Interop.JavaScript.JSImportGenerator\Microsoft.Interop.JavaScript.JSImportGenerator\JSImports.g.csutf-8p
 eMicrosoft.Interop.LibraryImportGenerator\Microsoft.Interop.LibraryImportGenerator\LibraryImports.g.csutf-8

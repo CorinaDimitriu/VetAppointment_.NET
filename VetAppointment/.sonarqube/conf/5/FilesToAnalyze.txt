@@ -1,13 +1,13 @@
-﻿C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Data\DatabaseContext.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Data\IUnitOfWork.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Data\UnitOfWork.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\AppointmentRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\DrugRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\MedicalHistoryRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetOwnerRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\PrescribedDrugRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\TreatmentRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetClinicRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetRepository.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\Repositories\Repository.cs
+﻿C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\ConfigureServices.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Data\DatabaseContext.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Data\UnitOfWork.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\AppointmentRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\DrugRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\MedicalHistoryRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetOwnerRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\PetRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\PrescribedDrugRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\TreatmentRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetClinicRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\GenericRepositories\VetRepository.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Infrastructure\Repositories\Repository.cs

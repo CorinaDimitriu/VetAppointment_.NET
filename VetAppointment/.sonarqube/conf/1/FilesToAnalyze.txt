@@ -1,18 +1,18 @@
-﻿C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Appointment.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\ClinicOwner.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Drug.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalGender.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\AnimalRace.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\PersonGender.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Enums\VetSpecialisation.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Result.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\ResultOfEntity.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Helpers\Validations.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\MedicalHistory.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Person.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Pet.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PetOwner.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\PrescribedDrug.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Treatment.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\Vet.cs
-C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Domain\VetClinic.cs
+﻿C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Appointment.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\ClinicOwner.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Drug.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\AnimalGender.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\AnimalRace.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\PersonGender.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Enums\VetSpecialisation.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\Result.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\ResultOfEntity.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Helpers\Validations.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\MedicalHistory.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Person.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Pet.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\PetOwner.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\PrescribedDrug.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Treatment.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\Vet.cs
+C:\Users\Leonard\Desktop\VetAppointment\VetAppointment.Domain\VetClinic.cs

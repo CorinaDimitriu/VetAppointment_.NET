@@ -8,7 +8,7 @@ namespace VetAppointment.API.Validators
     {
         public CreateAppointmentDtoValidator()
         {
-            RuleFor(dto => dto.ScheduledDate).NotNull().NotEmpty().Must(Validations.BeValidDate);
+            RuleFor(dto => dto.ScheduledDate).NotNull().NotEmpty().Must(new Validations().BeValidDate);
             RuleFor(dto => dto.EstimatedDurationInMinutes).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(dto => dto.VetId).NotNull().NotEmpty();
             RuleFor(dto => dto.PetId).NotNull().NotEmpty();

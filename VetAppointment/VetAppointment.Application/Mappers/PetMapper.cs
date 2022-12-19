@@ -10,10 +10,8 @@ namespace VetAppointment.Application.Mappers
             {
                 var config = new MapperConfiguration(cfg =>
                 {
-                    cfg.ShouldMapProperty = p =>
-                    p.GetMethod.IsPublic ||
-                    p.GetMethod.IsAssembly;
-                    cfg.AddProfile<PetMappingProfile>();
+                    cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
+                    cfg.AddProfile<PetMapperProfile>();
                 });
                 var mapper = config.CreateMapper();
                 return mapper;

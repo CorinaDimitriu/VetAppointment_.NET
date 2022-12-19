@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using VetAppointment.Shared.Domain;
 
 namespace VetAppointment.UI.Pages.Validators

@@ -2,6 +2,7 @@
 using VetAppointment.Domain;
 using VetAppointment.Infrastructure.Repositories.GenericRepositories;
 
+#nullable disable
 namespace VetAppointment.Infrastructure.Data
 {
     public class UnitOfWork : IUnitOfWork
@@ -10,7 +11,7 @@ namespace VetAppointment.Infrastructure.Data
 
         public UnitOfWork(DatabaseContext context) => this.context = context;
 
-        private IRepository<Appointment>? appointmentRepository;
+        private IRepository<Appointment> appointmentRepository;
         public IRepository<Appointment> AppointmentRepository
         {
             get
@@ -21,7 +22,7 @@ namespace VetAppointment.Infrastructure.Data
         }
 
 
-        private IRepository<Drug>? drugRepository;
+        private IRepository<Drug> drugRepository;
         public IRepository<Drug> DrugRepository
         {
             get
@@ -31,7 +32,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<MedicalHistory>? medicalHistoryRepository;
+        private IRepository<MedicalHistory> medicalHistoryRepository;
         public IRepository<MedicalHistory> MedicalHistoryRepository
         {
             get
@@ -41,7 +42,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<PetOwner>? petOwnerRepository;
+        private IRepository<PetOwner> petOwnerRepository;
         public IRepository<PetOwner> PetOwnerRepository
         {
             get
@@ -51,7 +52,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<Pet>? petRepository;
+        private IRepository<Pet> petRepository;
         public IRepository<Pet> PetRepository
         {
             get
@@ -61,7 +62,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<PrescribedDrug>? prescribedDrugRepository;
+        private IRepository<PrescribedDrug> prescribedDrugRepository;
         public IRepository<PrescribedDrug> PrescribedDrugRepository
         {
             get
@@ -71,7 +72,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<Treatment>? treatmentRepository;
+        private IRepository<Treatment> treatmentRepository;
         public IRepository<Treatment> TreatmentRepository
         {
             get
@@ -81,7 +82,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<VetClinic>? vetClinicRepository;
+        private IRepository<VetClinic> vetClinicRepository;
         public IRepository<VetClinic> VetClinicRepository
         {
             get
@@ -91,7 +92,7 @@ namespace VetAppointment.Infrastructure.Data
             }
         }
 
-        private IRepository<Vet>? vetRepository;
+        private IRepository<Vet> vetRepository;
         public IRepository<Vet> VetRepository
         {
             get

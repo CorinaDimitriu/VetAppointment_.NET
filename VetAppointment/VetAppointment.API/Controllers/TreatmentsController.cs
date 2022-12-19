@@ -2,20 +2,17 @@
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
-using VetAppointment.API.Validators;
 using VetAppointment.Domain;
-using VetAppointment.Infrastructure.Data;
+using VetAppointment.Application;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("v1/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
     public class TreatmentsController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly CreateTreatmentDtoValidator createTreatmentDtoValidator = new();
-        private readonly CreatePrescribedDrugDtoValidator createPrescribedDrugDtoValidator = new();
-
         public TreatmentsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpGet]
@@ -32,11 +29,6 @@ namespace VetAppointment.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateTreatmentDto treatmentDto)
         {
-            var validatorResult = createTreatmentDtoValidator.Validate(treatmentDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
             var treat = TreatmentMapper.Mapper.Map<Treatment>(treatmentDto);
             if (treat == null)
             {
@@ -59,15 +51,6 @@ namespace VetAppointment.API.Controllers
             if (treatment == null)
             {
                 return NotFound();
-            }
-
-            foreach (var prescribedDrug in prescribedDrugDtos)
-            {
-                var validatorResult = createPrescribedDrugDtoValidator.Validate(prescribedDrug);
-                if (!validatorResult.IsValid)
-                {
-                    return BadRequest(validatorResult.Errors);
-                }
             }
 
             var drugs = prescribedDrugDtos.Select(PrescribedDrugMapper.Mapper.Map<PrescribedDrug>).ToList();
@@ -100,12 +83,6 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            var validatorResult = createTreatmentDtoValidator.Validate(treatmentDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
-            }
-
             var result = treatment.UpdateDescription(treatmentDto.Description);
             if (result.IsFailure)
             {
@@ -135,12 +112,6 @@ namespace VetAppointment.API.Controllers
             if (drugPrescribed == null)
             {
                 return NotFound();
-            }
-
-            var validatorResult = createPrescribedDrugDtoValidator.Validate(prescribedDrugDto);
-            if (!validatorResult.IsValid)
-            {
-                return BadRequest(validatorResult.Errors);
             }
 
             var drug = unitOfWork.DrugRepository.Get(prescribedDrugDto.DrugId).Result;

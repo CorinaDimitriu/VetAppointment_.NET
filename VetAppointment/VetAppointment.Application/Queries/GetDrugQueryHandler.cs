@@ -1,13 +1,14 @@
 ﻿using MediatR;
 using VetAppointment.Application.Mappers;
 using VetAppointment.Application.Response;
+using VetAppointment.Domain;
 
 namespace VetAppointment.Application.Queries
 {
     public class GetDrugsQueryHandler : IRequestHandler<GetDrugQuery,DrugResponse>
     {
-        private readonly IRepository<DrugResponse> repository;
-        public GetDrugsQueryHandler(IRepository<DrugResponse> repository)
+        private readonly IRepository<Drug> repository;
+        public GetDrugsQueryHandler(IRepository<Drug> repository)
         {
             this.repository = repository;
         }

@@ -1,4 +1,6 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using VetAppointment.Application;
 using VetAppointment.Domain;
 using VetAppointment.Infrastructure.Data;
@@ -13,7 +15,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddApplicationServices();//asta trebuie dar daca il pun ceva nu merge
+
+builder.Services.AddApplicationServices();
 
 builder.Services.AddDbContext<DatabaseContext>(
     options => options.UseSqlite(

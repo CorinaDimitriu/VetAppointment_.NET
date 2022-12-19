@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using VetAppointment.Application.Mappers;
 using VetAppointment.Application.Response;
+using VetAppointment.Domain;
 
 namespace VetAppointment.Application.Queries
 {
     public class GetAllDrugsQueryHandler : IRequestHandler<GetAllDrugsQuery, List<DrugResponse>>
     {
-        private readonly IRepository<DrugResponse> repository;
-        public GetAllDrugsQueryHandler(IRepository<DrugResponse> repository)
+        private readonly IRepository<Drug> repository;
+        public GetAllDrugsQueryHandler(IRepository<Drug> repository)
         {
             this.repository = repository;
         }

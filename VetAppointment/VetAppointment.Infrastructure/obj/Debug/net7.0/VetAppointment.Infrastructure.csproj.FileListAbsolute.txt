@@ -226,3 +226,22 @@ C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\obj\Debug\ne
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.pdb
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.genruntimeconfig.cache
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Infrastructure\obj\Debug\net7.0\ref\VetAppointment.Infrastructure.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Infrastructure.deps.json
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Infrastructure.runtimeconfig.json
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Infrastructure.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Infrastructure.pdb
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Application.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Domain.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Application.pdb
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\bin\Debug\net7.0\VetAppointment.Domain.pdb
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.csproj.AssemblyReference.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.AssemblyInfoInputs.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.AssemblyInfo.cs
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.csproj.CopyComplete
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\refint\VetAppointment.Infrastructure.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.pdb
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\VetAppointment.Infrastructure.genruntimeconfig.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Infrastructure\obj\Debug\net7.0\ref\VetAppointment.Infrastructure.dll

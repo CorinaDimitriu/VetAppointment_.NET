@@ -130,3 +130,15 @@ C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\obj\Debug\net7.0\Vet
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\obj\Debug\net7.0\refint\VetAppointment.Shared.dll
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.pdb
 C:\Users\Leonard\Desktop\Clean VetApp\VetAppointment.Shared\obj\Debug\net7.0\ref\VetAppointment.Shared.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\bin\Debug\net7.0\VetAppointment.Shared.deps.json
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\bin\Debug\net7.0\VetAppointment.Shared.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\bin\Debug\net7.0\VetAppointment.Shared.pdb
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.csproj.AssemblyReference.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.AssemblyInfoInputs.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.AssemblyInfo.cs
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\refint\VetAppointment.Shared.dll
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\VetAppointment.Shared.pdb
+D:\Facultate\Anul 3\.net\Proiect .net\VetAppointment_.NET\VetAppointment\VetAppointment.Shared\obj\Debug\net7.0\ref\VetAppointment.Shared.dll

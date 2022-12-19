@@ -8,8 +8,6 @@ namespace VetAppointment.Application.Commands
         {
             RuleFor(dto => dto.Name).NotNull().NotEmpty().Length(1, 100);
             RuleFor(dto => dto.Surname).NotNull().NotEmpty().Length(1, 100);
-            //RuleFor(dto => dto.Birthdate).NotNull().NotEmpty().Must(new Validations().BeValidDate);
-            //RuleFor(dto => dto.Gender).NotNull().NotEmpty().Must(new Validations().BeInPersonGenderEnum);
             RuleFor(dto => dto.Birthdate).NotNull().NotEmpty();
             RuleFor(dto => dto.Gender).NotNull().NotEmpty();
             RuleFor(dto => dto.Address).NotNull().NotEmpty().Length(1, 250);

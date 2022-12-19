@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using VetAppointment.Application.Mappers;
 using VetAppointment.Application.Response;
 using VetAppointment.Domain;
@@ -17,7 +18,8 @@ namespace VetAppointment.Application.Queries
         {
             var drug = DrugMapper.Mapper.Map<Drug>(await repository.Get(request.Id));
             await repository.Delete(drug);
-            return null; // aici de gasit un return ok...
+            //return null; // aici de gasit un return ok...
+            return new DrugResponse();
         }
     }
 }

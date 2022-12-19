@@ -6,7 +6,6 @@ namespace VetAppointment.UI.Pages.Services
 {
     public class VetDataService : IVetDataService
     {
-        //private const string ApiURL = "https://localhost:7112/v1/api/vets";
         private const string version = "v1";
         private const string ApiURL = $"https://localhost:7112/{version}/api/vets";
         private readonly HttpClient httpClient;

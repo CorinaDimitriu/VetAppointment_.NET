@@ -5,9 +5,9 @@ using VetAppointment.Domain;
 
 namespace VetAppointment.API.Mappers
 {
-    public class PetOwnerMapperProfile : Profile
+    public class PetOwnerMappingProfile : Profile
     {
-        public PetOwnerMapperProfile() 
+        public PetOwnerMappingProfile() 
         {
             CreateMap<PetOwner, PetOwnerResponse>().ReverseMap();
             CreateMap<CreatePetOwnerCommand, PetOwner>().ReverseMap();

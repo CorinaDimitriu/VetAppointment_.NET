@@ -16,18 +16,17 @@ namespace VetAppointment.Application.Queries
             this.repositoryPet = repositoryPet;
         }
 
-        //todo
         public async Task<PetOwnerResponse> Handle(RegisterPetsToOwnerQuery request, CancellationToken cancellationToken)
         {
             var owner = repository.Get(request.Id).Result;
 
             var pets = request.CreatePetCommands.Select(PetMapper.Mapper.Map<Pet>).ToList();
 
-            var result1 = owner.RegisterPetsToOwner(pets);
+            owner.RegisterPetsToOwner(pets);
 
             pets.ForEach(p => repositoryPet.Add(p));
 
-            return null;
+            return PetOwnerMapper.Mapper.Map<PetOwnerResponse>(await repository.Get(request.Id));
         }
     }
 }

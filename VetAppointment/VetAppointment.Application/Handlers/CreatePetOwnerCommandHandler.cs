@@ -17,10 +17,6 @@ namespace VetAppointment.Application.Handlers
         public async Task<PetOwnerResponse> Handle(CreatePetOwnerCommand request, CancellationToken cancellationToken)
         {
             var petOwnerEntity = PetOwnerMapper.Mapper.Map<PetOwner>(request);
-            if (petOwnerEntity == null)
-            {
-                throw new ApplicationException("Issue with the mapper");
-            }
             var newPetOwner = await repository.Add(petOwnerEntity);
             return PetOwnerMapper.Mapper.Map<PetOwnerResponse>(newPetOwner);
         }

@@ -13,7 +13,7 @@ namespace VetAppointment.API.Mappers
                     cfg.ShouldMapProperty = p =>
                     p.GetMethod.IsPublic ||
                     p.GetMethod.IsAssembly;
-                    cfg.AddProfile<PetOwnerMapperProfile>();
+                    cfg.AddProfile<PetOwnerMappingProfile>();
                 });
                 var mapper = config.CreateMapper();
                 return mapper;

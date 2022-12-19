@@ -1,6 +1,6 @@
 ﻿using VetAppointment.Domain.Enums;
 
-namespace VetAppointment.API.Validators
+namespace VetAppointment.Application.Commands
 {
     public static class Validations
     {

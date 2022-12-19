@@ -16,10 +16,6 @@ namespace VetAppointment.Application.Handlers
         public async Task<DrugResponse> Handle(CreateDrugCommand request, CancellationToken cancellationToken)
         {
             var drugEntity = DrugMapper.Mapper.Map<Drug>(request);
-            if (drugEntity == null)
-            {
-                throw new ApplicationException("Issue with the mapper");
-            }
             var newDrug = await repository.Add(drugEntity);
             return DrugMapper.Mapper.Map<DrugResponse>(newDrug);
         }

@@ -14,7 +14,7 @@ namespace VetAppointment.API.Controllers
     {
         private readonly IRepository<PetOwner> petOwnerRepository;
         private readonly IRepository<Pet> petRepository;
-        
+
         public PetOwnersController(IRepository<PetOwner> petOwnerRepository, IRepository<Pet> petRepository)
         {
             this.petOwnerRepository = petOwnerRepository;
@@ -33,54 +33,20 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreatePetOwnerDto petOwnerDto)
+        public IActionResult Post([FromBody] CreatePetOwnerDto petOwnerDto)
         {
             var petOwner = PetOwnerMapper.Mapper.Map<PetOwner>(petOwnerDto);
-
             if (petOwner == null)
             {
                 return BadRequest();
             }
 
-            petOwnerRepository.Add(petOwner);
-            petOwnerRepository.SaveChanges();
+            petOwnerRepository.Add(petOwner).Wait();
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return Created(nameof(Get), PetOwnerMapper.Mapper.Map<PetOwnerDto>(petOwner));
-
-        }
-
-        [HttpPost ("{ownerId:guid}/pets")]
-        public IActionResult RegisterPetsToOwner(Guid ownerId, [FromBody] List<CreatePetDto> petsDtos)
-        {
-            var owner = petOwnerRepository.Get(ownerId).Result;
-            if (owner == null)
-            {
-                return NotFound();
-            }
-
-            var pets = petsDtos.Select(PetMapper.Mapper.Map<Pet>).ToList();
-            if(pets.Any(p => p == null))
-            {
-                return BadRequest();
-            }
-
-            var result = owner.RegisterPetsToOwner(pets);
-
-            if (result.IsFailure)
-            {
-                return BadRequest(result.Error);
-            }
-
-            pets.ForEach(p => petRepository.Add(p));
-            petOwnerRepository.SaveChanges();
-
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return Created(nameof(Get), PetOwnerMapper.Mapper.Map<PetOwnerDto>(owner));
+            return Created(nameof(Get), petOwner);
         }
     }
 }

@@ -123,11 +123,19 @@ namespace VetAppointment.API.Controllers
         }
 
         // Post - Vet, Pets, Appointment, Drug
-        [HttpPost("{vetClinicId:guid}/pets")]
-        public IActionResult RegisterPetsFamily(Guid vetClinicId, [FromBody] List<CreatePetDto> petsDtos)
+
+        // Old: "{vetClinicId:guid}/pets"
+        [HttpPost("{vetClinicId:guid}/{petOwnerId:guid}/pets")]
+        public IActionResult RegisterPetsFamily(Guid vetClinicId, Guid petOwnerId, [FromBody] List<CreatePetDto> petsDtos)
         {
             var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
             if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var owner = unitOfWork.PetOwnerRepository.Get(petOwnerId).Result;
+            if (owner == null)
             {
                 return NotFound();
             }
@@ -139,6 +147,7 @@ namespace VetAppointment.API.Controllers
             }
 
             var result = clinic.RegisterPetsFamilyToClinic(pets.ToList());
+            pets.ForEach(p => p.ConnectToOwner(owner));
             if (result.IsFailure)
             {
                 return BadRequest(result.Error);
@@ -209,6 +218,24 @@ namespace VetAppointment.API.Controllers
             if (appointment == null)
             {
                 return BadRequest();
+            }
+
+            var vetAppointments = unitOfWork.AppointmentRepository.All().Result.Where(a => a.VetId == vet.Id).ToList();
+
+            var newAppStartDate = appointment.ScheduledDate;
+            var newAppEndDate = appointment.ScheduledDate.AddMinutes(appointment.EstimatedDurationInMinutes);
+            foreach (Appointment app in vetAppointments)
+            {
+                var appStartDate = app.ScheduledDate;
+                var appEndDate = app.ScheduledDate.AddMinutes(app.EstimatedDurationInMinutes);
+
+                if (newAppStartDate >= appStartDate && newAppStartDate <= appEndDate ||
+                    newAppEndDate >= appStartDate && newAppEndDate <= appEndDate ||
+                    appStartDate >= newAppStartDate && appStartDate <= newAppEndDate ||
+                    appEndDate >= newAppStartDate && appEndDate <= newAppEndDate )
+                {
+                    return Conflict("Vet is busy at this time");
+                }
             }
 
             var result = medicalHistory.RegisterAppointmentToHistory(appointment);

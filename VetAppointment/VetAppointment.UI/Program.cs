@@ -20,7 +20,7 @@ builder.Services.AddHttpClient<IVetClinicDataService, VetClinicDataService>
     (
         client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     );
-builder.Services.AddHttpClient < IPetOwnerDataService, PetOwnerDataService>
+builder.Services.AddHttpClient <IPetOwnerDataService, PetOwnerDataService>
     (
         client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     );
@@ -37,6 +37,10 @@ builder.Services.AddHttpClient<IPrescribedDrugDataService, PrescribedDrugDataSer
         client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     );
 builder.Services.AddHttpClient<ITreatmentDataService, TreatmentDataService>
+    (
+        client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
+    );
+builder.Services.AddHttpClient<IAccountDataService, AccountDataService>
     (
         client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     );

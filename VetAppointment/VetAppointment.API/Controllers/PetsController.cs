@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Mappers;
 using VetAppointment.Application;
@@ -15,6 +16,7 @@ namespace VetAppointment.API.Controllers
 
         public PetsController(IRepository<Pet> petRepository) => this.petRepository = petRepository;
 
+        [Authorize (Roles = "admin")]
         [HttpGet]
         public IActionResult Get()
         {

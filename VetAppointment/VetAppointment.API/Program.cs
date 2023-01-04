@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using VetAppointment.API;
 using VetAppointment.Application;
 using VetAppointment.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,13 +35,13 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(builder =>
     {
         builder.WithOrigins("https://localhost:7029").
-        WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("Content-Type", "x-requested-with");
+        WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("Content-Type", "x-requested-with", "Authorization");
     });
 
     options.AddPolicy(name: "clinicsCors", builder =>
     {
         builder.WithOrigins("https://localhost:7029").
-        WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("Content-Type", "x-requested-with");
+        WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("Content-Type", "x-requested-with", "Authorization");
     });
 });
 
@@ -68,6 +72,31 @@ builder.Services.AddAPIServices();
 builder.Services.AddInfrastrutureServices(builder.Configuration);
 builder.Services.AddHealthChecks();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = true,
+        ValidAudience = "https://localhost:7029",
+        ValidateIssuer = true,
+        ValidIssuer = "https://localhost:7029",
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText("key"))),
+        ClockSkew = TimeSpan.Zero
+    };
+
+    //options.Events = new JwtBearerEvents
+    //{
+    //    OnMessageReceived = context =>
+    //    {
+    //        context.Token = context.Request.Cookies[".AspNetCore.Cookies"];
+    //        return Task.CompletedTask;
+    //    }
+    //};
+
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -86,7 +115,14 @@ app.UseHttpsRedirection();
 app.UseCors("clinicsCors");
 app.UseHealthChecks("/health");
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCookiePolicy(new CookiePolicyOptions
+    {
+        MinimumSameSitePolicy = SameSiteMode.Strict,
+    });
 
 app.MapControllers();
 

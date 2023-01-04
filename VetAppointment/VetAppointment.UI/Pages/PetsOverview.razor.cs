@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Services;
 
@@ -10,10 +11,15 @@ namespace VetAppointment.UI.Pages
         [Inject]
         public IPetDataService PetDataService { get; set; }
 
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
+
         public List<Pet> Pets { get; set; } = default!;
         protected async override Task OnInitializedAsync()
         {
-            Pets = (await PetDataService.GetAllPets()).ToList();
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            Console.WriteLine(jwt);
+            Pets = (await PetDataService.GetAllPets(jwt)).ToList();
         }
     }
 }

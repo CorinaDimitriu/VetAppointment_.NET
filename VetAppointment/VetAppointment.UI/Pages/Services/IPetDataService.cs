@@ -1,9 +1,10 @@
-﻿using VetAppointment.Shared.Domain;
+﻿using Blazored.SessionStorage;
+using VetAppointment.Shared.Domain;
 
 namespace VetAppointment.UI.Pages.Services
 {
     public interface IPetDataService
     {
-        Task<IEnumerable<Pet>> GetAllPets();
+        Task<IEnumerable<Pet>> GetAllPets(string jwt);
     }
 }

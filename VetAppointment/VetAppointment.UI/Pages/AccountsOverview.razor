@@ -1,0 +1,34 @@
+﻿@page "/accountsoverview"
+
+<PageTitle>Account Overview</PageTitle>
+<h1>Login Prototype</h1>
+
+@if (Account == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm class="container" Model="Account" OnValidSubmit="Login">
+        <div>
+            <label for="username">Username</label>
+            <InputText id="username" @bind-Value="Account.Username" placeholder="Username" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="passwd">Password</label>
+            <InputText id="passwd" @bind-Value="Account.Password" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="repeat-passwd">Retype Password</label>
+            <InputText id="repeat-passwd" @bind-Value="Account.RepeatPassword" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-success">Login</button><br />
+            </div>
+        </div>
+    </EditForm>
+}

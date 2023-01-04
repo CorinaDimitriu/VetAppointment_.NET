@@ -31,7 +31,7 @@ namespace VetAppointment.API.Controllers
 
             var token = new JwtSecurityToken(issuer: "https://localhost:7029",
                 audience: "https://localhost:7029", claims: claims,
-                expires: DateTime.Now.AddMinutes(1), signingCredentials: credentials);
+                expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
             //var userIdentity = new ClaimsIdentity(claims, "User Identity");
             //var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
             //HttpContext.SignInAsync(userPrincipal);

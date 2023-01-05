@@ -5,10 +5,16 @@
         vertical-align: middle;
         text-align: center
     }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
 </style>
 
 <PageTitle>Clinic Overview</PageTitle>
-<h1>Clinics Overview</h1>
+<h1 class="title-transition">Clinics Overview</h1>
 
 <h3>All Clinics</h3>
 @if (Clinics == null)

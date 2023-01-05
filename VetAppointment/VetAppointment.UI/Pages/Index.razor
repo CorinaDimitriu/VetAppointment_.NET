@@ -1,9 +1,26 @@
 ﻿@page "/"
+<style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    h1, h6 {
+        text-align: center;
+    }
+</style>
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1 class="title-transition">Welcome to Vet Appointment App!</h1>
 
-Welcome to your new app.
+<h6 class="subtitle-transition">The best way to take care of your little friend 🤍</h6>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<div class="nav-item px-3">
+    <NavLink class="nav-link" href="accountsoverview">
+        <button class="btn btn-success btn-login">Login</button>
+    </NavLink>
+</div>
+
+<img src="./veterinarian-png-transparent-png.png" alt="Cute image" />

@@ -1,5 +1,19 @@
 ﻿@page "/treatmentsoverview"
-<h2>Pets Overview</h2>
+
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+</style>
+
+<h2 class="title-transition">Treatment Overview</h2>
 @if (Treatments == null)
 {
         <p><em>Loading...</em></p>

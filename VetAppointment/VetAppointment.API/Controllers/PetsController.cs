@@ -4,6 +4,7 @@ using VetAppointment.API.Dtos;
 using VetAppointment.API.Mappers;
 using VetAppointment.Application;
 using VetAppointment.Domain;
+using VetAppointment.Infrastructure.Repositories.GenericRepositories;
 
 namespace VetAppointment.API.Controllers
 {
@@ -26,6 +27,32 @@ namespace VetAppointment.API.Controllers
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(pets);
+        }
+
+        [HttpGet("{petId:guid}")]
+        public IActionResult GetById(Guid petId)
+        {
+            var pet = petRepository.Get(petId).Result;
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            var petDto = new PetDto
+            {
+                Id = pet.Id,
+                OwnerId = pet.OwnerId,
+                ClinicId = pet.ClinicId,
+                Name = pet.Name,
+                Birthdate = pet.Birthdate.ToString(),
+                Race = pet.Race.ToString(),
+                Gender = pet.Gender.ToString(),
+            };
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(petDto);
         }
     } 
 }

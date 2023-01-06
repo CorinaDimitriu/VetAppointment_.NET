@@ -22,6 +22,14 @@ namespace VetAppointment.UI.Pages.Services
                 new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
+        public async Task<PetOwner> GetPetOwnerById(Guid id)
+        {
+            return await JsonSerializer.DeserializeAsync<PetOwner>(
+                await httpClient.GetStreamAsync($"{ApiURL}/{id}"),
+                new JsonSerializerOptions()
+                { PropertyNameCaseInsensitive = true });
+        }
+
         public async Task<PetOwner> AddPetOwner(PetOwner petOwner)
         {
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };

@@ -1,0 +1,64 @@
+﻿@page "/{ClinicId:guid}/pet/{PetId:guid}"
+
+<PageTitle>Edit Pet</PageTitle>
+<h3>Edit Pet</h3>
+
+<tabel id="inner" class="table table-light">
+    <thead class="table-primary">
+        <tr>
+            <th>Pet Id</th>
+            <th>Pet Name</th>
+            <th>Pet Birthdate</th>
+            <th>Pet Race</th>
+            <th>Pet Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@PetId</td>
+            <td>@PetOld.Name</td>
+            <td>@PetOld.Birthdate</td>
+            <td>@PetOld.Race[0]</td>
+            <td>@PetOld.Gender</td>
+        </tr>
+    </tbody>
+</tabel>
+
+<EditForm class="container" Model="PetToUpdate" OnValidSubmit="UpdatePetFromClinic">
+    <FluentValidationValidator />
+    <div class="form-group">
+        <label>Pet Name</label>
+        <InputText id="name" @bind-Value="PetToUpdate.Name" placeholder="Pet Name" class="form-control" />
+        <ValidationMessage For="@(() => PetToUpdate.Name)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="birthdate">Pet Birthdate</label>
+        <DateInput @bind-Value="@PetToUpdate.Birthdate" class="form-control"></DateInput>
+        <ValidationMessage For="@(() => PetToUpdate.Birthdate)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Pet Race</label>
+        <DropDownList DataSource="Races" @bind-SelectedValues="PetToUpdate.Race" />
+        <ValidationMessage For="@(() => PetToUpdate.Race)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="gender">Pet Gender</label><br />
+        <input type="radio" name="gender" id="gender" checked="@(PetToUpdate.Gender == "Male")" @onchange="@(() => PetToUpdate.Gender = "Male")" />
+        Male
+        <input type="radio" name="gender" id="gender" checked="@(PetToUpdate.Gender == "Female")" @onchange="@(() => PetToUpdate.Gender = "Female")" />
+        Female
+        <ValidationMessage For="@(() => PetToUpdate.Gender)"></ValidationMessage>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </div>
+</EditForm>
+
+<div class="row">
+    <div class="col">
+        <button type="submit" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+    </div>
+</div>

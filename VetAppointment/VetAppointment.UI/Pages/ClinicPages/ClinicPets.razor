@@ -25,7 +25,7 @@
     }
 
     .space-bottom {
-		padding-bottom: 20px;
+        padding-bottom: 20px;
     }
 
     .label-space-top {
@@ -34,12 +34,11 @@
 
 </style>
 
-<PageTitle>Add Pets to Clinic</PageTitle>
-<h3>Add Pets to Clinic</h3>
+<PageTitle>Pets</PageTitle>
 
 @if (PetsToGet == null)
 {
-    <p><em>Loading...</em></p>    
+    <p><em>Loading pets...</em></p>
 }
 else
 {
@@ -51,6 +50,8 @@ else
                 <th>Pet Birthdate</th>
                 <th>Pet Race</th>
                 <th>Pet Gender</th>
+                <th>Pet Owner ID</th>
+                <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -63,6 +64,8 @@ else
                     <td>@pet.Birthdate</td>
                     <td>@pet.Race</td>
                     <td>@pet.Gender</td>
+                    <td>@pet.OwnerId</td>
+                    <td><button type="button" class="btn btn-info" @onclick="(() => NavigateToEditPage(pet.Id))">Edit</button></td>
                     <td><button type="button" class="btn btn-danger" @onclick="(() => DeletePet(pet.Id))">Delete</button></td>
                 </tr>
             }
@@ -70,296 +73,315 @@ else
     </tabel>
 }
 
-<div id="inner">
-    <EditForm class="container" Model="PetsInClinicModel" OnValidSubmit="AddPetsToClinic">
-        <FluentValidationValidator />
-        <ObjectGraphDataAnnotationsValidator />
-        <div id="1" class="input-group buttons">
+<h3>Add Pets to Clinic</h3>
+@if (Owners == null)
+{
+    <p><em>Loading owners...</em></p>
+}
+else
+{
+    <div id="inner">
+        <EditForm class="container" Model="PetsInClinicModel" OnValidSubmit="AddPetsToClinic">
+            <FluentValidationValidator />
+            <ObjectGraphDataAnnotationsValidator />
             <div class="form-group">
-                <label>Pet Name</label>
-                <InputText id="name-1" @bind-Value="PetsInClinicModel.Pets[0].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Name)"></ValidationMessage>
+                <label>Pet Owner ID</label>
+                <DropDownList DataSource="PetOwnersIds" @bind-SelectedValues="PetsInClinicModel.OwnerId" />
+                <ValidationMessage For="@(() => PetsInClinicModel.OwnerId)"></ValidationMessage>
             </div>
-            <div class="form-group">
-                <label for="birthdate-1">Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[0].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Birthdate)"></ValidationMessage>
+            <div id="1" class="input-group buttons">
+                <div class="form-group">
+                    <label>Pet Name</label>
+                    <InputText id="name-1" @bind-Value="PetsInClinicModel.Pets[0].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate-1">Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[0].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[0].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-1">Pet Gender</label><br />
+                    <input type="radio" name="gender-1" id="gender-1" checked="@(PetsInClinicModel.Pets[0].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[0].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-1" id="gender-1" checked="@(PetsInClinicModel.Pets[0].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[0].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[0].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-1">Pet Gender</label><br />
-                <input type="radio" name="gender-1" id="gender-1" checked="@(PetsInClinicModel.Pets[0].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[0].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-1" id="gender-1" checked="@(PetsInClinicModel.Pets[0].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[0].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[0].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="2" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-2">Pet Name</label>
-                <InputText id="name-2" @bind-Value="PetsInClinicModel.Pets[1].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Name)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[1].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Birthdate)"></ValidationMessage>
+            <div id="2" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-2">Pet Name</label>
+                    <InputText id="name-2" @bind-Value="PetsInClinicModel.Pets[1].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[1].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Birthdate)"></ValidationMessage>
 
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[1].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-2">Pet Gender</label><br />
+                    <input type="radio" name="gender-2" id="gender-2" checked="@(PetsInClinicModel.Pets[1].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[1].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-2" id="gender-2" checked="@(PetsInClinicModel.Pets[1].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[1].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[1].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-2">Pet Gender</label><br />
-                <input type="radio" name="gender-2" id="gender-2" checked="@(PetsInClinicModel.Pets[1].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[1].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-2" id="gender-2" checked="@(PetsInClinicModel.Pets[1].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[1].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[1].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="3" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-3">Pet Name</label>
-                <InputText id="name-3" @bind-Value="PetsInClinicModel.Pets[2].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Name)"></ValidationMessage>
+            <div id="3" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-3">Pet Name</label>
+                    <InputText id="name-3" @bind-Value="PetsInClinicModel.Pets[2].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[2].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[2].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-3">Pet Gender</label><br />
+                    <input type="radio" name="gender-3" id="gender-3" checked="@(PetsInClinicModel.Pets[2].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[2].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-3" id="gender-3" checked="@(PetsInClinicModel.Pets[2].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[2].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[2].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[2].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-3">Pet Gender</label><br />
-                <input type="radio" name="gender-3" id="gender-3" checked="@(PetsInClinicModel.Pets[2].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[2].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-3" id="gender-3" checked="@(PetsInClinicModel.Pets[2].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[2].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[2].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="4" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-4">Pet Name</label>
-                <InputText id="name-4" @bind-Value="PetsInClinicModel.Pets[3].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Name)"></ValidationMessage>
+            <div id="4" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-4">Pet Name</label>
+                    <InputText id="name-4" @bind-Value="PetsInClinicModel.Pets[3].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[3].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[3].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-4">Pet Gender</label><br />
+                    <input type="radio" name="gender-4" id="gender-4" checked="@(PetsInClinicModel.Pets[3].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[3].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-4" id="gender-4" checked="@(PetsInClinicModel.Pets[3].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[3].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[3].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[3].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-4">Pet Gender</label><br />
-                <input type="radio" name="gender-4" id="gender-4" checked="@(PetsInClinicModel.Pets[3].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[3].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-4" id="gender-4" checked="@(PetsInClinicModel.Pets[3].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[3].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[3].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="5" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-5">Pet Name</label>
-                <InputText id="name-5" @bind-Value="PetsInClinicModel.Pets[4].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Name)"></ValidationMessage>
+            <div id="5" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-5">Pet Name</label>
+                    <InputText id="name-5" @bind-Value="PetsInClinicModel.Pets[4].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[4].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[4].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-5">Pet Gender</label><br />
+                    <input type="radio" name="gender-5" id="gender-5" checked="@(PetsInClinicModel.Pets[4].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[4].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-5" id="gender-5" checked="@(PetsInClinicModel.Pets[4].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[4].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[4].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[4].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-5">Pet Gender</label><br />
-                <input type="radio" name="gender-5" id="gender-5" checked="@(PetsInClinicModel.Pets[4].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[4].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-5" id="gender-5" checked="@(PetsInClinicModel.Pets[4].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[4].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[4].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="6" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-6">Pet Name</label>
-                <InputText id="name-6" @bind-Value="PetsInClinicModel.Pets[5].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Name)"></ValidationMessage>
+            <div id="6" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-6">Pet Name</label>
+                    <InputText id="name-6" @bind-Value="PetsInClinicModel.Pets[5].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[5].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[5].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-6">Pet Gender</label><br />
+                    <input type="radio" name="gender-6" id="gender-6" checked="@(PetsInClinicModel.Pets[5].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[5].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-6" id="gender-6" checked="@(PetsInClinicModel.Pets[5].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[5].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[5].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[5].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-6">Pet Gender</label><br />
-                <input type="radio" name="gender-6" id="gender-6" checked="@(PetsInClinicModel.Pets[5].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[5].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-6" id="gender-6" checked="@(PetsInClinicModel.Pets[5].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[5].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[5].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="7" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-7">Pet Name</label>
-                <InputText id="name-7" @bind-Value="PetsInClinicModel.Pets[6].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Name)"></ValidationMessage>
+            <div id="7" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-7">Pet Name</label>
+                    <InputText id="name-7" @bind-Value="PetsInClinicModel.Pets[6].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[6].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[6].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-7">Pet Gender</label><br />
+                    <input type="radio" name="gender-7" id="gender-7" checked="@(PetsInClinicModel.Pets[6].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[6].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-7" id="gender-7" checked="@(PetsInClinicModel.Pets[6].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[6].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[6].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[6].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-7">Pet Gender</label><br />
-                <input type="radio" name="gender-7" id="gender-7" checked="@(PetsInClinicModel.Pets[6].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[6].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-7" id="gender-7" checked="@(PetsInClinicModel.Pets[6].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[6].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[6].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="8" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-8">Pet Name</label>
-                <InputText id="name-8" @bind-Value="PetsInClinicModel.Pets[7].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Name)"></ValidationMessage>
+            <div id="8" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-8">Pet Name</label>
+                    <InputText id="name-8" @bind-Value="PetsInClinicModel.Pets[7].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[7].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[7].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-8">Pet Gender</label><br />
+                    <input type="radio" name="gender-8" id="gender-8" checked="@(PetsInClinicModel.Pets[7].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[7].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-8" id="gender-8" checked="@(PetsInClinicModel.Pets[7].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[7].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[7].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[7].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-8">Pet Gender</label><br />
-                <input type="radio" name="gender-8" id="gender-8" checked="@(PetsInClinicModel.Pets[7].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[7].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-8" id="gender-8" checked="@(PetsInClinicModel.Pets[7].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[7].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[7].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="9" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-9">Pet Name</label>
-                <InputText id="name-9" @bind-Value="PetsInClinicModel.Pets[8].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Name)"></ValidationMessage>
+            <div id="9" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-9">Pet Name</label>
+                    <InputText id="name-9" @bind-Value="PetsInClinicModel.Pets[8].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[8].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[8].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-9">Pet Gender</label><br />
+                    <input type="radio" name="gender-9" id="gender-9" checked="@(PetsInClinicModel.Pets[8].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[8].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-9" id="gender-9" checked="@(PetsInClinicModel.Pets[8].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[8].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[8].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[8].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-9">Pet Gender</label><br />
-                <input type="radio" name="gender-9" id="gender-9" checked="@(PetsInClinicModel.Pets[8].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[8].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-9" id="gender-9" checked="@(PetsInClinicModel.Pets[8].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[8].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[8].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-        <div id="10" class="input-group buttons" hidden>
-            <div class="form-group">
-                <label for="name-10">Pet Name</label>
-                <InputText id="name-10" @bind-Value="PetsInClinicModel.Pets[9].Name" placeholder="Pet Name" class="form-control" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Name)"></ValidationMessage>
+            <div id="10" class="input-group buttons" hidden>
+                <div class="form-group">
+                    <label for="name-10">Pet Name</label>
+                    <InputText id="name-10" @bind-Value="PetsInClinicModel.Pets[9].Name" placeholder="Pet Name" class="form-control" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Name)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Birthdate</label>
+                    <DateInput @bind-Value="@PetsInClinicModel.Pets[9].Birthdate" class="form-control"></DateInput>
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Birthdate)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label>Pet Race</label>
+                    <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[9].Race" />
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Race)"></ValidationMessage>
+                </div>
+                <div class="form-group">
+                    <label for="gender-10">Pet Gender</label><br />
+                    <input type="radio" name="gender-10" id="gender-10" checked="@(PetsInClinicModel.Pets[9].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[9].Gender = "Male")" />
+                    Male
+                    <input type="radio" name="gender-10" id="gender-10" checked="@(PetsInClinicModel.Pets[9].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[9].Gender = "Female")" />
+                    Female
+                    <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Gender)"></ValidationMessage>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Pet Birthdate</label>
-                <DateInput @bind-Value="@PetsInClinicModel.Pets[9].Birthdate" class="form-control"></DateInput>
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Birthdate)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label>Pet Race</label>
-                <DropDownList DataSource="Races" @bind-SelectedValues="PetsInClinicModel.Pets[9].Race" />
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Race)"></ValidationMessage>
-            </div>
-            <div class="form-group">
-                <label for="gender-10">Pet Gender</label><br />
-                <input type="radio" name="gender-10" id="gender-10" checked="@(PetsInClinicModel.Pets[9].Gender == "Male")" @onchange="@(() => PetsInClinicModel.Pets[9].Gender = "Male")" />
-                Male
-                <input type="radio" name="gender-10" id="gender-10" checked="@(PetsInClinicModel.Pets[9].Gender == "Female")" @onchange="@(() => PetsInClinicModel.Pets[9].Gender = "Female")" />
-                Female
-                <ValidationMessage For="@(() => PetsInClinicModel.Pets[9].Gender)"></ValidationMessage>
-            </div>
-        </div>
 
-		<div class="buttons space-top">
-            <button id="addRow" type="button" class="btn btn-info float-right" @onclick="AddInputFields">+</button>
-            <button id="removeRow" type="button" class="btn btn-danger" @onclick="RemoveInput">-</button>
-        </div>
-
-        <div id="error-overflow" class="row" hidden="hidden">
-            <div class="col">
-                <p>You can only add 10 pets to a clinic at a time.</p>
+            <div class="buttons space-top">
+                <button id="addRow" type="button" class="btn btn-info float-right" @onclick="AddInputFields">+</button>
+                <button id="removeRow" type="button" class="btn btn-danger" @onclick="RemoveInput">-</button>
             </div>
-        </div>
 
-        <div id="error-removal" class="row" hidden="hidden">
-            <div class="col">
-                <p>You have to add at least one pet to a clinic.</p>
+            <div id="error-overflow" class="row" hidden="hidden">
+                <div class="col">
+                    <p>You can only add 10 pets to a clinic at a time.</p>
+                </div>
             </div>
-        </div>
 
-        <div id="newRow">
-            <input type="hidden" id="total" value="1" />
-        </div>
-
-        <div class="row space-top space-bottom">
-            <div class="col">
-                <button type="submit" class="btn btn-success">Add pets</button>
+            <div id="error-removal" class="row" hidden="hidden">
+                <div class="col">
+                    <p>You have to add at least one pet to a clinic.</p>
+                </div>
             </div>
-        </div>
-    </EditForm>
+
+            <div id="newRow">
+                <input type="hidden" id="total" value="1" />
+            </div>
+
+            <div class="row space-top space-bottom">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Add pets</button>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+}
+
+<div class="row">
+    <div class="col">
+        <button type="submit" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+    </div>
 </div>

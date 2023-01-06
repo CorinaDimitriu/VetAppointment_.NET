@@ -89,9 +89,9 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> AddPetsToClinic(Guid clinicId, List<Pet> pets)
+        public async Task<string> AddPetsToClinic(Guid clinicId, Guid ownerId, List<Pet> pets)
         {
-            var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/pets";
+            var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/{{{ownerId}}}/pets";
             var json = JsonSerializer.Serialize(pets);
             var response = await httpClient.PostAsync(ApiURLClinic,
                 new StringContent(json, Encoding.UTF8, "application/json"));
@@ -146,9 +146,8 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> UpdatePetById(Guid clinicId, PetToUpdateModel pet)
+        public async Task<string> UpdatePetById(Guid clinicId, Guid petId, PetToUpdateModel pet)
         {
-            var petId = Guid.Parse(pet.Id);
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/pet/{{{petId}}}";
             var petRenewed = new Pet()
             {
@@ -164,9 +163,8 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> UpdateVetById(Guid clinicId, VetToUpdateModel vet)
+        public async Task<string> UpdateVetById(Guid clinicId, Guid vetId, VetModel vet)
         {
-            var vetId = Guid.Parse(vet.Id);
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet/{{{vetId}}}";
             var vetRenewed = new Vet()
             {

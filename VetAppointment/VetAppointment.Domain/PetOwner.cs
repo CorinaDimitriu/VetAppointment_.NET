@@ -34,7 +34,7 @@ namespace VetAppointment.Domain
             {
                 var expectedGenderValues = Enum.GetNames(typeof(PersonGender));
                 var textExpectedGenderValues = string.Join(", ", expectedGenderValues);
-                return Result<PetOwner>.Failure($"The provided gender {gender} is not one from the possible races: {textExpectedGenderValues}");
+                return Result<PetOwner>.Failure($"The provided gender {gender} is not one from the possible genders: {textExpectedGenderValues}");
             }
             
             var owner = new PetOwner
@@ -57,7 +57,7 @@ namespace VetAppointment.Domain
         {
             if (!pets.Any())
             {
-                return Result.Failure("Register at least a pet to the clinic");
+                return Result.Failure("Register at least one pet to the owner.");
             }
 
             pets.ForEach(pet =>

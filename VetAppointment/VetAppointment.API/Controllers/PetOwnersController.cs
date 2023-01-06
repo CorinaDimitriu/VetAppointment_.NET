@@ -32,6 +32,33 @@ namespace VetAppointment.API.Controllers
             return Ok(petOwners);
         }
 
+        [HttpGet("{ownerId:guid}")]
+        public IActionResult GetById(Guid ownerId)
+        {
+            var owner = petOwnerRepository.Get(ownerId).Result;
+            if (owner == null)
+            {
+                return NotFound();
+            }
+
+            var ownerDto = new PetOwnerDto
+            {
+                Id = owner.Id,
+                Name = owner.Name,
+                Surname = owner.Surname,
+                Birthdate = owner.Birthdate.ToString(),
+                Gender = owner.Gender.ToString(),
+                Address = owner.Address,
+                Email = owner.Email,
+                Phone = owner.Phone,
+            };
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(ownerDto);
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] CreatePetOwnerDto petOwnerDto)
         {

@@ -1,0 +1,53 @@
+﻿@page "/petsoverview"
+
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+</style>
+
+<h2 class="title-transition">Pets Overview</h2>
+@if (Pets == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <tabel id="inner" class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>Pet Id</th>
+                <th>Pet Name</th>
+                <th>Pet Birthdate</th>
+                <th>Pet Race</th>
+                <th>Pet Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Pets)
+            {
+                <tr>
+                    <td>@pet.Id</td>
+                    <td>@pet.Name</td>
+                    <td>@pet.Birthdate</td>
+                    <td>@pet.Race</td>
+                    <td>@pet.Gender</td>
+                </tr>
+            }
+        </tbody>
+    </tabel>
+}

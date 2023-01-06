@@ -8,5 +8,6 @@ namespace VetAppointment.Shared.Domain
         public string Birthdate { get; set; }
         public string Race { get; set; }
         public string Gender { get; set; }
+        public Guid OwnerId { get; set; }
     }
 }

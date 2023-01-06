@@ -33,90 +33,85 @@
 <PageTitle>Edit Clinic</PageTitle>
 <h3>Edit Clinic</h3>
 
-@if (ClinicToUpdate == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table id="inner" class="table table-light">
-        <thead class="table-primary">
-            <tr>
-                <th>Clinic ID</th>
-                <th>Clinic Name</th>
-                <th>Clinic Address</th>
-                <th>Clinic NumberOfPlaces</th>
-                <th>Clinic ContactEmail</th>
-                <th>Clinic ContactPhone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@ClinicToUpdate.Id</td>
-                <td>@ClinicToUpdate.Name</td>
-                <td>@ClinicToUpdate.Address</td>
-                <td>@ClinicToUpdate.NumberOfPlaces</td>
-                <td>@ClinicToUpdate.ContactEmail</td>
-                <td>@ClinicToUpdate.ContactPhone</td>
-            </tr>
-        </tbody>
-    </table>
+<table id="inner" class="table table-light">
+    <thead class="table-primary">
+        <tr>
+            <th>Clinic ID</th>
+            <th>Clinic Name</th>
+            <th>Clinic Address</th>
+            <th>Clinic NumberOfPlaces</th>
+            <th>Clinic ContactEmail</th>
+            <th>Clinic ContactPhone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ClinicId</td>
+            <td>@ClinicOld.Name</td>
+            <td>@ClinicOld.Address</td>
+            <td>@ClinicOld.NumberOfPlaces</td>
+            <td>@ClinicOld.ContactEmail</td>
+            <td>@ClinicOld.ContactPhone</td>
+        </tr>
+    </tbody>
+</table>
 
-    <EditForm class="container" Model="ClinicToUpdate" OnValidSubmit="UpdateClinic">
-        <FluentValidationValidator />
-        <div>
-            <label for="name" class="label-space-top">Name</label>
-            <InputText id="name" @bind-Value="ClinicToUpdate.Name" placeholder="Clinic Name" class="form-control" />
-            <ValidationMessage For="@(() => ClinicToUpdate.Name)"></ValidationMessage>
+<EditForm class="container" Model="ClinicToUpdate" OnValidSubmit="UpdateClinic">
+    <FluentValidationValidator />
+    <div>
+        <label for="name" class="label-space-top">Name</label>
+        <InputText id="name" @bind-Value="ClinicToUpdate.Name" placeholder="Clinic Name" class="form-control" />
+        <ValidationMessage For="@(() => ClinicToUpdate.Name)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="address" class="label-space-top">Address</label>
+        <InputText id="address" @bind-Value="ClinicToUpdate.Address" class="form-control" />
+        <ValidationMessage For="@(() => ClinicToUpdate.Address)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="places" class="label-space-top">Number of places</label>
+        <InputNumber id="places" @bind-Value="ClinicToUpdate.NumberOfPlaces" class="form-control" />
+        <ValidationMessage For="@(() => ClinicToUpdate.NumberOfPlaces)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="email" class="label-space-top">Email</label>
+        <InputText id="email" @bind-Value="ClinicToUpdate.ContactEmail" class="form-control" />
+        <ValidationMessage For="@(() => ClinicToUpdate.ContactEmail)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="phone" class="label-space-top">Phone number</label>
+        <InputText id="phone" @bind-Value="ClinicToUpdate.ContactPhone" class="form-control" />
+        <ValidationMessage For="@(() => ClinicToUpdate.ContactPhone)"></ValidationMessage>
+    </div>
+    <div class="row space-top">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Update</button>
         </div>
+    </div>
+</EditForm>
 
-        <div class="form-group">
-            <label for="address" class="label-space-top">Address</label>
-            <InputText id="address" @bind-Value="ClinicToUpdate.Address" class="form-control" />
-            <ValidationMessage For="@(() => ClinicToUpdate.Name)"></ValidationMessage>
-        </div>
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+    </div>
+</div>
 
-        <div class="form-group">
-            <label for="places" class="label-space-top">Number of places</label>
-            <InputNumber id="places" @bind-Value="ClinicToUpdate.NumberOfPlaces" class="form-control" />
-            <ValidationMessage For="@(() => ClinicToUpdate.NumberOfPlaces)"></ValidationMessage>
+<div class="space-top buttons">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info" @onclick="NavigateToPets">Pets</button><br />
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="email" class="label-space-top">Email</label>
-            <InputText id="email" @bind-Value="ClinicToUpdate.ContactEmail" class="form-control" />
-            <ValidationMessage For="@(() => ClinicToUpdate.ContactEmail)"></ValidationMessage>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info" @onclick="NavigateToVets">Vets</button><br />
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="phone" class="label-space-top">Phone number</label>
-            <InputText id="phone" @bind-Value="ClinicToUpdate.ContactPhone" class="form-control" />
-            <ValidationMessage For="@(() => ClinicToUpdate.ContactPhone)"></ValidationMessage>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info" @onclick="NavigateToAppointments">Appointments</button><br />
         </div>
-        <div class="row space-top">
-            <div class="col">
-                <button type="submit" class="btn btn-success">Update Clinic</button><br />
-            </div>
-        </div>
-    </EditForm>
-
-    <div class="space-top buttons">
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-info" @onclick="NavigateToAddPets">Add Pets to Clinic</button><br />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-info" @onclick="NavigateToAddVets">Add Vets to Clinic</button><br />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-info" @onclick="NavigateToAddAppointments">Add Appointments to Clinic</button><br />
-            </div>
-        </div>
-	</div>
-}
+    </div>
+</div>

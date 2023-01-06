@@ -29,7 +29,9 @@ namespace VetAppointment.UI.Pages.ClinicPages
 
         protected async Task CreateClinic()
         {
-            Clinic = await VetClinicDataService.AddClinic(Clinic);
+            await VetClinicDataService.AddClinic(Clinic);
+            Clinic = new();
+            await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully added!");
             Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
         }
 
@@ -39,6 +41,7 @@ namespace VetAppointment.UI.Pages.ClinicPages
             if (isDeleting)
             {
                 await VetClinicDataService.DeleteClinicById(clinicId);
+                await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully deleted!");
                 Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
             }
         }

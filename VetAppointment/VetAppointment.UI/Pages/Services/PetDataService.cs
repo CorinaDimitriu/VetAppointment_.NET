@@ -18,6 +18,7 @@ namespace VetAppointment.UI.Pages.Services
         {
             this.httpClient = httpClient;
         }
+
         public async Task<IEnumerable<Pet>> GetAllPets(string jwt)
         {
             Console.WriteLine(jwt);
@@ -26,6 +27,14 @@ namespace VetAppointment.UI.Pages.Services
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             return await JsonSerializer.DeserializeAsync<IEnumerable<Pet>>
                 (await httpClient.GetStreamAsync(ApiURL), options);
+        }
+
+        public async Task<Pet> GetPetById(Guid id)
+        {
+            return await JsonSerializer.DeserializeAsync<Pet>(
+                await httpClient.GetStreamAsync($"{ApiURL}/{id}"),
+                new JsonSerializerOptions()
+                { PropertyNameCaseInsensitive = true });
         }
     }
 }

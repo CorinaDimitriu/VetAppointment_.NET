@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Net;
+using System.Xml.Linq;
 using VetAppointment.Shared.Domain;
 using VetAppointment.Shared.Domain.Enums;
 using VetAppointment.UI.Pages.Models;
@@ -20,15 +22,22 @@ namespace VetAppointment.UI.Pages.ClinicPages
         public Guid ClinicId { get; set; }
         public List<string> Specialisations { get; set; } =
             Enum.GetNames(typeof(VetSpecialisation)).Select(s => s.ToString()).ToList();
-        public VetClinic Clinic { get; set; } = default!;
-        public ClinicModel ClinicToUpdate { get; set; } = default!;
+        public ClinicModel ClinicToUpdate { get; set; } = new();
+        public ClinicModel ClinicOld { get; set; } = new();
 
         protected override async Task OnInitializedAsync()
         {
-            Clinic = await VetClinicDataService.GetClinicById(ClinicId);
+            VetClinic Clinic = await VetClinicDataService.GetClinicById(ClinicId);
+            ClinicOld = new ClinicModel
+            {
+                Name = Clinic.Name,
+                Address = Clinic.Address,
+                NumberOfPlaces = Clinic.NumberOfPlaces,
+                ContactEmail = Clinic.ContactEmail,
+                ContactPhone = Clinic.ContactPhone
+            };
             ClinicToUpdate = new ClinicModel
             {
-                Id = Clinic.Id.ToString(),
                 Name = Clinic.Name,
                 Address = Clinic.Address,
                 NumberOfPlaces = Clinic.NumberOfPlaces,
@@ -36,24 +45,37 @@ namespace VetAppointment.UI.Pages.ClinicPages
                 ContactPhone = Clinic.ContactPhone
             };
         }
-        
+
         protected async Task UpdateClinic()
         {
             await VetClinicDataService.UpdateClinic(ClinicId, ClinicToUpdate);
-            await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been updated successfully!");
+            ClinicOld = new ClinicModel
+            {
+                Name = ClinicToUpdate.Name,
+                Address = ClinicToUpdate.Address,
+                NumberOfPlaces = ClinicToUpdate.NumberOfPlaces,
+                ContactEmail = ClinicToUpdate.ContactEmail,
+                ContactPhone = ClinicToUpdate.ContactPhone
+            };
+            await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully updated!");
         }
 
-        protected void NavigateToAddPets()
+        protected void NavigateBack()
+        {
+            NavigationManager.NavigateTo($"/clinicsoverview");
+        }
+
+        protected void NavigateToPets()
         {
             NavigationManager.NavigateTo($"/clinic/{ClinicId}/pets");
         }
 
-        protected void NavigateToAddVets()
+        protected void NavigateToVets()
         {
             NavigationManager.NavigateTo($"/clinic/{ClinicId}/vets");
         }
 
-        protected void NavigateToAddAppointments()
+        protected void NavigateToAppointments()
         {
             NavigationManager.NavigateTo($"/clinic/{ClinicId}/appointments");
         }

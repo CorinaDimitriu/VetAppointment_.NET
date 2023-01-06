@@ -8,6 +8,7 @@ namespace VetAppointment.UI.Pages.Validators
         public PetModelValidator()
         {
             RuleForEach(modelPet => modelPet.Pets).SetValidator(new PetValidator());
+            RuleFor(modelPet => modelPet.OwnerId[0]).NotEqual("No pet owner available.").WithMessage("Owner ID cannot be empty.");
         }
     }
 }

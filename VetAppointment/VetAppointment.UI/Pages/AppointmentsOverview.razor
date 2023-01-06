@@ -21,6 +21,7 @@
 </style>
 
 <h2 class="title-transition">AppointmentsOverview</h2>
+
 @if (Appointments == null)
 {
     <p><em>Loading...</em></p>
@@ -29,11 +30,13 @@ else
 {
     <tabel id="inner" class="table table-light">
         <thead class="table-primary">
-            <th>Appointment Id</th>
-            <th>Appointment VetId</th>
-            <th>Appointment PetId</th>
-            <th>Appointment ScheduledDate</th>
-            <th>Appointment EstimatedDurationInMinutes</th>
+            <tr>
+                <th>Appointment Id</th>
+                <th>Appointment VetId</th>
+                <th>Appointment PetId</th>
+                <th>Appointment ScheduledDate</th>
+                <th>Appointment EstimatedDurationInMinutes</th>
+            </tr>
         </thead>
         <tbody>
             @foreach (var appointment in Appointments)

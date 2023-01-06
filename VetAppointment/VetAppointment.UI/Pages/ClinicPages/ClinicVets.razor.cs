@@ -15,7 +15,7 @@ namespace VetAppointment.UI.Pages.ClinicPages
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
         [Inject]
-        public NavigationManager NavigationManager { get; set; }   
+        public NavigationManager NavigationManager { get; set; }
         [Parameter]
         public Guid ClinicId { get; set; }
         public List<Vet> VetsToGet { get; set; } = default!;
@@ -31,6 +31,9 @@ namespace VetAppointment.UI.Pages.ClinicPages
         protected async Task AddVetToClinic()
         {
             await VetClinicDataService.AddVetToClinic(ClinicId, Vet);
+            await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully added!");
+            VetsToGet = (await VetClinicDataService.GetVetsByClinicId(ClinicId)).ToList();
+            Vet = new();
         }
 
         protected async Task DeleteVet(Guid vetId)
@@ -39,6 +42,7 @@ namespace VetAppointment.UI.Pages.ClinicPages
             if (isDeleting)
             {
                 await VetClinicDataService.DeleteVetById(new VetToDeleteModel() { IdToDeleteClinic = ClinicId.ToString(), IdToDeleteVet = vetId.ToString() });
+                await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully deleted!");
                 VetsToGet = (await VetClinicDataService.GetVetsByClinicId(ClinicId)).ToList();
             }
         }
@@ -46,6 +50,11 @@ namespace VetAppointment.UI.Pages.ClinicPages
         protected void NavigateToEditPage(Guid vetId)
         {
             NavigationManager.NavigateTo($"{ClinicId}/vet/{vetId}");
+        }
+
+        protected void NavigateBack()
+        {
+            NavigationManager.NavigateTo($"/clinic/{ClinicId}");
         }
     }
 }

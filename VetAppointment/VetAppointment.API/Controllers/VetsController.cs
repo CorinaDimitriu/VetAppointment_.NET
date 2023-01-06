@@ -25,5 +25,33 @@ namespace VetAppointment.API.Controllers
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(vets);
         }
+
+        [HttpGet("{vetId:guid}")]
+        public IActionResult GetById(Guid vetId)
+        {
+            var vet = vetRepository.Get(vetId).Result;
+            if (vet == null)
+            {
+                return NotFound();
+            }
+
+            var vetDto = new VetDto
+            {
+                Id = vet.Id,
+                ClinicId = vet.ClinicId,
+                Name = vet.Name,
+                Surname = vet.Surname,
+                Birthdate = vet.Birthdate.ToString(),
+                Gender = vet.Gender.ToString(),
+                Email = vet.Email,
+                Phone = vet.Phone,
+                Specialisation = vet.Specialisation.ToString()
+            };
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(vetDto);
+        }
     }
 }

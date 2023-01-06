@@ -1,0 +1,116 @@
+﻿@page "/petownersoverview"
+
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+</style>
+
+<h2 class="title-transition">Pet Owners Overview</h2>
+
+@if (PetOwnersToGet == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <tabel id="inner" class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>PetOwner Id</th>
+                <th>PetOwner Name</th>
+                <th>PetOwner Surname</th>
+                <th>PetOwner Birthdate</th>
+                <th>PetOwner Gender</th>
+                <th>PetOwner Address</th>
+                <th>PetOwner Email</th>
+                <th>PetOwner Phone</th>
+                @*<th>Edit</th>
+                <th>Delete</th>*@
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var petOwner in PetOwnersToGet)
+            {
+                <tr>
+                    <td>@petOwner.Id</td>
+                    <td>@petOwner.Name</td>
+                    <td>@petOwner.Surname</td>
+                    <td>@petOwner.Birthdate</td>
+                    <td>@petOwner.Gender</td>
+                    <td>@petOwner.Address</td>
+                    <td>@petOwner.Email</td>
+                    <td>@petOwner.Phone</td>
+                    @*<td><button type="button" class="btn btn-info" @onclick="(() => NavigateToEditPage(petOwner.Id))">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" @onclick="(() => DeletePetOwner(petOwner.Id))">Delete</button></td>*@
+                </tr>
+            }
+        </tbody>
+    </tabel>
+}
+
+<h2 class="title-transition">Add Pet Owner</h2>
+<EditForm class="container" Model="PetOwner" OnValidSubmit="AddPetOwner">
+    <FluentValidationValidator />
+    <div class="form-group">
+        <label>Pet Owner Name</label>
+        <InputText id="name" @bind-Value="PetOwner.Name" placeholder="Pet Owner Name" class="form-control" />
+        <ValidationMessage For="@(() => PetOwner.Name)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Pet Owner Surname</label>
+        <InputText id="surname" @bind-Value="PetOwner.Surname" placeholder="Pet Owner Surname" class="form-control" />
+        <ValidationMessage For="@(() => PetOwner.Surname)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="birthdate">Pet Birthdate</label>
+        <DateInput @bind-Value="@PetOwner.Birthdate" class="form-control"></DateInput>
+        <ValidationMessage For="@(() => PetOwner.Birthdate)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label for="gender">Pet Owner Gender</label><br />
+        <input type="radio" name="gender" id="gender" checked="@(PetOwner.Gender == "Male")" @onchange="@(() => PetOwner.Gender = "Male")" />
+        Male
+        <input type="radio" name="gender" id="gender" checked="@(PetOwner.Gender == "Female")" @onchange="@(() => PetOwner.Gender = "Female")" />
+        Female
+        <input type="radio" name="gender" id="gender" checked="@(PetOwner.Gender == "Other")" @onchange="@(() => PetOwner.Gender = "Other")" />
+        Other
+        <ValidationMessage For="@(() => PetOwner.Gender)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Pet Owner Address</label>
+        <InputText id="address" @bind-Value="PetOwner.Address" placeholder="Pet Owner Address" class="form-control" />
+        <ValidationMessage For="@(() => PetOwner.Address)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Pet Owner Email</label>
+        <InputText id="email" @bind-Value="PetOwner.Email" placeholder="Pet Owner Email" class="form-control" />
+        <ValidationMessage For="@(() => PetOwner.Email)"></ValidationMessage>
+    </div>
+    <div class="form-group">
+        <label>Pet Owner Phone</label>
+        <InputText id="phone" @bind-Value="PetOwner.Phone" placeholder="Pet Owner Phone" class="form-control" />
+        <ValidationMessage For="@(() => PetOwner.Phone)"></ValidationMessage>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </div>
+</EditForm>

@@ -12,33 +12,60 @@ namespace VetAppointment.UI.Pages.ClinicPages
     {
         [Inject]
         public IVetClinicDataService VetClinicDataService { get; set; }
+
+        [Inject]
+        public IPetOwnerDataService PetOwnerDataService { get; set; }
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
         [Parameter]
         public Guid ClinicId { get; set; }
         public List<Pet> PetsToGet { get; set; } = default!;
         public PetsInClinicModel PetsInClinicModel { get; set; } = default!;
         public List<string> Races { get; set; } =
            Enum.GetNames(typeof(AnimalRace)).Select(s => s.ToString()).ToList();
+        public List<PetOwner> Owners { get; set; } = default!;
+
+        public List<string> PetOwnersIds { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
             PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
-        }
+            Owners = (await PetOwnerDataService.GetAllPetOwners()).ToList();
+            PetOwnersIds = new();
+            Owners.ForEach(o => PetOwnersIds.Add(o.Id.ToString()));
+            if (Owners.Count == 0)
+            {
+                PetOwnersIds.Add("No pet owner available.");
+            }
 
-        protected override void OnInitialized()
-        {
             PetsInClinicModel = new PetsInClinicModel()
             {
                 Pets = new List<PetModel>(),
                 Count = 1
             };
+            PetsInClinicModel.OwnerId[0] = PetOwnersIds[0];
             for (int i = 0; i < 10; i++)
             {
                 PetsInClinicModel.Pets.Add(new PetModel() { Hidden = true });
             }
             PetsInClinicModel.Pets[0].Hidden = false;
         }
+
+        //protected override void OnInitialized()
+        //{
+        //    PetsInClinicModel = new PetsInClinicModel()
+        //    {
+        //        Pets = new List<PetModel>(),
+        //        Count = 1
+        //    };
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        PetsInClinicModel.Pets.Add(new PetModel() { Hidden = true });
+        //    }
+        //    PetsInClinicModel.Pets[0].Hidden = false;
+        //}
 
         protected async Task AddPetsToClinic()
         {
@@ -51,7 +78,8 @@ namespace VetAppointment.UI.Pages.ClinicPages
                     Race = PetsInClinicModel.Pets[i].Race[0],
                     Gender = PetsInClinicModel.Pets[i].Gender
                 });
-            await VetClinicDataService.AddPetsToClinic(ClinicId, pets);
+            await VetClinicDataService.AddPetsToClinic(ClinicId, Guid.Parse(PetsInClinicModel.OwnerId[0]), pets);
+            await JSRuntime.InvokeVoidAsync("Alert", "The pets have been successfully added!");
             PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
         }
 
@@ -69,7 +97,7 @@ namespace VetAppointment.UI.Pages.ClinicPages
         {
             if (PetsInClinicModel.Count > 1)
             {
-                PetsInClinicModel.Pets[PetsInClinicModel.Count - 1] = new PetModel() { Hidden = true };
+                PetsInClinicModel.Pets[PetsInClinicModel.Count - 1] = new PetModel() { Birthdate = DateTime.Parse("1/1/1900"), Hidden = true };
                 PetsInClinicModel.Count--;
             }
             await JSRuntime.InvokeVoidAsync("RemoveInputFields");
@@ -81,8 +109,19 @@ namespace VetAppointment.UI.Pages.ClinicPages
             if (isDeleting)
             {
                 await VetClinicDataService.DeletePetById(new PetToDeleteModel() { IdToDeleteClinic = ClinicId.ToString(), IdToDeletePet = petId.ToString() });
+                await JSRuntime.InvokeVoidAsync("Alert", "The pet has been successfully deleted!");
                 PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
             }
+        }
+
+        protected void NavigateToEditPage(Guid petId)
+        {
+            NavigationManager.NavigateTo($"{ClinicId}/pet/{petId}");
+        }
+
+        protected void NavigateBack()
+        {
+            NavigationManager.NavigateTo($"/clinic/{ClinicId}");
         }
     }
 }

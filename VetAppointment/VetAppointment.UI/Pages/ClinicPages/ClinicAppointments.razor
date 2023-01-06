@@ -1,12 +1,37 @@
 ﻿@page "/clinic/{ClinicId:guid}/appointments"
 
-<PageTitle>Add Appointments to Clinic</PageTitle>
-<h3>Add Vets to Clinic</h3>
+
+<PageTitle>Appointments</PageTitle>
 
 @if (AppointmentsToGet == null)
 {
-    <p><em>No appointments in this clinic.</em></p>
+    <p><em>Loading...</em></p>
 }
 else
 {
+    <tabel id="inner" class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>Appointment Id</th>
+                <th>Appointment VetId</th>
+                <th>Appointment PetId</th>
+                <th>Appointment ScheduledDate</th>
+                <th>Appointment EstimatedDurationInMinutes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in AppointmentsToGet)
+            {
+                <tr>
+                    <td>@appointment.Id</td>
+                    <td>@appointment.VetId</td>
+                    <td>@appointment.PetId</td>
+                    <td>@appointment.ScheduledDate</td>
+                    <td>@appointment.EstimatedDurationInMinutes</td>
+                </tr>
+            }
+        </tbody>
+    </tabel>    
 }
+
+<h3>Add Appointments to Clinic</h3>

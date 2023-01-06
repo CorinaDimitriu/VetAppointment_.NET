@@ -15,9 +15,9 @@ namespace VetAppointment.UI.Pages.Services
         Task<string> DeleteClinicById(Guid clinicId);
         Task<string> DeleteVetById(VetToDeleteModel vet);
         Task<string> DeletePetById(PetToDeleteModel pet);
-        Task<string> AddPetsToClinic(Guid clinicId, List<Pet> pets);
+        Task<string> AddPetsToClinic(Guid clinicId, Guid ownerId, List<Pet> pets);
         Task<string> UpdateClinic(Guid clinicId, ClinicModel clinic);
-        Task<string> UpdatePetById(Guid clinicId, PetToUpdateModel pet);
-        Task<string> UpdateVetById(Guid clinicId, VetToUpdateModel vet);
+        Task<string> UpdatePetById(Guid clinicId, Guid petId, PetToUpdateModel pet);
+        Task<string> UpdateVetById(Guid clinicId, Guid vetId, VetModel vet);
     }
 }

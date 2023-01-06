@@ -7,7 +7,6 @@ namespace VetAppointment.UI.Pages.Validators
     {
         public VetClinicValidator()
         {
-            RuleFor(clinic => clinic.Id).NotEmpty().WithMessage("Clinid ID cannot be empty.");
             RuleFor(clinic => clinic.Name).NotEmpty().WithMessage("Clinic name cannot be empty.");
             RuleFor(clinic => clinic.Address).NotEmpty().WithMessage("Clinic address cannot be empty.");
             RuleFor(clinic => clinic.NumberOfPlaces).GreaterThan(0).WithMessage("Number of places must be greater than 0.");

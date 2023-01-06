@@ -1,5 +1,39 @@
 ﻿@page "/accountsoverview"
 
+<style>
+
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    .inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 <PageTitle>Account Overview</PageTitle>
 <h1 class="title-transition">Login Prototype</h1>
 
@@ -11,21 +45,21 @@ else
 {
     <EditForm class="container" Model="Account" OnValidSubmit="Login">
         <div>
-            <label for="username">Username</label>
+            <label for="username" class="space-top">Username</label>
             <InputText id="username" @bind-Value="Account.Username" placeholder="Username" class="form-control" />
         </div>
-
+		
         <div class="form-group">
-            <label for="passwd">Password</label>
+            <label for="passwd" class="space-top">Password</label>
             <InputText id="passwd" @bind-Value="Account.Password" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label for="repeat-passwd">Retype Password</label>
+            <label for="repeat-passwd" class="space-top">Retype Password</label>
             <InputText id="repeat-passwd" @bind-Value="Account.RepeatPassword" class="form-control" />
         </div>
 
-        <div class="row">
+        <div class="row space-top">
             <div class="col">
                 <button type="submit" class="btn btn-success">Login</button><br />
             </div>

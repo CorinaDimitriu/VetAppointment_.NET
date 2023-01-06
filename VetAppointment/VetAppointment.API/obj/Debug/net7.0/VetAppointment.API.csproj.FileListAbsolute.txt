@@ -791,3 +791,11 @@ D:\Facultate\Anul_3\.NET\VetAppointment_Final\VetAppointment\VetAppointment.API\
 D:\Facultate\Anul_3\.NET\VetAppointment_Final\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.pdb
 D:\Facultate\Anul_3\.NET\VetAppointment_Final\VetAppointment\VetAppointment.API\obj\Debug\net7.0\VetAppointment.API.genruntimeconfig.cache
 D:\Facultate\Anul_3\.NET\VetAppointment_Final\VetAppointment\VetAppointment.API\obj\Debug\net7.0\ref\VetAppointment.API.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\Documents\GitHub\VetAppointment_.NET\VetAppointment\VetAppointment.API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

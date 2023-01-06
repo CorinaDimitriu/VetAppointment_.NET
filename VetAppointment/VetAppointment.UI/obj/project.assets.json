@@ -4325,23 +4325,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dimit\\.nuget\\packages\\": {},
+    "C:\\Users\\Leonard\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_Final\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
       "projectName": "VetAppointment.UI",
-      "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_Final\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
-      "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-      "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_Final\\VetAppointment\\VetAppointment.UI\\obj\\",
+      "projectPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\VetAppointment.UI.csproj",
+      "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leonard\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4350,15 +4350,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_Final\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {
-              "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetAppointment_Final\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj"
+            "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\VetAppointment_.NET\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj"
             }
           }
         }
@@ -4429,7 +4428,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[7.0.1, 7.0.1]"
+            "version": "[7.0.0, 7.0.0]"
           }
         ],
         "frameworkReferences": {
@@ -4437,7 +4436,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

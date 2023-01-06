@@ -11,6 +11,12 @@
         background-color: #E2E3E5;
         border-color: #E2E3E5
     }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
 </style>
 
 <h2 class="title-transition">Treatment Overview</h2>
@@ -20,19 +26,20 @@
 }
 else
 {
-        <tabel class="table table-light">
+        <tabel id="inner" class="table table-light">
             <thead class="table-primary">
-            <th>Treatment Id</th>
-            <th>Treatment Description</th>
+                <th>Treatment Id</th>
+                <th>Treatment Description</th>
             </thead>
+
             <tbody>
-            @foreach (var treat in Treatments)
-            {
-                        <tr>
-                            <td>@treat.Id</td>
-                            <td>@treat.Description</td>
-                        </tr>
-            }
+                @foreach (var treat in Treatments)
+                {
+                    <tr>
+                        <td>@treat.Id</td>
+                        <td>@treat.Description</td>
+                    </tr>
+                }
             </tbody>
         </tabel>
 }

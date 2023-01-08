@@ -54,14 +54,45 @@ else
             <InputText id="passwd" @bind-Value="Account.Password" class="form-control" />
         </div>
 
-        <div class="form-group">
-            <label for="repeat-passwd" class="space-top">Retype Password</label>
-            <InputText id="repeat-passwd" @bind-Value="Account.RepeatPassword" class="form-control" />
-        </div>
-
         <div class="row space-top">
             <div class="col">
                 <button type="submit" class="btn btn-success">Login</button><br />
+            </div>
+        </div>
+    </EditForm>
+}
+
+@if (CreateAccount == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm class="container" Model="CreateAccount" OnValidSubmit="Create">
+        <div>
+            <label for="username" class="space-top">Username</label>
+            <InputText id="username" @bind-Value="CreateAccount.Username" placeholder="Username" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="passwd" class="space-top">Password</label>
+            <InputText id="passwd" @bind-Value="CreateAccount.Password" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="repeat-passwd" class="space-top">Retype Password</label>
+            <InputText id="repeat-passwd" @bind-Value="CreateAccount.RepeatPassword" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="role" class="space-top">Role</label>
+            <DropDownList DataSource="Roles" @bind-SelectedValues="CreateAccount.Role" class="form-control" />
+        </div>
+
+
+        <div class="row space-top">
+            <div class="col">
+                <button type="submit" class="btn btn-success">Create</button><br />
             </div>
         </div>
     </EditForm>

@@ -28,6 +28,7 @@ namespace VetAppointment.Infrastructure
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
+            services.AddScoped<IRepository<Account>, AccountRepository>();
             services.AddScoped<IRepository<PetOwner>, PetOwnerRepository>();
             services.AddScoped<IRepository<Pet>, PetRepository>();
             services.AddScoped<IRepository<VetClinic>, VetClinicRepository>();

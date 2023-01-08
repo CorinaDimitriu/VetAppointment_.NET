@@ -11,6 +11,16 @@ namespace VetAppointment.Infrastructure.Data
 
         public UnitOfWork(DatabaseContext context) => this.context = context;
 
+        private IRepository<Account> accountRepository;
+        public IRepository<Account> AccountRepository
+        {
+            get
+            {
+                accountRepository ??= new AccountRepository(context);
+                return accountRepository;
+            }
+        }
+
         private IRepository<Appointment> appointmentRepository;
         public IRepository<Appointment> AppointmentRepository
         {

@@ -18,7 +18,7 @@ namespace VetAppointment.Infrastructure.Repositories.GenericRepositories
             return await _databaseContext.Set<VetClinic>()
             .Include(x => x.Pets)
             .Include(x => x.Vets)
-            .Include(x => x.Appointments)
+            //.Include(x => x.Appointments)
             .SingleOrDefaultAsync(x => x.Id == id);
         }
 
@@ -27,7 +27,7 @@ namespace VetAppointment.Infrastructure.Repositories.GenericRepositories
             return await _databaseContext.Set<VetClinic>()
             .Include(x => x.Pets)
             .Include(x => x.Vets)
-            .Include(x => x.Appointments)
+            //.Include(x => x.Appointments)
             .ToListAsync();
         }
     }

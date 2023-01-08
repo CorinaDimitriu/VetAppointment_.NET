@@ -8,19 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\biian\\.nuget\\packages\\": {}
+    "C:\\Users\\dimit\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_7\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+      "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
       "projectName": "VetAppointment.Shared",
-      "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_7\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
-      "packagesPath": "C:\\Users\\biian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_7\\VetAppointment\\VetAppointment.Shared\\obj\\",
+      "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Shared\\VetAppointment.Shared.csproj",
+      "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
+      "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Shared\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\biian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

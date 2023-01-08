@@ -1,9 +1,10 @@
-﻿namespace VetAppointment.API.Dtos
+﻿using VetAppointment.API.Dtos.Create;
+
+namespace VetAppointment.API.Dtos
 {
 # nullable disable
-    public class AccountDto
+    public class AccountDto : CreateAccountDto
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Role { get; set; }
     }
 }

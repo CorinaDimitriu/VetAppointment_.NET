@@ -10,7 +10,7 @@ namespace VetAppointment.Infrastructure.Data
         {
             Database.EnsureCreated();
         }
-
+        public DbSet<Account> Accounts => Set<Account>();
         public DbSet<Pet> Pets => Set<Pet>();
         public DbSet<Vet> Vets => Set<Vet>();
         public DbSet<PetOwner> PetOwners => Set<PetOwner>();

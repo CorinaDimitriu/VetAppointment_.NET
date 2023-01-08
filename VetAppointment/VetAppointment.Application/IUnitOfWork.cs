@@ -5,6 +5,7 @@ namespace VetAppointment.Application
     public interface IUnitOfWork
     {
         IRepository<Appointment> AppointmentRepository { get; }
+        IRepository<Account> AccountRepository { get; }
         IRepository<Drug> DrugRepository { get; }
         IRepository<MedicalHistory> MedicalHistoryRepository { get; }
         IRepository<PetOwner> PetOwnerRepository { get; }

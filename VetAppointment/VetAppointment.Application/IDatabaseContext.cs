@@ -5,6 +5,7 @@ namespace VetAppointment.Application
 {
     public interface IDatabaseContext
     {
+        public DbSet<Account> Accounts { get; }
         public DbSet<Pet> Pets { get; }
         public DbSet<Vet> Vets { get; }
         public DbSet<PetOwner> PetOwners { get; }

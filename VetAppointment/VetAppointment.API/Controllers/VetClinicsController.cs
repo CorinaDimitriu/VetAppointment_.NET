@@ -23,6 +23,7 @@ namespace VetAppointment.API.Controllers
             var history = MedicalHistory.Create();
 
             var vetClinic = VetClinicMapper.Mapper.Map<VetClinic>(vetClinicDto);
+            vetClinic.SetRegistrationDate();
 
             if (vetClinic == null)
             {
@@ -442,18 +443,19 @@ namespace VetAppointment.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("{clinicId:guid}/vet/{vetId:guid}/appointments")]
-        public IActionResult GetAppointmentsByVetId(Guid clinicId, Guid vetId)
+        [HttpGet("{clinicId:guid}/pet/{petId:guid}/appointments")]
+        public IActionResult GetAppointmentsByPetId(Guid petId)
         {
-            var clinic = unitOfWork.VetClinicRepository.Get(clinicId).Result;
-            if (clinic == null)
+            var petAppointments = unitOfWork.AppointmentRepository.All().Result.Where(app => app.PetId == petId).ToList();
+            var appointments = unitOfWork.AppointmentRepository.All().Result.Select(appointment => new AppointmentDto()
             {
-                return NotFound();
-            }
-
-            //var allAppointments = clinic.Appointments.Select(AppointmentMapper.Mapper.Map<AppointmentDto>);
-            var appointments = new List<AppointmentDto>();
-            //allAppointments.ToList().ForEach(a => { if (a.VetId == vetId) appointments.Add(a); });
+                Id = appointment.Id,
+                VetId = appointment.VetId,
+                PetId = appointment.PetId,
+                ScheduledDate = appointment.ScheduledDate.ToString(),
+                EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
+                TreatmentId = appointment.TreatmentId,
+            });
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
@@ -461,18 +463,19 @@ namespace VetAppointment.API.Controllers
             return Ok(appointments);
         }
 
-        [HttpGet("{clinicId:guid}/pet/{petId:guid}/appointments")]
-        public IActionResult GetAppointmentsByPetId(Guid clinicId, Guid petId)
+        [HttpGet("{clinicId:guid}/vet/{vetId:guid}/appointments")]
+        public IActionResult GetAppointmentsByVetId(Guid vetId)
         {
-            var clinic = unitOfWork.VetClinicRepository.Get(clinicId).Result;
-            if (clinic == null)
+            var petAppointments = unitOfWork.AppointmentRepository.All().Result.Where(app => app.VetId == vetId).ToList();
+            var appointments = unitOfWork.AppointmentRepository.All().Result.Select(appointment => new AppointmentDto()
             {
-                return NotFound();
-            }
-
-            var allAppointments = clinic.Appointments.Select(AppointmentMapper.Mapper.Map<AppointmentDto>);
-            var appointments = new List<AppointmentDto>();
-            allAppointments.ToList().ForEach(a => { if (a.PetId == petId) appointments.Add(a); });
+                Id = appointment.Id,
+                VetId = appointment.VetId,
+                PetId = appointment.PetId,
+                ScheduledDate = appointment.ScheduledDate.ToString(),
+                EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
+                TreatmentId = appointment.TreatmentId,
+            });
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");

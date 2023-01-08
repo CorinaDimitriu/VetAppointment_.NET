@@ -1,6 +1,8 @@
-﻿namespace VetAppointment.Domain.Helpers
+﻿using System.Text.RegularExpressions;
+
+namespace VetAppointment.Domain.Helpers
 {
-    public static class Validations
+    public static partial class Validations
     {
         public static bool IsValidEmail(string email)
         {
@@ -48,6 +50,56 @@
             }
 
             return false;
+        }
+
+        public static bool IsValidPassword(string password)
+        {
+            if (password.Length < 8)
+            {
+                return false;
+            }
+
+            bool flag = false;
+            for (char smallCh = 'a'; smallCh <= 'z';smallCh++)
+            {
+                if (password.Contains(smallCh) )
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if(!flag)
+            {
+                return false;
+            }
+
+            flag = false;
+            for (char smallCh = 'A'; smallCh <= 'Z'; smallCh++)
+            {
+                if (password.Contains(smallCh))
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag)
+            {
+                return false;
+            }
+
+            flag = false;
+            for (char smallCh = '0'; smallCh <= '9'; smallCh++)
+            {
+                if (password.Contains(smallCh))
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            return flag;
         }
     }
 }

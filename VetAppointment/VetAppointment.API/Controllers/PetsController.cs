@@ -17,7 +17,7 @@ namespace VetAppointment.API.Controllers
 
         public PetsController(IRepository<Pet> petRepository) => this.petRepository = petRepository;
 
-        [Authorize (Roles = "admin")]
+        [Authorize (Roles = "Admin_Vet")]
         [HttpGet]
         public IActionResult Get()
         {

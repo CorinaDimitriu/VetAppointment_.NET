@@ -40,8 +40,8 @@ namespace VetAppointment.API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
-        public IActionResult Login(string action, [FromBody] CreateAccountDto accountDto)
+        [HttpPost("/Login")]
+        public IActionResult Login([FromBody] CreateAccountDto accountDto)
         {
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
@@ -80,8 +80,8 @@ namespace VetAppointment.API.Controllers
             return userAuth;
         }
 
-        [HttpPost]
-        public IActionResult CreateAccount(string action, [FromBody] AccountDto accountDto)
+        [HttpPost("/accountsCreate")]
+        public IActionResult CreateAccount([FromBody] AccountDto accountDto)
         {
             var user = unitOfWork.AccountRepository.All().Result.
                 Where(x => x.Username == accountDto.Username).SingleOrDefault();
@@ -112,8 +112,8 @@ namespace VetAppointment.API.Controllers
         //    return Convert.ToHexString(hash);
         //}
 
-        [HttpPost]
-        public IActionResult Logout(string action) 
+        [HttpPost("/accountsLogout")]
+        public IActionResult Logout(string noNeed) 
         {
             var secretkey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText("key")));
 

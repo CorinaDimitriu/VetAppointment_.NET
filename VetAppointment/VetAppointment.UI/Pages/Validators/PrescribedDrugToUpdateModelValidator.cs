@@ -5,7 +5,7 @@ namespace VetAppointment.UI.Pages.Validators
 {
     public class PrescribedDrugToUpdateModelValidator : AbstractValidator<PrescribedDrugToUpdateModel>
     {
-        private readonly string[] drugIds = new string[1] { "No pet owner available." };
+        private readonly string[] drugIds = new string[1] { "No drug available." };
         public PrescribedDrugToUpdateModelValidator()
         {
             RuleFor(drug => drug.Quantity).GreaterThan(0).WithMessage("Quantity must be greater than 0.");

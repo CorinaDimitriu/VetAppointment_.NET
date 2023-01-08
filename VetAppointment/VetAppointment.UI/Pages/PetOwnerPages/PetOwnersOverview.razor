@@ -51,7 +51,7 @@ else
                     <td>@petOwner.Id</td>
                     <td>@petOwner.Name</td>
                     <td>@petOwner.Surname</td>
-                    <td>@petOwner.Birthdate</td>
+                    <td>@DateTime.Parse(petOwner.Birthdate).ToString("dd-MM-yyyy")</td>
                     <td>@petOwner.Gender</td>
                     <td>@petOwner.Address</td>
                     <td>@petOwner.Email</td>

@@ -4,7 +4,7 @@
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DateTime Birthdate { get; set; } = DateTime.Parse("1/1/1900");
+        public DateTime Birthdate { get; set; } = DateTime.Parse("1/1/2000");
         public string Gender { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }

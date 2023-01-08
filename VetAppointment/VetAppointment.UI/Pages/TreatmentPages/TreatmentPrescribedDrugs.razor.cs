@@ -104,11 +104,6 @@ namespace VetAppointment.UI.Pages.TreatmentPages
             }
         }
 
-        protected void NavigateToEditPage(Guid prescribedDrugId)
-        {
-            NavigationManager.NavigateTo($"{TreatmentId}/prescribeddrug/{prescribedDrugId}");
-        }
-
         protected void NavigateBack()
         {
             NavigationManager.NavigateTo($"treatment/{TreatmentId}/prescribeddrugs");

@@ -46,7 +46,7 @@ else
                     <td>@vet.Id</td>
                     <td>@vet.Name</td>
                     <td>@vet.Surname</td>
-                    <td>@vet.Birthdate</td>
+                    <td>@DateTime.Parse(vet.Birthdate).ToString("dd-MM-yyyy")</td>
                     <td>@vet.Gender</td>
                     <td>@vet.Email</td>
                     <td>@vet.Phone</td>

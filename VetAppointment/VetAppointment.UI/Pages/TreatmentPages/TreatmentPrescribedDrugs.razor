@@ -15,7 +15,6 @@ else
                 <th>Source Drug Id</th>
                 <th>Drug Quantity</th>
                 <th>Drug Total Cost</th>
-                <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -27,7 +26,6 @@ else
                     <td>@drug.DrugToPrescribeId</td>
                     <td>@drug.Quantity</td>
                     <td>@drug.TotalCost</td>
-                    <td><button type="button" class="btn btn-info" @onclick="(() => NavigateToEditPage(drug.Id))">Edit</button></td>
                     <td><button type="button" class="btn btn-danger" @onclick="(() => DeletePrescribedDrug(drug.Id))">Delete</button></td>
                 </tr>
             }

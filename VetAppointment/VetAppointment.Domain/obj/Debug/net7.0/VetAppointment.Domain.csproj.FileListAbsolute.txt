@@ -202,3 +202,15 @@ D:\Facultate\Anul_3\.NET\VetApp_Prezentare\VetAppointment\VetAppointment.Domain\
 D:\Facultate\Anul_3\.NET\VetApp_Prezentare\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
 D:\Facultate\Anul_3\.NET\VetApp_Prezentare\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
 D:\Facultate\Anul_3\.NET\VetApp_Prezentare\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.deps.json
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\bin\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.AssemblyReference.cache
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfoInputs.cache
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.AssemblyInfo.cs
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.csproj.CoreCompileInputs.cache
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\refint\VetAppointment.Domain.dll
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\VetAppointment.Domain.pdb
+C:\Users\biian\Desktop\.NET\VetAppointment_8\VetAppointment\VetAppointment.Domain\obj\Debug\net7.0\ref\VetAppointment.Domain.dll

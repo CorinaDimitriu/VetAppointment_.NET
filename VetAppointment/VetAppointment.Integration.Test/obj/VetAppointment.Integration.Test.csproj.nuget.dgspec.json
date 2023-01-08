@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj": {}
+    "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj": {}
   },
   "projects": {
-    "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj": {
+    "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj",
+        "projectUniqueName": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj",
         "projectName": "VetAppointment.API",
-        "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj",
-        "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.API\\obj\\",
+        "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj",
+        "packagesPath": "C:\\Users\\biian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\biian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,18 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj": {
-                "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj"
+              "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj": {
+                "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj"
               },
-              "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj": {
-                "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj"
+              "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj"
               }
             }
           }
@@ -130,21 +125,17 @@
         }
       }
     },
-    "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj": {
+    "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
+        "projectUniqueName": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
         "projectName": "VetAppointment.Application",
-        "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
-        "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\obj\\",
+        "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj",
+        "packagesPath": "C:\\Users\\biian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\biian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -152,15 +143,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
-                "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
+              "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
+                "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
               }
             }
           }
@@ -228,21 +218,17 @@
         }
       }
     },
-    "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
+    "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
         "projectName": "VetAppointment.Domain",
-        "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
-        "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\obj\\",
+        "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
+        "packagesPath": "C:\\Users\\biian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\biian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -250,7 +236,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -294,21 +279,17 @@
         }
       }
     },
-    "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj": {
+    "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj",
         "projectName": "VetAppointment.Infrastructure",
-        "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Infrastructure\\VetAppointment.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\biian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\biian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -316,18 +297,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj": {
-                "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj"
+              "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj": {
+                "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Application\\VetAppointment.Application.csproj"
               },
-              "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
-                "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
+              "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
+                "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj"
               }
             }
           }
@@ -383,21 +363,17 @@
         }
       }
     },
-    "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj": {
+    "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj",
+        "projectUniqueName": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj",
         "projectName": "VetAppointment.Integration.Test",
-        "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj",
-        "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.Integration.Test\\obj\\",
+        "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Integration.Test\\VetAppointment.Integration.Test.csproj",
+        "packagesPath": "C:\\Users\\biian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.Integration.Test\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\biian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -405,15 +381,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj": {
-                "projectPath": "D:\\Facultate\\Anul_3\\.NET\\VetApp_Prezentare\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj"
+              "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj": {
+                "projectPath": "C:\\Users\\biian\\Desktop\\.NET\\VetAppointment_8\\VetAppointment\\VetAppointment.API\\VetAppointment.API.csproj"
               }
             }
           }

@@ -25,7 +25,7 @@ else
                 <tr>
                     <td>@pet.Id</td>
                     <td>@pet.Name</td>
-                    <td>@pet.Birthdate</td>
+                    <td>@DateTime.Parse(pet.Birthdate).ToString("dd-MM-yyyy")</td>
                     <td>@pet.Race</td>
                     <td>@pet.Gender</td>
                     <td><button type="button" class="btn btn-info" @onclick="(() => NavigateToPetAppointmentsPage(pet.Id))">Appointments</button></td>

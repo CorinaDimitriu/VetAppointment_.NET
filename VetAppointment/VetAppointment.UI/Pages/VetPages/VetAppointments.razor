@@ -24,7 +24,7 @@ else
                     <td>@appointment.Id</td>
                     <td>@appointment.VetId</td>
                     <td>@appointment.PetId</td>
-                    <td>@appointment.ScheduledDate</td>
+                    <td>@DateTime.Parse(appointment.ScheduledDate).ToString("dd-MM-yyyy HH:mm")</td>
                     <td>@appointment.EstimatedDurationInMinutes</td>
                     <td>@appointment.TreatmentId</td>
                 </tr>

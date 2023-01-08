@@ -1,7 +1,39 @@
 ﻿@page "/{ClinicId:guid}/pet/{PetId:guid}"
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-botton {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 <PageTitle>Edit Pet</PageTitle>
-<h3>Edit Pet</h3>
+<h3 class="title-transition">Edit Pet</h3>
 
 <tabel id="inner" class="table table-light">
     <thead class="table-primary">
@@ -27,22 +59,22 @@
 <EditForm class="container" Model="PetToUpdate" OnValidSubmit="UpdatePetFromClinic">
     <FluentValidationValidator />
     <div class="form-group">
-        <label>Pet Name</label>
+        <label class="label-space-top">Pet Name</label>
         <InputText id="name" @bind-Value="PetToUpdate.Name" placeholder="Pet Name" class="form-control" />
         <ValidationMessage For="@(() => PetToUpdate.Name)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="birthdate">Pet Birthdate</label>
+        <label for="birthdate" class="label-space-top">Pet Birthdate</label>
         <DateInput @bind-Value="@PetToUpdate.Birthdate" class="form-control"></DateInput>
         <ValidationMessage For="@(() => PetToUpdate.Birthdate)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label>Pet Race</label>
+        <label class="label-space-top">Pet Race</label>
         <DropDownList DataSource="Races" @bind-SelectedValues="PetToUpdate.Race" />
         <ValidationMessage For="@(() => PetToUpdate.Race)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="gender">Pet Gender</label><br />
+        <label for="gender" class="label-space-top">Pet Gender</label><br />
         <input type="radio" name="gender" id="gender" checked="@(PetToUpdate.Gender == "Male")" @onchange="@(() => PetToUpdate.Gender = "Male")" />
         Male
         <input type="radio" name="gender" id="gender" checked="@(PetToUpdate.Gender == "Female")" @onchange="@(() => PetToUpdate.Gender = "Female")" />
@@ -50,14 +82,14 @@
         <ValidationMessage For="@(() => PetToUpdate.Gender)"></ValidationMessage>
     </div>
 
-    <div class="row">
+    <div class="row space-top space-botton">
         <div class="col">
             <button type="submit" class="btn btn-success">Update</button>
         </div>
     </div>
 </EditForm>
 
-<div class="row">
+<div class="row space-bottom">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>

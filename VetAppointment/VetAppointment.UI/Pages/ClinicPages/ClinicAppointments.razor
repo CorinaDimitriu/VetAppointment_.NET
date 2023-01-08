@@ -2,6 +2,38 @@
 
 <PageTitle>Appointments</PageTitle>
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-botton {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 @if (AppointmentsToGet == null)
 {
     <p><em>Loading...</em></p>
@@ -50,17 +82,17 @@ else
     <EditForm class="container" Model="Appointment" OnValidSubmit="AddAppointment">
         <FluentValidationValidator />
         <div class="form-group">
-            <label>Vet ID</label>
+            <label class="label-space-top">Vet ID</label>
             <DropDownList DataSource="VetIds" @bind-SelectedValues="Appointment.VetId" />
             <ValidationMessage For="@(() => Appointment.VetId)"></ValidationMessage>
         </div>
         <div class="form-group">
-            <label>Pet ID</label>
+            <label class="label-space-top">Pet ID</label>
             <DropDownList DataSource="PetIds" @bind-SelectedValues="Appointment.PetId" />
             <ValidationMessage For="@(() => Appointment.PetId)"></ValidationMessage>
         </div>
         <div class="form-group">
-            <label for="date">Scheduled Date</label>
+            <label for="date" class="label-space-top">Scheduled Date</label>
             <DateTimePicker @bind-Value="@Appointment.ScheduledDate" DropDownPosition="DropDownPosition.Bottom" CalendarButton="true" class="form-control"></DateTimePicker>
             <ValidationMessage For="@(() => Appointment.ScheduledDate)"></ValidationMessage>
         </div>
@@ -70,7 +102,7 @@ else
             <ValidationMessage For="@(() => Appointment.EstimatedDurationInMinutes)"></ValidationMessage>
         </div>
         <div class="form-group">
-            <label>Treatment ID</label>
+            <label class="label-space-top">Treatment ID</label>
             <DropDownList DataSource="TreatmentIds" @bind-SelectedValues="Appointment.TreatmentId" />
             <ValidationMessage For="@(() => Appointment.TreatmentId)"></ValidationMessage>
         </div>
@@ -82,7 +114,7 @@ else
     </EditForm>
 }
 
-<div class="row">
+<div class="row space-top space-botton">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>

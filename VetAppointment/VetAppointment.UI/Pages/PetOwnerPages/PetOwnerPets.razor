@@ -2,6 +2,38 @@
 
 <PageTitle>Pets</PageTitle>
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 @if (PetsToGet == null)
 {
     <p><em>Loading pets...</em></p>
@@ -35,7 +67,7 @@ else
     </tabel>
 }
 
-<div class="row">
+<div class="row space-top space-bottom">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">back</button>
     </div>

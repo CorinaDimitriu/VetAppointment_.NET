@@ -1,0 +1,16 @@
+﻿th, td {
+    vertical-align: middle;
+    text-align: center
+}
+
+tbody > tr:hover > td {
+    color: #000;
+    background-color: #E2E3E5;
+    border-color: #E2E3E5
+}
+
+#inner {
+    display: table;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}

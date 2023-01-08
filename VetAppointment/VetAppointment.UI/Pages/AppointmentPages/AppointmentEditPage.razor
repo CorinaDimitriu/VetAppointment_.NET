@@ -1,7 +1,39 @@
 ﻿@page "/{ClinicId:guid}/appointment/{AppointmentId:guid}"
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-botton {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 <PageTitle>Edit Appointemnt</PageTitle>
-<h3>Edit Appointment</h3>
+<h3 class="title-transition">Edit Appointment</h3>
 
 <tabel id="inner" class="table table-light">
     <thead class="table-primary">
@@ -35,17 +67,17 @@ else
     <EditForm class="container" Model="AppointmentToUpdate" OnValidSubmit="UpdateAppointment">
         <FluentValidationValidator />
         <div class="form-group">
-            <label>Vet ID</label>
+            <label class="label-space-top">Vet ID</label>
             <DropDownList DataSource="VetIds" @bind-SelectedValues="AppointmentToUpdate.VetId" />
             <ValidationMessage For="@(() => AppointmentToUpdate.VetId)"></ValidationMessage>
         </div>
         <div class="form-group">
-            <label>Pet ID</label>
+            <label class="label-space-top">Pet ID</label>
             <DropDownList DataSource="PetIds" @bind-SelectedValues="AppointmentToUpdate.PetId" />
             <ValidationMessage For="@(() => AppointmentToUpdate.PetId)"></ValidationMessage>
         </div>
         <div class="form-group">
-            <label for="date">Scheduled Date</label>
+            <label for="date" class="label-space-top">Scheduled Date</label>
             <DateTimePicker @bind-Value="@AppointmentToUpdate.ScheduledDate" DropDownPosition="DropDownPosition.Bottom" CalendarButton="true" class="form-control"></DateTimePicker>
             <ValidationMessage For="@(() => AppointmentToUpdate.ScheduledDate)"></ValidationMessage>
         </div>
@@ -55,7 +87,7 @@ else
             <ValidationMessage For="@(() => AppointmentToUpdate.EstimatedDurationInMinutes)"></ValidationMessage>
         </div>
         <div class="form-group">
-            <label>Treatment ID</label>
+            <label class="label-space-top">Treatment ID</label>
             <DropDownList DataSource="TreatmentIds" @bind-SelectedValues="AppointmentToUpdate.TreatmentId" />
             <ValidationMessage For="@(() => AppointmentToUpdate.TreatmentId)"></ValidationMessage>
         </div>
@@ -68,7 +100,7 @@ else
     </EditForm>
 }
 
-<div class="row">
+<div class="row space-botton">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>

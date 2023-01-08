@@ -1,7 +1,39 @@
 ﻿@page "/treatment/{TreatmentId:guid}"
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 <PageTitle>Edit Treatment</PageTitle>
-<h3>Edit Treatment</h3>
+<h3 class="title-transition">Edit Treatment</h3>
 
 <tabel id="inner" class="table table-light">
     <thead class="table-primary">
@@ -21,24 +53,24 @@
 <EditForm class="container" Model="TreatmentToUpdate" OnValidSubmit="UpdateTreatment">
     <FluentValidationValidator />
     <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description" class="label-space-top">Description</label>
         <InputTextArea id="description" @bind-Value="TreatmentToUpdate.Description" class="form-control" />
         <ValidationMessage For="@(() => TreatmentToUpdate.Description)"></ValidationMessage>
     </div>
-    <div class="row">
+    <div class="row space-top space-bottom">
         <div class="col">
             <button type="submit" class="btn btn-success">Update</button><br />
         </div>
     </div>
 </EditForm>
 
-<div class="row">
+<div class="row space-bottom">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateToPrescribedDrugs">Prescribed Drugs</button>
     </div>
 </div>
 
-<div class="row">
+<div class="row space-bottom">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>

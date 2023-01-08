@@ -24,6 +24,10 @@
         padding-top: 20px;
     }
 
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
     .label-space-top {
         padding-top: 10px;
     }
@@ -31,7 +35,7 @@
 </style>
 
 <PageTitle>Edit Clinic</PageTitle>
-<h3>Edit Clinic</h3>
+<h3 class="title-transition">Edit Clinic</h3>
 
 <table id="inner" class="table table-light">
     <thead class="table-primary">
@@ -90,13 +94,13 @@
     </div>
 </EditForm>
 
-<div class="row">
+<div class="row space-top">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>
 </div>
 
-<div class="space-top buttons">
+<div class="space-top buttons space-bottom">
     <div class="row">
         <div class="col">
             <button type="button" class="btn btn-info" @onclick="NavigateToPets">Pets</button><br />

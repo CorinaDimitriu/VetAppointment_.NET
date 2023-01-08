@@ -1,5 +1,37 @@
 ﻿@page "/treatment/{TreatmentId:guid}/prescribeddrugs"
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 <PageTitle>Prescribed Drugs</PageTitle>
 
 @if (PrescribedDrugsToGet == null)
@@ -45,12 +77,12 @@ else
         <ObjectGraphDataAnnotationsValidator />
         <div id="1" class="input-group">
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[0].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[0].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-1" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[0].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[0].Quantity)"></ValidationMessage>
             </div>
@@ -58,12 +90,12 @@ else
 
         <div id="2" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[1].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[1].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-2" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[1].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[1].Quantity)"></ValidationMessage>
             </div>
@@ -71,12 +103,12 @@ else
 
         <div id="3" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[2].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[2].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-3" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[2].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[2].Quantity)"></ValidationMessage>
             </div>
@@ -84,12 +116,12 @@ else
 
         <div id="4" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[3].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[3].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-4" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[3].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[3].Quantity)"></ValidationMessage>
             </div>
@@ -97,12 +129,12 @@ else
 
         <div id="5" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[4].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[4].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-5" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[4].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[4].Quantity)"></ValidationMessage>
             </div>
@@ -110,12 +142,12 @@ else
 
         <div id="6" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[5].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[5].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-6" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[5].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[5].Quantity)"></ValidationMessage>
             </div>
@@ -123,12 +155,12 @@ else
 
         <div id="7" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[6].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[6].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-7" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[6].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[6].Quantity)"></ValidationMessage>
             </div>
@@ -136,12 +168,12 @@ else
 
         <div id="8" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[7].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[7].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-8" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[7].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[7].Quantity)"></ValidationMessage>
             </div>
@@ -149,12 +181,12 @@ else
 
         <div id="9" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[8].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[8].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-9" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[8].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[8].Quantity)"></ValidationMessage>
             </div>
@@ -162,12 +194,12 @@ else
 
         <div id="10" class="input-group" hidden>
             <div class="form-group">
-                <label>Drug ID</label>
+                <label class="label-space-top">Drug ID</label>
                 <DropDownList DataSource="DrugIds" @bind-SelectedValues="PrescribedDrugsInTreatment.PrescribedDrugs[9].DrugId" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[9].DrugId)"></ValidationMessage>
             </div>
             <div class="form-group">
-                <label>Quantity</label>
+                <label class="label-space-top">Quantity</label>
                 <InputNumber id="quantity-10" @bind-Value="PrescribedDrugsInTreatment.PrescribedDrugs[9].Quantity" placeholder="Quantity" class="form-control" />
                 <ValidationMessage For="@(() => PrescribedDrugsInTreatment.PrescribedDrugs[9].Quantity)"></ValidationMessage>
             </div>
@@ -178,13 +210,13 @@ else
             <button id="removeRow" type="button" class="btn btn-danger" @onclick="RemoveInput">-</button>
         </div>
 
-        <div id="error-overflow" class="row" hidden="hidden">
+        <div id="error-overflow" class="row space-top" hidden="hidden">
             <div class="col">
                 <p>You can only add 10 prescribed drugs to a treatment at a time.</p>
             </div>
         </div>
 
-        <div id="error-removal" class="row" hidden="hidden">
+        <div id="error-removal" class="row space-top" hidden="hidden">
             <div class="col">
                 <p>You have to add at least one prescribed drug to a treatment.</p>
             </div>
@@ -202,7 +234,7 @@ else
     </EditForm>
 }
 
-<div class="row">
+<div class="row space-bottom">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>

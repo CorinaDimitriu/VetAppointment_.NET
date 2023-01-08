@@ -1,7 +1,39 @@
 ﻿@page "/drug/{DrugId:guid}"
 
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-botton {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
 <PageTitle>Edit Drug</PageTitle>
-<h3>Edit Drug</h3>
+<h3 class="title-transition">Edit Drug</h3>
 
 <tabel id="inner" class="table table-light">
     <thead class="table-primary">
@@ -25,28 +57,28 @@
 <EditForm class="container" Model="DrugToUpdate" OnValidSubmit="UpdateDrug">
     <FluentValidationValidator />
     <div class="form-group">
-        <label for="name">Drug Name</label>
+        <label for="name" class="label-space-top">Drug Name</label>
         <InputText id="name" @bind-Value="DrugToUpdate.Name" placeholder="Drug Name" class="form-control" />
         <ValidationMessage For="@(() => DrugToUpdate.Name)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="quantity">Drug Quantity</label>
+        <label for="quantity" class="label-space-top">Drug Quantity</label>
         <InputNumber id="quantity" @bind-Value="DrugToUpdate.Quantity" @bind-Value:format="F2" placeholder="Drug Quantity" class="form-control" />
         <ValidationMessage For="@(() => DrugToUpdate.Quantity)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="price">Drug UnitPrice</label>
+        <label for="price" class="label-space-top">Drug UnitPrice</label>
         <InputNumber id="price" @bind-Value="DrugToUpdate.UnitPrice" @bind-Value:format="F2" placeholder="Drug Unit Price" class="form-control" />
         <ValidationMessage For="@(() => DrugToUpdate.UnitPrice)"></ValidationMessage>
     </div>
-    <div class="row">
+    <div class="row space-top space-botton">
         <div class="col">
             <button type="submit" class="btn btn-success">Update</button><br />
         </div>
     </div>
 </EditForm>
 
-<div class="row">
+<div class="row space-botton">
     <div class="col">
         <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>

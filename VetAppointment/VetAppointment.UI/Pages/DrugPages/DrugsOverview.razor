@@ -15,7 +15,19 @@
     #inner {
         display: table;
         margin: 0 auto;
-        padding-bottom: 100px;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
     }
 
 </style>
@@ -57,21 +69,21 @@ else
 <EditForm class="container" Model="Drug" OnValidSubmit="AddDrug">
     <FluentValidationValidator />
     <div class="form-group">
-        <label for="name">Drug Name</label>
+        <label for="name" class="label-space-top">Drug Name</label>
         <InputText id="name" @bind-Value="Drug.Name" placeholder="Drug Name" class="form-control" />
         <ValidationMessage For="@(() => Drug.Name)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="quantity">Drug Quantity</label>
+        <label for="quantity" class="label-space-top">Drug Quantity</label>
         <InputNumber id="quantity" @bind-Value="Drug.Quantity" @bind-Value:format="F2" placeholder="Drug Quantity" class="form-control" />
         <ValidationMessage For="@(() => Drug.Quantity)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="price">Drug UnitPrice</label>
+        <label for="price" class="label-space-top">Drug UnitPrice</label>
         <InputNumber id="price" @bind-Value="Drug.UnitPrice" @bind-Value:format="F2" placeholder="Drug Unit Price" class="form-control" />
         <ValidationMessage For="@(() => Drug.UnitPrice)"></ValidationMessage>
     </div>
-    <div class="row">
+    <div class="row space-top space-bottom">
         <div class="col">
             <button type="submit" class="btn btn-success">Add</button><br />
         </div>

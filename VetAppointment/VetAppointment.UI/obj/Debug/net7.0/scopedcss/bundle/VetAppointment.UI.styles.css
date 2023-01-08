@@ -1,3 +1,20 @@
+/* /Pages/PetPages/PetsOverview.razor.rz.scp.css */
+th[b-zseu57q1o1], td[b-zseu57q1o1] {
+    vertical-align: middle;
+    text-align: center
+}
+
+tbody > tr:hover > td[b-zseu57q1o1] {
+    color: #000;
+    background-color: #E2E3E5;
+    border-color: #E2E3E5
+}
+
+#inner[b-zseu57q1o1] {
+    display: table;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-m7e1cozw5t] {
     position: relative;

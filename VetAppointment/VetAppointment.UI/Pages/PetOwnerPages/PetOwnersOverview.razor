@@ -15,7 +15,19 @@
     #inner {
         display: table;
         margin: 0 auto;
-        padding-bottom: 100px;
+        margin-bottom: 50px;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-botton {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
     }
 
 </style>
@@ -68,22 +80,22 @@ else
 <EditForm class="container" Model="PetOwner" OnValidSubmit="AddPetOwner">
     <FluentValidationValidator />
     <div class="form-group">
-        <label>Pet Owner Name</label>
+        <label class="label-space-top">Pet Owner Name</label>
         <InputText id="name" @bind-Value="PetOwner.Name" placeholder="Pet Owner Name" class="form-control" />
         <ValidationMessage For="@(() => PetOwner.Name)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label>Pet Owner Surname</label>
+        <label class="label-space-top">Pet Owner Surname</label>
         <InputText id="surname" @bind-Value="PetOwner.Surname" placeholder="Pet Owner Surname" class="form-control" />
         <ValidationMessage For="@(() => PetOwner.Surname)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="birthdate">Pet Birthdate</label>
+        <label for="birthdate" class="label-space-top">Pet Birthdate</label>
         <DateInput @bind-Value="@PetOwner.Birthdate" class="form-control"></DateInput>
         <ValidationMessage For="@(() => PetOwner.Birthdate)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label for="gender">Pet Owner Gender</label><br />
+        <label for="gender" class="label-space-top">Pet Owner Gender</label><br />
         <input type="radio" name="gender" id="gender" checked="@(PetOwner.Gender == "Male")" @onchange="@(() => PetOwner.Gender = "Male")" />
         Male
         <input type="radio" name="gender" id="gender" checked="@(PetOwner.Gender == "Female")" @onchange="@(() => PetOwner.Gender = "Female")" />
@@ -93,22 +105,22 @@ else
         <ValidationMessage For="@(() => PetOwner.Gender)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label>Pet Owner Address</label>
+        <label class="label-space-top">Pet Owner Address</label>
         <InputText id="address" @bind-Value="PetOwner.Address" placeholder="Pet Owner Address" class="form-control" />
         <ValidationMessage For="@(() => PetOwner.Address)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label>Pet Owner Email</label>
+        <label class="label-space-top">Pet Owner Email</label>
         <InputText id="email" @bind-Value="PetOwner.Email" placeholder="Pet Owner Email" class="form-control" />
         <ValidationMessage For="@(() => PetOwner.Email)"></ValidationMessage>
     </div>
     <div class="form-group">
-        <label>Pet Owner Phone</label>
+        <label class="label-space-top">Pet Owner Phone</label>
         <InputText id="phone" @bind-Value="PetOwner.Phone" placeholder="Pet Owner Phone" class="form-control" />
         <ValidationMessage For="@(() => PetOwner.Phone)"></ValidationMessage>
     </div>
 
-    <div class="row">
+    <div class="row space-botton space-top">
         <div class="col">
             <button type="submit" class="btn btn-success">Add</button>
         </div>

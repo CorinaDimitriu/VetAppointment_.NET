@@ -15,8 +15,21 @@
     #inner {
         display: table;
         margin: 0 auto;
-        padding-bottom: 100px;
+        margin-bottom: 50px;
     }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-botton {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
 </style>
 
 <h2 class="title-transition">Treatment Overview</h2>
@@ -52,11 +65,11 @@ else
 <EditForm class="container" Model="Treatment" OnValidSubmit="AddTreatment">
     <FluentValidationValidator />
     <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description" class="label-space-top">Description</label>
         <InputTextArea id="description" @bind-Value="Treatment.Description" class="form-control" />
         <ValidationMessage For="@(() => Treatment.Description)"></ValidationMessage>
     </div>
-    <div class="row">
+    <div class="row space-top space-botton">
         <div class="col">
             <button type="submit" class="btn btn-success">Add</button><br />
         </div>

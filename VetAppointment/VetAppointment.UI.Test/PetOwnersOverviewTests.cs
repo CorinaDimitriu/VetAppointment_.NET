@@ -3,7 +3,7 @@ using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using VetAppointment.Shared.Domain;
-using VetAppointment.UI.Pages;
+using VetAppointment.UI.Pages.PetOwnerPages;
 using VetAppointment.UI.Pages.Services;
 
 namespace VetAppointment.UI.Test
@@ -22,7 +22,7 @@ namespace VetAppointment.UI.Test
 
             var cut = context.RenderComponent<PetOwnersOverview>();
 
-            cut.Instance.PetOwners.Should().NotBeNull();
+            cut.Instance.PetOwnersToGet.Should().NotBeNull();
             var tdElements = cut.FindAll("td");
             tdElements[0].TextContent.MarkupMatches(petOwners[0].Id.ToString());
             tdElements[1].TextContent.MarkupMatches("Ion");

@@ -1,5 +1,4 @@
-﻿using Blazored.SessionStorage;
-using VetAppointment.UI.Pages.Models;
+﻿using VetAppointment.UI.Pages.Models;
 
 namespace VetAppointment.UI.Pages.Services
 {

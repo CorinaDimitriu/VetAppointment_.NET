@@ -8,6 +8,6 @@ namespace VetAppointment.UI.Pages.Models
         [ValidateComplexType]
         public List<PetModel> Pets { get; set; } = default!;
         public int Count { get; set; } = default!;
-        public string[] OwnerId { get; set; } = new string[1] { "" };
+        public string[] OwnerId { get; set; } = new string[1] { "No pet owner available." };
     }
 }

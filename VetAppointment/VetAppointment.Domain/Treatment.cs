@@ -2,7 +2,7 @@
 
 namespace VetAppointment.Domain
 {
-    #nullable disable
+#nullable disable
     public class Treatment
     {
         public Guid Id { get; private set; }
@@ -43,19 +43,24 @@ namespace VetAppointment.Domain
                 return Result.Failure("Register at least a drug to the treatment");
             }
 
-            drugs.ForEach(drug => PrescribedDrugs.Add(drug));
+            drugs.ForEach(drug =>
+            {
+                drug.AttachToTreatment(this);
+                PrescribedDrugs.Add(drug);
+            });
 
             return Result.Success();
         }
 
         public Result RemoveDrugFromTreatment(PrescribedDrug prescribedDrug)
         {
-            var result = PrescribedDrugs.Remove(prescribedDrug);
+            var drug = PrescribedDrugs.FindIndex(x => x.Id == prescribedDrug.Id);
+            PrescribedDrugs.RemoveAt(drug);
 
-            if (!result)
-            {
-                return Result.Failure("Not found");
-            }
+            //if (!result)
+            //{
+            //    return Result.Failure("Not found");
+            //}
 
             return Result.Success();
         }

@@ -4,6 +4,7 @@ using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
 using VetAppointment.Domain;
 using VetAppointment.Application;
+using VetAppointment.Infrastructure.Repositories.GenericRepositories;
 
 namespace VetAppointment.API.Controllers
 {
@@ -18,12 +19,27 @@ namespace VetAppointment.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var treatments = unitOfWork.TreatmentRepository.All().Result.Select (TreatmentMapper.Mapper.Map<TreatmentDto>);
+            var treatments = unitOfWork.TreatmentRepository.All().Result.Select(TreatmentMapper.Mapper.Map<TreatmentDto>);
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return Ok(treatments);
+        }
+
+        [HttpGet("{treatmentId:guid}")]
+        public IActionResult GetById(Guid treatmentId)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(treatment);
         }
 
         [HttpPost]
@@ -44,8 +60,8 @@ namespace VetAppointment.API.Controllers
             return Created(nameof(Get), TreatmentMapper.Mapper.Map<TreatmentDto>(treat));
         }
 
-        [HttpPost("{treatmentId:Guid}/prescribedDrugs")]
-        public IActionResult AddDrugsToTreatment(Guid treatmentId, [FromBody] List<PrescribedDrugDto> prescribedDrugDtos)
+        [HttpGet("{treatmentId:guid}/prescribeddrugs")]
+        public IActionResult GetPrescribedDrugsByTreatmentId(Guid treatmentId)
         {
             var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
             if (treatment == null)
@@ -53,25 +69,51 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            var drugs = prescribedDrugDtos.Select(PrescribedDrugMapper.Mapper.Map<PrescribedDrug>).ToList();
+            var prescribedDrugs = treatment.PrescribedDrugs.Select(PrescribedDrugMapper.Mapper.Map<PrescribedDrugDto>);
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(prescribedDrugs);
+        }
+
+        [HttpPost("{treatmentId:Guid}/prescribedDrugs")]
+        public IActionResult AddDrugsToTreatment(Guid treatmentId, [FromBody] List<CreatePrescribedDrugDto> prescribedDrugDtos)
+        {
+            var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            var realDrugs = prescribedDrugDtos.Select(drugDto => unitOfWork.DrugRepository.Get(drugDto.DrugToPrescribeId).Result).ToList();
+            foreach (var drug in realDrugs)
+            {
+                unitOfWork.DrugRepository.Update(drug);
+            }
+
+            var drugs = prescribedDrugDtos.Select(drugDto =>
+            PrescribedDrug.Create(drugDto.Quantity, unitOfWork.DrugRepository.Get(drugDto.DrugToPrescribeId).Result).Entity).ToList();
+
             if (drugs.Any(p => p == null))
             {
                 return BadRequest();
             }
 
-            var result = treatment.AppendDrugsToTreatment(drugs);
+            var result = treatment.AppendDrugsToTreatment(drugs.Select(drug => drug).ToList());
             if (result.IsFailure)
             {
                 return BadRequest(result.Error);
             }
 
             drugs.ForEach(p => unitOfWork.PrescribedDrugRepository.Add(p));
+            unitOfWork.TreatmentRepository.Update(treatment);
             unitOfWork.SaveChanges();
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return NoContent();
+            return Created(nameof(GetPrescribedDrugsByTreatmentId), drugs.Select(PrescribedDrugMapper.Mapper.Map<PrescribedDrugDto>));
         }
 
         [HttpPut("{treatmentId:Guid}")]
@@ -99,7 +141,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}")]
-        public IActionResult UpdateDrugInTreatment(Guid treatmentId, Guid prescribedDrugId, 
+        public IActionResult UpdateDrugInTreatment(Guid treatmentId, Guid prescribedDrugId,
             [FromBody] PrescribedDrugDto prescribedDrugDto)
         {
             var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
@@ -114,7 +156,7 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            var drug = unitOfWork.DrugRepository.Get(prescribedDrugDto.DrugId).Result;
+            var drug = unitOfWork.DrugRepository.Get(prescribedDrugDto.DrugToPrescribeId).Result;
             if (drug == null)
             {
                 return NotFound();
@@ -183,6 +225,5 @@ namespace VetAppointment.API.Controllers
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
         }
-
     }
 }

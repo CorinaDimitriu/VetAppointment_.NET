@@ -84,7 +84,7 @@ else
 
     <div class="form-group">
         <label for="address" class="label-space-top">Address</label>
-        <InputText id="address" @bind-Value="Clinic.Address" class="form-control" />
+        <InputText id="address" @bind-Value="Clinic.Address" placeholder="Clinic Address" class="form-control" />
         <ValidationMessage For="@(() => Clinic.Address)"></ValidationMessage>
     </div>
 
@@ -96,13 +96,13 @@ else
 
     <div class="form-group">
         <label for="email" class="label-space-top">Email</label>
-        <InputText id="email" @bind-Value="Clinic.ContactEmail" class="form-control" />
+        <InputText id="email" @bind-Value="Clinic.ContactEmail" placeholder="Clinic Email" class="form-control" />
         <ValidationMessage For="@(() => Clinic.ContactEmail)"></ValidationMessage>
     </div>
 
     <div class="form-group">
         <label for="phone" class="label-space-top">Phone number</label>
-        <InputText id="phone" @bind-Value="Clinic.ContactPhone" class="form-control" />
+        <InputText id="phone" @bind-Value="Clinic.ContactPhone" placeholder="Clinic Phone" class="form-control" />
         <ValidationMessage For="@(() => Clinic.ContactPhone)"></ValidationMessage>
     </div>
     <div class="row space-top space-botton">
@@ -111,154 +111,3 @@ else
         </div>
     </div>
 </EditForm>
-
-
-@*<h3>Delete Vet From Clinic</h3>
-
-<button type="button" class="btn btn-info float-right" @onclick="StartDeleteVet">Delete Vet from clinic</button>
-
-@if (VetToDelete != null)
-{
-    <EditForm class="container" Model="VetToDelete" OnValidSubmit="DeleteVetFromClinic">
-        <div class="form-group">
-            <label for="idclinic">Id Clinic</label>
-            <InputText id="idclinic" @bind-Value="VetToDelete.IdToDeleteClinic" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="idvet">Id Vet</label>
-            <InputText id="idvet" @bind-Value="VetToDelete.IdToDeleteVet" class="form-control" />
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-success">Delete vet</button>
-            </div>
-        </div>
-    </EditForm>
-}*@
-@*
-<h3>Delete Pet From Clinic</h3>
-
-<button type="button" class="btn btn-info float-right" @onclick="StartDeletePet">Delete Pet from clinic</button>
-
-@if (PetToDelete != null)
-{
-    <EditForm class="container" Model="PetToDelete" OnValidSubmit="DeletePetFromClinic">
-        <div class="form-group">
-            <label for="idclinic">Id Clinic</label>
-            <InputText id="idclinic" @bind-Value="PetToDelete.IdToDeleteClinic" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="idpet">Id Pet</label>
-            <InputText id="idpet" @bind-Value="PetToDelete.IdToDeletePet" class="form-control" />
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-success">Delete pet</button>
-            </div>
-        </div>
-    </EditForm>
-}*@
-
-@*
-<h3>Update Vet From Clinic</h3>
-<div class="btn-group">
-    <button type="button" class="btn btn-info float-right" @onclick="StartUpdateVet">Update Vet from clinic</button>
-</div>
-<br />
-
-@if (VetToUpdate != null)
-{
-    <EditForm class="container" Model="VetToUpdate" OnValidSubmit="UpdateVetFromClinic">
-        <div class="form-group">
-            <label for="idclinic">Id Clinic</label>
-            <InputText id="idclinic" @bind-Value="VetToUpdate.ClinicId" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="idvet">Id Vet</label>
-            <InputText id="idvet" @bind-Value="VetToUpdate.Id" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="name">Vet Name</label>
-            <InputText id="name" @bind-Value="VetToUpdate.Name" placeholder="Vet Name" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="surname">Vet Surame</label>
-            <InputText id="surname" @bind-Value="VetToUpdate.Surname" placeholder="Vet Surname" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Vet Birthdate</label>
-            <DateInput @bind-Value="@VetToUpdate.Birthdate" class="form-control"></DateInput>
-        </div>
-        <div class="form-group">
-            <label for="gender">Vet Gender</label>
-            <input type="radio" name="gender" id="gender" checked="@(VetToUpdate.Gender == "Male")" @onchange="@(() => VetToUpdate.Gender = "Male")" />
-            Male
-            <input type="radio" name="gender" id="gender" checked="@(VetToUpdate.Gender == "Female")" @onchange="@(() => VetToUpdate.Gender = "Female")" />
-            Female
-            <input type="radio" name="gender" id="gender" checked="@(VetToUpdate.Gender == "Other")" @onchange="@(() => VetToUpdate.Gender = "Other")" />
-            Other
-        </div>
-        <div class="form-group">
-            <label for="email">Vet Email</label>
-            <InputText id="email" @bind-Value="VetToUpdate.Email" placeholder="Vet Email" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="phone">Vet Phone Number</label>
-            <InputText id="phone" @bind-Value="VetToUpdate.Phone" placeholder="Vet Phone Number" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Vet Specialisation</label>
-            <DropDownList DataSource="Specialisations" @bind-SelectedValues="VetToUpdate.Specialisation" />
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-success">Update Vet</button><br />
-            </div>
-        </div>
-    </EditForm>
-}
-
-<h3>Update Pet From Clinic</h3>
-<div class="btn-group">
-    <button type="button" class="btn btn-info float-right" @onclick="StartUpdatePet">Update Pet from clinic</button>
-</div>
-<br />
-
-@if (PetToUpdate != null)
-{
-    <EditForm class="container" Model="PetToUpdate" OnValidSubmit="UpdatePetFromClinic">
-        <div class="form-group">
-            <label for="idclinic">Id Clinic</label>
-            <InputText id="idclinic" @bind-Value="PetToUpdate.ClinicId" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="idpet">Id Pet</label>
-            <InputText id="idpet" @bind-Value="PetToUpdate.Id" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Pet Name</label>
-            <InputText id="name-1" @bind-Value="PetToUpdate.Name" placeholder="Pet Name" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="birthdate-1">Pet Birthdate</label>
-            <DateInput @bind-Value="PetToUpdate.Birthdate" class="form-control"></DateInput>
-        </div>
-        <div class="form-group">
-            <label>Pet Race</label>
-            <DropDownList DataSource="Races" @bind-SelectedValues="PetToUpdate.Race" />
-        </div>
-        <div class="form-group">
-            <label for="gender-1">Pet Gender</label><br />
-            <input type="radio" name="gender-1" id="gender-1" checked="@(PetToUpdate.Gender == "Male")" @onchange="@(() => PetToUpdate.Gender = "Male")" />
-            Male
-            <input type="radio" name="gender-1" id="gender-1" checked="@(PetToUpdate.Gender == "Female")" @onchange="@(() => PetToUpdate.Gender = "Female")" />
-            Female
-            <ValidationMessage For="@(() => PetToUpdate.Gender)"></ValidationMessage>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-success">Update Pet</button><br />
-            </div>
-        </div>
-    </EditForm>
-}*@

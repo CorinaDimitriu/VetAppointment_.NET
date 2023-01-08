@@ -68,5 +68,51 @@ namespace VetAppointment.Domain
 
             return Result.Success();
         }
+
+        public Result<PetOwner> Update(string name, string surname, string birthdate, string gender, string address, string email, string phone)
+        {
+            if (name != "" && name != null)
+            {
+                this.Name = name;
+            }
+
+            if (surname != "" && surname != null)
+            {
+                this.Surname = surname;
+            }
+
+            if (address != "" && address != null)
+            {
+                this.Address = address;
+            }
+
+            if (!Validations.IsValidEmail(email))
+            {
+                return Result<PetOwner>.Failure($"Email {email} is not valid");
+            }
+            this.Email = email;
+
+            if (!Validations.IsValidPhoneNumber(phone))
+            {
+                return Result<PetOwner>.Failure($"Phone number {phone} is not valid");
+            }
+            this.Phone = phone;
+
+            if (!DateTime.TryParse(birthdate, out DateTime date))
+            {
+                return Result<PetOwner>.Failure($"Invalid birthdate - {birthdate}!");
+            }
+            this.Birthdate = date;
+
+            if (!Enum.TryParse<PersonGender>(gender, out var personGender))
+            {
+                var expectedGenderValues = Enum.GetNames(typeof(PersonGender));
+                var textExpectedGenderValues = string.Join(", ", expectedGenderValues);
+                return Result<PetOwner>.Failure($"The provided gender {gender} is not one from the possible genders: {textExpectedGenderValues}");
+            }
+            this.Gender = personGender;
+
+            return Result<PetOwner>.Success(this);
+        }
     }
 }

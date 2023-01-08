@@ -35,7 +35,7 @@ namespace VetAppointment.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreatePrescribedDrugDto drugDto)
         {
-            var drug = drugRepository.Get(drugDto.DrugId).Result;
+            var drug = drugRepository.Get(drugDto.DrugToPrescribeId).Result;
             if (drug == null)
             {
                 return NotFound();

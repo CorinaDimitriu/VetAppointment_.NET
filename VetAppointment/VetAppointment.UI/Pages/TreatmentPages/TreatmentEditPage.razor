@@ -1,0 +1,45 @@
+﻿@page "/treatment/{TreatmentId:guid}"
+
+<PageTitle>Edit Treatment</PageTitle>
+<h3>Edit Treatment</h3>
+
+<tabel id="inner" class="table table-light">
+    <thead class="table-primary">
+        <tr>
+            <th>Treatment Id</th>
+            <th>Treatment Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@TreatmentId</td>
+            <td>@TreatmentOld.Description</td>
+        </tr>
+    </tbody>
+</tabel>
+
+<EditForm class="container" Model="TreatmentToUpdate" OnValidSubmit="UpdateTreatment">
+    <FluentValidationValidator />
+    <div class="form-group">
+        <label for="description">Description</label>
+        <InputTextArea id="description" @bind-Value="TreatmentToUpdate.Description" class="form-control" />
+        <ValidationMessage For="@(() => TreatmentToUpdate.Description)"></ValidationMessage>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Update</button><br />
+        </div>
+    </div>
+</EditForm>
+
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateToPrescribedDrugs">Prescribed Drugs</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+    </div>
+</div>

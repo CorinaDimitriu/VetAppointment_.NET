@@ -79,5 +79,10 @@ namespace VetAppointment.UI.Pages.ClinicPages
         {
             NavigationManager.NavigateTo($"/clinic/{ClinicId}/appointments");
         }
+
+        protected void NavigateToMedicalHistory()
+        {
+            NavigationManager.NavigateTo($"/clinic/{ClinicId}/medicalhistory");
+        }
     }
 }

@@ -1,0 +1,40 @@
+﻿@page "/owner/{OwnerId:guid}/pet/{PetId:guid}/appointments"
+
+@if (AppointmentsToGet == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <tabel id="inner" class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>Appointment Id</th>
+                <th>Appointment VetId</th>
+                <th>Appointment PetId</th>
+                <th>Appointment ScheduledDate</th>
+                <th>Appointment EstimatedDurationInMinutes</th>
+                <th>Appointment TreatmentId</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in AppointmentsToGet)
+            {
+                <tr>
+                    <td>@appointment.Id</td>
+                    <td>@appointment.VetId</td>
+                    <td>@appointment.PetId</td>
+                    <td>@appointment.ScheduledDate</td>
+                    <td>@appointment.EstimatedDurationInMinutes</td>
+                    <td>@appointment.TreatmentId</td>
+                </tr>
+            }
+        </tbody>
+    </tabel>
+}
+
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">Back</button>
+    </div>
+</div>

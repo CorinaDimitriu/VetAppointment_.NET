@@ -68,7 +68,7 @@ namespace VetAppointment.Integration.Test
             var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
             var prescribedDrugSut = CreatePrescribedDrugDtoSUT();
-            prescribedDrugSut.DrugId = drug.Id;
+            prescribedDrugSut.DrugToPrescribeId = drug.Id;
 
             // Act
             var response = await httpClient.PostAsJsonAsync(ApiURL, prescribedDrugSut);
@@ -87,7 +87,7 @@ namespace VetAppointment.Integration.Test
             HttpClient httpClient = GetHttpClient("When_GetPrescribedDrugs_Then_ShouldReturnPrescribedDrugs");
             
             var prescribedDrugSut = CreatePrescribedDrugDtoSUT();
-            prescribedDrugSut.DrugId = Guid.NewGuid();
+            prescribedDrugSut.DrugToPrescribeId = Guid.NewGuid();
 
             // Act
             var response = await httpClient.PostAsJsonAsync(ApiURL, prescribedDrugSut);

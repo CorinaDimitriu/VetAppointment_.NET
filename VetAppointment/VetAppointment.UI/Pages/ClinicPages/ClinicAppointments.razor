@@ -1,6 +1,5 @@
 ﻿@page "/clinic/{ClinicId:guid}/appointments"
 
-
 <PageTitle>Appointments</PageTitle>
 
 @if (AppointmentsToGet == null)
@@ -17,6 +16,9 @@ else
                 <th>Appointment PetId</th>
                 <th>Appointment ScheduledDate</th>
                 <th>Appointment EstimatedDurationInMinutes</th>
+                <th>Appointment TreatmentId</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -28,10 +30,60 @@ else
                     <td>@appointment.PetId</td>
                     <td>@appointment.ScheduledDate</td>
                     <td>@appointment.EstimatedDurationInMinutes</td>
+                    <td>@appointment.TreatmentId</td>
+                    <td><button type="button" class="btn btn-info" @onclick="(() => NavigateToEditPage(appointment.Id))">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" @onclick="(() => DeleteAppointment(appointment.Id))">Delete</button></td>
                 </tr>
             }
         </tbody>
-    </tabel>    
+    </tabel>
 }
 
 <h3>Add Appointments to Clinic</h3>
+
+@if (VetIds == null)
+{
+    <p><em>Loading data...</em></p>
+}
+else
+{
+    <EditForm class="container" Model="Appointment" OnValidSubmit="AddAppointment">
+        <FluentValidationValidator />
+        <div class="form-group">
+            <label>Vet ID</label>
+            <DropDownList DataSource="VetIds" @bind-SelectedValues="Appointment.VetId" />
+            <ValidationMessage For="@(() => Appointment.VetId)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label>Pet ID</label>
+            <DropDownList DataSource="PetIds" @bind-SelectedValues="Appointment.PetId" />
+            <ValidationMessage For="@(() => Appointment.PetId)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label for="date">Scheduled Date</label>
+            <DateTimePicker @bind-Value="@Appointment.ScheduledDate" DropDownPosition="DropDownPosition.Bottom" CalendarButton="true" class="form-control"></DateTimePicker>
+            <ValidationMessage For="@(() => Appointment.ScheduledDate)"></ValidationMessage>
+        </div>
+        <div>
+            <label for="duration" class="label-space-top">Duration</label>
+            <InputNumber id="duration" @bind-Value="Appointment.EstimatedDurationInMinutes" placeholder="Duration" class="form-control" />
+            <ValidationMessage For="@(() => Appointment.EstimatedDurationInMinutes)"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label>Treatment ID</label>
+            <DropDownList DataSource="TreatmentIds" @bind-SelectedValues="Appointment.TreatmentId" />
+            <ValidationMessage For="@(() => Appointment.TreatmentId)"></ValidationMessage>
+        </div>
+        <div class="row space-top space-botton">
+            <div class="col">
+                <button type="submit" class="btn btn-success">Create</button><br />
+            </div>
+        </div>
+    </EditForm>
+}
+
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+    </div>
+</div>

@@ -4,6 +4,7 @@ using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
 using VetAppointment.Domain;
 using VetAppointment.Application;
+using VetAppointment.Infrastructure.Repositories.GenericRepositories;
 
 namespace VetAppointment.API.Controllers
 {
@@ -146,7 +147,7 @@ namespace VetAppointment.API.Controllers
                 return BadRequest();
             }
 
-            var result = clinic.RegisterPetsFamilyToClinic(pets.ToList());
+            var result = clinic.RegisterPetsFamilyToClinic(pets);
             pets.ForEach(p => p.ConnectToOwner(owner));
             if (result.IsFailure)
             {
@@ -154,6 +155,14 @@ namespace VetAppointment.API.Controllers
             }
 
             pets.ForEach(p => unitOfWork.PetRepository.Add(p));
+            unitOfWork.VetClinicRepository.Update(clinic);
+
+            result = owner.RegisterPetsToOwner(pets);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+            unitOfWork.PetOwnerRepository.Update(owner);
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
@@ -431,6 +440,44 @@ namespace VetAppointment.API.Controllers
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
             Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
             return NoContent();
+        }
+
+        [HttpGet("{clinicId:guid}/vet/{vetId:guid}/appointments")]
+        public IActionResult GetAppointmentsByVetId(Guid clinicId, Guid vetId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(clinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            //var allAppointments = clinic.Appointments.Select(AppointmentMapper.Mapper.Map<AppointmentDto>);
+            var appointments = new List<AppointmentDto>();
+            //allAppointments.ToList().ForEach(a => { if (a.VetId == vetId) appointments.Add(a); });
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(appointments);
+        }
+
+        [HttpGet("{clinicId:guid}/pet/{petId:guid}/appointments")]
+        public IActionResult GetAppointmentsByPetId(Guid clinicId, Guid petId)
+        {
+            var clinic = unitOfWork.VetClinicRepository.Get(clinicId).Result;
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+
+            var allAppointments = clinic.Appointments.Select(AppointmentMapper.Mapper.Map<AppointmentDto>);
+            var appointments = new List<AppointmentDto>();
+            allAppointments.ToList().ForEach(a => { if (a.PetId == petId) appointments.Add(a); });
+
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            return Ok(appointments);
         }
     }
 }

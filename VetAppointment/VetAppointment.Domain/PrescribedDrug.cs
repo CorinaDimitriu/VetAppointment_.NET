@@ -9,6 +9,7 @@ namespace VetAppointment.Domain
         public double Quantity { get; private set; }
         public Guid DrugToPrescribeId { get; private set; }
         public double TotalCost { get; private set; }
+        public Guid TreatmentId { get; private set; }
 
         public static Result<PrescribedDrug> Create(double quantity, Drug drugToPrescribe)
         {
@@ -21,6 +22,8 @@ namespace VetAppointment.Domain
             {
                 return Result<PrescribedDrug>.Failure($"Quantity {quantity} of prescribed drug exceeds existing stock");
             }
+
+            drugToPrescribe.Quantity -= quantity;
 
             var prescribedDrug = new PrescribedDrug
             {
@@ -62,6 +65,11 @@ namespace VetAppointment.Domain
             TotalCost = CalculateDrugCost(quantity, drugToPrescribe.UnitPrice);
 
             return Result.Success();
+        }
+
+        public void AttachToTreatment(Treatment treatment)
+        {
+            TreatmentId = treatment.Id;
         }
     }
 }

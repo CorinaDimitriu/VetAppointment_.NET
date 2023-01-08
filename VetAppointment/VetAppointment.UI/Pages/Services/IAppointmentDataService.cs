@@ -1,4 +1,5 @@
 ﻿using VetAppointment.Shared.Domain;
+using VetAppointment.UI.Pages.Models;
 
 namespace VetAppointment.UI.Pages.Services
 {
@@ -6,5 +7,8 @@ namespace VetAppointment.UI.Pages.Services
     {
         Task<Appointment> AddAppointment(Appointment appointment);
         Task<IEnumerable<Appointment>> GetAllAppointments();
+        Task<Appointment> GetAppointmentById(Guid id);
+        Task<string> DeleteAppointmentById(Guid appointmentId);
+        Task<string> UpdateAppointmentById(Guid appointmentId, AppointmentModel appointment);
     }
 }

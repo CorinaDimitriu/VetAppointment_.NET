@@ -6,7 +6,7 @@ namespace VetAppointment.Domain
     {
         public Guid Id { get; private set; }
         public string Name { get; private set; }
-        public double Quantity { get; private set; }
+        public double Quantity { get; set; }
         public double UnitPrice { get; private set; }
 
         public static Result<Drug> Create(string name, double quantity, double unitPrice)

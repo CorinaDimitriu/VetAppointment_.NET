@@ -1,0 +1,51 @@
+﻿@page "/prescribeddrugsoverview"
+
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+</style>
+
+<h2 class="title-transition">Prescribed Drugs Overview</h2>
+@if (PrescribedDrugsToGet == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <tabel id="inner" class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>Prescribed Drug Id</th>
+                <th>Source Drug Id</th>
+                <th>Drug Quantity</th>
+                <th>Drug Total Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var drug in PrescribedDrugsToGet)
+            {
+                <tr>
+                    <td>@drug.Id</td>
+                    <td>@drug.DrugToPrescribeId</td>
+                    <td>@drug.Quantity</td>
+                    <td>@drug.TotalCost</td>
+                </tr>
+            }
+        </tbody>
+    </tabel>
+}
+

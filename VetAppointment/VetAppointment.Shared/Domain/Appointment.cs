@@ -8,6 +8,5 @@
         public string? ScheduledDate { get; set; }
         public int EstimatedDurationInMinutes { get; set; }
         public Guid TreatmentId { get; set; }
-        public Guid MedicalHistoryId { get; set; }
     }
 }

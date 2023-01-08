@@ -77,7 +77,7 @@
             var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
 
             // Act
-            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate.ToString(), appointment.EstimatedDurationInMinutes, appointment.TreatmentId, appointment.MedicalHistoryId);
+            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate.ToString(), appointment.EstimatedDurationInMinutes, appointment.TreatmentId);
 
             // Assert
             result.IsSuccess.Should().BeTrue();
@@ -91,7 +91,7 @@
             var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
 
             // Act
-            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate.ToString(), -5, appointment.TreatmentId, appointment.MedicalHistoryId);
+            var result = appointment.Update(appointment.VetId, appointment.PetId, appointment.ScheduledDate.ToString(), -5, appointment.TreatmentId);
 
             // Assert
             result.IsFailure.Should().BeTrue();
@@ -105,24 +105,10 @@
             var appointment = Appointment.SettleAppointment(sut.Item1, sut.Item2, sut.Item3.ToString(), sut.Item4).Entity;
 
             // Act
-            var result = appointment.Update(appointment.VetId, appointment.PetId, DateTime.Now.AddYears(-1).ToString(), appointment.EstimatedDurationInMinutes, appointment.TreatmentId, appointment.MedicalHistoryId);
+            var result = appointment.Update(appointment.VetId, appointment.PetId, DateTime.Now.AddYears(-1).ToString(), appointment.EstimatedDurationInMinutes, appointment.TreatmentId);
 
             // Assert
             result.IsFailure.Should().BeTrue();
-        }
-
-        [Fact]
-        public void When_AttachAppointmentToMedicalHistory_Then_ShouldAttach()
-        {
-            var appointmentSUT = CreateSUT();
-            var app = Appointment.SettleAppointment(appointmentSUT.Item1, appointmentSUT.Item2, 
-                appointmentSUT.Item3.ToString(), appointmentSUT.Item4);
-
-            var medicalHistory = MedicalHistory.Create().Entity;
-
-            app.Entity.AttachAppointmentToMedicalHistory(medicalHistory);
-
-            app.Entity.MedicalHistoryId.Should().Be(medicalHistory.Id);
         }
 
         //public static Tuple<Guid, Guid, DateTime, int> CreateSUT()

@@ -1,0 +1,42 @@
+﻿@page "/owner/{OwnerId:guid}/pets"
+
+<PageTitle>Pets</PageTitle>
+
+@if (PetsToGet == null)
+{
+    <p><em>Loading pets...</em></p>
+}
+else
+{
+    <tabel class="table table-light inner">
+        <thead class="table-primary">
+            <tr>
+                <th>Pet Id</th>
+                <th>Pet Name</th>
+                <th>Pet Birthdate</th>
+                <th>Pet Race</th>
+                <th>Pet Gender</th>
+                <th>Pet Appointments</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in PetsToGet)
+            {
+                <tr>
+                    <td>@pet.Id</td>
+                    <td>@pet.Name</td>
+                    <td>@pet.Birthdate</td>
+                    <td>@pet.Race</td>
+                    <td>@pet.Gender</td>
+                    <td><button type="button" class="btn btn-info" @onclick="(() => NavigateToPetAppointmentsPage(pet.Id))">Appointments</button></td>
+                </tr>
+            }
+        </tbody>
+    </tabel>
+}
+
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">back</button>
+    </div>
+</div>

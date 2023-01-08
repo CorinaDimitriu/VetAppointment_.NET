@@ -240,7 +240,6 @@ namespace VetAppointment.Integration.Tests
 
             appointment.VetId = vet.Id;
             appointment.PetId = pet.First().Id;
-            appointment.MedicalHistoryId = Guid.NewGuid();
             appointment.TreatmentId = Guid.NewGuid();
 
             // Act
@@ -772,7 +771,6 @@ namespace VetAppointment.Integration.Tests
                 PetId = Guid.Empty,
                 VetId = Guid.Empty,
                 TreatmentId = Guid.NewGuid(),
-                MedicalHistoryId = Guid.NewGuid()
             };
         }
     }

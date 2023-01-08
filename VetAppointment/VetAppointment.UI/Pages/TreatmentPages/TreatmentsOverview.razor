@@ -1,0 +1,64 @@
+﻿@page "/treatmentsoverview"
+
+<style>
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    tbody > tr:hover > td {
+        color: #000;
+        background-color: #E2E3E5;
+        border-color: #E2E3E5
+    }
+
+    #inner {
+        display: table;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+</style>
+
+<h2 class="title-transition">Treatment Overview</h2>
+@if (TreatmentsToGet == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <tabel id="inner" class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th>Treatment Id</th>
+                <th>Treatment Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var treat in TreatmentsToGet)
+            {
+                <tr>
+                    <td>@treat.Id</td>
+                    <td>@treat.Description</td>
+                    <td><button type="button" class="btn btn-info" @onclick="(() => NavigateToEditPage(treat.Id))">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" @onclick="(() => DeleteTreatment(treat.Id))">Delete</button></td>
+                </tr>
+            }
+        </tbody>
+    </tabel>
+}
+
+<EditForm class="container" Model="Treatment" OnValidSubmit="AddTreatment">
+    <FluentValidationValidator />
+    <div class="form-group">
+        <label for="description">Description</label>
+        <InputTextArea id="description" @bind-Value="Treatment.Description" class="form-control" />
+        <ValidationMessage For="@(() => Treatment.Description)"></ValidationMessage>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-success">Add</button><br />
+        </div>
+    </div>
+</EditForm>

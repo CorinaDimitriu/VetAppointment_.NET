@@ -3,9 +3,9 @@
 #nullable disable
     public class PrescribedDrug
     {
-        public Guid Id { get; private set; }
-        public double Quantity { get; private set; }
-        public Guid DrugToPrescribeId { get; private set; }
-        public double TotalCost { get; private set; }
+        public Guid Id { get; set; }
+        public double Quantity { get; set; }
+        public Guid DrugToPrescribeId { get; set; }
+        public double TotalCost { get; set; }
     }
 }

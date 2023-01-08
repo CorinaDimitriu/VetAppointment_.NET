@@ -74,7 +74,7 @@ else
 }
 
 <h3>Add Pets to Clinic</h3>
-@if (Owners == null)
+@if (PetOwnersIds == null)
 {
     <p><em>Loading owners...</em></p>
 }
@@ -382,6 +382,6 @@ else
 
 <div class="row">
     <div class="col">
-        <button type="submit" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
     </div>
 </div>

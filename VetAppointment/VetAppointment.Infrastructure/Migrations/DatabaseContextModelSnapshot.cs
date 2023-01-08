@@ -26,7 +26,7 @@ namespace VetAppointment.Infrastructure.Migrations
                     b.Property<int>("EstimatedDurationInMinutes")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("MedicalHistoryId")
+                    b.Property<Guid?>("MedicalHistoryId")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("PetId")
@@ -168,7 +168,7 @@ namespace VetAppointment.Infrastructure.Migrations
                     b.Property<double>("TotalCost")
                         .HasColumnType("REAL");
 
-                    b.Property<Guid?>("TreatmentId")
+                    b.Property<Guid>("TreatmentId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -268,9 +268,7 @@ namespace VetAppointment.Infrastructure.Migrations
                 {
                     b.HasOne("VetAppointment.Domain.MedicalHistory", null)
                         .WithMany("Appointments")
-                        .HasForeignKey("MedicalHistoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MedicalHistoryId");
                 });
 
             modelBuilder.Entity("VetAppointment.Domain.Pet", b =>
@@ -288,7 +286,9 @@ namespace VetAppointment.Infrastructure.Migrations
                 {
                     b.HasOne("VetAppointment.Domain.Treatment", null)
                         .WithMany("PrescribedDrugs")
-                        .HasForeignKey("TreatmentId");
+                        .HasForeignKey("TreatmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("VetAppointment.Domain.Vet", b =>

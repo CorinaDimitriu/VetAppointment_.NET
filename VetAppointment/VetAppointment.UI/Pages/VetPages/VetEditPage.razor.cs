@@ -68,6 +68,11 @@ namespace VetAppointment.UI.Pages.VetPages
             await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully updated!");
         }
 
+        protected void NavigateToAppointments()
+        {
+            NavigationManager.NavigateTo($"/clinic/{ClinicId}/vet/{VetId}/appointments");
+        }
+
         protected void NavigateBack()
         {
             NavigationManager.NavigateTo($"/clinic/{ClinicId}/vets");

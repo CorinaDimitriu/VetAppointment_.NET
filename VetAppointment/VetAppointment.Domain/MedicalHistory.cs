@@ -27,7 +27,6 @@ namespace VetAppointment.Domain
                 return Result.Failure("Appointment does not exist");
             }
 
-            appointment.AttachAppointmentToMedicalHistory(this);
             Appointments.Add(appointment);
 
             return Result.Success();

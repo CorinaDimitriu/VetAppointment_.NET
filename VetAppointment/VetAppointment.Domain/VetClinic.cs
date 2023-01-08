@@ -14,6 +14,7 @@ namespace VetAppointment.Domain
         public DateTime RegistrationDate { get; private set; }
         public List<Pet> Pets { get; private set; }
         public List<Vet> Vets { get; private set; }
+        public List<Appointment> Appointments { get; private set; }
         public Guid MedicalHistoryId { get; private set; }
 
         public static Result<VetClinic> Create(string name, string address, int numberOfPlaces, string contactEmail,

@@ -7,7 +7,7 @@ using VetAppointment.Domain;
 
 namespace VetAppointment.API.Controllers
 {
-    [Route("{version:apiVersion}/api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
     [ApiVersion("1")]
     public class DrugsController : ControllerBase

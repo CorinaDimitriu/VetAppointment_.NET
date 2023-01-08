@@ -13,7 +13,6 @@ namespace VetAppointment.API.Validators
             RuleFor(dto => dto.VetId).NotNull().NotEmpty();
             RuleFor(dto => dto.PetId).NotNull().NotEmpty();
             RuleFor(dto => dto.TreatmentId).NotNull().NotEmpty();
-            RuleFor(dto => dto.MedicalHistoryId).NotNull().NotEmpty();
         }
     }
 }

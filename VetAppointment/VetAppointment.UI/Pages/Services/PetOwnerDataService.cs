@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using VetAppointment.Shared.Domain;
+using VetAppointment.UI.Pages.Models;
 
 #nullable disable
 namespace VetAppointment.UI.Pages.Services
@@ -40,11 +41,31 @@ namespace VetAppointment.UI.Pages.Services
             return await JsonSerializer.DeserializeAsync<PetOwner>(response.Content.ReadAsStream(), options);
         }
 
-        public async Task<PetOwner> AddPetsToPetOwner(Guid petOwnerId, List<Pet> pets)
+        public async Task<string> UpdatePetOwnerById(Guid ownerId, PetOwnerModel owner)
         {
-            var ApiURLPetOwner = $"{ApiURL}/{petOwnerId}/Pets";
-            var response = await httpClient.PostAsJsonAsync(ApiURLPetOwner, pets);
-            return await response.Content.ReadFromJsonAsync<PetOwner>();
+            var ApiURLOwner = $"{ApiURL}/{{{ownerId}}}";
+            var json = JsonSerializer.Serialize(owner);
+            var response = await httpClient.PutAsync
+                    (ApiURLOwner, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
+            response.EnsureSuccessStatusCode();
+            return response.Content.ToString();
+        }
+
+        public async Task<string> DeletePetOwnerById(Guid ownerId)
+        {
+            var ApiURLOwner = $"{ApiURL}/{{{ownerId}}}";
+            var response = await httpClient.DeleteAsync(ApiURLOwner);
+            response.EnsureSuccessStatusCode();
+            return response.Content.ToString();
+        }
+
+        public async Task<IEnumerable<Pet>> GetPetsByOwnerId(Guid ownerId)
+        {
+            var ApiURLClinic = $"{ApiURL}/{{{ownerId}}}/pets";
+            return await JsonSerializer.DeserializeAsync<IEnumerable<Pet>>(
+                await httpClient.GetStreamAsync(ApiURLClinic),
+                new JsonSerializerOptions()
+                { PropertyNameCaseInsensitive = true });
         }
     }
 }

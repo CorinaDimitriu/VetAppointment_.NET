@@ -19,5 +19,6 @@ namespace VetAppointment.UI.Pages.Services
         Task<string> UpdateClinic(Guid clinicId, ClinicModel clinic);
         Task<string> UpdatePetById(Guid clinicId, Guid petId, PetToUpdateModel pet);
         Task<string> UpdateVetById(Guid clinicId, Guid vetId, VetModel vet);
+        Task<string> AddAppointmentToClinic(Guid clinicId, AppointmentModel appointment);
     }
 }

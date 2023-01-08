@@ -29,6 +29,11 @@ namespace VetAppointment.API.Controllers
             {
                 return NotFound();
             }
+
+            if(vet.ClinicId != pet.ClinicId)
+            {
+                return BadRequest();
+            }
             
             var appointment = Appointment.SettleAppointment(
                     vet,
@@ -43,7 +48,10 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            var history = unitOfWork.MedicalHistoryRepository.Get(appointmentDto.MedicalHistoryId).Result;
+            //var history = unitOfWork.MedicalHistoryRepository.Get(appointmentDto.MedicalHistoryId).Result;
+            var clinicId = unitOfWork.VetRepository.Get(vet.Id).Result.ClinicId;
+            var historyId = unitOfWork.VetClinicRepository.Get(clinicId).Result.MedicalHistoryId;
+            var history = unitOfWork.MedicalHistoryRepository.Get(historyId).Result;
             if (history == null)
             {
                 return NotFound();
@@ -54,8 +62,6 @@ namespace VetAppointment.API.Controllers
             unitOfWork.SaveChanges();
 
             appointment.Entity.AttachTreatmentToAppointment(treatement);
-            appointment.Entity.AttachAppointmentToMedicalHistory(history);
-
 
             if (appointment.IsFailure)
             {
@@ -90,7 +96,6 @@ namespace VetAppointment.API.Controllers
                 ScheduledDate = appointment.ScheduledDate.ToString(),
                 EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
                 TreatmentId = appointment.TreatmentId,
-                MedicalHistoryId = appointment.MedicalHistoryId
             });
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
@@ -116,7 +121,6 @@ namespace VetAppointment.API.Controllers
                 ScheduledDate = appointment.ScheduledDate.ToString(),
                 EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
                 TreatmentId = appointment.TreatmentId,
-                MedicalHistoryId = appointment.MedicalHistoryId
             };
 
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
@@ -153,7 +157,7 @@ namespace VetAppointment.API.Controllers
             }
 
             appointment.Update(appointment.VetId, appointmentDto.PetId, appointmentDto.ScheduledDate,
-                appointmentDto.EstimatedDurationInMinutes, appointmentDto.TreatmentId, appointmentDto.MedicalHistoryId);
+                appointmentDto.EstimatedDurationInMinutes, appointmentDto.TreatmentId);
 
             unitOfWork.AppointmentRepository.Update(appointment);
             unitOfWork.SaveChanges();

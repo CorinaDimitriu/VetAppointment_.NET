@@ -71,13 +71,13 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
                 var postTreatment = await httpClient.PostAsJsonAsync(ApiURL, treatmentSut);
                 var treatment = await postTreatment.Content.ReadFromJsonAsync<TreatmentDto>();
-                prescribedDrug.DrugId = drug.Id;
+                prescribedDrug.DrugToPrescribeId = drug.Id;
                 // Act
 
                 var post_PrescribedDrug_To_Treatment = await httpClient.PostAsJsonAsync(
@@ -103,7 +103,7 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
@@ -215,7 +215,7 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
@@ -227,7 +227,7 @@ namespace VetAppointment.Integration.Test
                     new List<PrescribedDrugDto>() { prescribedDrug }
                 );
 
-                prescribedDrug.DrugId = drug.Id;
+                prescribedDrug.DrugToPrescribeId = drug.Id;
                 prescribedDrug.Quantity = 20;
                 // Act
 
@@ -254,7 +254,7 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
@@ -266,7 +266,7 @@ namespace VetAppointment.Integration.Test
                     new List<PrescribedDrugDto>() { prescribedDrug }
                 );
 
-                prescribedDrug.DrugId = drug.Id;
+                prescribedDrug.DrugToPrescribeId = drug.Id;
                 prescribedDrug.Quantity = -20;
                 // Act
 
@@ -293,7 +293,7 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
@@ -305,7 +305,7 @@ namespace VetAppointment.Integration.Test
                     new List<PrescribedDrugDto>() { prescribedDrug }
                 );
 
-                prescribedDrug.DrugId = drug.Id;
+                prescribedDrug.DrugToPrescribeId = drug.Id;
                 prescribedDrug.Quantity = 20;
                 // Act
 
@@ -332,7 +332,7 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
@@ -344,7 +344,7 @@ namespace VetAppointment.Integration.Test
                     new List<PrescribedDrugDto>() { prescribedDrug }
                 );
 
-                prescribedDrug.DrugId = drug.Id;
+                prescribedDrug.DrugToPrescribeId = drug.Id;
                 prescribedDrug.Quantity = 20;
                 // Act
 
@@ -371,7 +371,7 @@ namespace VetAppointment.Integration.Test
                 var postDrug = await httpClient.PostAsJsonAsync("v1/api/drugs", drugSut);
                 var drug = await postDrug.Content.ReadFromJsonAsync<DrugDto>();
 
-                prescribedDrugSut.DrugId = drug.Id;
+                prescribedDrugSut.DrugToPrescribeId = drug.Id;
                 var postPrescribedDrug = await httpClient.PostAsJsonAsync("v1/api/PrescribedDrugs", prescribedDrugSut);
                 var prescribedDrug = await postPrescribedDrug.Content.ReadFromJsonAsync<PrescribedDrugDto>();
 
@@ -383,7 +383,7 @@ namespace VetAppointment.Integration.Test
                     new List<PrescribedDrugDto>() { prescribedDrug }
                 );
 
-                prescribedDrug.DrugId = Guid.NewGuid();
+                prescribedDrug.DrugToPrescribeId = Guid.NewGuid();
                 prescribedDrug.Quantity = 20;
                 // Act
 

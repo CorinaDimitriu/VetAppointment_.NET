@@ -44,6 +44,10 @@ builder.Services.AddHttpClient<IAccountDataService, AccountDataService>
     (
         client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     );
+builder.Services.AddHttpClient<IMedicalHistoryDataService, MedicalHistoryDataService>
+    (
+        client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
+    );
 
 builder.Services.AddSmart();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });

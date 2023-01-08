@@ -182,5 +182,23 @@ namespace VetAppointment.UI.Pages.Services
             response.EnsureSuccessStatusCode();
             return response.Content.ToString();
         }
+
+        public async Task<string> AddAppointmentToClinic(Guid clinicId, AppointmentModel appointment)
+        {
+            var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/appointment";
+            var appointmentDto = new Appointment
+            {
+                VetId = Guid.Parse(appointment.VetId[0]),
+                PetId = Guid.Parse(appointment.PetId[0]),
+                TreatmentId = Guid.Parse(appointment.TreatmentId[0]),
+                EstimatedDurationInMinutes = appointment.EstimatedDurationInMinutes,
+                ScheduledDate = appointment.ScheduledDate.ToString()
+            };
+            var json = JsonSerializer.Serialize(appointmentDto);
+            var response = await httpClient.PostAsync
+                    (ApiURLClinic, new StringContent(json, Encoding.UTF8, "application/json"));
+            response.EnsureSuccessStatusCode();
+            return response.Content.ToString();
+        }
     }
 }

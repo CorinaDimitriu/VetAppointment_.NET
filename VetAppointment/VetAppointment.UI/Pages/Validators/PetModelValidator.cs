@@ -5,10 +5,11 @@ namespace VetAppointment.UI.Pages.Validators
 {
     public class PetModelValidator : AbstractValidator<PetsInClinicModel>
     {
+        private readonly string[] ownerIds = new string[1] { "No pet owner available." };
         public PetModelValidator()
         {
             RuleForEach(modelPet => modelPet.Pets).SetValidator(new PetValidator());
-            RuleFor(modelPet => modelPet.OwnerId[0]).NotEqual("No pet owner available.").WithMessage("Owner ID cannot be empty.");
+            RuleFor(modelPet => modelPet.OwnerId).Must(el => !el.SequenceEqual(ownerIds)).WithMessage("Owner ID cannot be empty.");
         }
     }
 }

@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = VetAppointment.UI
+build_property.RootNamespace = VetAppointment.UI
+build_property.ProjectDir = C:\Users\biian\Desktop\.NET\VetAppointment_7\VetAppointment\VetAppointment.UI\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\biian\Desktop\.NET\VetAppointment_7\VetAppointment\VetAppointment.UI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/AccountsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNPdmVydmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/AppointmentsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwb2ludG1lbnRzT3ZlcnZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/ClinicPages/ClinicAppointments.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpbmljUGFnZXNcQ2xpbmljQXBwb2ludG1lbnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/ClinicPages/ClinicEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpbmljUGFnZXNcQ2xpbmljRWRpdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/ClinicPages/ClinicPets.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpbmljUGFnZXNcQ2xpbmljUGV0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/ClinicPages/ClinicsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpbmljUGFnZXNcQ2xpbmljc092ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/ClinicPages/ClinicVets.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpbmljUGFnZXNcQ2xpbmljVmV0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/DrugPages/DrugEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJ1Z1BhZ2VzXERydWdFZGl0UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/DrugPages/DrugsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJ1Z1BhZ2VzXERydWdzT3ZlcnZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/MedicalHistoriesOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVkaWNhbEhpc3Rvcmllc092ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/PetOwnersPages/PetOwnerEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGV0T3duZXJzUGFnZXNcUGV0T3duZXJFZGl0UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/PetOwnersPages/PetOwnersOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGV0T3duZXJzUGFnZXNcUGV0T3duZXJzT3ZlcnZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/PetPages/PetEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGV0UGFnZXNcUGV0RWRpdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/PetPages/PetsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGV0UGFnZXNcUGV0c092ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/PrescribedDrugsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlc2NyaWJlZERydWdzT3ZlcnZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/TreatmentPages/TreatmentEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJlYXRtZW50UGFnZXNcVHJlYXRtZW50RWRpdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/TreatmentPages/TreatmentsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJlYXRtZW50UGFnZXNcVHJlYXRtZW50c092ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/VetPages/VetEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmV0UGFnZXNcVmV0RWRpdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Pages/VetPages/VetsOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmV0UGFnZXNcVmV0c092ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-m7e1cozw5t
+
+[C:/Users/biian/Desktop/.NET/VetAppointment_7/VetAppointment/VetAppointment.UI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-upf3rb5pnh

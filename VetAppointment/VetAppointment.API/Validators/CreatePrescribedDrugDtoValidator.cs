@@ -8,7 +8,7 @@ namespace VetAppointment.API.Validators
         public CreatePrescribedDrugDtoValidator()
         {
             RuleFor(dto => dto.Quantity).NotNull().NotEmpty();
-            RuleFor(dto => dto.DrugId).NotNull().NotEmpty();
+            RuleFor(dto => dto.DrugToPrescribeId).NotNull().NotEmpty();
         }
     }
 }

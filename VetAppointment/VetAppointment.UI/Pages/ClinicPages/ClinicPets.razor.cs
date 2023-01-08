@@ -25,17 +25,15 @@ namespace VetAppointment.UI.Pages.ClinicPages
         public PetsInClinicModel PetsInClinicModel { get; set; } = default!;
         public List<string> Races { get; set; } =
            Enum.GetNames(typeof(AnimalRace)).Select(s => s.ToString()).ToList();
-        public List<PetOwner> Owners { get; set; } = default!;
-
         public List<string> PetOwnersIds { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
             PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
-            Owners = (await PetOwnerDataService.GetAllPetOwners()).ToList();
+            List<PetOwner>  owners = (await PetOwnerDataService.GetAllPetOwners()).ToList();
             PetOwnersIds = new();
-            Owners.ForEach(o => PetOwnersIds.Add(o.Id.ToString()));
-            if (Owners.Count == 0)
+            owners.ForEach(o => PetOwnersIds.Add(o.Id.ToString()));
+            if (owners.Count == 0)
             {
                 PetOwnersIds.Add("No pet owner available.");
             }
@@ -43,7 +41,7 @@ namespace VetAppointment.UI.Pages.ClinicPages
             PetsInClinicModel = new PetsInClinicModel()
             {
                 Pets = new List<PetModel>(),
-                Count = 1
+                Count = 1,
             };
             PetsInClinicModel.OwnerId[0] = PetOwnersIds[0];
             for (int i = 0; i < 10; i++)
@@ -52,20 +50,6 @@ namespace VetAppointment.UI.Pages.ClinicPages
             }
             PetsInClinicModel.Pets[0].Hidden = false;
         }
-
-        //protected override void OnInitialized()
-        //{
-        //    PetsInClinicModel = new PetsInClinicModel()
-        //    {
-        //        Pets = new List<PetModel>(),
-        //        Count = 1
-        //    };
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        PetsInClinicModel.Pets.Add(new PetModel() { Hidden = true });
-        //    }
-        //    PetsInClinicModel.Pets[0].Hidden = false;
-        //}
 
         protected async Task AddPetsToClinic()
         {
@@ -81,6 +65,18 @@ namespace VetAppointment.UI.Pages.ClinicPages
             await VetClinicDataService.AddPetsToClinic(ClinicId, Guid.Parse(PetsInClinicModel.OwnerId[0]), pets);
             await JSRuntime.InvokeVoidAsync("Alert", "The pets have been successfully added!");
             PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
+
+            PetsInClinicModel = new PetsInClinicModel()
+            {
+                Pets = new List<PetModel>(),
+                Count = 1,
+            };
+            PetsInClinicModel.OwnerId[0] = PetOwnersIds[0];
+            for (int i = 0; i < 10; i++)
+            {
+                PetsInClinicModel.Pets.Add(new PetModel() { Hidden = true });
+            }
+            PetsInClinicModel.Pets[0].Hidden = false;
         }
 
         protected async Task AddInputFields()
@@ -97,7 +93,7 @@ namespace VetAppointment.UI.Pages.ClinicPages
         {
             if (PetsInClinicModel.Count > 1)
             {
-                PetsInClinicModel.Pets[PetsInClinicModel.Count - 1] = new PetModel() { Birthdate = DateTime.Parse("1/1/1900"), Hidden = true };
+                PetsInClinicModel.Pets[PetsInClinicModel.Count - 1] = new PetModel() { Hidden = true };
                 PetsInClinicModel.Count--;
             }
             await JSRuntime.InvokeVoidAsync("RemoveInputFields");

@@ -11,7 +11,6 @@ namespace VetAppointment.Domain
         public DateTime ScheduledDate { get; private set; }
         public int EstimatedDurationInMinutes { get; private set; }
         public Guid TreatmentId { get; private set; }
-        public Guid MedicalHistoryId { get; private set; }
 
         public static Result<Appointment> SettleAppointment(Vet vet, Pet pet, string dateString, int duration)
         {
@@ -48,14 +47,9 @@ namespace VetAppointment.Domain
         {
             TreatmentId = treatment.Id;
         }
-
-        public void AttachAppointmentToMedicalHistory(MedicalHistory history)
-        {
-            MedicalHistoryId = history.Id;
-        }
     
         public Result Update(Guid vetId, Guid petId, string scheduledDateString, int estimatedDurationInMinutes,
-            Guid treatmentId, Guid medicalHistoryId)
+            Guid treatmentId)
         {
             if (estimatedDurationInMinutes <= 0)
             {
@@ -77,7 +71,6 @@ namespace VetAppointment.Domain
             ScheduledDate = scheduledDate;
             EstimatedDurationInMinutes = estimatedDurationInMinutes;
             TreatmentId = treatmentId;
-            MedicalHistoryId = medicalHistoryId;
 
             return Result.Success();
         }

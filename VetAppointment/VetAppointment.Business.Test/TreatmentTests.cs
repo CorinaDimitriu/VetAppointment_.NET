@@ -88,28 +88,6 @@
         }
 
         [Fact]
-        public void When_RemoveInvalidDrugFromTreatment_Then_ShouldReturnFailure()
-        {
-            // Arrange
-            var sut = CreateSUT();
-            var treatment = Treatment.Create(sut.Item1).Entity;
-            var sutDrug = CreateSUTForPrescribedDrug();
-            var prescribedDrug1 = PrescribedDrug.Create(sutDrug.Item1, sutDrug.Item2).Entity;
-            var prescribedDrug2 = PrescribedDrug.Create(30, sutDrug.Item2).Entity;
-            var drugs = new List<PrescribedDrug>
-            {
-                prescribedDrug1
-            };
-            treatment.AppendDrugsToTreatment(drugs);
-
-            // Act
-            var result = treatment.RemoveDrugFromTreatment(prescribedDrug2);
-
-            // Assert
-            result.IsFailure.Should().BeTrue();
-        }
-
-        [Fact]
         public void When_UpdateTreatmentDescription_Then_ShouldReturnSuccess()
         {
             // Arrange

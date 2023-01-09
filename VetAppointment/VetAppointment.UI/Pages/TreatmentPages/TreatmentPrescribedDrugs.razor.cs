@@ -57,9 +57,14 @@ namespace VetAppointment.UI.Pages.TreatmentPages
                 });
             var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
             var bearer = await TreatmentDataService.AddPrescribedDrugsToTreatment(TreatmentId, prescribedDrugs, jwt);
+
             if (bearer == "Unauthorized")
             {
                 await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else if (bearer == "Not right quantity")
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "Drugs exceed allowed quantity");
             }
             else
             {
@@ -122,7 +127,7 @@ namespace VetAppointment.UI.Pages.TreatmentPages
 
         protected void NavigateBack()
         {
-            NavigationManager.NavigateTo($"treatment/{TreatmentId}/prescribeddrugs");
+            NavigationManager.NavigateTo($"treatment/{TreatmentId}");
         }
     }
 }

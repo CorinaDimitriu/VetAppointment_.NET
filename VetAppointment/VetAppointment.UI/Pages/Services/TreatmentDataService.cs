@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net;
+using System.Text;
 using System.Text.Json;
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Models;
@@ -89,8 +90,15 @@ namespace VetAppointment.UI.Pages.Services
             var response = await httpClient.PostAsync(ApiURLTreatment,
                 new StringContent(json, Encoding.UTF8, "application/json"));
             //response.EnsureSuccessStatusCode();
-            if (!response.IsSuccessStatusCode)
+            if (response.StatusCode.Equals(HttpStatusCode.Forbidden) 
+                || response.StatusCode.Equals(HttpStatusCode.Unauthorized))
+            {
                 return "Unauthorized";
+            }
+            if (response.StatusCode.Equals(HttpStatusCode.BadRequest))
+            {
+                return "Not right quantity";
+            }
             return response.Content.ToString();
         }
 

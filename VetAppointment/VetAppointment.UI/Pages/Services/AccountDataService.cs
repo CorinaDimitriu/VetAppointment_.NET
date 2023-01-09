@@ -49,7 +49,7 @@ namespace VetAppointment.UI.Pages.Services
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.PostAsync
                     (ApiURL + "/accountsCreate", new StringContent(json, Encoding.UTF8, "application/json"));
-            if (response.StatusCode.Equals(HttpStatusCode.Forbidden))
+            if (response.StatusCode.Equals(HttpStatusCode.Forbidden) || response.StatusCode.Equals(HttpStatusCode.Unauthorized))
             {
                 return "Unauthorized";
             }

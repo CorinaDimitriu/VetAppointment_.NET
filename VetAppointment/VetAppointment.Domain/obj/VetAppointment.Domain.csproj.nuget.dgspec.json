@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Facultate\\Anul_3\\.NET\\Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {}
+    "D:\\Documents\\GitHub\\VetAppointment_INET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Facultate\\Anul_3\\.NET\\Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
+    "D:\\Documents\\GitHub\\VetAppointment_INET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Anul_3\\.NET\\Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\VetAppointment_INET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
         "projectName": "VetAppointment.Domain",
-        "projectPath": "D:\\Facultate\\Anul_3\\.NET\\Prezentare\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
-        "packagesPath": "C:\\Users\\dimit\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Anul_3\\.NET\\Prezentare\\VetAppointment\\VetAppointment.Domain\\obj\\",
+        "projectPath": "D:\\Documents\\GitHub\\VetAppointment_INET\\VetAppointment\\VetAppointment.Domain\\VetAppointment.Domain.csproj",
+        "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\GitHub\\VetAppointment_INET\\VetAppointment\\VetAppointment.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Leonard\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

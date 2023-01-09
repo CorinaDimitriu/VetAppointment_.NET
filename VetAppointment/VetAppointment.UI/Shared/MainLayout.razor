@@ -2,35 +2,60 @@
 
 <style>
     .flex-container {
-      display: flex;
-      flex-direction: row;
+        display: flex;
+        flex-grow: 2;
+    }
+
+    .background {
+        background-color: #FFEFD5;
+    }
+
+    .grid-container {
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+        width: 100%;
+        column-gap: 5%;
+    }
+
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 30px;
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .grid-container :hover {
+        background-color: #FFEFD5;
     }
 </style>
 
-<div class="page">
-    <div class="sidebar">
+<div class="page background">
+    <div class="sidebar background">
         <NavMenu />
     </div>
 
     <main>
-@*        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        @*        <div class="top-row px-4">
+        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
         </div>*@
 
-        <div class="flex-container top-row px-3">
-            
-            <NavLink class="nav-link" href="treatmentsoverview">
+        <div class="grid-container" style="background-color: #F5DEAE">
+
+            <NavLink class="nav-link grid-item" href="treatmentsoverview">
                 Treatments
             </NavLink>
 
-            <NavLink class="nav-link" href="clinicsoverview">
+            <NavLink class="nav-link grid-item" href="clinicsoverview">
                 @*<span class="oi oi-list-rich" aria-hidden="true"></span> *@Clinics
             </NavLink>
-        
+
         </div>
-       
+
         <article class="content px-4">
             @Body
         </article>
+
     </main>
 </div>

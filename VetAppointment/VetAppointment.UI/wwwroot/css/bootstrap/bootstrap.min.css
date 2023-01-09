@@ -84,9 +84,9 @@ hr {
     opacity: .25
 }
 
-hr:not([size]) {
-    height: 1px
-}
+    hr:not([size]) {
+        height: 1px
+    }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -4028,7 +4028,7 @@ textarea.form-control-lg {
 .nav-link {
     display: block;
     padding: .5rem 1rem;
-    color: #0d6efd;
+    color: #010130; /*010130*/
     text-decoration: none;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out
 }
@@ -4141,7 +4141,7 @@ textarea.form-control-lg {
     margin-right: 1rem;
     font-size: 1.25rem;
     text-decoration: none;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .navbar-nav {

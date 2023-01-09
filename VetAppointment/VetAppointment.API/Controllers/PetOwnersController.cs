@@ -17,6 +17,13 @@ namespace VetAppointment.API.Controllers
         private readonly IRepository<PetOwner> petOwnerRepository;
         private readonly IRepository<Pet> petRepository;
 
+        private void SetResponseHeader()
+        {
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+        }
+
         public PetOwnersController(IRepository<PetOwner> petOwnerRepository, IRepository<Pet> petRepository)
         {
             this.petOwnerRepository = petOwnerRepository;
@@ -28,9 +35,7 @@ namespace VetAppointment.API.Controllers
         {
             var petOwners = petOwnerRepository.All().Result.Select(PetOwnerMapper.Mapper.Map<PetOwnerDto>);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(petOwners);
         }
 
@@ -55,9 +60,7 @@ namespace VetAppointment.API.Controllers
                 Phone = owner.Phone,
             };
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(ownerDto);
         }
 
@@ -73,9 +76,7 @@ namespace VetAppointment.API.Controllers
             petOwnerRepository.Add(petOwner);
             petOwnerRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Created(nameof(Get), PetOwnerMapper.Mapper.Map<PetOwnerDto>(petOwner));
         }
 
@@ -98,9 +99,7 @@ namespace VetAppointment.API.Controllers
             petOwnerRepository.Update(result.Entity);
             petOwnerRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content - Type, x - requested - with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return NoContent();
         }
 
@@ -126,9 +125,7 @@ namespace VetAppointment.API.Controllers
             petOwnerRepository.SaveChanges();
             petRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            Response.Headers.Add("Access-Control-Allow-Methods", "DELETE, GET, POST, OPTIONS, PUT");
+            SetResponseHeader();
             return NoContent();
         }
 
@@ -143,9 +140,7 @@ namespace VetAppointment.API.Controllers
 
             var pets = owner.Pets.Select(PetMapper.Mapper.Map<PetDto>);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(pets);
         }
     }

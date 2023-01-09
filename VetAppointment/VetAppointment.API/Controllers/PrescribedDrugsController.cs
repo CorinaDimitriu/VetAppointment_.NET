@@ -15,6 +15,13 @@ namespace VetAppointment.API.Controllers
         private readonly IRepository<PrescribedDrug> prescribedDrugRepository;
         private readonly IRepository<Drug> drugRepository;
 
+        private void SetResponseHeader()
+        {
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+        }
+
         public PrescribedDrugsController(IRepository<PrescribedDrug> prescribedDrugRepository, IRepository<Drug> drugRepository)
         {
             this.prescribedDrugRepository = prescribedDrugRepository;
@@ -26,9 +33,7 @@ namespace VetAppointment.API.Controllers
         {
             var drugs = prescribedDrugRepository.All().Result.Select(PrescribedDrugMapper.Mapper.Map<PrescribedDrugDto>);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(drugs);
         }
 
@@ -49,10 +54,8 @@ namespace VetAppointment.API.Controllers
 
             prescribedDrugRepository.Add(prescribedDrug);
             prescribedDrugRepository.SaveChanges();
-            
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+
+            SetResponseHeader();
             return Created(nameof(Get), PrescribedDrugMapper.Mapper.Map<PrescribedDrugDto>(prescribedDrug));
         }
     }

@@ -14,6 +14,12 @@ namespace VetAppointment.API.Controllers
     {
         private readonly IUnitOfWork unitOfWork;
 
+        private void SetResponseHeader()
+        {
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+        }
         public MedicalHistoriesController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpGet]
@@ -22,9 +28,7 @@ namespace VetAppointment.API.Controllers
             var medicalHistories = unitOfWork.MedicalHistoryRepository 
                 .All().Result.Select(MedicalHistoryMapper.Mapper.Map<MedicalHistoryDto>);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
 
             return Ok(medicalHistories);
         }
@@ -45,9 +49,7 @@ namespace VetAppointment.API.Controllers
                 return NotFound();
             }
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
 
             return Ok(medicalHistory);
         }
@@ -93,9 +95,7 @@ namespace VetAppointment.API.Controllers
             unitOfWork.AppointmentRepository.Add(appointment.Entity);
             unitOfWork.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Created(nameof(Post), AppointmentMapper.Mapper.Map<AppointmentDto>(appointment.Entity));
         }
     }

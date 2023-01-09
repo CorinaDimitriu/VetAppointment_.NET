@@ -15,6 +15,12 @@ namespace VetAppointment.API.Controllers
     {
         private readonly IRepository<Drug> drugRepository;
 
+        private void SetResponseHeader()
+        {
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+        }
         public DrugsController(IRepository<Drug> drugRepository) => this.drugRepository = drugRepository;
 
         [HttpGet]
@@ -22,9 +28,7 @@ namespace VetAppointment.API.Controllers
         {
             var drugs = drugRepository.All().Result.Select(DrugMapper.Mapper.Map<DrugDto>);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(drugs);
         }
 
@@ -40,9 +44,7 @@ namespace VetAppointment.API.Controllers
 
             var drugDto = DrugMapper.Mapper.Map<DrugDto>(drug);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(drugDto);
         }
         
@@ -60,9 +62,7 @@ namespace VetAppointment.API.Controllers
             drugRepository.Add(drug);
             drugRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Created(nameof(Get), DrugMapper.Mapper.Map<DrugDto>(drug));
         }
 
@@ -79,9 +79,7 @@ namespace VetAppointment.API.Controllers
             drugRepository.Delete(drug);
             drugRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok();
         }
 
@@ -100,9 +98,7 @@ namespace VetAppointment.API.Controllers
             drugRepository.Update(drug);
             drugRepository.SaveChanges();
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Ok(DrugMapper.Mapper.Map<DrugDto>(drug));
         }
     }

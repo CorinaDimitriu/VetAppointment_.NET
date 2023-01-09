@@ -18,6 +18,14 @@ namespace VetAppointment.API.Controllers
     public class AccountsController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
+
+        private void SetResponseHeader()
+        {
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+        }
+        
         public AccountsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 # nullable disable
         private string CreateJWT(Account account)
@@ -43,9 +51,7 @@ namespace VetAppointment.API.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] CreateAccountDto accountDto)
         {
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
 
             var user = Authenticate(accountDto);
             if (user != null)
@@ -100,9 +106,7 @@ namespace VetAppointment.API.Controllers
             }
             unitOfWork.AccountRepository.Add(account.Entity);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+            SetResponseHeader();
             return Created(nameof(CreateAccount), accountDto);
         }
 

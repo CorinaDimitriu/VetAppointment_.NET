@@ -77,6 +77,7 @@
     <div class="form-group">
         <label class="label-space-top">Vet Birthdate</label>
         <DateInput @bind-Value="@VetToUpdate.Birthdate" class="form-control"></DateInput>
+        <ValidationMessage For="@(() => @VetToUpdate.Birthdate)"></ValidationMessage>
     </div>
     <div class="form-group">
         <label for="gender" class="label-space-top">Vet Gender</label>

@@ -55,21 +55,29 @@ namespace VetAppointment.UI.Pages.TreatmentPages
                     Quantity = PrescribedDrugsInTreatment.PrescribedDrugs[i].Quantity,
                     DrugToPrescribeId = Guid.Parse(PrescribedDrugsInTreatment.PrescribedDrugs[i].DrugId[0])
                 });
-            await TreatmentDataService.AddPrescribedDrugsToTreatment(TreatmentId, prescribedDrugs);
-            await JSRuntime.InvokeVoidAsync("Alert", "The prescribed drugs have been successfully added!");
-            PrescribedDrugsToGet = (await TreatmentDataService.GetPrescribedDrugsByTreatmentId(TreatmentId)).ToList();
-
-            PrescribedDrugsInTreatment = new PrescribedDrugsInTreatmentModel()
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await TreatmentDataService.AddPrescribedDrugsToTreatment(TreatmentId, prescribedDrugs, jwt);
+            if (bearer == "Unauthorized")
             {
-                PrescribedDrugs = new List<PrescribedDrugModel>(),
-                Count = 1,
-            };
-            for (int i = 0; i < 10; i++)
-            {
-                PrescribedDrugsInTreatment.PrescribedDrugs.Add(new PrescribedDrugModel() { Hidden = true });
-                PrescribedDrugsInTreatment.PrescribedDrugs[i].DrugId[0] = DrugIds[0];
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
             }
-            PrescribedDrugsInTreatment.PrescribedDrugs[0].Hidden = false;
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "The prescribed drugs have been successfully added!");
+                PrescribedDrugsToGet = (await TreatmentDataService.GetPrescribedDrugsByTreatmentId(TreatmentId)).ToList();
+
+                PrescribedDrugsInTreatment = new PrescribedDrugsInTreatmentModel()
+                {
+                    PrescribedDrugs = new List<PrescribedDrugModel>(),
+                    Count = 1,
+                };
+                for (int i = 0; i < 10; i++)
+                {
+                    PrescribedDrugsInTreatment.PrescribedDrugs.Add(new PrescribedDrugModel() { Hidden = true });
+                    PrescribedDrugsInTreatment.PrescribedDrugs[i].DrugId[0] = DrugIds[0];
+                }
+                PrescribedDrugsInTreatment.PrescribedDrugs[0].Hidden = false;
+            }
         }
 
         protected async Task AddInputFields()
@@ -98,9 +106,17 @@ namespace VetAppointment.UI.Pages.TreatmentPages
             bool isDeleting = await JSRuntime.InvokeAsync<bool>("ConfirmDelete", "prescribed drug", prescribedDrugId);
             if (isDeleting)
             {
-                await TreatmentDataService.DeletePrescribedDrugById(TreatmentId, prescribedDrugId);
-                await JSRuntime.InvokeVoidAsync("Alert", "The prescribed drug has been successfully deleted!");
-                PrescribedDrugsToGet = (await TreatmentDataService.GetPrescribedDrugsByTreatmentId(TreatmentId)).ToList();
+                var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+                var bearer = await TreatmentDataService.DeletePrescribedDrugById(TreatmentId, prescribedDrugId, jwt);
+                if (bearer == "Unauthorized")
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+                }
+                else
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "The prescribed drug has been successfully deleted!");
+                    PrescribedDrugsToGet = (await TreatmentDataService.GetPrescribedDrugsByTreatmentId(TreatmentId)).ToList();
+                }
             }
         }
 

@@ -63,8 +63,8 @@ namespace VetAppointment.UI.Pages.Services
             var json = JsonSerializer.Serialize(appointmentDto);
             var response = await httpClient.PutAsync
                     (ApiURLAppointment, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
-            return response.Content.ToString();
+            //response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync().Result;
         }
     }
 }

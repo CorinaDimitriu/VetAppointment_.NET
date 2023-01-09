@@ -34,12 +34,20 @@ namespace VetAppointment.UI.Pages.TreatmentPages
 
         protected async Task UpdateTreatment()
         {
-            await TreatmentDataService.UpdateTreatmentById(TreatmentId, TreatmentToUpdate);
-            TreatmentOld = new TreatmentModel()
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await TreatmentDataService.UpdateTreatmentById(TreatmentId, TreatmentToUpdate, jwt);
+            if (bearer == "Unauthorized")
             {
-                Description = TreatmentToUpdate.Description
-            };
-            await JSRuntime.InvokeVoidAsync("Alert", "The treatment has been successfully updated!");
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                TreatmentOld = new TreatmentModel()
+                {
+                    Description = TreatmentToUpdate.Description
+                };
+                await JSRuntime.InvokeVoidAsync("Alert", "The treatment has been successfully updated!");
+            }
         }
 
         protected void NavigateToPrescribedDrugs()

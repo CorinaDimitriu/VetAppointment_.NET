@@ -18,7 +18,6 @@ namespace VetAppointment.UI.Pages.PetPages
         protected async override Task OnInitializedAsync()
         {
             var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
-            Console.WriteLine(jwt);
             Pets = (await PetDataService.GetAllPets(jwt)).ToList();
         }
     }

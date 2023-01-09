@@ -30,10 +30,18 @@ namespace VetAppointment.UI.Pages.ClinicPages
 
         protected async Task AddVetToClinic()
         {
-            await VetClinicDataService.AddVetToClinic(ClinicId, Vet);
-            await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully added!");
-            VetsToGet = (await VetClinicDataService.GetVetsByClinicId(ClinicId)).ToList();
-            Vet = new();
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await VetClinicDataService.AddVetToClinic(ClinicId, Vet, jwt);
+            if (bearer == "Unauthorized")
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully added!");
+                VetsToGet = (await VetClinicDataService.GetVetsByClinicId(ClinicId)).ToList();
+                Vet = new();
+            }
         }
 
         protected async Task DeleteVet(Guid vetId)
@@ -41,9 +49,17 @@ namespace VetAppointment.UI.Pages.ClinicPages
             bool isDeleting = await JSRuntime.InvokeAsync<bool>("ConfirmDelete", "vet", vetId);
             if (isDeleting)
             {
-                await VetClinicDataService.DeleteVetById(new VetToDeleteModel() { IdToDeleteClinic = ClinicId.ToString(), IdToDeleteVet = vetId.ToString() });
-                await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully deleted!");
-                VetsToGet = (await VetClinicDataService.GetVetsByClinicId(ClinicId)).ToList();
+                var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+                var bearer = await VetClinicDataService.DeleteVetById(new VetToDeleteModel() { IdToDeleteClinic = ClinicId.ToString(), IdToDeleteVet = vetId.ToString() }, jwt);
+                if (bearer == "Unauthorized")
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+                }
+                else
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully deleted!");
+                    VetsToGet = (await VetClinicDataService.GetVetsByClinicId(ClinicId)).ToList();
+                }
             }
         }
 

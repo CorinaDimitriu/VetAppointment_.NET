@@ -14,6 +14,7 @@ namespace VetAppointment.UI.Pages.Validators
             RuleFor(owner => owner.Address).NotEmpty().WithMessage("Gender cannot be empty.");
             RuleFor(owner => owner.Email).NotEmpty().WithMessage("Email cannot be empty.").EmailAddress().WithMessage("Email does not have a valid format.");
             RuleFor(owner => owner.Phone).NotEmpty().WithMessage("Phone number cannot be empty.").Matches("^\\+40\\d{9}$").WithMessage("Phone number does not have a valid format.");
+            RuleFor(owner => owner.Birthdate).LessThan(DateTime.Now).WithMessage("Birthdate cannot be in the future.");
         }
     }
 }

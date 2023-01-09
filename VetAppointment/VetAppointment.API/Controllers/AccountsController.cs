@@ -40,7 +40,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("/Login")]
+        [HttpPost]
         public IActionResult Login([FromBody] CreateAccountDto accountDto)
         {
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
@@ -50,11 +50,12 @@ namespace VetAppointment.API.Controllers
             var user = Authenticate(accountDto);
             if (user != null)
             {
+                System.IO.File.WriteAllText("Role", user.Role.ToString());
                 var token = CreateJWT(user);
                 return Ok(token);
             }
 
-            return NotFound("user not found");
+            return BadRequest("Incorrect credentials");
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
@@ -80,7 +81,8 @@ namespace VetAppointment.API.Controllers
             return userAuth;
         }
 
-        [HttpPost("/accountsCreate")]
+        [HttpPost("accountsCreate")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult CreateAccount([FromBody] AccountDto accountDto)
         {
             var user = unitOfWork.AccountRepository.All().Result.
@@ -112,7 +114,7 @@ namespace VetAppointment.API.Controllers
         //    return Convert.ToHexString(hash);
         //}
 
-        [HttpPost("/accountsLogout")]
+        [HttpPost("accountsLogout")]
         public IActionResult Logout(string noNeed) 
         {
             var secretkey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(System.IO.File.ReadAllText("key")));

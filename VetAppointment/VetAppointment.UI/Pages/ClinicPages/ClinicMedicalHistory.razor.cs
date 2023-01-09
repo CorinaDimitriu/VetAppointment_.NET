@@ -35,7 +35,9 @@ namespace VetAppointment.UI.Pages.ClinicPages
             {
                 await AppointmentDataService.DeleteAppointmentById(appointmentId);
                 await JSRuntime.InvokeVoidAsync("Alert", "The medical history has been successfully deleted!");
-                MedicalHistories = (await VetClinicDataService.GetAppointmentsByClinicId(ClinicId)).ToList();
+                List<Appointment> allAppointments = (await VetClinicDataService.GetAppointmentsByClinicId(ClinicId)).ToList();
+                MedicalHistories = new();
+                allAppointments.ForEach(a => { if (DateTime.Parse(a.ScheduledDate) <= DateTime.Now) MedicalHistories.Add(a); });
             }
         }
 

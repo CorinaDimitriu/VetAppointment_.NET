@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.Application;
@@ -23,18 +24,18 @@ namespace VetAppointment.API.Controllers
             {
                 return NotFound();
             }
-            
+
             var vet = unitOfWork.VetRepository.Get(appointmentDto.VetId).Result;
             if (vet == null)
             {
                 return NotFound();
             }
 
-            if(vet.ClinicId != pet.ClinicId)
+            if (vet.ClinicId != pet.ClinicId)
             {
                 return BadRequest();
             }
-            
+
             var appointment = Appointment.SettleAppointment(
                     vet,
                     pet,
@@ -43,7 +44,7 @@ namespace VetAppointment.API.Controllers
                 );
 
             var treatement = unitOfWork.TreatmentRepository.Get(appointmentDto.TreatmentId).Result;
-            if (treatement == null )
+            if (treatement == null)
             {
                 return NotFound();
             }
@@ -154,6 +155,27 @@ namespace VetAppointment.API.Controllers
             if (appointment == null)
             {
                 return NotFound();
+            }
+
+            var vetAppointments = unitOfWork.AppointmentRepository.All().Result.Where(a => a.VetId == appointmentDto.VetId).ToList();
+
+            var newAppStartDate = DateTime.Parse(appointmentDto.ScheduledDate);
+            var newAppEndDate = DateTime.Parse(appointmentDto.ScheduledDate).AddMinutes(appointmentDto.EstimatedDurationInMinutes);
+            foreach (Appointment app in vetAppointments)
+            {
+                if (app.Id != appointment.Id)
+                {
+                    var appStartDate = app.ScheduledDate;
+                    var appEndDate = app.ScheduledDate.AddMinutes(app.EstimatedDurationInMinutes);
+
+                    if (newAppStartDate >= appStartDate && newAppStartDate <= appEndDate ||
+                    newAppEndDate >= appStartDate && newAppEndDate <= appEndDate ||
+                    appStartDate >= newAppStartDate && appStartDate <= newAppEndDate ||
+                    appEndDate >= newAppStartDate && appEndDate <= newAppEndDate)
+                    {
+                        return Conflict("Vet is busy at this time");
+                    }
+                }
             }
 
             appointment.Update(appointment.VetId, appointmentDto.PetId, appointmentDto.ScheduledDate,

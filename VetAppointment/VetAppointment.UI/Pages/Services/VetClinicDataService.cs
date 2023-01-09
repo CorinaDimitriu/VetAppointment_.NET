@@ -25,17 +25,21 @@ namespace VetAppointment.UI.Pages.Services
                 { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<VetClinic> AddClinic(VetClinic clinic)
+        public async Task<string> AddClinic(VetClinic clinic, string jwt)
         {
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
             var json = JsonSerializer.Serialize(clinic);
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.PostAsync
                     (ApiURL, new StringContent(json, Encoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
-            return await JsonSerializer.DeserializeAsync<VetClinic>(response.Content.ReadAsStream(), options);
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
+            return response.Content.ToString();
         }
 
-        public async Task<string> AddVetToClinic(Guid clinicId, VetModel vet)
+        public async Task<string> AddVetToClinic(Guid clinicId, VetModel vet, string jwt)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet";
             var vetDto = new Vet()
@@ -49,9 +53,13 @@ namespace VetAppointment.UI.Pages.Services
                 Specialisation = vet.Specialisation[0]
             };
             var json = JsonSerializer.Serialize(vetDto);
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.PostAsync
                     (ApiURLClinic, new StringContent(json, Encoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
 
@@ -63,7 +71,7 @@ namespace VetAppointment.UI.Pages.Services
                 { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<string> UpdateClinic(Guid clinicId, ClinicModel clinic)
+        public async Task<string> UpdateClinic(Guid clinicId, ClinicModel clinic, string jwt)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}";
             var vetClinic = new VetClinic()
@@ -75,17 +83,25 @@ namespace VetAppointment.UI.Pages.Services
                 NumberOfPlaces = clinic.NumberOfPlaces
             };
             var json = JsonSerializer.Serialize(vetClinic);
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.PutAsync
                     (ApiURLClinic, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
 
-        public async Task<string> DeleteClinicById(Guid clinicId)
+        public async Task<string> DeleteClinicById(Guid clinicId, string jwt)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}";
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.DeleteAsync(ApiURLClinic);
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
 
@@ -95,8 +111,8 @@ namespace VetAppointment.UI.Pages.Services
             var json = JsonSerializer.Serialize(pets);
             var response = await httpClient.PostAsync(ApiURLClinic,
                 new StringContent(json, Encoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
-            return response.Content.ToString();
+            //response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync().Result;
         }
 
         public async Task<IEnumerable<Vet>> GetVetsByClinicId(Guid clinicId)
@@ -126,13 +142,17 @@ namespace VetAppointment.UI.Pages.Services
                 { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<string> DeleteVetById(VetToDeleteModel vet)
+        public async Task<string> DeleteVetById(VetToDeleteModel vet, string jwt)
         {
             var clinicId = Guid.Parse(vet.IdToDeleteClinic);
             var vetId = Guid.Parse(vet.IdToDeleteVet);
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet/{{{vetId}}}";
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.DeleteAsync(ApiURLClinic);
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
 
@@ -163,7 +183,7 @@ namespace VetAppointment.UI.Pages.Services
             return response.Content.ToString();
         }
 
-        public async Task<string> UpdateVetById(Guid clinicId, Guid vetId, VetModel vet)
+        public async Task<string> UpdateVetById(Guid clinicId, Guid vetId, VetModel vet, string jwt)
         {
             var ApiURLClinic = $"{ApiURL}/{{{clinicId}}}/vet/{{{vetId}}}";
             var vetRenewed = new Vet()
@@ -171,15 +191,19 @@ namespace VetAppointment.UI.Pages.Services
                 Name = vet.Name,
                 Surname = vet.Surname,
                 Birthdate = vet.Birthdate.ToString(),
-                Specialisation= vet.Specialisation[0],
+                Specialisation = vet.Specialisation[0],
                 Gender = vet.Gender,
-                Email= vet.Email,
-                Phone= vet.Phone
+                Email = vet.Email,
+                Phone = vet.Phone
             };
             var json = JsonSerializer.Serialize(vetRenewed);
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.PutAsync
                     (ApiURLClinic, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
 
@@ -197,8 +221,8 @@ namespace VetAppointment.UI.Pages.Services
             var json = JsonSerializer.Serialize(appointmentDto);
             var response = await httpClient.PostAsync
                     (ApiURLClinic, new StringContent(json, Encoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
-            return response.Content.ToString();
+            //response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync().Result;
         }
     }
 }

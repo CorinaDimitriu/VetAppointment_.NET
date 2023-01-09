@@ -29,10 +29,18 @@ namespace VetAppointment.UI.Pages.ClinicPages
 
         protected async Task CreateClinic()
         {
-            await VetClinicDataService.AddClinic(Clinic);
-            Clinic = new();
-            await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully added!");
-            Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await VetClinicDataService.AddClinic(Clinic, jwt);
+            if (bearer == "Unauthorized")
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                Clinic = new();
+                await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully added!");
+                Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
+            }
         }
 
         protected async Task DeleteClinic(Guid clinicId)
@@ -40,9 +48,17 @@ namespace VetAppointment.UI.Pages.ClinicPages
             bool isDeleting = await JSRuntime.InvokeAsync<bool>("ConfirmDelete", "clinic", clinicId);
             if (isDeleting)
             {
-                await VetClinicDataService.DeleteClinicById(clinicId);
-                await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully deleted!");
-                Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
+                var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+                var bearer = await VetClinicDataService.DeleteClinicById(clinicId, jwt);
+                if (bearer == "Unauthorized")
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+                }
+                else
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully deleted!");
+                    Clinics = (await VetClinicDataService.GetAllClinics()).ToList();
+                }
             }
         }
 

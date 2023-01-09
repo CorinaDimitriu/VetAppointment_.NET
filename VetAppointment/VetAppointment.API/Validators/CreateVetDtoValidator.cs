@@ -14,6 +14,7 @@ namespace VetAppointment.API.Validators
             RuleFor(dto => dto.Email).NotNull().NotEmpty().EmailAddress();
             RuleFor(dto => dto.Phone).NotNull().NotEmpty().Matches("^\\+40\\d{9}$");
             RuleFor(dto => dto.Specialisation).NotNull().NotEmpty().Must(new Validations().BeInSpecialisationEnum);
+            //RuleFor(dto => dto.Birthdate).LessThan(DateTime.Now.ToString());
         }
     }
 }

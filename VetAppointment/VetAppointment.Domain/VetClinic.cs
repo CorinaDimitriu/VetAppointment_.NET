@@ -1,4 +1,5 @@
-﻿using VetAppointment.Domain.Helpers;
+﻿using VetAppointment.Domain.Enums;
+using VetAppointment.Domain.Helpers;
 
 #nullable disable
 namespace VetAppointment.Domain
@@ -131,6 +132,21 @@ namespace VetAppointment.Domain
 
 
             return Result<VetClinic>.Success(this);
+        }
+
+        public bool HasAllSpecialisations()
+        {
+            var resources = new List<VetSpecialisation>();
+            foreach(Vet vet in Vets)
+            {
+                if(!resources.Contains(vet.Specialisation))
+                {
+                    resources.Add(vet.Specialisation);
+                }
+            }
+
+            return Enumerable.SequenceEqual(resources.OrderBy(t => t), 
+                Validations.BasicResources.OrderBy(t => t));
         }
     }
 }

@@ -25,8 +25,12 @@ namespace VetAppointment.UI.Pages.DrugPages
 
         protected async Task AddDrug()
         {
-            await DrugDataService.AddDrug(Drug);
-            await JSRuntime.InvokeVoidAsync("Alert", "The drug has been successfully added!");
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await DrugDataService.AddDrug(Drug, jwt);
+            if (bearer == "Unauthorized")
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
             DrugsToGet = (await DrugDataService.GetAllDrugs()).ToList();
             Drug = new();
         }
@@ -36,9 +40,17 @@ namespace VetAppointment.UI.Pages.DrugPages
             bool isDeleting = await JSRuntime.InvokeAsync<bool>("ConfirmDelete", "drug", drugId);
             if (isDeleting)
             {
-                await DrugDataService.DeleteDrugById(drugId);
-                await JSRuntime.InvokeVoidAsync("Alert", "The drug has been successfully deleted!");
-                DrugsToGet = (await DrugDataService.GetAllDrugs()).ToList();
+                var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+                var bearer = await DrugDataService.DeleteDrugById(drugId, jwt);
+                if (bearer == "Unauthorized")
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+                }
+                else
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "The drug has been successfully deleted!");
+                    DrugsToGet = (await DrugDataService.GetAllDrugs()).ToList();
+                }
             }
         }
 

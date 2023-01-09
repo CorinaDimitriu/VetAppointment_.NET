@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using System.Net;
-using System.Xml.Linq;
 using VetAppointment.Shared.Domain;
 using VetAppointment.Shared.Domain.Enums;
 using VetAppointment.UI.Pages.Models;
@@ -48,16 +46,24 @@ namespace VetAppointment.UI.Pages.ClinicPages
 
         protected async Task UpdateClinic()
         {
-            await VetClinicDataService.UpdateClinic(ClinicId, ClinicToUpdate);
-            ClinicOld = new ClinicModel
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await VetClinicDataService.UpdateClinic(ClinicId, ClinicToUpdate, jwt);
+            if (bearer == "Unauthorized")
             {
-                Name = ClinicToUpdate.Name,
-                Address = ClinicToUpdate.Address,
-                NumberOfPlaces = ClinicToUpdate.NumberOfPlaces,
-                ContactEmail = ClinicToUpdate.ContactEmail,
-                ContactPhone = ClinicToUpdate.ContactPhone
-            };
-            await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully updated!");
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                ClinicOld = new ClinicModel
+                {
+                    Name = ClinicToUpdate.Name,
+                    Address = ClinicToUpdate.Address,
+                    NumberOfPlaces = ClinicToUpdate.NumberOfPlaces,
+                    ContactEmail = ClinicToUpdate.ContactEmail,
+                    ContactPhone = ClinicToUpdate.ContactPhone
+                };
+                await JSRuntime.InvokeVoidAsync("Alert", "The clinic has been successfully updated!");
+            }
         }
 
         protected void NavigateBack()

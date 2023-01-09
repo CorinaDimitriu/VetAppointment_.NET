@@ -4,7 +4,7 @@ using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
 using VetAppointment.Domain;
 using VetAppointment.Application;
-using VetAppointment.Infrastructure.Repositories.GenericRepositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VetAppointment.API.Controllers
 {
@@ -18,6 +18,7 @@ namespace VetAppointment.API.Controllers
         public VetClinicsController(IUnitOfWork unitOfWork) => this.unitOfWork = unitOfWork;
 
         [HttpPost]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Create([FromBody] CreateVetClinicDto vetClinicDto)
         {
             var history = MedicalHistory.Create();
@@ -49,12 +50,26 @@ namespace VetAppointment.API.Controllers
         [HttpGet]
         public IActionResult GetAllVetClinics()
         {
-            var vetClinics = unitOfWork.VetClinicRepository.All().Result.Select(VetClinicMapper.Mapper.Map<VetClinicDto>);
+            if(System.IO.File.ReadAllText("Role").Equals("Admin_Vet"))
+            {
+                var vetClinics = unitOfWork.VetClinicRepository.All().Result.Select(VetClinicMapper.Mapper.Map<VetClinicDto>);
 
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
-            return Ok(vetClinics);
+                Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+                Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+                Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+                return Ok(vetClinics);
+            }
+
+            else
+            {
+                var vetClinics = unitOfWork.VetClinicRepository.All().Result.
+                Where(v => v.HasAllSpecialisations()).Select(VetClinicMapper.Mapper.Map<VetClinicDto>);
+
+                Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+                Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+                Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7029");
+                return Ok(vetClinics);
+            }
         }
 
         [HttpGet("{vetClinicId:guid}")]
@@ -150,6 +165,11 @@ namespace VetAppointment.API.Controllers
 
             var result = clinic.RegisterPetsFamilyToClinic(pets);
             pets.ForEach(p => p.ConnectToOwner(owner));
+            if (result.IsFailure && result.Error.StartsWith("The newly added pets number"))
+            {
+                //return BadRequest(result.Error);
+                return Conflict("Exceeded available number of places");
+            }
             if (result.IsFailure)
             {
                 return BadRequest(result.Error);
@@ -172,6 +192,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPost("{vetClinicId:guid}/vet")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult RegisterVet(Guid vetClinicId, [FromBody] CreateVetDto vetDto)
         {
             var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
@@ -265,6 +286,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{vetClinicId:guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Update(Guid vetClinicId, [FromBody] CreateVetClinicDto vetClinicDto)
         {
             var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
@@ -290,6 +312,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{vetClinicId:guid}/vet/{vetId:guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult UpdateVet(Guid vetClinicId, Guid vetId, [FromBody] CreateVetDto vetDto)
         {
             var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
@@ -351,6 +374,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpDelete("{vetClinicId:guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Delete(Guid vetClinicId)
         {
             var vetClinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;
@@ -396,6 +420,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpDelete("{vetClinicId:guid}/vet/{vetId:guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult DeleteVet(Guid vetClinicId, Guid vetId)
         {
             var clinic = unitOfWork.VetClinicRepository.Get(vetClinicId).Result;

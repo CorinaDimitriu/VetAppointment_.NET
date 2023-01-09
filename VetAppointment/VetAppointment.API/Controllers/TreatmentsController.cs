@@ -5,6 +5,7 @@ using VetAppointment.API.Mappers;
 using VetAppointment.Domain;
 using VetAppointment.Application;
 using VetAppointment.Infrastructure.Repositories.GenericRepositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VetAppointment.API.Controllers
 {
@@ -43,6 +44,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Create([FromBody] CreateTreatmentDto treatmentDto)
         {
             var treat = TreatmentMapper.Mapper.Map<Treatment>(treatmentDto);
@@ -78,6 +80,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPost("{treatmentId:Guid}/prescribedDrugs")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult AddDrugsToTreatment(Guid treatmentId, [FromBody] List<CreatePrescribedDrugDto> prescribedDrugDtos)
         {
             var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
@@ -117,6 +120,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{treatmentId:Guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult UpdateTreatment(Guid treatmentId, [FromBody] CreateTreatmentDto treatmentDto)
         {
             var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
@@ -141,6 +145,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult UpdateDrugInTreatment(Guid treatmentId, Guid prescribedDrugId,
             [FromBody] PrescribedDrugDto prescribedDrugDto)
         {
@@ -179,6 +184,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpDelete("{treatmentId:Guid}/prescribedDrug/{prescribedDrugId:Guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult RemoveDrugFromTreatment(Guid treatmentId, Guid prescribedDrugId)
         {
             var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;
@@ -209,6 +215,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpDelete("{treatmentId:Guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Delete(Guid treatmentId)
         {
             var treatment = unitOfWork.TreatmentRepository.Get(treatmentId).Result;

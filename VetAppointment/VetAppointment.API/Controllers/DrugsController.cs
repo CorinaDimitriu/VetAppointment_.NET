@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using VetAppointment.API.Dtos;
 using VetAppointment.API.Dtos.Create;
 using VetAppointment.API.Mappers;
@@ -46,6 +47,7 @@ namespace VetAppointment.API.Controllers
         }
         
         [HttpPost]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Create([FromBody] CreateDrugDto drugDto)
         {
             var drug = DrugMapper.Mapper.Map<Drug>(drugDto);
@@ -65,6 +67,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpDelete("{drugId:Guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Delete(Guid drugId)
         {
             var drug = drugRepository.Get(drugId).Result;
@@ -83,6 +86,7 @@ namespace VetAppointment.API.Controllers
         }
 
         [HttpPut("{drugId:Guid}")]
+        [Authorize(Roles = "Admin_Vet")]
         public IActionResult Update(Guid drugId, [FromBody] CreateDrugDto drugDto)
         {
             var drug = drugRepository.Get(drugId).Result;

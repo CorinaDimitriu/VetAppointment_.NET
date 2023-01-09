@@ -7,12 +7,12 @@ namespace VetAppointment.UI.Pages.Services
     {
         Task<IEnumerable<Treatment>> GetAllTreatments();
         Task<Treatment> GetTreatmentById(Guid id);
-        Task<TreatmentModel> AddTreatment(TreatmentModel treatment);
-        Task<string> UpdateTreatmentById(Guid treatmentId, TreatmentModel treatment);
-        Task<string> DeleteTreatmentById(Guid treatmentId);
+        Task<string> AddTreatment(TreatmentModel treatment, string jwt);
+        Task<string> UpdateTreatmentById(Guid treatmentId, TreatmentModel treatment, string jwt);
+        Task<string> DeleteTreatmentById(Guid treatmentId, string jwt);
         Task<IEnumerable<PrescribedDrug>> GetPrescribedDrugsByTreatmentId(Guid treatmentId);
-        Task<string> AddPrescribedDrugsToTreatment(Guid treatmentId, List<PrescribedDrug> drugs);
-        Task<string> DeletePrescribedDrugById(Guid treatmentId, Guid drugId);
-        Task<string> UpdatePrescribedDrugById(Guid treatmentId, Guid drugId, PrescribedDrugToUpdateModel drugModel);
+        Task<string> AddPrescribedDrugsToTreatment(Guid treatmentId, List<PrescribedDrug> drugs, string jwt);
+        Task<string> DeletePrescribedDrugById(Guid treatmentId, Guid drugId, string jwt);
+        Task<string> UpdatePrescribedDrugById(Guid treatmentId, Guid drugId, PrescribedDrugToUpdateModel drugModel, string jwt);
     }
 }

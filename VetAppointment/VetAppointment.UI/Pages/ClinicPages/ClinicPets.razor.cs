@@ -62,21 +62,28 @@ namespace VetAppointment.UI.Pages.ClinicPages
                     Race = PetsInClinicModel.Pets[i].Race[0],
                     Gender = PetsInClinicModel.Pets[i].Gender
                 });
-            await VetClinicDataService.AddPetsToClinic(ClinicId, Guid.Parse(PetsInClinicModel.OwnerId[0]), pets);
-            await JSRuntime.InvokeVoidAsync("Alert", "The pets have been successfully added!");
-            PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
-
-            PetsInClinicModel = new PetsInClinicModel()
+            string response = await VetClinicDataService.AddPetsToClinic(ClinicId, Guid.Parse(PetsInClinicModel.OwnerId[0]), pets);
+            if (response.Equals("Exceeded available number of places"))
             {
-                Pets = new List<PetModel>(),
-                Count = 1,
-            };
-            PetsInClinicModel.OwnerId[0] = PetOwnersIds[0];
-            for (int i = 0; i < 10; i++)
-            {
-                PetsInClinicModel.Pets.Add(new PetModel() { Hidden = true });
+                await JSRuntime.InvokeVoidAsync("Alert", "The newly added pets exceed the available number of places.");
             }
-            PetsInClinicModel.Pets[0].Hidden = false;
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "The pets have been successfully added!");
+                PetsToGet = (await VetClinicDataService.GetPetsByClinicId(ClinicId)).ToList();
+
+                PetsInClinicModel = new PetsInClinicModel()
+                {
+                    Pets = new List<PetModel>(),
+                    Count = 1,
+                };
+                PetsInClinicModel.OwnerId[0] = PetOwnersIds[0];
+                for (int i = 0; i < 10; i++)
+                {
+                    PetsInClinicModel.Pets.Add(new PetModel() { Hidden = true });
+                }
+                PetsInClinicModel.Pets[0].Hidden = false;
+            }
         }
 
         protected async Task AddInputFields()

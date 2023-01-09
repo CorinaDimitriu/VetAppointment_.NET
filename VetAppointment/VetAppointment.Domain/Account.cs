@@ -26,17 +26,8 @@ namespace VetAppointment.Domain
                 return Result<Account>.Failure($"Password not valid.");
             }
 
-            string hashedPassword;
-
-            if (hash)
-            {
-                var passHAsher = new PasswordHasher<string>();
-                hashedPassword = passHAsher.HashPassword("no need", password);
-            }
-            else
-            {
-                hashedPassword = password;
-            }
+            var passHAsher = new PasswordHasher<string>();
+            string hashedPassword = hash? passHAsher.HashPassword("no need", password):password;
 
             if (!Enum.TryParse<Role>(role, out var accountRole))
             {

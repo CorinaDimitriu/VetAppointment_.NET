@@ -1,9 +1,12 @@
 ﻿using System.Text.RegularExpressions;
+using VetAppointment.Domain.Enums;
 
 namespace VetAppointment.Domain.Helpers
 {
     public static partial class Validations
     {
+        public static List<VetSpecialisation> BasicResources { get; private set; } = 
+            new() { VetSpecialisation.PawSurgeon, VetSpecialisation.Nutritionist, VetSpecialisation.DentalCaretaker};
         public static bool IsValidEmail(string email)
         {
             if (email == null)

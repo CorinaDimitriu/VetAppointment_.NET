@@ -25,10 +25,18 @@ namespace VetAppointment.UI.Pages.TreatmentPages
 
         protected async Task AddTreatment()
         {
-            await TreatmentDataService.AddTreatment(Treatment);
-            Treatment = new();
-            await JSRuntime.InvokeVoidAsync("Alert", "The treatment has been successfully added!");
-            TreatmentsToGet = (await TreatmentDataService.GetAllTreatments()).ToList();
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await TreatmentDataService.AddTreatment(Treatment, jwt);
+            if (bearer == "Unauthorized")
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                Treatment = new();
+                await JSRuntime.InvokeVoidAsync("Alert", "The treatment has been successfully added!");
+                TreatmentsToGet = (await TreatmentDataService.GetAllTreatments()).ToList();
+            }
         }
 
         protected async Task DeleteTreatment(Guid treatmentId)
@@ -36,9 +44,17 @@ namespace VetAppointment.UI.Pages.TreatmentPages
             bool isDeleting = await JSRuntime.InvokeAsync<bool>("ConfirmDelete", "treatment", treatmentId);
             if (isDeleting)
             {
-                await TreatmentDataService.DeleteTreatmentById(treatmentId);
-                await JSRuntime.InvokeVoidAsync("Alert", "The treatment has been successfully deleted!");
-                TreatmentsToGet = (await TreatmentDataService.GetAllTreatments()).ToList();
+                var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+                var bearer = await TreatmentDataService.DeleteTreatmentById(treatmentId, jwt);
+                if (bearer == "Unauthorized")
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+                }
+                else
+                {
+                    await JSRuntime.InvokeVoidAsync("Alert", "The treatment has been successfully deleted!");
+                    TreatmentsToGet = (await TreatmentDataService.GetAllTreatments()).ToList();
+                }
             }
         }
 

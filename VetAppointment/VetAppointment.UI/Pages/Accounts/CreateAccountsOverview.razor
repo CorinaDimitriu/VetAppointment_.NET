@@ -1,0 +1,85 @@
+﻿@page "/createaccountsoverview"
+
+<style>
+
+    th, td {
+        vertical-align: middle;
+        text-align: center
+    }
+
+    .inner {
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    .space-top {
+        padding-top: 20px;
+    }
+
+    .space-bottom {
+        padding-bottom: 20px;
+    }
+
+    .label-space-top {
+        padding-top: 10px;
+    }
+
+</style>
+
+<PageTitle>Register Overview</PageTitle>
+<h1 class="title-transition">Register</h1>
+
+@if (CreateAccount == null)
+{
+        <p><em>Loading...</em></p>
+}
+else
+{
+        <EditForm class="container" Model="CreateAccount" OnValidSubmit="Create">
+        <FluentValidationValidator />
+            <div>
+                <label for="username" class="space-top">Username</label>
+                <InputText id="username" @bind-Value="CreateAccount.Username" placeholder="Username" class="form-control" />
+                <ValidationMessage For="@(() => CreateAccount.Username)"></ValidationMessage>
+            </div>
+
+            <div class="form-group">
+                <label for="passwd" class="space-top">Password</label>
+                <InputText id="passwd" type="password" @bind-Value="CreateAccount.Password" class="form-control" />
+                <ValidationMessage For="@(() => CreateAccount.Password)"></ValidationMessage>
+            </div>
+
+            <div class="form-group">
+                <label for="repeat-passwd" class="space-top">Retype Password</label>
+                <InputText id="repeat-passwd" type="password" @bind-Value="CreateAccount.RepeatPassword" class="form-control" />
+                <ValidationMessage For="@(() => CreateAccount.RepeatPassword)"></ValidationMessage>
+            </div>
+
+            <div class="form-group">
+                <label for="role" class="space-top">Role</label>
+                <DropDownList DataSource="Roles" @bind-SelectedValues="CreateAccount.Role" class="form-control" />
+                <ValidationMessage For="@(() => CreateAccount.Role)"></ValidationMessage>
+            </div>
+
+
+            <div class="row space-top">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Create</button><br />
+                </div>
+            </div>
+        </EditForm>
+}
+
+<div class="row space-top">
+    <div class="col">
+        <button type="button" class="btn btn-info" @onclick="NavigateBack">Cancel and back</button>
+    </div>
+</div>

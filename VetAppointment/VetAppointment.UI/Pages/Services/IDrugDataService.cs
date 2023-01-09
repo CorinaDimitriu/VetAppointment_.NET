@@ -7,8 +7,8 @@ namespace VetAppointment.UI.Pages.Services
     {
         Task<IEnumerable<Drug>> GetAllDrugs();
         Task<Drug> GetDrugById(Guid id);
-        Task<DrugModel> AddDrug(DrugModel drug);
-        Task<string> DeleteDrugById(Guid drugId);
-        Task<string> UpdateDrugById(Guid drugId, DrugModel drug);
+        Task<string> AddDrug(DrugModel drug, string jwt);
+        Task<string> DeleteDrugById(Guid drugId, string jwt);
+        Task<string> UpdateDrugById(Guid drugId, DrugModel drug, string jwt);
     }
 }

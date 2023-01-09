@@ -63,16 +63,23 @@ namespace VetAppointment.UI.Pages.AppointmentPages
 
         protected async Task UpdateAppointment()
         {
-            await AppointmentDataService.UpdateAppointmentById(AppointmentId, AppointmentToUpdate);
-            AppointmentOld = new AppointmentModel
+            string response = await AppointmentDataService.UpdateAppointmentById(AppointmentId, AppointmentToUpdate);
+            if (response.Equals("Vet is busy at this time"))
             {
-                VetId = AppointmentToUpdate.VetId,
-                PetId = AppointmentToUpdate.PetId,
-                TreatmentId = AppointmentToUpdate.TreatmentId,
-                EstimatedDurationInMinutes = AppointmentToUpdate.EstimatedDurationInMinutes,
-                ScheduledDate = AppointmentToUpdate.ScheduledDate
-            };
-            await JSRuntime.InvokeVoidAsync("Alert", "The appointment has been successfully updated!");
+                await JSRuntime.InvokeVoidAsync("Alert", "Vet is busy at the desired scheduled date!");
+            }
+            else
+            {
+                AppointmentOld = new AppointmentModel
+                {
+                    VetId = AppointmentToUpdate.VetId,
+                    PetId = AppointmentToUpdate.PetId,
+                    TreatmentId = AppointmentToUpdate.TreatmentId,
+                    EstimatedDurationInMinutes = AppointmentToUpdate.EstimatedDurationInMinutes,
+                    ScheduledDate = AppointmentToUpdate.ScheduledDate
+                };
+                await JSRuntime.InvokeVoidAsync("Alert", "The appointment has been successfully updated!");
+            }
         }
 
         protected void NavigateBack()

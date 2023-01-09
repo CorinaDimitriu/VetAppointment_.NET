@@ -32,31 +32,43 @@ namespace VetAppointment.UI.Pages.Services
                 { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task<DrugModel> AddDrug(DrugModel drug)
+        public async Task<string> AddDrug(DrugModel drug, string jwt)
         {
             var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
             var json = JsonSerializer.Serialize(drug);
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.PostAsync
                     (ApiURL, new StringContent(json, Encoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
-            return await JsonSerializer.DeserializeAsync<DrugModel>(response.Content.ReadAsStream(), options);
-        }
-
-        public async Task<string> UpdateDrugById(Guid drugId, DrugModel drug)
-        {
-            var ApiURLDrug = $"{ApiURL}/{{{drugId}}}";
-            var json = JsonSerializer.Serialize(drug);
-            var response = await httpClient.PutAsync
-                    (ApiURLDrug, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
 
-        public async Task<string> DeleteDrugById(Guid drugId)
+        public async Task<string> UpdateDrugById(Guid drugId, DrugModel drug, string jwt)
         {
             var ApiURLDrug = $"{ApiURL}/{{{drugId}}}";
+            var json = JsonSerializer.Serialize(drug);
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
+            var response = await httpClient.PutAsync
+                    (ApiURLDrug, new StringContent(json, UnicodeEncoding.UTF8, "application/json"));
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
+            return response.Content.ToString();
+        }
+
+        public async Task<string> DeleteDrugById(Guid drugId, string jwt)
+        {
+            var ApiURLDrug = $"{ApiURL}/{{{drugId}}}";
+            httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
             var response = await httpClient.DeleteAsync(ApiURLDrug);
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return "Unauthorized";
             return response.Content.ToString();
         }
     }

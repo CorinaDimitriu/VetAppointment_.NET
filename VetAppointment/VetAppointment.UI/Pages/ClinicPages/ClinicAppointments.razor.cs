@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using Smart.Blazor;
 using VetAppointment.Shared.Domain;
 using VetAppointment.UI.Pages.Models;
 using VetAppointment.UI.Pages.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 #nullable disable
 namespace VetAppointment.UI.Pages.ClinicPages
@@ -63,10 +65,22 @@ namespace VetAppointment.UI.Pages.ClinicPages
 
         protected async Task AddAppointment()
         {
-            await VetClinicDataService.AddAppointmentToClinic(ClinicId, Appointment);
-            await JSRuntime.InvokeVoidAsync("Alert", "The appointment has been successfully added!");
-            Appointment = new();
-            AppointmentsToGet = (await VetClinicDataService.GetAppointmentsByClinicId(ClinicId)).ToList();
+            string response = await VetClinicDataService.AddAppointmentToClinic(ClinicId, Appointment);
+            if (response.Equals("Vet is busy at this time"))
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "Vet is busy at the desired scheduled date!");
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("Alert", "The appointment has been successfully added!");
+                Appointment = new();
+                Appointment.VetId[0] = VetIds[0];
+                Appointment.PetId[0] = PetIds[0];
+                Appointment.TreatmentId[0] = TreatmentIds[0];
+                List<Appointment> allAppointments = (await VetClinicDataService.GetAppointmentsByClinicId(ClinicId)).ToList();
+                AppointmentsToGet = new();
+                allAppointments.ForEach(a => { if (DateTime.Parse(a.ScheduledDate) > DateTime.Now) AppointmentsToGet.Add(a); });
+            }
         }
 
         protected async Task DeleteAppointment(Guid appointmentId)

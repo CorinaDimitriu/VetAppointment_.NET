@@ -54,18 +54,26 @@ namespace VetAppointment.UI.Pages.VetPages
 
         protected async Task UpdateVetFromClinic()
         {
-            await VetClinicDataService.UpdateVetById(ClinicId, VetId, VetToUpdate);
-            VetOld = new VetModel()
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await VetClinicDataService.UpdateVetById(ClinicId, VetId, VetToUpdate, jwt);
+            if (bearer == "Unauthorized")
             {
-                Name = VetToUpdate.Name,
-                Surname = VetToUpdate.Surname,
-                Birthdate = VetToUpdate.Birthdate,
-                Gender = VetToUpdate.Gender,
-                Email = VetToUpdate.Email,
-                Phone = VetToUpdate.Phone,
-                Specialisation = VetToUpdate.Specialisation
-            };
-            await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully updated!");
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                VetOld = new VetModel()
+                {
+                    Name = VetToUpdate.Name,
+                    Surname = VetToUpdate.Surname,
+                    Birthdate = VetToUpdate.Birthdate,
+                    Gender = VetToUpdate.Gender,
+                    Email = VetToUpdate.Email,
+                    Phone = VetToUpdate.Phone,
+                    Specialisation = VetToUpdate.Specialisation
+                };
+                await JSRuntime.InvokeVoidAsync("Alert", "The vet has been successfully updated!");
+            }
         }
 
         protected void NavigateToAppointments()

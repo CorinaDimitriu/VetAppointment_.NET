@@ -38,14 +38,22 @@ namespace VetAppointment.UI.Pages.DrugPages
 
         protected async Task UpdateDrug()
         {
-            await DrugDataService.UpdateDrugById(DrugId, DrugToUpdate);
-            DrugOld = new DrugModel()
+            var jwt = await JSRuntime.InvokeAsync<string>("ReadCookie", "JWT");
+            var bearer = await DrugDataService.UpdateDrugById(DrugId, DrugToUpdate, jwt);
+            if (bearer == "Unauthorized")
             {
-                Name = DrugToUpdate.Name,
-                Quantity = DrugToUpdate.Quantity,
-                UnitPrice = DrugToUpdate.UnitPrice
-            };
-            await JSRuntime.InvokeVoidAsync("Alert", "The drug has been successfully updated!");
+                await JSRuntime.InvokeVoidAsync("Alert", "Insufficient privileges!");
+            }
+            else
+            {
+                DrugOld = new DrugModel()
+                {
+                    Name = DrugToUpdate.Name,
+                    Quantity = DrugToUpdate.Quantity,
+                    UnitPrice = DrugToUpdate.UnitPrice
+                };
+                await JSRuntime.InvokeVoidAsync("Alert", "The drug has been successfully updated!");
+            }
         }
 
         protected void NavigateBack()

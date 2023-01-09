@@ -11,6 +11,7 @@ namespace VetAppointment.UI.Pages.Validators
             RuleFor(pet => pet.Birthdate).NotEmpty().When(pet => !pet.Hidden).WithMessage("Birthdate cannot be empty."); 
             RuleFor(pet => pet.Race).NotEmpty().When(pet => !pet.Hidden).WithMessage("Race cannot be empty.");
             RuleFor(pet => pet.Gender).NotEmpty().When(pet => !pet.Hidden).WithMessage("Gender cannot be empty.");
+            RuleFor(pet => pet.Birthdate).LessThan(DateTime.Now).When(pet => !pet.Hidden).WithMessage("Birthdate cannot be in the future.");
         }
     }
 }

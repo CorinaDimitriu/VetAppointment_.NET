@@ -215,14 +215,14 @@
       "netstandard.dll": "sha256-+jUzj0FB0YcoBUeSkSNEjhVDTG08qbZ2twfCBMbzT+Q=",
       "System.Private.CoreLib.dll": "sha256-l+\/quNqfNCSUDSMJcp0+IxlSdOdnAtwVVWMXmYGHMpg=",
       "VetAppointment.Shared.dll": "sha256-cs2LtUu82nrKthC4geqCwBu0mD0suUMTyz23EwQ8Th4=",
-      "VetAppointment.UI.dll": "sha256-YxV\/l+JQ3I5qO8NsCOSLQbkNoV3pOEKgCezhyAim+Dc="
+      "VetAppointment.UI.dll": "sha256-gdq5ql8Hd4YXnOiiSSQ7uYzxaN3ruN+K+blzOxaEtCs="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "VetAppointment.Shared.pdb": "sha256-Py7khOa1m9k6\/6te8rPsJjLko4iHA0UCUBo7hgjrIm4=",
-      "VetAppointment.UI.pdb": "sha256-BFXqtv0ialDiZ7WlVjKLLF7tSy3YWflHAVwIkoaBxpo="
+      "VetAppointment.UI.pdb": "sha256-RI5\/G4k\/4uEE3tOp1uDI5RP2ukjJZU\/nmgz32TT4M18="
     },
     "runtime": {
       "dotnet.7.0.1.pykmxb05hf.js": "sha256-jjax3FMRXzFAziWowdtJf6vipP2xXAaA5gD6VBYB6Y0=",
